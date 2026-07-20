@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hong Kong Banking Tech Landscape</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#141C2E;
+    --ink-soft:#2B3654;
+    --parchment:#F2ECE1;
+    --paper:#FBF8F2;
+    --brass:#B8863A;
+    --brass-bright:#D9A55A;
+    --slate:#5B6478;
+    --caution:#8B3A3A;
+    --line: rgba(20,28,46,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px 100px;}
+
+  /* HERO */
+  header.hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:72px 32px 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    right:-120px; top:-120px;
+    width:420px; height:420px;
+    border:1px solid rgba(217,165,90,0.25);
+    border-radius:50%;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute;
+    right:-40px; top:-40px;
+    width:280px; height:280px;
+    border:1px solid rgba(217,165,90,0.35);
+    border-radius:50%;
+  }
+  .hero-inner{max-width:1180px;margin:0 auto;position:relative;z-index:2;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass-bright);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:52px;
+    line-height:1.08;
+    margin:0 0 22px;
+    max-width:820px;
+    letter-spacing:-0.01em;
+  }
+  h1 em{font-style:italic;color:var(--brass-bright);}
+  .hero-sub{
+    max-width:640px;
+    font-size:16.5px;
+    color:rgba(251,248,242,0.78);
+    margin-bottom:0;
+  }
+  .hero-note{
+    margin-top:36px;
+    display:inline-flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:13px;
+    color:rgba(251,248,242,0.65);
+    border-left:2px solid var(--brass);
+    padding-left:14px;
+    max-width:640px;
+  }
+
+  /* SECTION LABELS */
+  .section-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:0 0 8px;
+  }
+  .section-title{
+    font-family:'Fraunces',serif;
+    font-size:30px;
+    font-weight:600;
+    margin:0 0 12px;
+    color:var(--ink);
+  }
+  .section-intro{
+    max-width:760px;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-bottom:38px;
+  }
+  section{padding-top:76px;}
+
+  /* THE STACK (signature element) */
+  .stack{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .stack-row{display:contents;}
+  .stack-label{
+    padding:20px 22px;
+    border-top:1px solid var(--line);
+    border-right:1px solid var(--line);
+    background:rgba(20,28,46,0.03);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .stack-label strong{
+    font-family:'Fraunces',serif;
+    font-size:16px;
+    font-weight:600;
+    color:var(--ink);
+    display:block;
+    margin-bottom:3px;
+  }
+  .stack-row:first-child .stack-label,
+  .stack-row:first-child .stack-content{border-top:none;}
+  .stack-content{
+    padding:18px 24px;
+    border-top:1px solid var(--line);
+    font-size:14px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    padding:4px 9px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:var(--parchment);
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .stack-content-inner{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    width:100%;
+  }
+  .stack-chips{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .stack-users{
+    font-size:12.5px;
+    color:var(--slate);
+    display:flex;
+    gap:8px;
+    align-items:baseline;
+    flex-wrap:wrap;
+  }
+  .stack-users b{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--brass);
+    font-weight:600;
+  }
+
+  /* COMPANY CARDS */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  @media (max-width:860px){ .grid{grid-template-columns:1fr;} }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:26px 26px 22px;
+  }
+  .card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+    margin-bottom:16px;
+  }
+  .card-head h3{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:600;
+    margin:0;
+  }
+  .card-head span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--brass);
+  }
+  .fact{
+    display:flex;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .fact:last-child{margin-bottom:0;}
+  .fact-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--slate);
+    min-width:88px;
+    padding-top:2px;
+  }
+  .fact-body{font-size:13.8px;color:var(--ink-soft);}
+  .fact-body .src{
+    display:block;
+    margin-top:3px;
+    font-size:11.5px;
+    color:var(--brass);
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* TALKING POINTS */
+  .tp-list{display:flex;flex-direction:column;gap:14px;}
+  .tp{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brass);
+    padding:18px 22px;
+  }
+  .tp h4{
+    font-family:'Fraunces',serif;
+    font-size:16.5px;
+    margin:0 0 6px;
+  }
+  .tp p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+  /* CAUTION BOX */
+  .caution{
+    background:var(--ink);
+    color:rgba(251,248,242,0.9);
+    padding:26px 28px;
+    border-radius:2px;
+    font-size:14px;
+    display:flex;
+    gap:16px;
+  }
+  .caution strong{color:var(--brass-bright);}
+  .caution-mark{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:26px;
+    color:var(--brass-bright);
+    line-height:1;
+  }
+
+  /* AI ADOPTION CARDS */
+  .ai-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    margin-bottom:16px;
+    border-radius:2px;
+  }
+  .ai-card > summary{
+    list-style:none;
+    cursor:pointer;
+    padding:20px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .ai-card > summary::-webkit-details-marker{display:none;}
+  .ai-card > summary::after{
+    content:"+";
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    color:var(--brass);
+    flex-shrink:0;
+    transition:transform 0.15s ease;
+  }
+  .ai-card[open] > summary::after{content:"–";}
+  .ai-card-title{display:flex;flex-direction:column;gap:4px;}
+  .ai-card-title .layer-tag,
+  .tp h4 .layer-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--brass);
+    display:block;
+    margin-bottom:3px;
+  }
+  .ai-card-title h4{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    font-weight:600;
+    margin:0;
+  }
+  .ai-card-body{
+    padding:0 24px 24px;
+    border-top:1px solid var(--line);
+  }
+  .ai-field{padding-top:18px;}
+  .ai-field:first-child{padding-top:20px;}
+  .ai-field b{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:5px;
+  }
+  .ai-field p{margin:0;font-size:13.8px;color:var(--ink-soft);line-height:1.55;}
+  .ai-field ul{margin:4px 0 0;padding-left:18px;font-size:13.8px;color:var(--ink-soft);}
+  .ai-field li{margin-bottom:4px;}
+  .plan-steps{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .plan-step{
+    display:flex;
+    gap:10px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .plan-step .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--brass);
+    min-width:56px;
+  }
+
+  /* REGULATORY SECTION */
+  .reg-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){ .reg-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:560px){ .reg-grid{grid-template-columns:1fr;} }
+  .reg-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:16px 18px;
+  }
+  .reg-card .reg-name{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:15.5px;
+    margin-bottom:4px;
+    color:var(--ink);
+  }
+  .reg-card .reg-role{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .reg-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:16px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .reg-row:first-child{border-top:none;}
+  @media (max-width:700px){ .reg-row{grid-template-columns:1fr;gap:6px;} }
+  .reg-row .reg-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--brass);
+    padding-top:1px;
+  }
+  .reg-row p{margin:0;font-size:13.8px;color:var(--ink-soft);line-height:1.55;}
+
+  footer{
+    margin-top:70px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--slate);
+  }
+
+  /* SIDE NAV */
+  .side-nav{
+    position:fixed;
+    top:50%;
+    right:28px;
+    transform:translateY(-50%);
+    z-index:50;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:10px;
+    box-shadow:0 8px 24px rgba(20,28,46,0.08);
+  }
+  .side-nav a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    text-decoration:none;
+    color:var(--slate);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    border-radius:3px;
+    white-space:nowrap;
+    transition:background 0.12s ease, color 0.12s ease;
+  }
+  .side-nav a .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--line);
+    flex-shrink:0;
+    transition:background 0.12s ease, transform 0.12s ease;
+  }
+  .side-nav a:hover{background:rgba(184,134,58,0.08);color:var(--ink);}
+  .side-nav a.active{color:var(--ink);font-weight:600;}
+  .side-nav a.active .dot{background:var(--brass);transform:scale(1.3);}
+  .side-nav-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--brass);
+    padding:6px 10px 8px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:4px;
+  }
+
+  /* MOBILE TOP NAV */
+  .mobile-nav{
+    display:none;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--ink);
+    padding:12px 16px;
+    overflow-x:auto;
+    white-space:nowrap;
+    gap:18px;
+  }
+  .mobile-nav a{
+    color:rgba(251,248,242,0.7);
+    text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding-right:18px;
+  }
+  .mobile-nav a.active{color:var(--brass-bright);}
+
+  /* INDUSTRY SWITCHER */
+  .industry-switch{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:60;
+    display:flex;
+    background:var(--ink);
+    border-radius:20px;
+    padding:4px;
+    box-shadow:0 8px 24px rgba(20,28,46,0.25);
+  }
+  .industry-switch a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:rgba(251,248,242,0.6);
+    text-decoration:none;
+    padding:7px 16px;
+    border-radius:16px;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .industry-switch a.active{
+    background:var(--brass);
+    color:var(--ink);
+    font-weight:600;
+  }
+  .industry-switch a:not(.active):hover{color:rgba(251,248,242,0.9);}
+  @media (max-width:1100px){
+    .industry-switch{top:auto;bottom:18px;}
+  }
+
+  @media (max-width:1100px){
+    .side-nav{display:none;}
+    .mobile-nav{display:flex;}
+  }
+</style>
+</head>
+<body>
+
+<div class="industry-switch">
+  <a href="index.html">Insurance</a>
+  <a href="bank.html" class="active">Banking</a>
+</div>
+
+<nav class="side-nav" aria-label="Page sections">
+  <div class="side-nav-label">On this page</div>
+  <a href="#top" data-target="top"><span class="dot"></span>Overview</a>
+  <a href="#stack" data-target="stack"><span class="dot"></span>The five layers</a>
+  <a href="#companies" data-target="companies"><span class="dot"></span>Company facts</a>
+  <a href="#talking-points" data-target="talking-points"><span class="dot"></span>Interview use</a>
+  <a href="#your-experience" data-target="your-experience"><span class="dot"></span>Your experience</a>
+  <a href="#ai-adoption" data-target="ai-adoption"><span class="dot"></span>AI adoption</a>
+  <a href="#regulatory" data-target="regulatory"><span class="dot"></span>Regulatory</a>
+  <a href="#sources" data-target="sources"><span class="dot"></span>Sources</a>
+</nav>
+
+<div class="mobile-nav" aria-label="Page sections (mobile)">
+  <a href="#top" data-target="top">Overview</a>
+  <a href="#stack" data-target="stack">Layers</a>
+  <a href="#companies" data-target="companies">Companies</a>
+  <a href="#talking-points" data-target="talking-points">Interview</a>
+  <a href="#your-experience" data-target="your-experience">Your experience</a>
+  <a href="#ai-adoption" data-target="ai-adoption">AI adoption</a>
+  <a href="#regulatory" data-target="regulatory">Regulatory</a>
+  <a href="#sources" data-target="sources">Sources</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="eyebrow">Career transition briefing · Hong Kong banks</div>
+    <h1>Same <em>machine</em>, different ledger.<br>Here's the industry it runs in.</h1>
+    <p class="hero-sub">Every bank runs the same five jobs — reach the customer, decide the risk, keep the ledger, move the money, and learn from data. What differs from insurance is mainly the shape of the ledger and the payment rails underneath it — the vendor governance, migration risk, and cross-functional delivery discipline your PM background brings transfers into this just as directly.</p>
+    <div class="hero-note">Built from publicly announced vendor partnerships and HKMA publications (press releases, vendor case studies, trade press, hkma.gov.hk) as of July 2026. Banks rarely disclose their full core banking stack — treat anything not sourced here as a question to ask in the interview, not an assumed fact.</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- THE UNIVERSAL STACK -->
+  <section id="stack">
+    <p class="section-label">Framework</p>
+    <h2 class="section-title">The five layers, in any bank</h2>
+    <p class="section-intro">This is the generic industry model — not company-specific. Learn this shape first, then hang each bank's known facts on it. It's also the structure to use if an interviewer asks "walk me through how an account or a payment works end-to-end" — and it deliberately mirrors the insurance version, since the two industries decompose the same way underneath.</p>
+
+    <div class="stack">
+      <div class="stack-row">
+        <div class="stack-label"><strong>Channels &amp; Relationship</strong>front door</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Branch, relationship-manager platforms, mobile/internet banking, and mobile-only virtual banks.
+              <span class="chip">e.g. Salesforce Financial Services Cloud</span>
+              <span class="chip">RM workbench apps</span>
+              <span class="chip">mobile banking apps</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> tellers &amp; branch staff · relationship managers (retail/private banking) · wealth advisors · customers (direct digital and mobile-only channels)</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Credit &amp; Underwriting</strong>risk decision</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Loan origination and credit-scoring engines that price risk and decide approve/decline/limit.
+              <span class="chip">credit decisioning engines</span>
+              <span class="chip">loan origination systems (LOS)</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> credit officers &amp; underwriters · risk management teams setting the models · relationship managers (via referral on edge cases) · collections/recoveries teams downstream</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Core Banking System (CBS)</strong>the ledger</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              System of record for the account: balances, interest, statements, product configuration.
+              <span class="chip">Temenos T24/Transact</span>
+              <span class="chip">Finastra</span>
+              <span class="chip">Oracle FLEXCUBE</span>
+              <span class="chip">Thought Machine Vault</span>
+              <span class="chip">in-house / legacy mainframe</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> operations &amp; account-servicing teams · finance/product control · treasury · IT teams maintaining integrations · customer service (via the CBS's servicing front end)</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Payments &amp; Settlement</strong>the movement</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Moving money in, out and between accounts — the banking equivalent of a claims payout.
+              <span class="chip">CHATS (RTGS)</span>
+              <span class="chip">FPS (Faster Payment System)</span>
+              <span class="chip">SWIFT</span>
+              <span class="chip">card networks &amp; processors</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> payments operations &amp; treasury · fraud &amp; transaction-monitoring teams · corporate/commercial banking (bulk payments) · customers (transfers, bill pay, card transactions)</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Data, Cloud &amp; AI</strong>the nervous system</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Cloud migration, data platforms, gen-AI copilots layered on top of the above.
+              <span class="chip">Google Cloud</span>
+              <span class="chip">Microsoft Azure</span>
+              <span class="chip">Alibaba Cloud</span>
+              <span class="chip">Huawei Cloud</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> IT/engineering &amp; cloud platform teams · data scientists &amp; analytics teams · compliance/financial-crime risk (model governance) · executives &amp; ops leads (via dashboards) — indirectly, everyone in the four layers above</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY BY COMPANY -->
+  <section id="companies">
+    <p class="section-label">Verified, company by company</p>
+    <h2 class="section-title">What's actually public</h2>
+    <p class="section-intro">Each fact below is a real, sourced announcement — not an inference about their core banking stack. I've labelled which layer it sits in so you can slot it into the framework above. Five full profiles, deliberately including one virtual bank as the "no legacy core" contrast case — the same role HSBC Life played in the insurance version of this tool.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-head"><h3>HSBC</h3><span>Hong Kong &amp; global</span></div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Expanded multi-year AI partnership with Google Cloud (announced 17 June 2026), building on an existing footprint of 600+ HSBC applications already running on Google's infrastructure. Gives access to Gemini models and the Gemini Enterprise Agent Platform, with forward-deployed Google DeepMind engineers working alongside HSBC staff — targeting 200+ new AI use cases over two years, each estimated to return over US$100m in value.
+            <span class="src">Source: HSBC Holdings media release, June 2026</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Financial Crime / Payments</div>
+          <div class="fact-body">Screens more than 1.2 billion transactions a month for financial crime; a gen-AI-enabled detection system piloted in 2021 found two to four times more financial crime than previous methods. The new Google Cloud partnership aims to help the bank intervene roughly twice as fast when risk is detected.
+            <span class="src">Source: Google Cloud / HSBC joint reporting, via The AI Journal, June 2026</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Channels</div>
+          <div class="fact-body">Separately signed a multi-year partnership with Mistral AI (Dec 2025) for commercial model access supporting internal tools, financial analysis, multilingual reasoning and translation. In wealth management, the bank plans to combine AI-generated insights with relationship-manager expertise for more proactive, tailored advice.
+            <span class="src">Source: HSBC Holdings media release, June 2026; AI News coverage</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Standard Chartered</h3><span>Hong Kong &amp; global</span></div>
+        <div class="fact">
+          <div class="fact-tag">Data / Cloud</div>
+          <div class="fact-body">Three-year "cloud-first" partnership with Microsoft (announced Aug 2020) to migrate key banking applications to Azure by 2025, explicitly framed as the technical foundation for the bank's virtual banking, real-time payments and open banking ambitions.
+            <span class="src">Source: PR Newswire / Microsoft, Aug 2020</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Signed a strategic MOU with Alibaba Group (29 July 2025) to use Alibaba Cloud's AI technologies for customer service/sales intelligence and AI-driven risk management and compliance automation. Has also rolled out an in-house gen-AI assistant, "SC GPT," to staff.
+            <span class="src">Source: Standard Chartered press release, July 2025; The Digital Banker, March 2026</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Governance</div>
+          <div class="fact-body">Through SC Ventures' AI Lab, runs a research partnership with Singapore's A*STAR on bias reduction and AI governance metrics, with results being tested for corporate lending and client analytics — plus participation in the HKMA's GenAI sandbox cohort (Dec 2024) alongside HSBC and BOCHK.
+            <span class="src">Source: The Digital Banker, March 2026; SCMP, Dec 2024</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Bank of China (Hong Kong)</h3><span>BOCHK</span></div>
+        <div class="fact">
+          <div class="fact-tag">Governance</div>
+          <div class="fact-body">Set up an internal AI Committee driving 100+ gen-AI use cases across the bank. Its first GenAI project — an AI-powered relationship-management tool that analyses complex financial documents for corporate banking staff — moved from proof of concept into full production.
+            <span class="src">Source: The Digital Banker, March 2026</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Channels</div>
+          <div class="fact-body">Piloted mobile account opening using the HKSAR government's "iAM Smart" digital identity platform with facial recognition, as part of a broader digital-transformation blueprint built around innovation, agility, data, mobility and regional reach.
+            <span class="src">Source: GlobalData digital transformation report; BOCHK sustainability disclosures</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Also a participant in the HKMA's GenAI sandbox cohort (Dec 2024), and separately partnered with AIFT (the Laboratory for AI-Powered Financial Technologies, an InnoHK entity founded with City University of Hong Kong) on AI/big-data/blockchain-driven supply-chain financing for SMEs.
+            <span class="src">Source: SCMP, Dec 2024; CityU College of Business news</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Hang Seng Bank</h3><span>Hong Kong</span></div>
+        <div class="fact">
+          <div class="fact-tag">Governance</div>
+          <div class="fact-body">Runs a "Living Lab" programme with HKSTP (Hong Kong Science and Technology Parks) — the second cohort, themed "Bank of the Future," launched April 2026, focused on AI use cases in retail and commercial banking including a validation agent to govern the outputs of a gen-AI chatbot.
+            <span class="src">Source: HKSTP press release, April 2026</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Channels</div>
+          <div class="fact-body">The programme's first cohort (2022–2024) produced an intelligent reception system piloted at the bank's Tsim Sha Tsui branch, drawing over 50 participating tech companies.
+            <span class="src">Source: Marketing-Interactive, April 2026</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Its Hang Seng Indexes subsidiary is separately building an Index Innovation Lab with Cyberport, using AI and NLP for index data management — plus participation in the HKMA's GenAI sandbox cohort (Dec 2024).
+            <span class="src">Source: SCMP-presented content, July 2024; SCMP, Dec 2024</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="grid-column:1 / -1;">
+        <div class="card-head"><h3>ZA Bank</h3><span>Hong Kong's first virtual bank</span></div>
+        <div class="fact">
+          <div class="fact-tag">Core Banking System</div>
+          <div class="fact-body">Structurally different from the other four: ZA Bank was built cloud-native from day one on Huawei Cloud, using the "Hi Sun Banking Suite" core system — no legacy mainframe to migrate away from. Worth knowing as the contrast case in an interview, the same role HSBC Life played on the insurance side.
+            <span class="src">Source: HiSun Global case study; Wikipedia ("ZA Bank Limited")</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Payments</div>
+          <div class="fact-body">Partnered with Fiserv (Feb 2020) to implement the VisionPLUS platform for card issuance and transaction processing, and was the first virtual bank globally to adopt Bloomberg's Trade Order Management System (TOMS) for treasury management as its deposit book scaled.
+            <span class="src">Source: Wikipedia; Bloomberg Professional Services case study</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Applies AI to fraud detection, risk alerts and workflow automation via a proprietary anti-fraud engine and dual-cloud architecture; crossed one million users in 2025. Notably, AIA Group is a major shareholder of ZA Bank's parent group — a genuine bank/insurer crossover worth mentioning if interviewing at either.
+            <span class="src">Source: ZA Group blog, Sept 2025; Wikipedia</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="section-intro" style="margin-top:28px;margin-bottom:0;">A few other names worth having a view on, even without full sourcing here: <strong>DBS Hong Kong</strong> and <strong>Citibank Hong Kong</strong> (both also in the HKMA's GenAI sandbox cohort), <strong>Bank of East Asia</strong> (BEA — also AIA's bancassurance partner, so a genuine insurance crossover point), <strong>China CITIC Bank International</strong> (Manulife's bancassurance partner), and the other seven virtual banks — <strong>Mox</strong>, <strong>WeLab Bank</strong>, <strong>livi Bank</strong>, <strong>Ant Bank</strong>, <strong>Fusion Bank</strong>, <strong>Airstar Bank</strong> and <strong>Ping An OneConnect Bank</strong>. I haven't built full cards for these — treat them as names to have a one-line view on, not verified facts.</p>
+  </section>
+
+  <!-- HOW TO USE IT IN INTERVIEW -->
+  <section id="talking-points">
+    <p class="section-label">Interview application</p>
+    <h2 class="section-title">How to use this without overclaiming</h2>
+    <p class="section-intro">The goal isn't to sound like a banking insider on day one — that will backfire if probed. The goal is to show you already think in the right categories.</p>
+    <div class="tp-list">
+      <div class="tp">
+        <h4>Frame your PM experience against the five layers</h4>
+        <p>"In my last role I managed [vendor/platform] migrations — I understand that's structurally similar to what a core banking or payments modernisation programme looks like here: legacy system risk, phased cutover, stakeholder sign-off across ops, risk and compliance."</p>
+      </div>
+      <div class="tp">
+        <h4>Ask, don't assert, on core systems</h4>
+        <p>Banks almost never publish their core banking system vendor. If asked "do you know our systems," it's stronger to say: "I've seen your public cloud and AI partnerships — I'd want to understand which parts of the stack are in-house versus vendor-run before I could speak to specifics."</p>
+      </div>
+      <div class="tp">
+        <h4>Use the financial-crime/cloud angle as your strongest card</h4>
+        <p>HSBC's Google Cloud financial-crime detection scale (1.2 billion transactions/month) and the cloud-first moves at Standard Chartered/Microsoft and BOCHK/Hang Seng's HKMA sandbox work are the most concretely documented — lean on these rather than guessing at core banking or credit-decisioning internals.</p>
+      </div>
+      <div class="tp">
+        <h4>Use ZA Bank to show you understand the "no legacy" contrast</h4>
+        <p>If a role is at a virtual bank, the pitch is different: there's no decades-old mainframe to migrate away from, so the conversation is more about scaling a cloud-native platform and managing a rapidly growing deposit book than about legacy risk — worth naming that distinction unprompted.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR EXPERIENCE -->
+  <section id="your-experience">
+    <p class="section-label">Built from your own project record</p>
+    <h2 class="section-title">Your experience, translated for these interviews</h2>
+    <p class="section-intro">This is drawn only from what's actually documented in your project portfolio — nothing invented or assumed. Each card pairs a real delivery with the banking-specific reason it lands, so you have a concrete answer ready rather than a general "my skills are transferable" claim. Several of these arguably land even more directly for banks than they did for insurers, since your own employer group sits closer to banking/brokerage than to insurance.</p>
+    <div class="tp-list">
+      <div class="tp">
+        <h4><span class="layer-tag">Regulatory reporting</span>Cross-entity tax reporting under deadline</h4>
+        <p>You coordinated global tax information reporting (CRS/FATCA) across 8+ legal entities spanning the UK, EU, Americas, Middle East and Africa, working directly with a Big Four firm and internal Tax/BI teams to resolve data-quality issues against statutory deadlines. This is the same shape of work as a bank's quarterly capital-adequacy and liquidity returns to the HKMA: multi-stakeholder, deadline-driven, and won't tolerate bad source data.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Audit remediation</span>Built a control matrix off a real audit finding</h4>
+        <p>You led a client-money controls enhancement programme in direct response to a prior regulatory audit finding, consolidating Accounting, Compliance, Risk, Legal and external audit into a single enterprise control matrix. If an interviewer asks "have you worked on compliance remediation before," this is a near-exact answer — it's the same discipline behind a bank's CAMEL-rating remediation or a C-RAF cyber-assessment follow-up action plan.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">AML controls</span>Consistency across product silos</h4>
+        <p>You scoped a cross-silo (CFD/Stocks/Crypto) trading-restriction automation initiative specifically to strengthen AML control consistency. That's the same problem a bank's AML/CFT Guideline compliance has to solve across retail, private banking and virtual-asset-adjacent products sold through different channels — including the HKMA's explicit instruction to avoid "wholesale de-risking" rather than solving the problem properly.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Strongest card</span>End-to-end launch of a new regulated, multi-vendor business line</h4>
+        <p>As BA and backup PM, you took a licensed crypto trading and custody business line from regulatory approval through to live launch across two new entities, coordinating a multi-vendor ecosystem — custody, liquidity, transaction monitoring, market surveillance — plus owned the digital-wallet workstream as dedicated PM. This is structurally the same as how a virtual bank stood up its licensed operation (ZA Bank's own build on Huawei Cloud with Fiserv for cards and Bloomberg TOMS for treasury is the public example): new licensed capability, multiple vendors, regulatory sign-off gating go-live. Lead with this one, especially if interviewing at a virtual bank.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Live right now</span>Currently running a core-system vendor implementation</h4>
+        <p>You're presently leading PMO governance for the organisation's top-priority initiative — an enhanced trading platform built with a new external vendor — spanning Product, Technology, Network, Data Science, InfoSec, Operations, Compliance, Legal, Risk, Finance, Sales and Marketing, through vendor contracting, onboarding-process design and early access rollout. You can speak to this as active, ongoing work — it's the same category of project as a bank's core banking system replacement or a payments-rail integration, just mid-flight rather than retrospective.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Classification against rules</span>Client categorisation to meet regulatory criteria</h4>
+        <p>You progressed a professional-client classification programme for two European entities through to soft launch. This parallels the classification exercises banks run themselves — private banking/professional-investor thresholds on investment-linked and structured products under SFC/HKMA conduct rules — where a customer has to be correctly bucketed against a regulatory definition before anything downstream (product access, disclosure requirements) can happen.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Governance at scale</span>Cross-functional PMO across 10+ initiatives simultaneously</h4>
+        <p>You've served as PMO governance lead across 10+ further enterprise initiatives — new regulated-entity launches, trading-platform migrations, annual client statement builds, Salesforce migrations — running risk/issue tracking, stakeholder reporting and formal closure discipline throughout. That's the exact muscle needed to run a core-banking or payments-modernisation programme that touches credit, treasury, IT and compliance at the same time, which is how most bank system projects are actually structured.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Direct insight, not just an analogy</span>You've sat on the receiving end of a bank's own change management</h4>
+        <p>You stepped into an urgent, business-critical banking-details change — driven by an external bank's own restructuring — coordinating accounting, compliance, operations and marketing to protect uninterrupted client fund transfers. Unlike most of the analogies here, this one is literally about how a bank communicates and executes an operational change from the client side — a genuinely useful thing to reflect on if asked how you'd manage a similar change from the bank's side of the table.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Judgement, not just delivery</span>Honest closure discipline on de-scoped work</h4>
+        <p>Several of your PM/BA-owned initiatives were cancelled or transferred rather than fully delivered, and your own notes are careful to phrase these as "progressed... before... closure" rather than claiming shipped outcomes. Say this plainly if asked — a candidate who can describe why something was closed cleanly, and what was learned, generally reads as more credible than one whose project list is entirely wins.</p>
+      </div>
+      <div class="tp" style="border-left-color:var(--caution);">
+        <h4>Gap to fill before the interview: UAT</h4>
+        <p>Your source document doesn't explicitly detail UAT (user acceptance testing) work, even though the vendor onboarding, requirements sign-off and platform-rollout language strongly suggest you've run test cycles as part of these projects. I haven't invented UAT specifics here since they're not in your record — worth writing yourself a concrete one-line example (test case design, defect triage, sign-off gate you owned) before the interview, since banks will very likely ask about it directly given how central UAT is to any core-system or payments go-live.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI ADOPTION -->
+  <section id="ai-adoption">
+    <p class="section-label">Forward-looking framework — mine, not a confirmed roadmap</p>
+    <h2 class="section-title">Where AI adds value, layer by layer</h2>
+    <p class="section-intro">This is my own consulting-style analysis of plausible AI use cases per layer, not a leaked or confirmed plan from any bank. Use it to demonstrate you can reason about value, mechanism and rollout risk together — that's the PM instinct that transfers directly, and it's a stronger interview answer than naming a tool. Click each layer to expand.</p>
+
+    <details class="ai-card" open>
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 1</span><h4>Channels &amp; Relationship — RM co-pilot</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>Relationship managers spend disproportionate time preparing portfolio reviews and product comparisons rather than talking to clients. HSBC's own plan to combine AI-generated insights with RM expertise for "hyper-personalised advice" shows this is already a live pattern in the HK market — the gap left is speed of adoption and depth of personalisation, not the core idea.</p></div>
+        <div class="ai-field"><b>How</b><p>A gen-AI assistant sits inside the RM's existing CRM, drafting personalised portfolio reviews and product suggestions from client data, flagging cross-sell opportunities, and answering product-rule questions the RM would otherwise escalate.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>Salesforce Financial Services Cloud with Einstein Copilot, or Microsoft Copilot for Sales, as the CRM-native layer</li>
+          <li>Gemini Enterprise Agent Platform or Azure OpenAI Service (grounded via RAG on the product catalogue for accuracy) — HSBC's Google Cloud deal is the public precedent for this pattern</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Pilot with 20–30 top-performing RMs on one client segment; success metric is time-per-review and RM satisfaction, not AUM growth yet.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Expand to the full RM force for that segment; add a feedback loop where RMs flag wrong/awkward outputs.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Extend across segments; fold into new-RM onboarding as the default way of working.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Senior RMs may see it as devaluing their expertise or a precursor to reduced headcount or bonus targets.</li>
+          <li>Compliance will worry about consistency of advice across AI-assisted and non-assisted client conversations — investment and insurance advice are both regulated activities in Hong Kong.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Position explicitly as augmentation — the RM approves and signs every output, nothing goes to a client unreviewed, and HSBC's own framing ("keeping human judgement, decision-making and accountability at the core") is a useful line to borrow. Recruit 2–3 respected senior RMs as visible pilot champions rather than mandating top-down.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 2</span><h4>Credit &amp; Underwriting — triage, not replacement</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>Most retail and SME loan applications are low-risk and formulaic; manual review of every application wastes senior credit officer time and slows time-to-decision, which is a real customer-experience and conversion lever.</p></div>
+        <div class="ai-field"><b>How</b><p>An ML credit-scoring model plus document-extraction (income proof, bank statements) auto-approves straightforward applications and routes only borderline or high-value cases to a human credit officer — straight-through processing with a human-in-the-loop escalation path.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>Azure AI Document Intelligence or Google Document AI for structured extraction from income/bank documents</li>
+          <li>An in-house or vendor credit-scoring model layered on the bank's existing risk infrastructure, rather than built from scratch</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Run the model in shadow mode alongside human credit officers on one simple product (e.g. small unsecured personal loans) — compare decisions without acting on the model yet.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Go live for auto-approval only within a conservative limit threshold; every decline still goes to a human.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Raise thresholds and extend to other products as risk management validates accuracy against outcomes.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Credit officers may fear de-skilling or headcount reduction — a legitimate concern, not just an emotional one.</li>
+          <li>The HKMA will expect explainability for any automated decision that affects a customer, especially declines — "black box" scoring is a real regulatory blocker under its general expectations for AI/model risk governance.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Reframe credit officer roles toward "exception specialist" and model-audit work rather than volume processing — a genuine career path, not a euphemism, if resourced properly. Bring risk and compliance in from day one of model design, not at sign-off, so explainability is built in rather than retrofitted.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 3</span><h4>Core Banking System — back-office automation</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>Core banking systems are often the oldest part of the stack, with high-volume, low-complexity servicing transactions (standing-order changes, address updates, simple account amendments) still handled manually via branch or call centre.</p></div>
+        <div class="ai-field"><b>How</b><p>Combine RPA with gen-AI document reading: an incoming request or scanned form is classified, key fields extracted, and the transaction posted directly to the CBS, with a human reviewing only exceptions or low-confidence extractions.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>UiPath or Automation Anywhere for the RPA/orchestration layer</li>
+          <li>A gen-AI layer for unstructured document classification and extraction sitting in front of the existing CBS — Sony Bank's approach with Fujitsu is a public (non-HK) example of gen-AI applied directly to core banking system development</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Pick the single highest-volume, lowest-risk transaction type (e.g. address update) and automate it end-to-end first.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Add standing-order changes and simple account amendments once error rates on phase 0 are proven acceptable.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Extend toward more complex servicing requests, always keeping a manual override path.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Ops staff reasonably fear redundancy if automation is framed as a headcount play rather than a service-quality one.</li>
+          <li>IT will flag integration risk if the CBS is a legacy/mainframe system not built for API-style access — a genuine reason some banks (ZA Bank being the clearest example) chose to build cloud-native rather than modernise in place.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Redeploy affected staff toward quality assurance and exception-handling roles and say so explicitly and early — silence on job impact is what generates resistance, not the technology itself. Keep a visible rollback plan for the first few automated transaction types so ops trusts the safety net exists.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 4</span><h4>Payments &amp; Settlement — the strongest business case</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>This is the layer with an actual public precedent at scale in this market — HSBC screens over 1.2 billion transactions a month for financial crime, and its gen-AI-enabled system reportedly found two to four times more financial crime than previous methods. Payment turnaround and fraud/financial-crime detection both have a direct P&amp;L and reputational impact, making the ROI case easiest to build here.</p></div>
+        <div class="ai-field"><b>How</b><p>Gen-AI and agentic AI screen transactions in near-real-time against typologies and behavioural patterns, flag anomalies for financial-crime review, and — per HSBC's stated aim — help investigators intervene roughly twice as fast when risk is detected, while routine, clean payments continue to settle instantly via FPS/CHATS.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>Google Cloud's Gemini models/Gemini Enterprise Agent Platform (the HSBC precedent) or comparable hyperscaler AI stacks</li>
+          <li>Purpose-built transaction-monitoring platforms integrated with the bank's existing AML case-management system</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Pilot on one high-volume, low-complexity payment type — domestic FPS transfers are a common starting point — measuring detection rate and false-positive rate, not cost saving yet.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Extend to cross-border/SWIFT payments while keeping human sign-off mandatory on any hold or block.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Layer in agentic investigation support once the detection pipeline is stable and trusted.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Financial-crime analysts may feel their professional judgement is being second-guessed by a model.</li>
+          <li>Customers whose payments are held or blocked by an AI-influenced decision are a genuine reputational and regulatory risk — complaints via the FDRC or the bank's own channels are a realistic downside if this isn't handled transparently, and the AML/CFT Guideline explicitly warns against blunt "wholesale de-risking" as a response.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Make it a hard rule, not just a talking point, that AI flags and a human approves any customer-facing block or account restriction — and communicate that boundary to customers, not just internally. Retrain analysts on how to supervise and override the model rather than simply process alerts faster, and build a feedback loop so overrides retrain the model over time.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 5</span><h4>Data, Cloud &amp; AI — the enabling layer</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>None of the four use cases above work without it: a unified data platform is the precondition, not an optional extra. HSBC's 600+ applications already on Google Cloud, Standard Chartered's Azure migration, and ZA Bank's cloud-native build are the real-world versions of this — cloud-first is now table stakes, not a differentiator.</p></div>
+        <div class="ai-field"><b>How</b><p>Consolidate data from the CBS, payments and CRM systems (often siloed by product line or legacy migration history) into a central data platform, and stand up a shared AI governance framework — model risk, explainability documentation, and data residency rules — before scaling any individual use case.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>Google Cloud's Gemini stack, Azure AI Foundry, or Alibaba Cloud's model stack — the choice usually follows whichever hyperscaler the bank has already committed to for infrastructure</li>
+          <li>A dedicated data platform layer beneath the AI tools, plus a forward-deployed vendor engineering team embedded with internal staff — the HSBC/Google DeepMind model is the clearest public example of this pattern</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Cloud migration and a basic data governance charter, before any customer-facing AI use case is greenlit.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Join or mirror a structured sandbox model to pool expertise across use cases rather than each department building in isolation — the HKMA's own GenAI sandbox cohort (HSBC, BOCHK, Standard Chartered, Hang Seng, Citibank HK) is the direct precedent for this in Hong Kong banking specifically.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Fund individual use cases (layers 1–4) against this shared foundation, each with its own business case — HSBC's own bar of "must return over US$100m in value" is a useful model for prioritisation discipline.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Cross-department disputes over data ownership and access are common and often underestimated in planning.</li>
+          <li>Data residency and cybersecurity concerns are especially live in Hong Kong given cross-border data flows to mainland China and elsewhere, and sit directly under the HKMA's Cybersecurity Fortification Initiative (CFI 2.0) expectations.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Get visible executive sponsorship for the data governance charter specifically, since it has no obvious owner otherwise and tends to stall between IT and business units. Where possible, use a regulator-run sandbox (the HKMA's Fintech Supervisory Sandbox or GenAI sandbox) as a low-risk space to test governance approaches before committing enterprise-wide.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- REGULATORY LANDSCAPE -->
+  <section id="regulatory">
+    <p class="section-label">Regulatory literacy</p>
+    <h2 class="section-title">The regulatory landscape</h2>
+    <p class="section-intro">This is what I'd actually check is current before an interview — guideline numbers and thresholds get revised. What's stable and safe to say cold is the shape of the system: who regulates what, and why "compliant" means something specific and checkable, not a vague adjective.</p>
+
+    <p class="section-label" style="margin-top:6px;">Who regulates what</p>
+    <div class="reg-grid">
+      <div class="reg-card">
+        <div class="reg-name">HKMA</div>
+        <div class="reg-role">Primary regulator of banks under the Banking Ordinance (Cap. 155). Hong Kong's de facto central bank — supervises capital, liquidity, cybersecurity, AML/CFT and conduct for all authorized institutions (AIs), including virtual banks.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">SFC</div>
+        <div class="reg-role">Regulates securities and investment products. Overlaps with banking wherever a bank distributes investment-linked or structured products through its wealth/private banking arm.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">Insurance Authority (IA)</div>
+        <div class="reg-role">Relevant to banks specifically through bancassurance — a bank distributing insurance products is subject to IA conduct expectations on the insurance side, on top of its own HKMA obligations.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">MPFA</div>
+        <div class="reg-role">Regulates MPF/pension schemes. Several banks here also run MPF trustee businesses, which sit under MPFA rather than HKMA for scheme administration.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">PCPD</div>
+        <div class="reg-role">Privacy Commissioner for Personal Data — enforces the Personal Data (Privacy) Ordinance (Cap. 486), the general data protection law that applies on top of any HKMA-specific data rules.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">HKAB</div>
+        <div class="reg-role">Hong Kong Association of Banks — an industry body, not a statutory regulator, but administers the Code of Banking Practice (a non-statutory conduct code) jointly with the DTC Association.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">FDRC</div>
+        <div class="reg-role">Financial Dispute Resolution Centre — cross-sector mediation/arbitration for monetary disputes between customers and banks (or other financial institutions), the main dispute channel on the banking side.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">JFIU</div>
+        <div class="reg-role">Joint Financial Intelligence Unit (Police/Customs) — receives suspicious transaction reports (STRs) filed by banks under their AML/CFT obligations.</div>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:36px;">Key rules and reporting requirements</p>
+    <div class="stack" style="grid-template-columns:220px 1fr;">
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Capital (Basel III)</div>
+        <p>Banking (Capital) Rules implement Basel III in Hong Kong — locally incorporated AIs must hold a CET1 ratio of at least 4.5%, Tier 1 of at least 6%, and total capital of at least 8%, reported to the HKMA quarterly. The Basel 3 Final Reforms (B3F) are being phased in, including an output floor rising to 72.5% by 2030.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Liquidity</div>
+        <p>Banking (Liquidity) Rules require sufficient high-quality liquid assets to survive an acute 30-day stress scenario (the Basel III liquidity framework, covering LCR/NSFR-style metrics) — reported regularly alongside capital ratios.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">CAMEL rating</div>
+        <p>The HKMA's core supervisory framework — Capital adequacy, Asset quality, Management, Earnings, Liquidity — assessed via an annual supervisory review for locally incorporated AIs, producing a confidential supervisory rating rather than a public score.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">CFI 2.0 — Cybersecurity</div>
+        <p>Cybersecurity Fortification Initiative, effective 1 January 2021 (phased), built on three pillars: the Cyber Resilience Assessment Framework (C-RAF, a self-assessed risk rating similar in spirit to the insurance sector's GL20), the Cyber Intelligence Sharing Platform (CISP), and a Professional Development Programme. Higher-risk banks undergo Intelligence-led Cyber Attack Simulation Testing (iCAST) by an independent assessor.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">AML/CFT Guideline</div>
+        <p>Guideline on Anti-Money Laundering and Counter-Financing of Terrorism (for Authorized Institutions), giving effect to the AMLO (Cap. 615) — customer due diligence, PEP and sanctions screening, suspicious-transaction reporting to the JFIU. Revised 1 June 2023 to explicitly require a risk-based approach and warn banks against "wholesale de-risking" of entire customer segments (e.g. VASPs, specialised industries) as a compliance shortcut.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Code of Banking Practice</div>
+        <p>A non-statutory but closely-watched code (most recently revised December 2023), covering current accounts, loans, cards, e-banking and FX/payment services — sets the baseline for what customers can reasonably expect and how complaints should be handled.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Treat Customers Fairly (TCF)</div>
+        <p>A charter all retail banks signed in 2013 (with a separate version for private wealth management from 2017), setting five high-level fair-treatment principles a bank's product design and sales conduct are expected to reflect.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Open API Framework</div>
+        <p>Rolled out in four phases since 2018/19 — Phase I (product info), Phase II (customer acquisition), Phase III (account information), Phase IV (transactions) — governing how banks share data with third-party service providers (TSPs) via APIs, including onboarding, risk assessment and liability allocation for each TSP relationship.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Virtual Banking Guideline</div>
+        <p>Issued 2018, under which the HKMA granted licences to eight virtual banks from March 2019 — the same core capital/liquidity/conduct requirements apply as to traditional banks, since a virtual bank is simply an AI without physical branches, not a lighter-touch category.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Sandboxes</div>
+        <p>The HKMA runs a Fintech Supervisory Sandbox (FSS) for piloting new tech under supervisory oversight, plus a dedicated GenAI sandbox launched December 2024 with 10 banks (HSBC, BOCHK, Standard Chartered, Hang Seng, Citibank HK among them) and technology partners including Alibaba Cloud and Baidu.</p>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:36px;">Points to note when working on systems or products</p>
+    <div class="tp-list">
+      <div class="tp">
+        <h4>Outsourcing doesn't outsource accountability</h4>
+        <p>When a cloud or TSP vendor sits inside a workflow (HSBC's Google Cloud/DeepMind arrangement, or any Open API TSP integration, are the clearest examples here), the HKMA still holds the bank accountable for the outcome. Any system design involving a third party needs the bank's own oversight and audit rights built in from day one, not bolted on after the vendor contract is signed.</p>
+      </div>
+      <div class="tp">
+        <h4>Automated decisions need a defensible audit trail</h4>
+        <p>Any credit or transaction-monitoring automation (see the AI adoption section above) has to produce a rationale trail — both because the HKMA expects explainability for decisions affecting customers, and because a disputed decline or blocked payment can end up in front of the FDRC, which works from the bank's documented reasoning, not just the outcome.</p>
+      </div>
+      <div class="tp">
+        <h4>Data privacy has to be designed in, not reviewed in</h4>
+        <p>PDPO obligations — consent, retention limits, cross-border transfer awareness (relevant given how much Greater Bay Area data-sharing shows up across these banks) — are far cheaper to build into a system's data model up front than to retrofit once a product has launched.</p>
+      </div>
+      <div class="tp">
+        <h4>Capital and liquidity data lineage is a real migration risk</h4>
+        <p>Basel III capital and liquidity ratios both need clean, traceable data from source account records through to the quarterly HKMA return. Core banking system migrations are exactly where this kind of lineage tends to break if it isn't a first-class requirement rather than an afterthought — a genuine parallel to Manulife's insurance-side Valuation System Transformation.</p>
+      </div>
+      <div class="tp">
+        <h4>Conduct requirements sit in the product and the workflow, not just the training deck</h4>
+        <p>TCF and Code of Banking Practice obligations need to be enforced at the point of sale and in the servicing system itself — not just checked in a training module. The same logic applies more broadly: regulatory requirements on a product usually need to be encoded as system rules, not left to staff discretion alone.</p>
+      </div>
+      <div class="tp">
+        <h4>Change control needs risk and compliance sign-off, not just IT sign-off</h4>
+        <p>Any system change touching credit-decisioning rules, transaction-monitoring thresholds, or fee structures typically needs sign-off from risk and compliance functions before release — a useful thing to ask about directly in an interview ("how does a rule change get approved before it goes live?") since the answer tells you a lot about how mature the release process actually is.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="caution">
+    <div class="caution-mark">!</div>
+    <div><strong>Honesty check before you walk in:</strong> the framework and company facts are drawn from public press releases and trade press, not insider knowledge of any bank's actual architecture — core banking system vendors, in particular, are rarely disclosed, and I haven't invented one for any named bank (ZA Bank's core system is the one exception, since it's genuinely publicly documented). The AI adoption section is different in kind: it's my own analysis of plausible use cases, not a leaked or confirmed roadmap from any bank — present it in an interview as your thinking, not as something you know they're doing. The "Your experience" section is drawn directly from your own project portfolio document — I paraphrased the achievements but didn't add anything that wasn't already there, and flagged the one real gap (UAT) rather than inventing detail to fill it. The regulatory section is drawn from the HKMA's own published guidelines and legislation, but guideline names, thresholds and transition dates get revised — check hkma.gov.hk directly for anything you plan to state as a specific fact (a rule number, a deadline, a monetary limit) rather than relying on this document alone. Verify anything time-sensitive (recent deals move fast) directly before an interview.</div>
+  </div>
+
+  <footer id="sources">
+    Compiled July 2026 from public sources: PR Newswire, HSBC/Standard Chartered/BOCHK/Hang Seng/ZA Bank newsroom pages and press releases, Google Cloud, Microsoft, Alibaba Group, HKSTP, SCMP, The Digital Banker, Marketing-Interactive, Wikipedia (ZA Bank Limited), Bloomberg Professional Services, HiSun Global case studies. Regulatory content drawn from hkma.gov.hk (Banking Ordinance, Banking (Capital) and (Liquidity) Rules, CFI 2.0, AML/CFT Guideline, Code of Banking Practice, TCF Charter, Open API Framework, Virtual Banking Guideline), HKAB, and law-firm/advisory regulatory summaries (Lexology, KWM, Charltons, Slaughter and May, Wolters Kluwer, PwC, KPMG).
+  </footer>
+</div>
+
+<script>
+  const navLinks = document.querySelectorAll('.side-nav a, .mobile-nav a');
+  const targets = Array.from(navLinks)
+    .map(a => a.dataset.target)
+    .filter((v, i, arr) => arr.indexOf(v) === i)
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  function setActive(id){
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === id));
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        setActive(entry.target.id);
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  targets.forEach(t => observer.observe(t));
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const el = document.getElementById(a.dataset.target);
+      if(el){ el.scrollIntoView({ behavior:'smooth', block: a.dataset.target === 'top' ? 'start' : 'start' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
