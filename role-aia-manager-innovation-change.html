@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIA Interview Prep — Manager, Innovation Change Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F2EF;
+    --ink:#1A1A1A;
+    --aia:#B41E29;
+    --aia-soft:#F5DDE0;
+    --gold:#B98A2E;
+    --gold-soft:#F3E7CB;
+    --slate:#5F5A55;
+    --card:#FFFFFF;
+    --line:#DAD3CB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  header{padding:64px 0 44px;border-bottom:2px solid var(--ink);}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--aia);font-weight:600;margin-bottom:18px;}
+  h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(34px,5.5vw,54px);line-height:1.04;letter-spacing:-.02em;margin-bottom:18px;}
+  h1 .split{color:var(--aia);}
+  .lede{max-width:660px;font-size:17.5px;color:var(--slate);}
+  .lede strong{color:var(--ink);}
+  .role-chip{display:inline-block;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:3px;}
+
+  .phase{padding:52px 0 8px;}
+  .phase-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .phase-num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;color:var(--paper);background:var(--aia);padding:4px 10px;border-radius:3px;letter-spacing:.08em;}
+  h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(23px,3.4vw,30px);letter-spacing:-.015em;}
+  .phase-sub{color:var(--slate);max-width:660px;margin-bottom:26px;}
+
+  .kw{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--aia-soft);color:var(--aia);padding:1px 6px;border-radius:3px;font-weight:500;white-space:nowrap;}
+
+  /* fit map */
+  .fitmap{border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin-top:8px;}
+  .fitmap-row{display:grid;grid-template-columns:1fr 1.3fr;border-bottom:1px solid var(--line);}
+  .fitmap-row:last-child{border-bottom:none;}
+  .fitmap-row.head{background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
+  .fitmap-cell{padding:16px 20px;font-size:14.5px;}
+  .fitmap-row:not(.head) .fitmap-cell:first-child{font-family:'Archivo',sans-serif;font-weight:700;background:#FBF7F2;border-right:1px solid var(--line);}
+  .fitmap-cell .ev{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--aia);font-weight:600;display:block;margin-top:6px;}
+
+  /* fact cards */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 22px;}
+  .fact.wide{grid-column:1 / -1;}
+  .fact .fnum{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--aia);letter-spacing:.08em;margin-bottom:6px;}
+  .fact h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;margin-bottom:8px;letter-spacing:-.01em;}
+  .fact p{font-size:14.5px;color:#333;}
+  .fact p + p{margin-top:8px;}
+  .fact .why{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--aia);font-weight:500;}
+  .fact .why::before{content:'WHY IT LANDS  ';font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--slate);font-weight:600;}
+
+  /* Q&A */
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin-bottom:16px;}
+  .qa .qtag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--slate);margin-bottom:6px;}
+  .qa h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px;letter-spacing:-.01em;}
+  .qa p{font-size:14.5px;color:#333;max-width:760px;}
+  .qa p + p{margin-top:8px;}
+  .qa .frame{margin-top:12px;background:#FBF7F2;border-left:3px solid var(--aia);border-radius:0 6px 6px 0;padding:12px 16px;font-size:14px;color:#33302B;}
+  .qa .frame b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--aia);display:block;margin-bottom:4px;}
+
+  /* smart questions */
+  .ask{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 24px;margin-bottom:14px;display:flex;gap:16px;align-items:flex-start;}
+  .ask .anum{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;color:var(--paper);background:var(--aia);border-radius:4px;padding:3px 9px;margin-top:2px;}
+  .ask .q{font-size:15px;font-weight:600;color:var(--ink);}
+  .ask .r{font-size:13.5px;color:var(--slate);margin-top:5px;}
+
+  footer{padding:40px 0 72px;}
+  .note{border-left:3px solid var(--gold);background:var(--gold-soft);padding:16px 20px;border-radius:0 6px 6px 0;font-size:13.5px;color:#5A4A22;max-width:740px;}
+  .note b{color:#3E3115;}
+
+  @media (max-width:720px){
+    .facts{grid-template-columns:1fr;}
+    .fitmap-row{grid-template-columns:1fr;}
+    .fitmap-row:not(.head) .fitmap-cell:first-child{border-right:none;border-bottom:1px dashed var(--line);}
+    .fitmap-row.head .fitmap-cell:last-child{display:none;}
+  }
+
+  /* ---------- sticky top nav ---------- */
+  .topnav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(245,242,239,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topnav-inner{
+    max-width:960px;margin:0 auto;padding:12px 24px;
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+  }
+  .topnav-label{
+    font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:600;color:var(--slate);margin-right:4px;
+  }
+  .topnav a{
+    color:var(--ink);text-decoration:none;font-weight:500;
+    padding:5px 11px;border-radius:99px;border:1px solid transparent;
+    transition:all .15s ease;
+  }
+  .topnav a:hover{border-color:var(--aia);color:var(--aia);background:#FFFFFF;}
+  .topnav a.home{
+    color:var(--slate);
+    border-right:1px solid var(--line);
+    border-radius:0;
+    padding-right:14px;
+    margin-right:4px;
+  }
+  .topnav a.home:hover{color:var(--ink);border-color:var(--line);background:transparent;}
+  /* Give sections a scroll-margin so the sticky nav doesn't cover the top when jumping */
+  section.phase{scroll-margin-top:70px;}
+
+  @media (max-width:720px){
+    .topnav-inner{gap:6px 10px;padding:10px 16px;font-size:11.5px;}
+    .topnav a{padding:4px 9px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">AIA Group Limited · Group Innovation Office · Hong Kong · Regional</div>
+    <h1>The same craft,<br>at <span class="split">enterprise scale.</span></h1>
+    <p class="lede">This role isn't a stretch of skill for you — it's a scale-up of one you already practise. Your job at FXCM is leading enterprise-wide AI adoption across engineering and business teams, with governance frameworks, RACI matrices, KPI dashboards, and training programmes. AIA's Group Innovation Office wants the same thing done across a 23,000-strong workforce in 18 Asia-Pacific markets. This prep sharpens the fit story, gives you the AIA-specific context to prove genuine interest, and hands you Q&amp;A and questions to ask.</p>
+    <span class="role-chip">PREP FOR — Manager, Innovation Change Management · GCB05 · Group Innovation Office · Reports to Associate Director, Strategy Planning &amp; Change Management</span>
+  </div>
+</header>
+
+<nav class="topnav" aria-label="Section navigation">
+  <div class="topnav-inner">
+    <a href="index.html" class="home">&larr; All prep</a>
+    <span class="topnav-label">Jump to</span>
+    <a href="#opener">Self-Intro</a>
+    <a href="#ask">Questions to Ask</a>
+    <a href="#expect">Q&amp;A</a>
+    <a href="#shipped">AI at AIA</a>
+    <a href="#fitmap">Fit Map</a>
+    <a href="#know">AIA Context</a>
+    <a href="#ai-angle">AI Use Cases</a>
+  </div>
+</nav>
+
+
+
+<!-- ============ THE FIT MAP ============ -->
+<section class="phase" id="opener">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">THE OPENER</span><h2>Your self-introduction (≈ 1 min 45 sec)</h2></div>
+    <p class="phase-sub">Built for this role's fit story: identity → the craft, evidenced → the enterprise-scale move → the AIA-specific hook. Speak it, don't recite it.</p>
+
+    <div class="qa">
+      <div class="qtag">Beat 1 · Identity · ~20 sec</div>
+      <p>"Thank you — I'm Tracy, PMP and Professional Scrum Master certified, with eleven years across Hong Kong's betting and financial services industries. My craft is turning technology and process change into something an organisation actually uses — through governance, communications, training and measurable adoption. Five of those years have been in finance, at FXCM; the earlier six were at the Hong Kong Jockey Club, where I ran large-scale customer-facing platform rollouts. Different industries, same discipline."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 2 · The current-role frame · ~25 sec</div>
+      <p>"My current role at FXCM is planning enterprise adoption of Claude AI and Jira/Confluence Cloud tooling across engineering and business teams. That means going project by project — understanding what each Jira team actually does, identifying where AI can automate real work, and designing the governance, RACI and KPI framework <em>before</em> rollout — so when we launch, we're driving adoption of something people actually need. It's early-stage work, but the shape — governance-first, evidence-driven, adoption-planned — is exactly what this role scales up."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 3 · Training &amp; adoption at scale · ~45 sec</div>
+      <p>"Where I have the deepest track record is the training, communications and adoption side of change — enterprise rollouts across multiple locations, formats and audiences. On FXCM's investment platform expansion, I ran the enablement programme across our overseas offices: on-site workshops for local teams, virtual training for distributed users, live demo sessions, and the user guides and FAQs that let people self-serve after launch. At the Hong Kong Jockey Club I ran the same playbook for the launch of new betting terminals across branches and for our AI-enabled mobile onboarding app — and I also handled the upstream communications piece: hosting a townhall to preview a strategic project's upcoming changes to the wider business, and presenting at area meetings to bring the message directly to frontline teams. Different products, different geographies, same discipline: making sure the people using the change hear about it, understand it, and actually adopt it."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 4 · The AIA bridge · ~25 sec</div>
+      <p>"What draws me to this role is the chance to apply the same craft at genuine enterprise scale — five of AIA's largest markets, on the back of TDA and now the shift into embedded generative AI. Innovation change management across Hong Kong, Mainland China, Singapore, Malaysia and Thailand isn't a project, it's a multi-year discipline coordinating five mature markets with strong local views, and I'd like to spend the next chapter of my career on it. AIA's focus on 'healthier, longer, better lives' is a mission I'd genuinely want my work to serve — and the Group Innovation Office is where change actually gets driven into those markets."</p>
+      <div class="frame"><b>WHY THIS SHAPE WORKS</b>Beat 2 is honest about where the AI work actually is (planning, not delivered) while showing governance-first thinking — a much stronger signal than overclaiming shipped work. Beat 3 is now the load-bearing beat: enterprise training and adoption across FXCM's investment platform and HKJC's terminals and onboarding app — the most direct evidence you have for the JD's Training &amp; Enablement duties. Beat 4 answers "why us" with three specific AIA references (scale, TDA/genAI, mission). It never mentions FXCM instability — that's an internal reason, not an interview reason. If they ask directly why leaving now, the answer is "seeking greater enterprise scale and career depth" — true, and forward-looking.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Delivery notes</div>
+      <p><strong>Numbers are load-bearing.</strong> HKD 100M+ betting terminal programmes, 300K-client migration, three-person BA team, 30% ticket resolution improvement — every figure comes from your CV, be ready to defend each with two sentences. If asked "how many people did you train?", have an honest number ready across the workshops, virtual sessions and rollouts — a soft "hundreds" or a specific figure both work; a vague "many" doesn't.</p>
+      <p><strong>Language:</strong> AIA panels commonly switch between English, Cantonese and Mandarin depending on interviewer. Prepare the same beats in Cantonese; if the panel includes a Mainland/regional interviewer, be ready to hold at least basic exchanges in Mandarin.</p>
+      <p><strong>The seniority-band conversation:</strong> if a panel signals "you look a bit senior for GCB05" — acknowledge, don't argue. "I'd rather earn the next step through impact at AIA than optimise for title on the way in. This is the domain and scale I want to be in for the next several years."</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="ask">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">ASK THESE</span><h2>Smart questions for the end</h2></div>
+    <p class="phase-sub">Ordered roughly by impact. Two or three well-chosen ones beat all eight.</p>
+
+    <div class="ask"><span class="anum">Q1</span><div><div class="q">"What are the two or three GIO initiatives that this role would most likely lead change management on in year one — and how mature is each in the pipeline?"</div><div class="r">The single most useful question: it defines your first six months and proves you think in delivery portfolios rather than abstract strategy.</div></div></div>
+
+    <div class="ask"><span class="anum">Q2</span><div><div class="q">"For the five markets in this role's scope, how is change management currently organised — do HK, China, Singapore, Malaysia and Thailand each have their own change leads, and how does the Group Innovation Office partner with them?"</div><div class="r">Shows you know the scope, and asks a mature question about the operating model you'd inherit.</div></div></div>
+
+    <div class="ask"><span class="anum">Q3</span><div><div class="q">"What's the biggest gap the team is trying to close by hiring this role — is it capacity, a capability the team doesn't have today, or something structural about how change is being run?"</div><div class="r">Direct, mature, and the answer tells you what you'd actually be measured on.</div></div></div>
+
+    <div class="ask"><span class="anum">Q4</span><div><div class="q">"Post-TDA, how does innovation adoption maturity vary across the five in-scope markets — is Singapore ahead of Malaysia, is Hong Kong different from China again, and how do you calibrate rollouts to that variance?"</div><div class="r">Names the markets specifically, asks a nuanced maturity question, and signals you know TDA is done and you're asking about now.</div></div></div>
+
+    <div class="ask"><span class="anum">Q5</span><div><div class="q">"For a genAI initiative touching customer-facing agent interactions, how does governance work between GIO, Legal &amp; Compliance and local market regulators — particularly given China's NFRA context and data-residency constraints look materially different from the other four?"</div><div class="r">Domain-specific, regulator-aware, and specifically flags China as its own category — a level of nuance that separates you from candidates who lump "Asia" into one bucket.</div></div></div>
+
+    <div class="ask"><span class="anum">Q6</span><div><div class="q">"What does success look like for someone in this role at the twelve-month mark — what will the Associate Director and I be pointing to as evidence it's working?"</div><div class="r">Forward-looking and performance-oriented — surfaces how they think about impact.</div></div></div>
+
+    <div class="ask"><span class="anum">Q7</span><div><div class="q">"Prosci/ADKAR is called out as an advantage — is that because the team formally uses it, or is it more that they want familiar vocabulary?"</div><div class="r">Confidently addresses the cert gap, and their answer tells you whether to prioritise the cert or just the vocabulary.</div></div></div>
+
+    <div class="ask"><span class="anum">Q8</span><div><div class="q">"How much of the role is Hong Kong-based delivery versus regional travel and virtual coordination with market teams?"</div><div class="r">Practical, mature — and it's information you actually need to make a decision.</div></div></div>
+  </div>
+</section>
+
+<section class="phase" id="expect">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">EXPECT THESE</span><h2>Likely questions — and strong answers</h2></div>
+    <p class="phase-sub">Adapt the words; keep the shape. Every framing tip below is the interview-tested part.</p>
+
+    <div class="qa">
+      <div class="qtag">Motivation · certain</div>
+      <h3>"Why AIA, and why this role now?"</h3>
+      <p>"Three reasons. First, the direction of my career: I've built change and governance craft across financial services and betting-industry platforms. Applying it at genuine enterprise scale — five of AIA's largest markets, five regulators, deep multi-market coordination — is the natural next chapter, and it plays to my Cantonese-Mandarin fluency in a way most roles wouldn't. Second, the timing: AIA's TDA foundation is publicly complete, and the next phase is embedding genAI into distribution and operations. Driving adoption of AI at that scale is exactly what I do today at FXCM, just smaller. Third, the mission — helping people live healthier, longer, better lives is work I'd want my career tied to."</p>
+      <div class="frame"><b>FRAMING</b>Three-reason structure (career logic → market timing → mission) is easy to remember. Never lead with "my current company isn't stable" — that surfaces as flight risk. If pressed on why leave FXCM specifically, use "I've done what I set out to do there; time to apply this at a much larger canvas."</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Domain gap · likely</div>
+      <h3>"You don't have insurance industry experience — how do you see yourself getting up to speed?"</h3>
+      <p>"Honestly: I don't. What I do have is a track record of moving into new domains and getting productive quickly — I've worked at a bank, a betting operator running exchange-like systems, a multi-asset trading group, and each shift required learning a regulated industry from scratch. My approach would be the same here: spend the first few weeks with the product teams, HR and market leads to understand the specific initiatives GIO is driving, read the regulatory landscape in each market, and shadow a Change Champion cycle before proposing changes to how it runs. Change management craft transfers; domain vocabulary and stakeholder maps are learnable in months, not years."</p>
+      <div class="frame"><b>FRAMING</b>Never bluff domain knowledge — panels smell it instantly. What you're actually selling is <em>learnable domain, transferable craft</em>. The betting/CFD/onboarding sequence is proof, not context.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Method · likely</div>
+      <h3>"Are you familiar with Prosci / ADKAR?"</h3>
+      <p>"Familiar with the model — Awareness, Desire, Knowledge, Ability, Reinforcement — as a framework for individual adoption within organisational change. I don't hold the certification. My formal grounding is PMP and PSM, plus the governance disciplines I've built running PMOs. In practice much of what ADKAR names, I've been doing under different vocabulary: awareness campaigns before rollout, capability-uplift measurement during, reinforcement through governance forums after. Getting the cert would be an early first-year priority to speak the team's language cleanly."</p>
+      <div class="frame"><b>FRAMING</b>The JD says "advantage", not "required" — so acknowledge, don't apologise. Turning it into "I'll do the cert" is a small commitment that costs you nothing and neutralises the gap.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Domain · very likely</div>
+      <h3>"How would you approach change management for a genAI rollout to our agent force?"</h3>
+      <p>"I'd start by separating the initiative into two distinct change problems, because they need different management. First, the operational change: agents need new tools, new workflows, new success metrics — that's classic ADKAR territory, driven through the Change Champion network, with clear before/after adoption metrics and dashboards for market leads. Second, the identity change: 'AI copilot' can read as 'AI replacement' to a career agent, and if you don't manage that fear directly, adoption plateaus at surface use. So the communications strategy has to lead with augmentation stories — real agents who've grown their book with these tools — not efficiency language. Regulation is the third thread: any AI touching customer interaction faces market-level regulatory review, so the governance framework has to build in compliance sign-off per market, not centrally."</p>
+      <div class="frame"><b>FRAMING</b>Three-layer answer (operational + identity + regulatory) is far more sophisticated than most candidates offer, and each layer connects to something the panel cares about. Don't oversell — end with "that's my starting hypothesis; the actual design would come after understanding the specific initiative and market."</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Behavioural · likely</div>
+      <h3>"Tell me about a time you drove adoption of something the business initially resisted."</h3>
+      <p>Use the FXCM Claude adoption or the Salesforce/JIRA re-engineering: name the resistance clearly (fear of tooling change, loss of familiar processes, unclear ROI), what you did to move it (surface concerns through a champion group, quick wins, measurable data-driven case), what shipped, and what you'd repeat versus change. Close with one concrete adoption metric.</p>
+      <div class="frame"><b>FRAMING</b>Resistance stories work only if you're honest about it being real resistance — not "some minor pushback we quickly overcame". Panels reward candour. And a specific number at the end ("adoption reached X% by month six") beats any adjective.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Behavioural · likely</div>
+      <h3>"Tell me about influencing senior stakeholders without direct authority."</h3>
+      <p>This is a direct JD phrase ("influence without direct authority") — worth a rehearsed story. Use the CFD-to-multi-asset expansion: cross-functional stakeholders you had no line authority over (legal, compliance, ops, tech, executives), how you built the coalition (governance forum, RACI clarity, quantified impact), the specific moment influence tipped a decision, and the outcome. Emphasise that authority came from evidence and reliability, not from title.</p>
+      <div class="frame"><b>FRAMING</b>The JD asked for this exact skill — deliver a specific story, not a philosophy. End on: "That's how I've built every stakeholder relationship — through consistent evidence-based delivery, not positional authority. Which is fortunate given this role has no direct reports."</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Behavioural · possible</div>
+      <h3>"A market team disagrees with a Group-driven change. How do you handle it?"</h3>
+      <p>"First, take the disagreement seriously — market teams usually have context Group doesn't. Separate the <em>what</em> from the <em>how</em>: is the objection to the change itself, or to the way it's being rolled out locally? Often it's the second, and adapting the how (timing, sequencing, local customisation) unlocks the disagreement without diluting the change. If it's the first — genuine strategic disagreement — that gets escalated with a clear recommendation, not a problem, so the Associate Director can decide with full context. What I wouldn't do is override a market team quietly; that erodes trust and makes the next change harder."</p>
+      <div class="frame"><b>FRAMING</b>This tests whether you'll be a "Group person" who steamrolls markets or a "change person" who protects both sides of the relationship. Answer as the second, always.</div>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="shipped">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">WHAT'S SHIPPED</span><h2>AI adoption at AIA — the public record</h2></div>
+    <p class="phase-sub">Knowing what they've already done means you can enter the conversation partway through, rather than pitching AI from cold. Each item below has a public source. Note carefully what's in production versus piloted versus stated direction — panels notice when candidates blur the three.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fnum">SHIPPED · 2024</div>
+        <h3>Microsoft Copilot in customer service, Singapore &amp; Thailand</h3>
+        <p>The clearest documented deployment: AIA rolled out Copilot in Dynamics 365 Customer Service to its Singapore and Thailand contact centres in 2024, after an assessment covering fairness, bias, user-friendliness, time savings and security. The genAI is used for case summarisation and conversation summaries so service reps can focus on customer relationships.</p>
+        <div class="why">This is the deployment to name if pressed for a specific example. It also proves AIA already runs governance-first assessments before rollout — helpful when you position your governance approach as aligned to how they work.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">SHIPPED · TDA PROGRAMME</div>
+        <h3>100+ AI &amp; analytics projects, ~90% cloud</h3>
+        <p>By end-2023, AIA publicly reported the TDA programme had deployed <em>more than 100 major projects leveraging AI and analytics</em> across underwriting, claims, training and recruiting — with cloud adoption approaching the 90% target, well ahead of industry average. Around 60% of customer transactions were being completed same-day.</p>
+        <div class="why">These are the foundation figures. Cite the "100+ projects" or "90% cloud" line when you want to say "the platform is in place — the current challenge is scaled adoption of what sits on top of it."</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">PILOT · AGENT RECRUITMENT</div>
+        <h3>AI in identifying high-potential agents</h3>
+        <p>Publicly stated AIA pilot: using AI to profile candidates likely to become high-selling agents, and to identify what training would benefit an individual agent. Positioned as expanding from recruitment to distribution personalisation as pilots mature.</p>
+        <div class="why">A subtle detail that pays off: this pilot bridges HR, distribution and learning — the exact stakeholder mix a GIO change manager would coordinate. Naming it shows you understand the initiatives cut across functions.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">DIRECTION · STATED</div>
+        <h3>GenAI copilots for the agent force</h3>
+        <p>AIA has publicly signalled the flagship next phase: genAI copilots giving agents real-time customer-need analysis, product recommendations, financial advice drafts and personalised client-ready proposals. Framed by leadership as augmentation, not replacement — "we need people to embrace this."</p>
+        <div class="why">This is what the GIO is likely driving into markets now. If asked what most excites you about the role, this is the honest answer — and the "augmentation not replacement" phrasing is a straight quote from AIA leadership, worth echoing.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">DIRECTION · STATED</div>
+        <h3>GenAI in underwriting, claims &amp; marketing content</h3>
+        <p>Publicly discussed directions include AI-assisted underwriting (risk assessment and rationale drafting), claims triage (document extraction, fraud signals, straight-through processing), and marketing content generation at scale across markets and languages.</p>
+        <div class="why">These are the same insurance AI use cases covered in the "AI Angle" section — but naming them here as <em>AIA's own direction</em> rather than industry-generic use cases signals you've done the specific homework.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">INFRASTRUCTURE</div>
+        <h3>Azure cloud + ServiceNow ITSM + Copilot</h3>
+        <p>AIA's technology stack is publicly documented: Microsoft Azure as long-term cloud platform (chosen in 2018), ServiceNow for IT service management, and Microsoft Dynamics 365 with Copilot for customer service. This tells you the genAI models they're deploying flow primarily through the Microsoft ecosystem.</p>
+        <div class="why">Only bring this up if asked directly about tooling — it's a detail that shows depth if requested but sounds like technical name-dropping if volunteered. If you do use it, tie it back: "so genAI adoption is largely Copilot-centred, which shapes the change communications."</div>
+      </div>
+      <div class="fact wide">
+        <div class="fnum">HOW TO USE THIS IN THE ROOM</div>
+        <h3>The honest framing that keeps you credible</h3>
+        <p>Public information runs one to three years behind internal reality — you almost certainly don't know what AIA has shipped this quarter. So instead of asserting the current state, position everything you've read as <em>the picture from the outside</em>, and use it to earn the right to ask about the inside. For example: <em>"From the public record, I can see AIA's Copilot deployment in Singapore and Thailand customer service, and the stated direction toward agent-facing genAI copilots. I'd be curious where the GIO's current focus actually is — because from the outside it's not obvious whether the change management priority now is scaling those customer-service deployments to other markets, or driving the next wave of agent-copilot adoption."</em> That framing turns your research into a well-formed question, not a claim.</p>
+        <div class="why">This move — "here's what the public sees, tell me what's really happening" — is what senior candidates do. It respects the panel's inside knowledge while proving you've done yours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="fitmap">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">THE FIT MAP</span><h2>Every JD duty area maps to something you've already done</h2></div>
+    <p class="phase-sub">The interview strategy is built on this table. When the panel asks about any of the six responsibility areas, you have direct evidence to reach for.</p>
+
+    <div class="fitmap">
+      <div class="fitmap-row head">
+        <div class="fitmap-cell">JD responsibility area</div>
+        <div class="fitmap-cell">Where you've done this — evidence from CV</div>
+      </div>
+      <div class="fitmap-row">
+        <div class="fitmap-cell">1. Change Strategy &amp; Planning<br><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;">Impact assessments, adoption approaches, milestones &amp; targets</span></div>
+        <div class="fitmap-cell">Governance frameworks, RACI matrices and operating models across cross-functional teams at FXCM; benefits realisation frameworks for strategic initiatives (from PMO role).<span class="ev">You designed the target state, not just documented it.</span></div>
+      </div>
+      <div class="fitmap-row">
+        <div class="fitmap-cell">2. Stakeholder Engagement<br><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;">Champion networks, workshops, roadshows, alignment</span></div>
+        <div class="fitmap-cell">300K-client migration coordination — cross-functional requirements and impact analysis across legal, ops and tech. C-suite briefings via PMO artefacts and executive summaries.<span class="ev">Enterprise stakeholder work at scale, evidenced.</span></div>
+      </div>
+      <div class="fitmap-row">
+        <div class="fitmap-cell">3. Communications &amp; Awareness<br><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;">Executive presentations, newsletters, FAQs, leadership messages</span></div>
+        <div class="fitmap-cell">Board-level project updates and executive-level business proposals at FXCM; translating platform changes into governed workflows, training materials and adoption metrics — literally your current role.<span class="ev">Currently doing this every week.</span></div>
+      </div>
+      <div class="fitmap-row">
+        <div class="fitmap-cell">4. Training &amp; Enablement<br><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;">Learning programmes, workshops, embedding in operations</span></div>
+        <div class="fitmap-cell">Leading Claude AI adoption across engineering and business teams — training materials, capability uplift, measurable adoption metrics. This is one-to-one with the JD.<span class="ev">The most direct alignment on the page.</span></div>
+      </div>
+      <div class="fitmap-row">
+        <div class="fitmap-cell">5. Adoption Monitoring &amp; Reporting<br><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;">Dashboards, metrics, sponsor updates</span></div>
+        <div class="fitmap-cell">KPI dashboards for programme health, delivery cycle times and governance posture, enabling data-driven decisions for senior stakeholders.<span class="ev">Exactly the phrasing you already have on your CV.</span></div>
+      </div>
+      <div class="fitmap-row">
+        <div class="fitmap-cell">6. Governance &amp; Continuous Improvement<br><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;">Governance frameworks, documentation, best practices</span></div>
+        <div class="fitmap-cell">PMO governance frameworks adopted across all active projects. Established analysis standards for a three-person BA team. Embedded CI/CD best practices with Platform and DevOps teams.<span class="ev">Governance is arguably your strongest ground.</span></div>
+      </div>
+    </div>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--slate);margin-top:14px;">The one thing to say if pressed on fit: "Every duty on this JD is something I do today — the scale changes from one trading group to five of AIA's biggest markets, the domain changes from CFDs to insurance, but the craft is the same."</p>
+  </div>
+</section>
+
+<section class="phase" id="know">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">KNOW THIS</span><h2>Eight AIA facts that signal you've done the work</h2></div>
+    <p class="phase-sub">Public-domain context — enough to speak fluently, positioned so you can pivot from any of them into your own experience. Verify with the latest annual report before the interview.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fnum">01 · SCALE &amp; ROLE SCOPE</div>
+        <h3>18 markets group-wide, 5 in your role's scope</h3>
+        <p>AIA is the largest independent publicly listed pan-Asian life insurance group (1299.HK), present across 18 Asia-Pacific markets. Per the recruiter, <strong>this role's regional scope is 5 markets: Hong Kong, Mainland China, Singapore, Malaysia, Thailand</strong> — AIA's largest and most digitally mature markets.</p>
+        <div class="why">Five isn't smaller-and-easier — it's AIA's heavyweights. Change here is less "roll out to a market" and more "coordinate mature markets with strong local opinions." Frame it that way in the room.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">02 · STRATEGY</div>
+        <h3>"Healthier, Longer, Better Lives"</h3>
+        <p>AIA's public mission and the frame every initiative gets tied to. Innovation isn't a standalone theme — it's positioned as serving that mission through better products, distribution and customer journeys.</p>
+        <div class="why">Say the phrase once in the interview, unprompted, and it lands as cultural fluency. Say it three times and it lands as coached.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">03 · TRANSFORMATION</div>
+        <h3>TDA — Technology, Digital &amp; Analytics</h3>
+        <p>AIA's three-year, ~US$1bn transformation programme launched in late 2020, publicly reported as concluding successfully by end-2023 — cloud-first (~90% cloud target), operations modernised, 100+ AI/analytics projects deployed across underwriting, claims and recruiting.</p>
+        <div class="why">TDA is the platform the current innovation agenda sits on. Naming it shows you understand the recent history the GIO is building forward from.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">04 · WHAT'S NEXT</div>
+        <h3>Generative AI embedded in the core</h3>
+        <p>Publicly, AIA's next phase moves beyond transformation into embedding intelligence — genAI copilots for agents, AI in underwriting, claims processing and content generation, positioned as productivity augmentation rather than headcount replacement.</p>
+        <div class="why">This is where the GIO role lives. If asked what excites you, this is the honest answer — helping thousands of agents actually adopt AI copilots is exactly your current craft, scaled.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">05 · ORG</div>
+        <h3>The Group Innovation Office — 5-market focus</h3>
+        <p>The GIO is where enterprise-wide innovation initiatives get incubated and driven into adoption. In this role that means driving Group initiatives into <strong>five operationally distinct markets</strong>, each with its own regulator (HK IA, China NFRA, MAS in Singapore, BNM in Malaysia, OIC in Thailand), languages, and existing digital estates.</p>
+        <div class="why">"Regional adoption" is not one rollout; it's five rollouts with coordination. Being able to name each market's regulator (or knowing to ask, if you can't) signals real seriousness.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">06 · DISTRIBUTION MODEL</div>
+        <h3>Premier Agency + bancassurance + digital</h3>
+        <p>AIA's distribution is anchored on its Premier Agency (a professional, tiered agent force) with bancassurance partnerships and direct/digital channels layered on. Any innovation that touches distribution — agent tools, sales enablement, lead management — has to work through this model.</p>
+        <div class="why">Change adoption in insurance ultimately reaches the agent. Naming Premier Agency shows you know who the actual end user is.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">07 · REGULATION</div>
+        <h3>Five regulators, one initiative — and China is a category apart</h3>
+        <p>Each of the five markets is regulated separately: HK IA, China NFRA, MAS (Singapore), BNM (Malaysia), OIC (Thailand). Any innovation touching customer data, product design or agent-customer interaction faces market-level approval. <strong>China deserves its own row of thinking</strong>: NFRA oversight, data-residency and cross-border data restrictions, and separate cloud/AI vendor considerations make it materially harder than the other four.</p>
+        <div class="why">Interviewers watch for whether candidates say "Asia" or say "these specific regulators". Naming NFRA and flagging China as distinct is the depth marker.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">08 · METHOD</div>
+        <h3>Prosci / ADKAR — the JD "advantage"</h3>
+        <p>ADKAR = Awareness, Desire, Knowledge, Ability, Reinforcement. Prosci's five-element model for individual change adoption underneath organisational change. Named as "an advantage", not required — you don't have the cert, but the model is straightforward and worth knowing the vocabulary.</p>
+        <div class="why">Have a two-sentence answer ready: "I don't hold the Prosci cert but I'm familiar with ADKAR, and my PMP and PSM disciplines cover much of the same territory in practice — that's a gap I'd close through cert in the first year." Owned, not defensive.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="ai-angle">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">THE AI ANGLE</span><h2>AI use cases that are actually relevant to AIA</h2></div>
+    <p class="phase-sub">Your differentiator: you run enterprise AI adoption for a living. Speak as a practitioner about specific insurance use cases with concrete adoption challenges — not as a futurist.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fnum">01 · DISTRIBUTION</div>
+        <h3>GenAI copilots for the agent force</h3>
+        <p>The publicly stated flagship: AI assistants that give agents real-time customer-need analysis, product recommendations, financial advice drafts and personalised client-ready proposals — turning hours of preparation into minutes.</p>
+        <div class="why">Adoption challenge worth naming: an agent's identity is built on client relationship expertise. A copilot has to be positioned as amplifying that expertise, or adoption stalls at superficial use. That's a change management problem, not a technology problem.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">02 · UNDERWRITING</div>
+        <h3>AI-assisted risk assessment</h3>
+        <p>ML models flagging risk factors, drafting underwriting rationale, prioritising cases needing human review — freeing underwriters to focus on complex cases. Publicly, AIA has been piloting AI in underwriting for years.</p>
+        <div class="why">Adoption challenge: regulatory audit trail and explainability. Underwriters need to defend every decision — so tooling has to make its reasoning visible, and the change programme has to train people to read and validate model output, not just accept it.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">03 · CLAIMS</div>
+        <h3>Straight-through processing with AI triage</h3>
+        <p>Automated document extraction, fraud signal detection, clustering of similar claims, drafting initial assessments — routing simple cases through same-day and escalating complex ones. AIA has publicly noted ~60% of customer transactions completed within the same day post-TDA.</p>
+        <div class="why">Adoption challenge: claims handlers can perceive automation as job threat. Change communications must frame it as "we're removing the boring 60%, so you can be the expert on the 40% that matters".</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">04 · CUSTOMER SERVICE</div>
+        <h3>Conversational AI + agent handoff</h3>
+        <p>LLM-powered chat for policy queries, claim status, product information — with smart handoff to human agents for complex or emotionally sensitive cases (bereavement, disputes, complaints).</p>
+        <div class="why">Adoption challenge: getting the handoff threshold right. Too eager to hand off, no efficiency gain; too reluctant, brand damage. Requires ongoing tuning and joint governance between customer service and tech.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">05 · MARKETING &amp; CONTENT</div>
+        <h3>Personalised marketing at scale</h3>
+        <p>GenAI producing localised, segment-tailored marketing content across markets and languages — reducing the content-production bottleneck that limits campaign responsiveness. For this role's five-market scope alone that spans English, Cantonese, Mandarin (Simplified &amp; Traditional), Bahasa Malaysia and Thai.</p>
+        <div class="why">Adoption challenge: brand voice consistency and regulatory compliance in each market. Governance framework has to include human review gates by market before public content ships.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">06 · INTERNAL PRODUCTIVITY</div>
+        <h3>Enterprise copilots for knowledge work</h3>
+        <p>The horizontal use case — Copilot/Claude/similar tools embedded across finance, HR, legal, ops teams for drafting, summarising, analysing. Highest volume of users, most measurable productivity impact, most direct read across from your current FXCM work.</p>
+        <div class="why">This is the specific answer to "what would you focus on first?" — internal productivity is high volume, lower regulatory risk, gives the GIO measurable early adoption wins to build credibility for the harder distribution and customer-facing use cases.</div>
+      </div>
+      <div class="fact wide">
+        <div class="fnum">THE GOVERNANCE THROUGH-LINE</div>
+        <h3>The one insight that ties them all together</h3>
+        <p>Every AI use case in insurance shares three common change challenges: <strong>regulatory acceptance</strong> (can the model's decision be defended to a regulator or in a dispute?), <strong>role identity</strong> (does this augment or replace the human doing the work today?), and <strong>market variance</strong> (compliance and cultural context differ by market — one framework, eighteen local adaptations). A Group Innovation Office's change management value is bringing consistent, measurable answers to those three questions <em>before</em> each pilot, not after. That framing shows up in adoption rates.</p>
+        <div class="why">If you say one thing on AI in the interview, make it this framing. It moves you from "person who knows AI use cases" to "person who thinks about AI adoption at enterprise scale" — which is what they're hiring.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AIA CONTEXT ============ -->
+
+<!-- ============ AI ADOPTION AT AIA ============ -->
+
+<!-- ============ SELF INTRO ============ -->
+
+<!-- ============ EXPECTED Q&A ============ -->
+
+<!-- ============ AI USE CASES ============ -->
+
+<!-- ============ QUESTIONS TO ASK ============ -->
+
+<footer>
+  <div class="wrap">
+    <p class="note"><b>Honesty guardrails:</b> AIA facts (TDA, GenAI direction, 18 markets group-wide, mission) come from AIA's own public materials and reputable press. The 5-market scope (HK / China / Singapore / MY / Thailand) came via recruiter — <b>verify this framing early with the panel</b> ("my understanding is the role's regional focus is these five markets — is that right?") in case the recruiter's read is imprecise. Details of the GIO's internal structure, GCB05 grade meaning, and specific in-flight initiatives are <b>not public</b> — treat as inferences. The "instability at FXCM" motivation should stay internal — the reframed answer ("greater enterprise scale and career depth") is truthful and forward-looking, and is what the panel should hear.</p>
+  </div>
+</footer>
+
+</body>
+</html>

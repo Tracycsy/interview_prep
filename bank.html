@@ -510,6 +510,18 @@
     font-weight:600;
   }
   .industry-switch a:not(.active):hover{color:rgba(251,248,242,0.9);}
+  .industry-switch .home-link{
+    display:flex;align-items:center;
+    color:rgba(251,248,242,0.5);
+    text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    padding:7px 12px 7px 6px;
+    border-right:1px solid rgba(251,248,242,0.15);
+    margin-right:4px;
+    transition:color 0.15s ease;
+  }
+  .industry-switch .home-link:hover{color:rgba(251,248,242,0.9);}
   @media (max-width:1100px){
     .industry-switch{top:auto;bottom:18px;}
   }
@@ -523,7 +535,8 @@
 <body>
 
 <div class="industry-switch">
-  <a href="index.html">Insurance</a>
+  <a href="index.html" class="home-link" title="All interview prep">&larr; All prep</a>
+  <a href="insurance.html">Insurance</a>
   <a href="bank.html" class="active">Banking</a>
 </div>
 

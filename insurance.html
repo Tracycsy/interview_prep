@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hong Kong Insurance Tech Landscape</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#141C2E;
+    --ink-soft:#2B3654;
+    --parchment:#F2ECE1;
+    --paper:#FBF8F2;
+    --brass:#B8863A;
+    --brass-bright:#D9A55A;
+    --slate:#5B6478;
+    --caution:#8B3A3A;
+    --line: rgba(20,28,46,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px 100px;}
+
+  /* HERO */
+  header.hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:72px 32px 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    right:-120px; top:-120px;
+    width:420px; height:420px;
+    border:1px solid rgba(217,165,90,0.25);
+    border-radius:50%;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute;
+    right:-40px; top:-40px;
+    width:280px; height:280px;
+    border:1px solid rgba(217,165,90,0.35);
+    border-radius:50%;
+  }
+  .hero-inner{max-width:1180px;margin:0 auto;position:relative;z-index:2;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass-bright);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:52px;
+    line-height:1.08;
+    margin:0 0 22px;
+    max-width:820px;
+    letter-spacing:-0.01em;
+  }
+  h1 em{font-style:italic;color:var(--brass-bright);}
+  .hero-sub{
+    max-width:640px;
+    font-size:16.5px;
+    color:rgba(251,248,242,0.78);
+    margin-bottom:0;
+  }
+  .hero-note{
+    margin-top:36px;
+    display:inline-flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:13px;
+    color:rgba(251,248,242,0.65);
+    border-left:2px solid var(--brass);
+    padding-left:14px;
+    max-width:640px;
+  }
+
+  /* SECTION LABELS */
+  .section-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:0 0 8px;
+  }
+  .section-title{
+    font-family:'Fraunces',serif;
+    font-size:30px;
+    font-weight:600;
+    margin:0 0 12px;
+    color:var(--ink);
+  }
+  .section-intro{
+    max-width:760px;
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-bottom:38px;
+  }
+  section{padding-top:76px;}
+
+  /* THE STACK (signature element) */
+  .stack{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .stack-row{display:contents;}
+  .stack-label{
+    padding:20px 22px;
+    border-top:1px solid var(--line);
+    border-right:1px solid var(--line);
+    background:rgba(20,28,46,0.03);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .stack-label strong{
+    font-family:'Fraunces',serif;
+    font-size:16px;
+    font-weight:600;
+    color:var(--ink);
+    display:block;
+    margin-bottom:3px;
+  }
+  .stack-row:first-child .stack-label,
+  .stack-row:first-child .stack-content{border-top:none;}
+  .stack-content{
+    padding:18px 24px;
+    border-top:1px solid var(--line);
+    font-size:14px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    padding:4px 9px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:var(--parchment);
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .stack-content-inner{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    width:100%;
+  }
+  .stack-chips{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .stack-users{
+    font-size:12.5px;
+    color:var(--slate);
+    display:flex;
+    gap:8px;
+    align-items:baseline;
+    flex-wrap:wrap;
+  }
+  .stack-users b{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--brass);
+    font-weight:600;
+  }
+
+  /* COMPANY CARDS */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  @media (max-width:860px){ .grid{grid-template-columns:1fr;} }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:26px 26px 22px;
+  }
+  .card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+    margin-bottom:16px;
+  }
+  .card-head h3{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:600;
+    margin:0;
+  }
+  .card-head span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--brass);
+  }
+  .fact{
+    display:flex;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .fact:last-child{margin-bottom:0;}
+  .fact-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--slate);
+    min-width:88px;
+    padding-top:2px;
+  }
+  .fact-body{font-size:13.8px;color:var(--ink-soft);}
+  .fact-body .src{
+    display:block;
+    margin-top:3px;
+    font-size:11.5px;
+    color:var(--brass);
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* TALKING POINTS */
+  .tp-list{display:flex;flex-direction:column;gap:14px;}
+  .tp{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:3px solid var(--brass);
+    padding:18px 22px;
+  }
+  .tp h4{
+    font-family:'Fraunces',serif;
+    font-size:16.5px;
+    margin:0 0 6px;
+  }
+  .tp p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+  /* CAUTION BOX */
+  .caution{
+    background:var(--ink);
+    color:rgba(251,248,242,0.9);
+    padding:26px 28px;
+    border-radius:2px;
+    font-size:14px;
+    display:flex;
+    gap:16px;
+  }
+  .caution strong{color:var(--brass-bright);}
+  .caution-mark{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:26px;
+    color:var(--brass-bright);
+    line-height:1;
+  }
+
+  /* AI ADOPTION CARDS */
+  .ai-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    margin-bottom:16px;
+    border-radius:2px;
+  }
+  .ai-card > summary{
+    list-style:none;
+    cursor:pointer;
+    padding:20px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .ai-card > summary::-webkit-details-marker{display:none;}
+  .ai-card > summary::after{
+    content:"+";
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    color:var(--brass);
+    flex-shrink:0;
+    transition:transform 0.15s ease;
+  }
+  .ai-card[open] > summary::after{content:"–";}
+  .ai-card-title{display:flex;flex-direction:column;gap:4px;}
+  .ai-card-title .layer-tag,
+  .tp h4 .layer-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--brass);
+    display:block;
+    margin-bottom:3px;
+  }
+  .ai-card-title h4{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    font-weight:600;
+    margin:0;
+  }
+  .ai-card-body{
+    padding:0 24px 24px;
+    border-top:1px solid var(--line);
+  }
+  .ai-field{padding-top:18px;}
+  .ai-field:first-child{padding-top:20px;}
+  .ai-field b{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:5px;
+  }
+  .ai-field p{margin:0;font-size:13.8px;color:var(--ink-soft);line-height:1.55;}
+  .ai-field ul{margin:4px 0 0;padding-left:18px;font-size:13.8px;color:var(--ink-soft);}
+  .ai-field li{margin-bottom:4px;}
+  .plan-steps{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .plan-step{
+    display:flex;
+    gap:10px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .plan-step .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--brass);
+    min-width:56px;
+  }
+
+  /* REGULATORY SECTION */
+  .reg-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){ .reg-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:560px){ .reg-grid{grid-template-columns:1fr;} }
+  .reg-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:16px 18px;
+  }
+  .reg-card .reg-name{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:15.5px;
+    margin-bottom:4px;
+    color:var(--ink);
+  }
+  .reg-card .reg-role{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .reg-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:16px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .reg-row:first-child{border-top:none;}
+  @media (max-width:700px){ .reg-row{grid-template-columns:1fr;gap:6px;} }
+  .reg-row .reg-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--brass);
+    padding-top:1px;
+  }
+  .reg-row p{margin:0;font-size:13.8px;color:var(--ink-soft);line-height:1.55;}
+
+  footer{
+    margin-top:70px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:12px;
+    color:var(--slate);
+  }
+
+  /* SIDE NAV */
+  .side-nav{
+    position:fixed;
+    top:50%;
+    right:28px;
+    transform:translateY(-50%);
+    z-index:50;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:10px;
+    box-shadow:0 8px 24px rgba(20,28,46,0.08);
+  }
+  .side-nav a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    text-decoration:none;
+    color:var(--slate);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    border-radius:3px;
+    white-space:nowrap;
+    transition:background 0.12s ease, color 0.12s ease;
+  }
+  .side-nav a .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--line);
+    flex-shrink:0;
+    transition:background 0.12s ease, transform 0.12s ease;
+  }
+  .side-nav a:hover{background:rgba(184,134,58,0.08);color:var(--ink);}
+  .side-nav a.active{color:var(--ink);font-weight:600;}
+  .side-nav a.active .dot{background:var(--brass);transform:scale(1.3);}
+  .side-nav-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--brass);
+    padding:6px 10px 8px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:4px;
+  }
+
+  /* MOBILE TOP NAV */
+  .mobile-nav{
+    display:none;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--ink);
+    padding:12px 16px;
+    overflow-x:auto;
+    white-space:nowrap;
+    gap:18px;
+  }
+  .mobile-nav a{
+    color:rgba(251,248,242,0.7);
+    text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding-right:18px;
+  }
+  .mobile-nav a.active{color:var(--brass-bright);}
+
+  /* INDUSTRY SWITCHER */
+  .industry-switch{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:60;
+    display:flex;
+    background:var(--ink);
+    border-radius:20px;
+    padding:4px;
+    box-shadow:0 8px 24px rgba(20,28,46,0.25);
+  }
+  .industry-switch a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:rgba(251,248,242,0.6);
+    text-decoration:none;
+    padding:7px 16px;
+    border-radius:16px;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .industry-switch a.active{
+    background:var(--brass);
+    color:var(--ink);
+    font-weight:600;
+  }
+  .industry-switch a:not(.active):hover{color:rgba(251,248,242,0.9);}
+  .industry-switch .home-link{
+    display:flex;align-items:center;
+    color:rgba(251,248,242,0.5);
+    text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    padding:7px 12px 7px 6px;
+    border-right:1px solid rgba(251,248,242,0.15);
+    margin-right:4px;
+    transition:color 0.15s ease;
+  }
+  .industry-switch .home-link:hover{color:rgba(251,248,242,0.9);}
+  @media (max-width:1100px){
+    .industry-switch{top:auto;bottom:18px;}
+  }
+
+  @media (max-width:1100px){
+    .side-nav{display:none;}
+    .mobile-nav{display:flex;}
+  }
+</style>
+</head>
+<body>
+
+<div class="industry-switch">
+  <a href="index.html" class="home-link" title="All interview prep">&larr; All prep</a>
+  <a href="insurance.html" class="active">Insurance</a>
+  <a href="bank.html">Banking</a>
+</div>
+
+<nav class="side-nav" aria-label="Page sections">
+  <div class="side-nav-label">On this page</div>
+  <a href="#top" data-target="top"><span class="dot"></span>Overview</a>
+  <a href="#stack" data-target="stack"><span class="dot"></span>The five layers</a>
+  <a href="#companies" data-target="companies"><span class="dot"></span>Company facts</a>
+  <a href="#talking-points" data-target="talking-points"><span class="dot"></span>Interview use</a>
+  <a href="#your-experience" data-target="your-experience"><span class="dot"></span>Your experience</a>
+  <a href="#ai-adoption" data-target="ai-adoption"><span class="dot"></span>AI adoption</a>
+  <a href="#regulatory" data-target="regulatory"><span class="dot"></span>Regulatory</a>
+  <a href="#sources" data-target="sources"><span class="dot"></span>Sources</a>
+</nav>
+
+<div class="mobile-nav" aria-label="Page sections (mobile)">
+  <a href="#top" data-target="top">Overview</a>
+  <a href="#stack" data-target="stack">Layers</a>
+  <a href="#companies" data-target="companies">Companies</a>
+  <a href="#talking-points" data-target="talking-points">Interview</a>
+  <a href="#your-experience" data-target="your-experience">Your experience</a>
+  <a href="#ai-adoption" data-target="ai-adoption">AI adoption</a>
+  <a href="#regulatory" data-target="regulatory">Regulatory</a>
+  <a href="#sources" data-target="sources">Sources</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="eyebrow">Career transition briefing · Hong Kong life &amp; health insurers</div>
+    <h1>You already know the <em>machine</em>.<br>This is the industry it runs in.</h1>
+    <p class="hero-sub">Every insurer runs the same five jobs — sell, underwrite, administer, pay claims, and learn from data. What differs is which vendors and cloud platforms sit underneath, and that's the part your PM background transfers into immediately: vendor governance, migration risk, and cross-functional delivery look identical to what you already run.</p>
+    <div class="hero-note">Built from publicly announced vendor partnerships (press releases, vendor case studies, trade press) as of July 2026. Insurers rarely disclose their full core policy admin stack — treat anything not sourced here as a question to ask in the interview, not an assumed fact.</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- THE UNIVERSAL STACK -->
+  <section id="stack">
+    <p class="section-label">Framework</p>
+    <h2 class="section-title">The five layers, in any insurer</h2>
+    <p class="section-intro">This is the generic industry model — not company-specific. Learn this shape first, then hang each insurer's known facts on it. It's also the structure to use if an interviewer asks "walk me through how a policy works end-to-end."</p>
+
+    <div class="stack">
+      <div class="stack-row">
+        <div class="stack-label"><strong>Distribution &amp; CRM</strong>front door</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Agent/broker portals, bancassurance links, direct digital sales.
+              <span class="chip">e.g. Salesforce, MS Dynamics</span>
+              <span class="chip">agent workbench apps</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> agents &amp; brokers · bancassurance staff · sales &amp; distribution ops · customers (direct digital channels)</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Underwriting</strong>risk decision</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Rules engines that price risk and decide accept/decline/load.
+              <span class="chip">rules &amp; scoring engines</span>
+              <span class="chip">medical underwriting APIs</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> underwriters (life &amp; medical) · actuarial/pricing teams · risk &amp; product teams setting the rules · agents (via referral queues on edge cases)</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Policy Admin (PAS)</strong>the ledger</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              System of record for the policy: billing, endorsements, renewals, valuation.
+              <span class="chip">Guidewire</span>
+              <span class="chip">Sapiens</span>
+              <span class="chip">FINEOS</span>
+              <span class="chip">Vitech</span>
+              <span class="chip">in-house / legacy mainframe</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> policy administration &amp; ops teams · customer service reps (servicing existing policies) · finance/billing teams · actuarial/valuation teams · IT teams maintaining integrations</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Claims</strong>the payout</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Intake, adjudication, fraud/waste/abuse detection, payment.
+              <span class="chip">BPaaS / outsourced ops</span>
+              <span class="chip">gen-AI document processing</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> claims assessors/adjudicators · medical assessors (health claims) · fraud &amp; investigations teams · outsourced BPO/BPaaS operators (e.g. Cognizant staff) · customers submitting claims</div>
+          </div>
+        </div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-label"><strong>Data, Cloud &amp; AI</strong>the nervous system</div>
+        <div class="stack-content">
+          <div class="stack-content-inner">
+            <div class="stack-chips">
+              Cloud migration, data warehousing, gen-AI copilots layered on top of the above.
+              <span class="chip">AWS</span>
+              <span class="chip">Azure</span>
+              <span class="chip">Alibaba Cloud</span>
+              <span class="chip">Google Cloud</span>
+            </div>
+            <div class="stack-users"><b>Used by</b> IT/engineering &amp; cloud platform teams · data scientists &amp; analytics teams · compliance/risk (model governance) · executives &amp; ops leads (via dashboards) — indirectly, everyone in the four layers above</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY BY COMPANY -->
+  <section id="companies">
+    <p class="section-label">Verified, company by company</p>
+    <h2 class="section-title">What's actually public</h2>
+    <p class="section-intro">Each fact below is a real, sourced announcement — not an inference about their core PAS. I've labelled which stack layer it sits in so you can slot it into the framework above, and added a "Bancassurance" fact per company since it's such a central HK distribution channel — over half of life insurance distribution in the market runs through banks.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-head"><h3>AIA</h3><span>Hong Kong &amp; Macau</span></div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Investment platform being rebuilt on BlackRock's Aladdin, with BNY providing investment operations and data management — announced July 2024 for the wider AIA Group.
+            <span class="src">Source: BlackRock/AIA joint announcement</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Distribution</div>
+          <div class="fact-body">Uses Google Cloud and TensorFlow in its HK&amp;M digital health stack; partners with WhiteCoat on "MindAid," a gen-AI-enabled mental wellness app for group insurance members.
+            <span class="src">Source: HR Vendors of the Year coverage, vendor tech-stack listings</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Claims/Service</div>
+          <div class="fact-body">Rolled out an "Employee Benefits Concierge" on the AIA+ app combining generative AI with human design for group insurance enquiries (2025/26).
+            <span class="src">Source: Human Resources Online</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Bancassurance</div>
+          <div class="fact-body">Exclusive 15-year bancassurance partnership with Bank of East Asia (2021), later deepened when AIA acquired BEA's life insurance unit and health insurer Blue Cross (2022) as part of the same relationship. Also runs a long-standing exclusive tie-up with Citibank HK (since 2014) and non-exclusive bank distribution through China Construction Bank Macau, OCBC Wing Hang and Public Bank HK.
+            <span class="src">Source: AIA Group press releases, 2021 &amp; 2022; AIA HK distribution partners page</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Manulife</h3><span>Hong Kong &amp; Macau</span></div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Runs its Valuation System Transformation (VST) on Microsoft Azure/365, aiming for a faster, more flexible platform that can absorb regulatory change; also uses Teams for "virtual face-to-face" client servicing.
+            <span class="src">Source: Microsoft Customer Stories</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Announced a major partnership with Alibaba Cloud (2026) for AI infrastructure, using Alibaba's Qwen LLM family to power next-gen underwriting/claims automation.
+            <span class="src">Source: trade press coverage, June 2026 — I'd verify directly with Alibaba/Manulife press releases before quoting specifics</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Governance</div>
+          <div class="fact-body">Named a "Core Participating Insurer" in the Insurance Authority's AI Cohort Programme (June 2026), tying it into HK's regulator-led AI Centres of Excellence.
+            <span class="src">Source: PR Newswire</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Bancassurance</div>
+          <div class="fact-body">15-year regional life bancassurance partnership with DBS (Hong Kong, Singapore, China, Indonesia — launched 2016), plus a separate 15-year exclusive pension/MPF partnership with Standard Chartered HK (2016), extended to private banking clients in 2024. Also distributes through China CITIC Bank International.
+            <span class="src">Source: DBS newsroom 2015/2016; Manulife HK newsroom, April 2024; Manulife HK "Our Distribution Network" page</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Bupa</h3><span>Hong Kong</span></div>
+        <div class="fact">
+          <div class="fact-tag">Claims</div>
+          <div class="fact-body">Signed a five-year deal with Cognizant (Dec 2025) for an AI-driven Business-Process-as-a-Service (BPaaS) platform covering end-to-end claims — cloud-native, gen-AI document/code extraction, plus fraud/waste/abuse detection. Cognizant's largest HK IOA deal to date.
+            <span class="src">Source: Cognizant/PR Newswire, Dec 2025</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Distribution</div>
+          <div class="fact-body">Expanding cashless medical provider networks across the Greater Bay Area, reflecting the cross-border healthcare push common to HK health insurers right now.
+            <span class="src">Source: Insurance Business Magazine</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Bancassurance</div>
+          <div class="fact-body">I couldn't find a publicly announced bancassurance deal for Bupa HK — it's a health-insurance specialist that sells mainly direct, through brokers/IFAs, and via corporate/employee-benefits channels rather than bank branches. Worth confirming directly rather than assuming a bank partner exists.
+            <span class="src">No source — flagging the gap rather than guessing</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Sun Life</h3><span>Hong Kong</span></div>
+        <div class="fact">
+          <div class="fact-tag">Data / AI</div>
+          <div class="fact-body">Migrated the majority of its Hong Kong application suite to AWS over roughly the last two years, moving deliberately away from legacy on-prem data centres.
+            <span class="src">Source: SCMP / AWS-sponsored feature</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Distribution</div>
+          <div class="fact-body">Built "Advisor Workbench" and a gen-AI assistant, "Advisor Buddy," for its agency force — cited in 18 Bloomberg awards won in 2026.
+            <span class="src">Source: Insurance-Edge.net</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Ecosystem</div>
+          <div class="fact-body">Partnered with HealthMutual Group to build "eSunPro," a healthcare service platform linking clients to private hospitals in HK and mainland China.
+            <span class="src">Source: Sun Life HK newsroom, 2024</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Bancassurance</div>
+          <div class="fact-body">First exclusive HK bancassurance deal, with Dah Sing Bank (2023, 15-year term, HK$1.5bn payment) — exclusive provider of life insurance to Dah Sing's ~570,000 retail customers across 40+ branches. Notable because HK bancassurance was reportedly over 50% of life distribution mix at the time of the deal.
+            <span class="src">Source: PR Newswire / Sun Life HK newsroom, January 2023</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>AXA</h3><span>Hong Kong &amp; Macau</span></div>
+        <div class="fact">
+          <div class="fact-tag">Policy Admin</div>
+          <div class="fact-body">Adopted CoverGo, a no-code insurance core SaaS platform, for its general insurance line — chosen specifically for API-driven integration into AXA's existing systems to speed up product launches.
+            <span class="src">Source: PR Newswire, July 2023</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Distribution</div>
+          <div class="fact-body">Embedded-insurance partnerships with GoGoX (logistics platform, driver insurance) and, more recently, Ant Bank (HK) / AlipayHK (savings and life products inside AlipayHK's mini-app) — part of AXA's "Digital Partnership Proposition" since 2022.
+            <span class="src">Source: AXA HK newsroom; The Digital Banker, April 2025</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Bancassurance</div>
+          <div class="fact-body">Ten-year exclusive P&amp;C bancassurance agreement with HSBC (2012 deal, alongside AXA acquiring HSBC's general insurance book in HK, Singapore and Mexico), still visible today in joint online commercial-insurance tools for HSBC business banking customers. The Ant Bank/AlipayHK tie-up above functions as AXA's modern, digital-native equivalent on the life/savings side.
+            <span class="src">Source: AXA Group press release, 2012; AXA HK newsroom</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>FWD</h3><span>Hong Kong-headquartered, pan-Asian</span></div>
+        <div class="fact">
+          <div class="fact-tag">Data / Cloud</div>
+          <div class="fact-body">Five-year "cloud-first" agreement with AWS (extended May 2024) hosting core business applications from finance to agent-facing interfaces, moving away from FWD's own data centres; separately, a four-year Microsoft deal (Feb 2024) for Azure OpenAI Service gen-AI capability.
+            <span class="src">Source: AWS press centre, May 2024; Microsoft News Center HK, Feb 2024</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Underwriting / Claims</div>
+          <div class="fact-body">Runs a core operations platform called "Opus," with near-complete (~99%) cloud migration and over 300 active AI models deployed across underwriting, claims and servicing as of 2025 — including AI-driven lapse-prevention models the company credits with meaningful policy-retention savings.
+            <span class="src">Source: The Digital Banker, May 2026</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Governance</div>
+          <div class="fact-body">Also a Core Participating Insurer in the Insurance Authority's AI Cohort Programme, with an internal AI centre of excellence for cross-functional governance.
+            <span class="src">Source: FWD Insurance LinkedIn, June 2026</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>HSBC Life</h3><span>Hong Kong &amp; Macau</span></div>
+        <div class="fact">
+          <div class="fact-tag">Bancassurance</div>
+          <div class="fact-body">Structurally different from the other six: HSBC Life <em>is</em> the bank's own insurance manufacturing arm, not a bank's external partner — bancassurance through HSBC's 100+ HK branches is its native distribution model rather than a bolt-on deal. Worth knowing as the "in-house bancassurer" contrast case in an interview.
+            <span class="src">Source: HSBC HK "About HSBC Life" page</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Claims</div>
+          <div class="fact-body">Invested roughly US$20 million in AI-driven technology upgrades (reported 2023), cutting online medical claims reimbursement time from around five days to five minutes.
+            <span class="src">Source: SCMP, May 2023</span></div>
+        </div>
+        <div class="fact">
+          <div class="fact-tag">Policy Admin / Digital</div>
+          <div class="fact-body">Long run of straight-through-processing (STP) digital products since 2016–2017 (e.g. first STP critical illness plan in HK), plus a customer-facing "Insurance Dashboard" serving 650,000+ customers policy access round the clock.
+            <span class="src">Source: HSBC Life "Insurer Transformation Award 2023" deck</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="section-intro" style="margin-top:28px;margin-bottom:0;">A few other names worth having a view on, even without full sourcing here: <strong>Prudential plc</strong> (AIA's closest scale rival in HK, also flagged by the regulator as systemically important), <strong>Zurich</strong> and <strong>Chubb</strong> (strong in general/commercial and expat-oriented cover), and <strong>China Life (Overseas)</strong> / <strong>Bank of China Group Insurance</strong> (mainland-linked players relevant if a role touches Greater Bay Area strategy). I haven't built full cards for these — treat them as names to have a one-line view on, not verified facts.</p>
+  </section>
+
+  <!-- HOW TO USE IT IN INTERVIEW -->
+  <section id="talking-points">
+    <p class="section-label">Interview application</p>
+    <h2 class="section-title">How to use this without overclaiming</h2>
+    <p class="section-intro">The goal isn't to sound like an insurance insider on day one — that will backfire if probed. The goal is to show you already think in the right categories.</p>
+    <div class="tp-list">
+      <div class="tp">
+        <h4>Frame your PM experience against the five layers</h4>
+        <p>"In my last role I managed [vendor/platform] migrations — I understand that's structurally similar to what a policy admin or claims modernisation programme looks like here: legacy system risk, phased cutover, stakeholder sign-off across ops and compliance."</p>
+      </div>
+      <div class="tp">
+        <h4>Ask, don't assert, on core systems</h4>
+        <p>Insurers almost never publish their core PAS vendor. If asked "do you know our systems," it's stronger to say: "I've seen your public claims/cloud partnerships — I'd want to understand which parts of the stack are in-house versus vendor-run before I could speak to specifics."</p>
+      </div>
+      <div class="tp">
+        <h4>Use the claims/cloud angle as your strongest card</h4>
+        <p>Claims BPaaS deals (Bupa/Cognizant) and cloud migrations (Sun Life/AWS, Manulife/Azure &amp; Alibaba) are the most concretely documented — lean on these rather than guessing at underwriting or valuation internals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR EXPERIENCE -->
+  <section id="your-experience">
+    <p class="section-label">Built from your own project record</p>
+    <h2 class="section-title">Your experience, translated for these interviews</h2>
+    <p class="section-intro">This is drawn only from what's actually documented in your project portfolio — nothing invented or assumed. Each card pairs a real delivery with the insurance-specific reason it lands, so you have a concrete answer ready rather than a general "my skills are transferable" claim.</p>
+    <div class="tp-list">
+      <div class="tp">
+        <h4><span class="layer-tag">Regulatory reporting</span>Cross-entity tax reporting under deadline</h4>
+        <p>You coordinated global tax information reporting (CRS/FATCA) across 8+ legal entities spanning the UK, EU, Americas, Middle East and Africa, working directly with a Big Four firm and internal Tax/BI teams to resolve data-quality issues against statutory deadlines. This is the same shape of work as an insurer's HKRBC/ORSA reporting cycle or the annual statutory returns to the IA: multi-stakeholder, deadline-driven, and won't tolerate bad source data.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Audit remediation</span>Built a control matrix off a real audit finding</h4>
+        <p>You led a client-money controls enhancement programme in direct response to a prior regulatory audit finding, consolidating Accounting, Compliance, Risk, Legal and external audit into a single enterprise control matrix. If an interviewer asks "have you worked on compliance remediation before," this is a near-exact answer — it's the same discipline GL21's Enterprise Risk Management expectations are built around.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">AML controls</span>Consistency across product silos</h4>
+        <p>You scoped a cross-silo (CFD/Stocks/Crypto) trading-restriction automation initiative specifically to strengthen AML control consistency. That's the same problem an insurer's GL3 AML/CFT controls have to solve across life, health and general lines sold through different channels.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Strongest card</span>End-to-end launch of a new regulated, multi-vendor business line</h4>
+        <p>As BA and backup PM, you took a licensed crypto trading and custody business line from regulatory approval through to live launch across two new entities, coordinating a multi-vendor ecosystem — custody, liquidity, transaction monitoring, market surveillance — plus owned the digital-wallet workstream as dedicated PM. This is structurally the same as an insurer standing up a new regulated product or platform with an external vendor (Bupa's Cognizant BPaaS deal, AXA's CoverGo rollout): new licensed capability, multiple vendors, regulatory sign-off gating go-live. Lead with this one.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Live right now</span>Currently running a core-system vendor implementation</h4>
+        <p>You're presently leading PMO governance for the organisation's top-priority initiative — an enhanced trading platform built with a new external vendor — spanning Product, Technology, Network, Data Science, InfoSec, Operations, Compliance, Legal, Risk, Finance, Sales and Marketing, through vendor contracting, onboarding-process design and early access rollout. You can speak to this as active, ongoing work — it's the same category of project as an insurer's PAS or claims-platform vendor implementation, just mid-flight rather than retrospective.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Classification against rules</span>Client categorisation to meet regulatory criteria</h4>
+        <p>You progressed a professional-client classification programme for two European entities through to soft launch. This parallels the classification exercises insurers run themselves — VHIS-certified versus non-certified plans, or professional-investor thresholds on investment-linked products — where a customer or product has to be correctly bucketed against a regulatory definition before anything downstream can happen.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Governance at scale</span>Cross-functional PMO across 10+ initiatives simultaneously</h4>
+        <p>You've served as PMO governance lead across 10+ further enterprise initiatives — new regulated-entity launches, trading-platform migrations, annual client statement builds, Salesforce migrations — running risk/issue tracking, stakeholder reporting and formal closure discipline throughout. That's the exact muscle needed to run a claims-modernisation or cloud-migration programme that touches underwriting, actuarial, IT and compliance at the same time, which is how most insurance system projects are actually structured.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Incident-style response</span>Rapid cross-functional response to an external shock</h4>
+        <p>You stepped into an urgent, business-critical banking-details change — driven by an external bank's own restructuring — coordinating accounting, compliance, operations and marketing to protect uninterrupted client fund transfers. This is a good answer if asked about handling a regulatory-driven emergency change, such as an urgent GL20 cyber-incident response window or a sudden product recertification deadline.</p>
+      </div>
+      <div class="tp">
+        <h4><span class="layer-tag">Judgement, not just delivery</span>Honest closure discipline on de-scoped work</h4>
+        <p>Several of your PM/BA-owned initiatives were cancelled or transferred rather than fully delivered, and your own notes are careful to phrase these as "progressed... before... closure" rather than claiming shipped outcomes. Say this plainly if asked — a candidate who can describe why something was closed cleanly, and what was learned, generally reads as more credible than one whose project list is entirely wins.</p>
+      </div>
+      <div class="tp" style="border-left-color:var(--caution);">
+        <h4>Gap to fill before the interview: UAT</h4>
+        <p>Your source document doesn't explicitly detail UAT (user acceptance testing) work, even though the vendor onboarding, requirements sign-off and platform-rollout language strongly suggest you've run test cycles as part of these projects. I haven't invented UAT specifics here since they're not in your record — worth writing yourself a concrete one-line example (test case design, defect triage, sign-off gate you owned) before the interview, since insurers will very likely ask about it directly given how central UAT is to any regulated system go-live.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI ADOPTION -->
+  <section id="ai-adoption">
+    <p class="section-label">Forward-looking framework — mine, not a confirmed roadmap</p>
+    <h2 class="section-title">Where AI adds value, layer by layer</h2>
+    <p class="section-intro">This is my own consulting-style analysis of plausible AI use cases per layer, not a leaked or confirmed plan from any insurer. Use it to demonstrate you can reason about value, mechanism and rollout risk together — that's the PM instinct that transfers directly, and it's a stronger interview answer than naming a tool. Click each layer to expand.</p>
+
+    <details class="ai-card" open>
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 1</span><h4>Distribution &amp; CRM — agent co-pilot</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>Agents spend disproportionate time on proposal drafting and product comparison rather than client conversations. Sun Life's own "Advisor Buddy" shows this is already a live pattern in the HK market — the gap left is speed of adoption and depth of personalisation, not the core idea.</p></div>
+        <div class="ai-field"><b>How</b><p>A gen-AI assistant sits inside the agent's existing CRM, drafting personalised proposals and illustrations from client data, flagging cross-sell opportunities, and answering product-rule questions the agent would otherwise escalate.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>Microsoft Copilot for Sales or Salesforce Einstein Copilot as the CRM-native layer</li>
+          <li>Azure OpenAI Service or AWS Bedrock (Claude/other models) fine-tuned or grounded via RAG on the product catalogue for accuracy</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Pilot with 20–30 top-performing agents on one product line; success metric is time-to-proposal and agent satisfaction, not sales volume yet.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Expand to full agency force for that product; add a feedback loop where agents flag wrong/awkward outputs.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Extend across the product suite; fold into new-agent onboarding as the default way of working.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Senior agents may see it as devaluing their expertise or a precursor to reduced commission structures.</li>
+          <li>Compliance will worry about consistency of advice across AI-assisted and non-assisted proposals — insurance advice is a regulated activity in Hong Kong.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Position explicitly as augmentation — the agent approves and signs every output, nothing goes to a client unreviewed. Recruit 2–3 respected senior agents as visible pilot champions rather than mandating top-down. Publish a simple before/after time metric so the value is tangible, not abstract.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 2</span><h4>Underwriting — triage, not replacement</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>Most individual life/health applications are low-risk and formulaic; manual review of every case wastes senior underwriter time and slows time-to-issue, which is a real customer-experience and conversion lever.</p></div>
+        <div class="ai-field"><b>How</b><p>An ML risk-scoring model plus document-extraction (medical questionnaires, lab reports) auto-approves straightforward cases and routes only borderline or high-value cases to a human underwriter — straight-through processing (STP) with a human-in-the-loop escalation path.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>Azure AI Document Intelligence or AWS Textract for structured extraction from medical forms</li>
+          <li>An in-house or vendor risk-scoring model (several reinsurers, e.g. Munich Re, Swiss Re, offer underwriting-decision APIs) rather than building scoring from scratch</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Run the model in shadow mode alongside human underwriters on one simple product (e.g. term life, low sum assured) — compare decisions without acting on the model yet.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Go live for auto-approval only within a conservative sum-assured threshold; every decline still goes to a human.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Raise thresholds and extend to other products as the actuarial team validates accuracy against outcomes.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Underwriters may fear de-skilling or headcount reduction — a legitimate concern, not just an emotional one.</li>
+          <li>The Insurance Authority will expect explainability for any automated decision that affects a customer, especially declines — "black box" scoring is a real regulatory blocker.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Reframe underwriter roles toward "exception specialist" and model-audit work rather than volume processing — a genuine career path, not a euphemism, if resourced properly. Bring compliance and the actuarial function in from day one of model design, not at sign-off, so explainability is built in rather than retrofitted.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 3</span><h4>Policy Admin — back-office automation</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>Policy admin systems are often the oldest part of the stack, with high-volume, low-complexity servicing transactions (address changes, beneficiary updates, simple endorsements) still handled manually via email or paper request.</p></div>
+        <div class="ai-field"><b>How</b><p>Combine RPA with gen-AI document reading: an incoming email or scanned form is classified, key fields extracted, and the transaction posted directly to the PAS, with a human reviewing only exceptions or low-confidence extractions.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>UiPath or Automation Anywhere for the RPA/orchestration layer</li>
+          <li>A gen-AI layer (Azure OpenAI/AWS Bedrock) for unstructured document classification and extraction, sitting in front of the existing PAS (Guidewire, Sapiens etc. increasingly ship native AI modules for this)</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Pick the single highest-volume, lowest-risk transaction type (e.g. address change) and automate it end-to-end first.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Add beneficiary changes and simple endorsements once error rates on phase 0 are proven acceptable.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Extend toward renewals and more complex endorsements, always keeping a manual override path.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Ops staff reasonably fear redundancy if automation is framed as a headcount play rather than a service-quality one.</li>
+          <li>IT will flag integration risk if the PAS is a legacy/mainframe system not built for API-style access.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Redeploy affected staff toward quality assurance and exception-handling roles and say so explicitly and early — silence on job impact is what generates resistance, not the technology itself. Keep a visible rollback plan for the first few automated transaction types so ops trusts the safety net exists.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 4</span><h4>Claims — the strongest business case</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>This is the layer with an actual public precedent in this market — Bupa HK's five-year Cognizant BPaaS deal. Claims turnaround directly drives customer satisfaction and retention, and fraud/waste/abuse detection has a direct loss-ratio impact, making the ROI case easiest to build here.</p></div>
+        <div class="ai-field"><b>How</b><p>Gen-AI reads submitted invoices and medical documents, extracts diagnosis/procedure codes, cross-checks against policy terms and historical claims patterns, and flags anomalies for fraud/waste/abuse review — while routine, clean claims move to auto-payment.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>Cognizant's BPaaS claims platform (the Bupa HK precedent) or comparable vendors</li>
+          <li>Shift Technology for fraud/waste/abuse detection specifically</li>
+          <li>Tractable, more relevant on the general/motor side, for automated damage assessment from photos</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Pilot on one high-volume, low-complexity claim type — outpatient GP visits are a common starting point — measuring automation rate and turnaround time, not cost saving yet.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Extend to more claim types while keeping human sign-off mandatory on every decline.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Layer in fraud/waste/abuse detection once the extraction pipeline is stable and trusted.</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Claims assessors may feel their professional judgement is being second-guessed by a model.</li>
+          <li>Customers denied a claim by an AI-influenced decision are a genuine reputational and regulatory risk — complaints to the Insurance Authority or the Insurance Complaints Bureau are a realistic downside if this isn't handled transparently.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Make it a hard rule, not just a talking point, that AI recommends and a human approves any denial or reduction — and communicate that boundary to customers, not just internally. Retrain assessors on how to supervise and override the model rather than simply process claims faster, and build a feedback loop so overrides retrain the model over time.</p></div>
+      </div>
+    </details>
+
+    <details class="ai-card">
+      <summary>
+        <div class="ai-card-title"><span class="layer-tag">Layer 5</span><h4>Data, Cloud &amp; AI — the enabling layer</h4></div>
+      </summary>
+      <div class="ai-card-body">
+        <div class="ai-field"><b>Why AI</b><p>None of the four use cases above work without it: a unified data platform is the precondition, not an optional extra. Sun Life's AWS migration and Manulife's Azure/Alibaba Cloud moves are the real-world version of this — cloud-first is now table stakes, not a differentiator.</p></div>
+        <div class="ai-field"><b>How</b><p>Consolidate data from PAS, claims and CRM systems (often siloed by product line or legacy migration history) into a central lakehouse, and stand up a shared AI governance framework — model risk, explainability documentation, and data residency rules — before scaling any individual use case.</p></div>
+        <div class="ai-field"><b>What tool</b><ul>
+          <li>AWS Bedrock/SageMaker, Azure AI Foundry, Google Vertex AI, or Alibaba Cloud's Qwen stack — the choice usually follows whichever hyperscaler the company has already committed to for infrastructure</li>
+          <li>Databricks or Snowflake as the data platform layer beneath the AI tools</li>
+        </ul></div>
+        <div class="ai-field"><b>Adoption plan</b>
+          <div class="plan-steps">
+            <div class="plan-step"><span class="num">Phase 0</span>Cloud migration and a basic data governance charter, before any customer-facing AI use case is greenlit.</div>
+            <div class="plan-step"><span class="num">Phase 1</span>Stand up a small AI Centre of Excellence to pool expertise across the use cases above rather than each department building in isolation — this mirrors what the Insurance Authority's AI Cohort Programme is trying to encourage across the market.</div>
+            <div class="plan-step"><span class="num">Phase 2</span>Fund individual use cases (layers 1–4) against this shared foundation, each with its own business case rather than "AI for AI's sake."</div>
+          </div>
+        </div>
+        <div class="ai-field"><b>Foreseen resistance</b><ul>
+          <li>Cross-department disputes over data ownership and access are common and often underestimated in planning.</li>
+          <li>Data residency and cybersecurity concerns are especially live in Hong Kong given cross-border data flows to mainland China and elsewhere.</li>
+        </ul></div>
+        <div class="ai-field"><b>Change management notes</b><p>Get visible executive sponsorship for the data governance charter specifically, since it has no obvious owner otherwise and tends to stall between IT and business units. Where possible, use the Insurance Authority's Gen A.I. Sandbox++ (referenced in Sun Life's own public material) as a low-risk space to test governance approaches before committing enterprise-wide.</p></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- REGULATORY LANDSCAPE -->
+  <section id="regulatory">
+    <p class="section-label">Regulatory literacy</p>
+    <h2 class="section-title">The regulatory landscape</h2>
+    <p class="section-intro">This is what I'd actually check is current before an interview — guideline numbers and thresholds get revised. What's stable and safe to say cold is the shape of the system: who regulates what, and why "compliant" means something specific and checkable, not a vague adjective.</p>
+
+    <p class="section-label" style="margin-top:6px;">Who regulates what</p>
+    <div class="reg-grid">
+      <div class="reg-card">
+        <div class="reg-name">Insurance Authority (IA)</div>
+        <div class="reg-role">Primary regulator of insurers and intermediaries under the Insurance Ordinance (Cap. 41). Independent statutory body — took over insurer supervision from the old Office of the Commissioner of Insurance in 2017, and intermediary licensing from industry self-regulatory bodies in 2019.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">HKMA</div>
+        <div class="reg-role">Regulates banks. Relevant to insurance specifically through bancassurance — a bank distributing insurance is subject to HKMA conduct expectations on top of the insurer's IA obligations.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">SFC</div>
+        <div class="reg-role">Regulates securities and investment products. Overlaps with insurance where a product has an investment-linked component (ILAS-type products).</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">MPFA</div>
+        <div class="reg-role">Regulates MPF/pension schemes. Several insurers here (Manulife, Sun Life, AIA, Bupa's peers) also run MPF trustee businesses, which sit under MPFA rather than IA for scheme administration.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">PCPD</div>
+        <div class="reg-role">Privacy Commissioner for Personal Data — enforces the Personal Data (Privacy) Ordinance (Cap. 486), the general data protection law that applies on top of any IA-specific data rules.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">ICB</div>
+        <div class="reg-role">Insurance Complaints Bureau — industry-funded but independent dispute body. IA licensing conditions require personal-lines insurers to be ICB members; it adjudicates claim disputes up to a set monetary limit (roughly HK$1.2 million).</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">FDRC</div>
+        <div class="reg-role">Financial Dispute Resolution Centre — cross-sector mediation/arbitration, relevant when a bank-distributed (bancassurance) product is the source of the dispute rather than a pure insurance complaint.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">Health Bureau</div>
+        <div class="reg-role">Certifies Voluntary Health Insurance Scheme (VHIS) plans — the government scheme (since 2019) that gives policyholders a tax deduction for holding a certified hospital insurance plan. Product-specific, not a general insurance regulator.</div>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:36px;">Key rules and reporting requirements</p>
+    <div class="stack" style="grid-template-columns:220px 1fr;">
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">HKRBC</div>
+        <p>Hong Kong Risk-Based Capital regime — effective 1 July 2024, with a three-year transition ending 30 June 2027. Three pillars: Pillar 1 quantitative capital requirements, Pillar 2 Enterprise Risk Management (ERM) and an annual Own Risk and Solvency Assessment (ORSA) submitted to the IA, Pillar 3 public disclosure. Replaces the older solvency-margin regime and broadly mirrors Solvency II / the IAIS's Insurance Capital Standard.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">HKFRS 17</div>
+        <p>The insurance-contract accounting standard, effective 1 January 2023, requiring economic-basis valuation of insurance liabilities. Runs alongside HKRBC — the two regimes need consistent (though not always identical) actuarial data, which is a common integration headache during system change.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">GL21 — ERM</div>
+        <p>The IA's Guideline on Enterprise Risk Management, which is where the ORSA requirement actually lives (at least annual, submitted as a formal ORSA Report to the IA).</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">GL20 — Cybersecurity</div>
+        <p>Sets minimum cybersecurity standards for authorised insurers across seven control domains (Governance, Identification, Protection, Detection, Response &amp; Recovery, Situational Awareness, Third-Party Risk Management). Insurers self-assess an inherent risk rating, which determines whether Baseline, Intermediate or Advanced controls apply — higher-risk insurers need independent external validation of the assessment.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">GL3 — AML/CFT</div>
+        <p>Guideline on Anti-Money Laundering and Counter-Terrorist Financing, giving effect to the Anti-Money Laundering and Counter-Terrorist Financing Ordinance (Cap. 615) for insurers — customer due diligence, PEP and sanctions screening, and record-keeping. Last revised in 2023 to reflect AMLO amendments on digital ID verification and beneficial-ownership checks.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">GL10 — Governance</div>
+        <p>Guideline on Corporate Governance — board/senior-management accountability expectations, including oversight of technology and cyber risk at governance level, not just within IT.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">GL31 — Medical</div>
+        <p>Guideline on Medical Insurance Business, including specific conduct requirements for VHIS-certified plans — product wording, sales conduct and monitoring obligations that apply on top of general product rules.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">S.64G licensing</div>
+        <p>Section 64G of the Insurance Ordinance makes it a criminal offence to negotiate, arrange, or advise on insurance without a licence — the reason any "distribution partner" (a bank, an e-wallet, a logistics platform) needs a defined, licensed role rather than an informal referral arrangement.</p>
+      </div>
+      <div class="reg-row" style="grid-column:1/-1;">
+        <div class="reg-tag">Sandboxes</div>
+        <p>The IA runs a Fast Track authorisation route and an Insurtech Sandbox for piloting new tech with supervisory oversight (linked to equivalent HKMA/SFC sandboxes), plus a newer Gen A.I. Sandbox++ specifically for generative AI pilots — referenced in Sun Life's own public material on its AWS-based AI work.</p>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:36px;">Points to note when working on systems or products</p>
+    <div class="tp-list">
+      <div class="tp">
+        <h4>Outsourcing doesn't outsource accountability</h4>
+        <p>When a BPaaS or cloud vendor sits inside a workflow (the Bupa/Cognizant claims deal is the clearest example here), the IA still holds the insurer accountable for the outcome. Any system design involving a third party needs the insurer's own oversight and audit rights built in from day one, not bolted on after the vendor contract is signed — this maps directly onto GL20's Third-Party Risk Management domain.</p>
+      </div>
+      <div class="tp">
+        <h4>Automated decisions need a defensible audit trail</h4>
+        <p>Any underwriting or claims automation (see the AI adoption section above) has to produce a rationale trail — both because the IA expects explainability for decisions affecting customers, and because a denied claim can end up in front of the ICB, which adjudicates based on the insurer's documented reasoning, not just the outcome.</p>
+      </div>
+      <div class="tp">
+        <h4>Data privacy has to be designed in, not reviewed in</h4>
+        <p>PDPO obligations — consent, retention limits, cross-border transfer awareness (relevant given how much Greater Bay Area data-sharing shows up across these companies) — are far cheaper to build into a system's data model up front than to retrofit once a product has launched.</p>
+      </div>
+      <div class="tp">
+        <h4>Actuarial and finance data lineage is a real migration risk</h4>
+        <p>HKRBC and HKFRS17 both need clean, traceable, economic-basis data from source policy records through to regulatory returns. Legacy PAS migrations (Manulife's Valuation System Transformation is the public example here) are exactly where this kind of lineage tends to break if it isn't a first-class requirement rather than an afterthought.</p>
+      </div>
+      <div class="tp">
+        <h4>Product compliance sits in the product, not just the marketing copy</h4>
+        <p>A VHIS-certified plan carries Health Bureau-mandated wording and conduct requirements that need to be enforced at the point of sale and in the policy admin system itself — not just checked in the brochure. The same logic applies more broadly: regulatory requirements on a product usually need to be encoded as system rules, not left to agent training alone.</p>
+      </div>
+      <div class="tp">
+        <h4>Change control needs actuarial and compliance sign-off, not just IT sign-off</h4>
+        <p>Any system change touching pricing, underwriting rules, or claims logic typically needs sign-off from actuarial and compliance functions before release — a useful thing to ask about directly in an interview ("how does a rule change get approved before it goes live?") since the answer tells you a lot about how mature the release process actually is.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="caution">
+    <div class="caution-mark">!</div>
+    <div><strong>Honesty check before you walk in:</strong> the framework and company facts are drawn from public press releases and trade press, not insider knowledge of any insurer's actual architecture — core policy administration vendors, in particular, are rarely disclosed, and I haven't invented one for any named company. The AI adoption section is different in kind: it's my own analysis of plausible use cases, not a leaked or confirmed roadmap from any insurer — present it in an interview as your thinking, not as something you know they're doing. The "Your experience" section is drawn directly from your own project portfolio document — I paraphrased the achievements but didn't add anything that wasn't already there, and flagged the one real gap (UAT) rather than inventing detail to fill it. The regulatory section is drawn from the Insurance Authority's own published guidelines and legislation, but guideline numbers, thresholds and transition dates get revised — check ia.org.hk directly for anything you plan to state as a specific fact (a rule number, a deadline, a monetary limit) rather than relying on this document alone. Verify anything time-sensitive (recent deals move fast) directly before an interview.</div>
+  </div>
+
+  <footer id="sources">
+    Compiled July 2026 from public sources: PR Newswire, Cognizant/BlackRock/Microsoft/AWS newsrooms, AIA/Manulife/Sun Life/AXA/Bupa/FWD/HSBC Life press releases and newsroom pages, DBS newsroom, Insurance Business Magazine, SCMP, Human Resources Online, Insurance-Edge.net, The Digital Banker, Hubbis. Regulatory content drawn from ia.org.hk (Insurance Ordinance overview, GL3, GL20, GL21, GL31, HKRBC materials), MPFA, PCPD, ICB and FDRC websites, and law-firm regulatory summaries (Norton Rose Fulbright, Charltons, Hauzen, Mayer Brown, JSM, Kennedys).
+  </footer>
+</div>
+
+<script>
+  const navLinks = document.querySelectorAll('.side-nav a, .mobile-nav a');
+  const targets = Array.from(navLinks)
+    .map(a => a.dataset.target)
+    .filter((v, i, arr) => arr.indexOf(v) === i)
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  function setActive(id){
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === id));
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        setActive(entry.target.id);
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  targets.forEach(t => observer.observe(t));
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const el = document.getElementById(a.dataset.target);
+      if(el){ el.scrollIntoView({ behavior:'smooth', block: a.dataset.target === 'top' ? 'start' : 'start' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
