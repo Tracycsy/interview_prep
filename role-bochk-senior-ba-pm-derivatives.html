@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOCHK Interview Prep — Senior BA / Product Manager, Financial Derivatives (Treasury & Global Markets, Middle Office)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --boc-red:#A6192E;
+    --boc-red-dark:#7A1220;
+    --gold:#B4924C;
+    --ink:#1C1A19;
+    --slate:#5B5652;
+    --line:#E4DFD8;
+    --paper:#FBF9F5;
+    --panel:#FFFFFF;
+    --gap-bg:#FBF1EC;
+    --gap-border:#E0A98D;
+    --good-bg:#F1F5EE;
+    --good-border:#B7C9A6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.55;
+    font-size:16px;
+  }
+  h1,h2,h3{font-family:'Source Serif 4',serif;font-weight:700;color:var(--ink);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  .topnav{position:sticky;top:0;background:rgba(251,249,245,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:50;}
+  .topnav-inner{max-width:920px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .topnav-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--slate);margin-right:4px;}
+  .topnav a{font-size:13px;text-decoration:none;color:var(--boc-red-dark);border:1px solid var(--line);padding:5px 12px;border-radius:20px;transition:.15s;}
+  .topnav a:hover{border-color:var(--boc-red);background:#FFFFFF;}
+  .topnav a.home{color:var(--slate);border-right:1px solid var(--line);border-radius:0;padding-right:14px;margin-right:4px;}
+  .topnav a.home:hover{color:var(--ink);border-color:var(--line);background:transparent;}
+
+  header.hero{padding:56px 0 40px;border-bottom:4px solid var(--boc-red);}
+  .eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--boc-red-dark);font-weight:600;margin-bottom:14px;}
+  header.hero h1{font-size:34px;line-height:1.18;margin:0 0 10px;}
+  header.hero .sub{font-size:16px;color:var(--slate);max-width:640px;}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+  .tag{font-size:12px;background:#FFFFFF;border:1px solid var(--line);padding:5px 11px;border-radius:5px;color:var(--slate);}
+
+  .phase{padding:44px 0;border-bottom:1px solid var(--line);}
+  .phase-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px;}
+  .phase-num{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--gold);font-weight:500;text-transform:uppercase;}
+  .phase h2{font-size:24px;margin:0;}
+  .phase-sub{color:var(--slate);font-size:14.5px;margin:6px 0 22px;max-width:680px;}
+
+  .qa{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--boc-red);border-radius:4px;padding:18px 22px;margin-bottom:16px;}
+  .qtag{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--boc-red-dark);font-weight:600;margin-bottom:8px;}
+  .qa p{margin:0 0 10px;}
+  .qa p:last-child{margin-bottom:0;}
+  .qa em{color:var(--slate);font-style:italic;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14.5px;}
+  th{background:var(--boc-red-dark);color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:13px;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#FFFFFF;}
+  tr:nth-child(odd) td{background:#FCFAF6;}
+
+  .fit-yes{color:#3E6B2B;font-weight:600;}
+  .fit-partial{color:#9A6A1E;font-weight:600;}
+  .fit-gap{color:var(--boc-red-dark);font-weight:600;}
+
+  .callout{border-radius:6px;padding:18px 20px;margin:16px 0;font-size:14.5px;}
+  .callout.gap{background:var(--gap-bg);border:1px solid var(--gap-border);}
+  .callout.good{background:var(--good-bg);border:1px solid var(--good-border);}
+  .callout-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:8px;display:block;}
+  .callout.gap .callout-label{color:#A64E1E;}
+  .callout.good .callout-label{color:#4A6B37;}
+
+  ol.numbered,ul.plain{margin:0;padding-left:0;list-style:none;}
+  ol.numbered li{display:flex;gap:14px;margin-bottom:14px;}
+  ol.numbered .num{font-family:'Source Serif 4',serif;font-weight:700;color:var(--gold);font-size:20px;line-height:1.4;flex:0 0 28px;}
+  ul.plain li{position:relative;padding-left:18px;margin-bottom:8px;}
+  ul.plain li::before{content:"—";position:absolute;left:0;color:var(--gold);}
+
+  .flow{display:flex;flex-direction:column;gap:0;margin:20px 0;}
+  .flow-stage{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px 20px;position:relative;}
+  .flow-stage + .flow-stage{margin-top:6px;}
+  .flow-arrow{text-align:center;color:var(--gold);font-size:20px;margin:0;line-height:1;}
+  .flow-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .flow-num{background:var(--boc-red);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 26px;}
+  .flow-head h3{font-size:17px;margin:0;font-family:'IBM Plex Sans',sans-serif;font-weight:700;}
+  .flow-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13.5px;}
+  .flow-col-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);font-weight:600;margin-bottom:4px;}
+  @media(max-width:640px){.flow-grid{grid-template-columns:1fr;}}
+
+  .sys-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:18px 0;}
+  .sys-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px;}
+  .sys-card h4{margin:0 0 8px;font-size:15px;font-family:'IBM Plex Sans',sans-serif;font-weight:700;color:var(--boc-red-dark);}
+  .sys-card p{font-size:13.5px;margin:0;color:var(--ink);}
+  @media(max-width:700px){.sys-grid{grid-template-columns:1fr;}}
+
+  footer{padding:36px 0 60px;color:var(--slate);font-size:13px;}
+  a{color:var(--boc-red-dark);}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="home">&larr; All prep</a>
+    <span class="topnav-label">Jump to</span>
+    <a href="#opener">Self-intro</a>
+    <a href="#fitmap">Fit map</a>
+    <a href="#company">BOCHK context</a>
+    <a href="#domain">Domain &amp; regulatory</a>
+    <a href="#workflow">Trade lifecycle</a>
+    <a href="#systems">Systems</a>
+    <a href="#gap">Honest gap read</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#questions">Your questions</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Interview Prep · Bank of China (Hong Kong) Limited</div>
+    <h1>Senior Business Analyst / Product Manager<br>Financial Derivatives, Treasury &amp; Global Markets — Middle Office</h1>
+    <p class="sub">This is a genuine domain-stretch role: your BA/PM craft is a strong match, your derivatives platform exposure is not. This page is built around an honest transferable-skills narrative rather than manufactured trade-lifecycle claims — confirmed facts are marked, everything else is flagged.</p>
+    <div class="tags">
+      <span class="tag">Middle office · bridge between front office, risk &amp; tech</span>
+      <span class="tag">Murex / Calypso / Summit — advantage, not essential per JD</span>
+      <span class="tag">3–5+ yrs financial services experience required</span>
+    </div>
+  </div>
+</header>
+
+<section class="phase" id="opener">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Opener</span><h2>Your self-introduction (≈ 1 min 20 sec)</h2></div>
+    <p class="phase-sub">Three beats: who you are, the experience that's actually relevant here, and why BOCHK should choose you. Say it, don't recite it — and don't oversell the derivatives angle in Beat 2; let Beat 3 do the honest reframing.</p>
+
+    <div class="qa">
+      <div class="qtag">Beat 1 · Who I am · ~20 sec</div>
+      <p>"Thank you — I'm Tracy Chu, a PMP and Professional Scrum Master-certified Senior Business Analyst with eleven years across Hong Kong's banking, betting and financial-services industries. Six years at the Hong Kong Jockey Club, and the last five at FXCM, where I've worked as a hybrid BA/PM sitting between business stakeholders and engineering teams. My craft is turning business, risk and regulatory requirements into systems and processes that trading, risk and operations teams can actually rely on — through documentation, UAT and governance."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 2 · The experience that's actually relevant here · ~30 sec</div>
+      <p>"At FXCM I led the requirements and journey design for expanding a CFD-only trading platform into a multi-asset offering — stocks, bonds, funds and options — across multiple legal entities, each with different jurisdictional rules. CFDs are themselves OTC derivative contracts, so I've spent years gathering requirements from trading, compliance and operations teams, translating them into system logic, and running UAT before go-live. I also re-engineered our Salesforce and JIRA workflows against BPMN process maps, which cut ticket resolution time by 30% across three teams — that's the same discipline of mapping a process, finding the break points, and writing the requirements that fix them."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 3 · Why BOCHK should choose me · ~30 sec — numbered, not prose</div>
+      <ol class="numbered">
+        <li><span class="num">1</span><span><strong>I've run the same requirements-to-UAT discipline this role needs, just on a different asset class.</strong> My CFD and multi-asset platform work is retail, not institutional Treasury flow — but the underlying discipline is the same: gathering requirements from trading/risk/ops, writing functional specs, and orchestrating UAT before a product goes live. That's the exact shape of this role's key responsibilities.</span></li>
+        <li><span class="num">2</span><span><strong>I already think like a regulator when I write requirements.</strong> I've coordinated CRS/FATCA regulatory reporting across eight-plus legal entities — so I already think in terms of "what data elements does the regulator need, and how do we prove we've captured them," which is the same mental model this role's compliance-and-reporting bullet needs, just applied to HKTR/OTC derivatives reporting instead of AEOI.</span></li>
+        <li><span class="num">3</span><span><strong>I own the bridge between business and technology without needing to be managed.</strong> I operate with high autonomy — my managers are US-based with limited overlapping hours — so I'm used to owning that bridge independently, which matters in a middle-office seat that sits between front office, risk and vendors.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="fitmap">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Match</span><h2>Fit map against the JD</h2></div>
+    <p class="phase-sub">Read left to right. "Partial" and "Gap" are marked honestly — don't let the interviewer discover them before you've framed them yourself.</p>
+    <table>
+      <tr><th>JD requirement</th><th>Fit</th><th>Your evidence / honest position</th></tr>
+      <tr><td>Work with front office, risk, ops to gather &amp; document requirements</td><td class="fit-yes">Strong</td><td>Core of your FXCM BA role — multi-asset platform expansion required requirements gathering across trading, compliance, legal and ops for each new asset class and entity.</td></tr>
+      <tr><td>Support enhancements in trade capture, valuation, lifecycle event processing</td><td class="fit-partial">Partial</td><td>You've done the equivalent for CFD trade booking and account lifecycle (open/amend/close, margin calls) on a retail platform — not for institutional OTC derivatives. Frame as transferable process discipline, not direct experience.</td></tr>
+      <tr><td>Collaborate with developers, QA, vendors on system improvements</td><td class="fit-yes">Strong</td><td>BPMN-mapped Salesforce/JIRA re-engineering with dev and QA teams; cut ticket resolution time 30% across three teams. Directly comparable collaboration pattern.</td></tr>
+      <tr><td>Assist in UAT and rollout of new functionalities</td><td class="fit-yes">Strong</td><td>UAT orchestration is a named strength across your FXCM and HKJC roles (mobile onboarding app, CRM enhancements, platform migration).</td></tr>
+      <tr><td>Contribute to compliance and reporting under global regulatory frameworks</td><td class="fit-partial">Partial</td><td>CRS/FATCA coordination across 8+ entities and client-money controls programme show the right instinct — but that's tax/AEOI and prudential controls, not HKTR/OTC derivatives reporting specifically. Say so, then pivot to the shared "data element + audit trail" mindset.</td></tr>
+      <tr><td>Familiarity with derivatives product structures and trade lifecycle concepts</td><td class="fit-gap">Gap</td><td>No confirmed institutional derivatives experience. Close this with prepared product/lifecycle knowledge (see Domain &amp; Regulatory and Trade Lifecycle sections below) rather than claiming practitioner depth.</td></tr>
+      <tr><td>Murex / Calypso / Summit experience (advantage, not essential)</td><td class="fit-gap">Gap</td><td>No hands-on exposure. JD explicitly says "advantage but not essential" — don't over-apologise, just be direct if asked.</td></tr>
+      <tr><td>3–5+ years financial services experience</td><td class="fit-yes">Strong</td><td>Eleven years across HKJC and FXCM, both regulated HK financial/consumer-services environments.</td></tr>
+      <tr><td>Strong analytical and documentation skills</td><td class="fit-yes">Strong</td><td>BRD/FRD, BPMN, gap analysis, RACI matrices — your core competence line-up.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="phase" id="company">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Employer</span><h2>Bank of China (Hong Kong) — company context</h2></div>
+    <p class="phase-sub">Public facts only, sourced from BOCHK's own site and Wikipedia's company profile. Use these to show you've done homework, not to recite trivia unprompted.</p>
+    <ul class="plain">
+      <li><strong>Structure:</strong> <span>Bank of China (Hong Kong) Limited (BOCHK) is a locally incorporated licensed bank, established 1 October 2001, and is a subsidiary of Bank of China Limited via the listed intermediate holding company BOC Hong Kong (Holdings) Limited, a Hang Seng Index constituent.</span></li>
+      <li><strong>Scale:</strong> <span>One of the leading listed commercial banking groups in Hong Kong by assets and customer deposits, and one of the three note-issuing banks in Hong Kong.</span></li>
+      <li><strong>RMB franchise:</strong> <span>BOCHK is the sole clearing bank for Renminbi business in Hong Kong — a genuine differentiator its Treasury and Private Banking materials lean on heavily, including RMB-denominated bonds, deposits and derivatives.</span></li>
+      <li><strong>Treasury &amp; Global Markets products (public, retail-visible layer):</strong> <span>structured deposits and investment deposits, FX-linked and dual-currency structured investments, equity-linked investments (ELIs), and debt securities — all disclosed with standard derivatives-risk warnings ("not principal protected," "not a time deposit").</span></li>
+      <li><strong>Wider Bank of China Group global markets business (public, US/BOCI materials):</strong> <span>interest rate swaps, cross-currency swaps and other OTC derivatives for hedging and regulatory purposes, alongside FX, money markets and fixed income — this middle-office role most plausibly sits behind that institutional flow rather than the retail-facing structured deposit book.</span></li>
+    </ul>
+    <div class="callout good">
+      <span class="callout-label">Why this matters for you</span>
+      Note the two layers: a retail-facing structured-products shelf (ELIs, dual-currency investments) and an institutional Treasury/Global Markets desk (IRS, cross-currency swaps, FX hedging for corporate/institutional clients). The JD's "Financial Derivatives" team almost certainly sits on the institutional side — ask early which one you'd support, since it changes what "trade capture" even means day to day.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="domain">
+  <div class="phase-head wrap" style="border:none;"><span class="phase-num">Domain Knowledge</span><h2 style="margin-top:6px;">Derivatives products &amp; the Hong Kong regulatory framework</h2></div>
+  <div class="wrap">
+    <p class="phase-sub">Enough to hold a conversation and ask an informed follow-up — not enough to claim practitioner depth. If pushed further than this, say so honestly.</p>
+
+    <h3 style="font-size:17px;">Core product families you should recognise</h3>
+    <table>
+      <tr><th>Product</th><th>What it is</th><th>Typical use in a bank's Treasury book</th></tr>
+      <tr><td>Interest Rate Swap (IRS)</td><td>Exchange of fixed vs floating interest cash flows on a notional amount</td><td>Hedging interest-rate exposure on loans/deposits; client hedging solutions</td></tr>
+      <tr><td>Cross-Currency Swap (CCS)</td><td>Exchange of principal and interest in two currencies</td><td>Funding in offshore RMB or foreign currency; corporate hedging</td></tr>
+      <tr><td>FX Forward / Swap</td><td>Agreement to exchange currencies at a future date at a set rate</td><td>Corporate FX hedging; short-dated liquidity management</td></tr>
+      <tr><td>FX Option</td><td>Right (not obligation) to exchange currency at a set rate</td><td>Structured deposits, dual-currency investments, hedging with optionality</td></tr>
+      <tr><td>Structured Deposit / ELI</td><td>Deposit or note with an embedded derivative (option) determining payout</td><td>Retail/private banking yield-enhancement products — BOCHK's own public product shelf</td></tr>
+    </table>
+
+    <h3 style="font-size:17px;margin-top:26px;">Hong Kong's OTC derivatives regulatory regime — what a BA needs to know</h3>
+    <ul class="plain">
+      <li><strong>Legal basis:</strong> Part IIIA of the Securities and Futures Ordinance (SFO) — the statutory framework for HK's OTC derivatives reporting, clearing and record-keeping obligations, jointly overseen by the HKMA and SFC.</li>
+      <li><strong>Hong Kong Trade Repository (HKTR):</strong> the centralised registry authorized institutions and licensed corporations report OTC derivatives transactions to.</li>
+      <li><strong>2025 reform (effective 29 September 2025):</strong> mandatory use of Unique Transaction Identifier (UTI) and Unique Product Identifier (UPI), mandatory reporting of Critical Data Elements (CDE), and adoption of the ISO 20022 messaging standard — part of global G20 post-2008 harmonisation.</li>
+      <li><strong>Reporting granularity:</strong> Hong Kong's regime reports at trade level (not position level, unlike some European regimes), and requires updates on lifecycle events and valuation/margin information at defined frequencies.</li>
+      <li><strong>Where a BA sits:</strong> translating these reporting rules into system field mappings and validation logic, writing UAT scenarios that prove a lifecycle event (e.g. a rate reset) correctly triggers a re-report, and liaising between Operations/Compliance (who own the obligation) and IT/vendors (who build the reporting engine).</li>
+    </ul>
+    <div class="callout gap">
+      <span class="callout-label">Honest flag</span>
+      This is the section most likely to get a follow-up question you can't fully answer. If asked something granular (e.g. exact CDE field list, ISO 20022 message schema), it's fine to say: "I haven't worked hands-on with the HKTR submission format, but I understand the reporting obligation sits under Part IIIA of the SFO and that the 2025 reform added UTI/UPI/CDE mandates — I'd want to get into the specific field mappings with your Ops/Compliance team early."
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="workflow">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Process</span><h2>Trade capture → valuation → lifecycle event processing</h2></div>
+    <p class="phase-sub">A generic, illustrative workflow for an OTC financial derivative, annotated with where a BA/PM typically sits at each stage. This is a framework for the conversation, not a claim about BOCHK's actual system architecture — say so if asked directly.</p>
+
+    <div class="flow">
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">1</span><h3>Trade Capture</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>Front-office trader executes and books the deal into the trading/treasury system (e.g. Murex, Calypso, Summit). Static data is validated — counterparty, legal entity, product type, ISDA/CSA terms. UTI and UPI are generated. Trade is matched/confirmed against the counterparty (electronically or via broker).</div>
+          <div><div class="flow-col-label">Where a BA sits</div>Gathers requirements for new product/field types from front office and legal; writes functional specs for static-data validation rules; defines UAT scenarios for new booking templates; coordinates with vendor on configuration changes.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">2</span><h3>Valuation</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>Trade is marked to market daily using curve and model inputs from the risk/pricing engine. Product control performs Independent Price Verification (IPV) against an independent source. Valuations feed downstream to collateral/margin systems and P&amp;L.</div>
+          <div><div class="flow-col-label">Where a BA sits</div>Documents valuation feed requirements between the pricing engine and downstream systems (collateral, P&amp;L, regulatory reporting); writes reconciliation/exception-handling logic with Risk and Product Control; runs UAT on new valuation model integrations.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">3</span><h3>Lifecycle Event Processing</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>Events over the trade's life — rate resets/fixings, cashflow settlements, novations, partial terminations, exercises, amendments, portfolio compressions — each trigger a re-valuation, a cashflow, and a confirmation update.</div>
+          <div><div class="flow-col-label">Where a BA sits</div>Maps each event type to its system trigger and required outputs (BPMN-style, the exact discipline from your Salesforce/JIRA re-engineering work); defines acceptance criteria per event type; coordinates cross-team testing (Ops, Risk, IT) before go-live.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">4</span><h3>Regulatory Reporting Overlay</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>Every stage above — new trade, valuation update, lifecycle event — generates a corresponding report to the HKTR, tagged with UTI/UPI and the mandated Critical Data Elements, in ISO 20022 format.</div>
+          <div><div class="flow-col-label">Where a BA sits</div>Translates the reporting rulebook into field-level mapping and validation requirements; writes UAT test cases proving each trigger produces a correct, timely report; the closest overlap to your CRS/FATCA reporting-coordination experience.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="systems">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Tools</span><h2>Trading &amp; risk platforms named in the JD</h2></div>
+    <p class="phase-sub">The JD calls these "an advantage but not essential" — know what each one is at a conceptual level; don't claim hands-on use.</p>
+    <div class="sys-grid">
+      <div class="sys-card">
+        <h4>Murex (MX.3)</h4>
+        <p>A widely used front-to-back treasury and capital markets platform covering trade capture, risk management, valuation and post-trade processing across asset classes, used by many large banks globally.</p>
+      </div>
+      <div class="sys-card">
+        <h4>Calypso</h4>
+        <p>A cross-asset trading, risk and post-trade platform, historically strong in fixed income, derivatives and collateral management, commonly used for treasury and capital markets operations.</p>
+      </div>
+      <div class="sys-card">
+        <h4>Summit (Finastra)</h4>
+        <p>A treasury and capital markets platform covering trade capture, valuation and risk for derivatives and treasury products, often deployed in bank middle- and back-office functions.</p>
+      </div>
+    </div>
+    <div class="callout gap">
+      <span class="callout-label">Honest position</span>
+      "I haven't worked directly in Murex, Calypso or Summit. What I can bring on day one is fast pattern-recognition — I've onboarded onto new systems before (Salesforce, JIRA, Dynamics 365, a licensed crypto custody platform) by mapping the process first and the tool second, so the underlying BA discipline transfers even where the specific screens don't."
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="gap">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Read This Before The Interview</span><h2>The honest gap — and how to carry it</h2></div>
+    <p class="phase-sub">Per your own principle: no manufactured domain bullets. This role has a real stretch; the interview should acknowledge it once, cleanly, and move to what you actually bring.</p>
+    <div class="callout gap">
+      <span class="callout-label">What's genuinely missing</span>
+      Direct institutional derivatives middle-office experience, hands-on use of a trading/treasury platform (Murex/Calypso/Summit), and practitioner-level exposure to HKTR reporting mechanics. Your derivatives-adjacent experience (CFDs at FXCM) is real but retail, not institutional Treasury flow.
+    </div>
+    <div class="callout good">
+      <span class="callout-label">What genuinely transfers</span>
+      Requirements gathering across front-office-style and compliance stakeholders; BPMN-based process re-engineering with measurable outcomes; UAT orchestration for system go-lives; multi-jurisdiction regulatory reporting coordination (CRS/FATCA); comfort operating with high autonomy in a technical middle-ground role.
+    </div>
+    <p style="font-size:14.5px;color:var(--slate);">If asked "why should we hire someone without derivatives experience over a candidate who has it" — the honest answer is about role scope, not overselling: a Senior BA/PM role in this JD is fundamentally about requirements, documentation, UAT and stakeholder bridging, not independent trading or risk judgement. Those are learnable in weeks with the right onboarding; the BA discipline behind them takes years, and that's what you're bringing.</p>
+  </div>
+</section>
+
+<section class="phase" id="qa">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Anticipate</span><h2>Likely questions &amp; framing notes</h2></div>
+
+    <div class="qa">
+      <div class="qtag">"Tell me about your experience with financial derivatives."</div>
+      <p>Lead with CFDs at FXCM as a genuine (if retail) derivative product, then pivot immediately to the transferable BA discipline — requirements, BPMN mapping, UAT — rather than letting the gap sit unaddressed.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Walk me through how you'd gather requirements for a trade lifecycle enhancement you've never worked on before."</div>
+      <p>Answer with method, not domain knowledge: shadow the current process with Ops/Risk, map it end-to-end (your BPMN habit), identify the break points, validate the mapping back with stakeholders before writing specs. This is your strongest ground — it's exactly what you did for the multi-asset platform expansion.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Have you used Murex, Calypso or Summit?"</div>
+      <p>Answer directly: "No — I've worked in Salesforce, JIRA/Confluence, Dynamics 365 and a licensed crypto custody platform. I pick up new systems by mapping the business process first." Don't over-apologise; the JD itself says it's not essential.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Why are you moving from consumer/retail financial services into institutional middle office?"</div>
+      <p>Frame as scope and depth, not escape: you want to apply the same BA discipline to more complex, higher-stakes products and a genuinely global regulatory environment — forward-looking, not a comment on FXCM.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"How do you handle competing priorities between front office urgency and compliance/risk caution?"</div>
+      <p>Use the client-money controls enhancement programme (built off an audit finding) as evidence you can hold a compliance-driven requirement firm under commercial pressure.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="questions" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Your Turn</span><h2>Questions to ask them</h2></div>
+    <ol class="numbered">
+      <li><span class="num">1</span><span>Does this role sit behind the institutional Treasury/Global Markets desk, or the retail-facing structured products shelf — or both?</span></li>
+      <li><span class="num">2</span><span>Which platform does the team currently run on — Murex, Calypso, Summit, or something else — and is a migration or upgrade in scope for this role?</span></li>
+      <li><span class="num">3</span><span>How is the team preparing for the 2025 HKTR reforms (UTI/UPI/CDE, ISO 20022) — is that live BA work right now?</span></li>
+      <li><span class="num">4</span><span>What does success look like for this hire in the first six months — is it more requirements/documentation-led, or more UAT/delivery-led?</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Prepared for Tracy Chu · Bank of China (Hong Kong) Limited, Senior Business Analyst / Product Manager (Financial Derivatives, Treasury &amp; Global Markets, Middle Office) · Sources: bochk.com public product pages, Wikipedia company profile, HKMA/SFC public HKTR and OTC derivatives reporting materials. Illustrative content (the trade lifecycle workflow, system descriptions) is clearly marked as a generic framework, not confirmed BOCHK architecture.
+  </div>
+</footer>
+
+</body>
+</html>
