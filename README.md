@@ -9,12 +9,11 @@ One site, one GitHub Pages link, everything reachable from a single home page.
 - `bank.html` — Banking industry landscape (reusable across any banking interview)
 - `role-aia-manager-innovation-change.html` — role-specific prep for AIA, Manager Innovation Change Management
 - `role-dbs-vp-avp-ba-cbg-tno.html` — role-specific prep for DBS Bank, VP/AVP Business Analyst, Consumer Banking Group Technology & Operations (wealth domain: digiWealth release management, KYC/investment-regulation, DBS HK product knowledge)
-- `role-ibkr-sr-pm-bd-apac.html` — role-specific prep for Interactive Brokers, Sr Project Manager, Business Development APAC (brokerage-native fit, Compliance/Legal-to-Engineering translation, account-opening integration)
 - `role-bochk-senior-ba-pm-derivatives.html` — role-specific prep for Bank of China (Hong Kong), Senior BA/PM, Financial Derivatives, Treasury & Global Markets Middle Office (OTC FX/derivatives mechanics, NDF deep-dive with a worked example, Bloomberg-to-Treasury-system connectivity flow)
 
 Two categories, on purpose:
 - **Industry landscapes** (`insurance.html`, `bank.html`) share one neutral design system and a pill-switcher at the top of each ("← All prep · Insurance · Banking") since they're reused across many interviews in that sector. When you learn something new about an industry, these get updated in place rather than duplicated.
-- **Role-specific prep** (`role-*.html`) is one page per job application, each free to keep its own look (AIA's red/gold, DBS's red/black, IBKR's blue, BOCHK's red/gold) since it's a one-off built for that specific interview. Each just gets a small "← All prep" breadcrumb link added at the top so you can always get back to the hub.
+- **Role-specific prep** (`role-*.html`) is one page per job application, each free to keep its own look (AIA's red/gold, DBS's red/black, BOCHK's red/gold) since it's a one-off built for that specific interview. Each just gets a small "← All prep" breadcrumb link added at the top so you can always get back to the hub.
 
 ## Publish on GitHub Pages
 
@@ -33,3 +32,7 @@ When you have a new job application and get a prep page built (in a new Claude c
 4. Upload/push both the new file and the updated `index.html`.
 
 No need to touch `insurance.html` or `bank.html` when adding a role-specific page — they're independent.
+
+## Note on the Interactive Brokers (IBKR) prep page
+
+A prep page for an Interactive Brokers role (`role-ibkr-sr-pm-bd-apac.html`) was drafted but hasn't been published to this repo — no feedback on that application yet, so it's being held back for now. If that changes, publish it the same way as any new role-specific page (see above) and add its card to `index.html`.
