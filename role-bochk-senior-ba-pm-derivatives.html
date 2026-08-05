@@ -116,6 +116,9 @@
     <a href="#fitmap">Fit map</a>
     <a href="#company">BOCHK context</a>
     <a href="#domain">Domain &amp; regulatory</a>
+    <a href="#ndf">NDF Deep-Dive</a>
+    <a href="#otcfx">OTC FX at FXCM vs BOCHK</a>
+    <a href="#connectivity">Bloomberg connectivity</a>
     <a href="#workflow">Trade lifecycle</a>
     <a href="#systems">Systems</a>
     <a href="#gap">Honest gap read</a>
@@ -213,6 +216,7 @@
       <tr><td>FX Forward / Swap</td><td>Agreement to exchange currencies at a future date at a set rate</td><td>Corporate FX hedging; short-dated liquidity management</td></tr>
       <tr><td>FX Option</td><td>Right (not obligation) to exchange currency at a set rate</td><td>Structured deposits, dual-currency investments, hedging with optionality</td></tr>
       <tr><td>Structured Deposit / ELI</td><td>Deposit or note with an embedded derivative (option) determining payout</td><td>Retail/private banking yield-enhancement products — BOCHK's own public product shelf</td></tr>
+      <tr><td>Non-Deliverable Forward (NDF)</td><td>Cash-settled FX forward on a restricted/non-convertible currency — no exchange of principal, just the rate difference settled in USD</td><td>Client hedging/speculation on CNY, INR, IDR, KRW and similar currencies without needing onshore market access — see the dedicated section below, since this came up directly in your phone interview</td></tr>
     </table>
 
     <h3 style="font-size:17px;margin-top:26px;">Hong Kong's OTC derivatives regulatory regime — what a BA needs to know</h3>
@@ -226,6 +230,176 @@
     <div class="callout gap">
       <span class="callout-label">Honest flag</span>
       This is the section most likely to get a follow-up question you can't fully answer. If asked something granular (e.g. exact CDE field list, ISO 20022 message schema), it's fine to say: "I haven't worked hands-on with the HKTR submission format, but I understand the reporting obligation sits under Part IIIA of the SFO and that the 2025 reform added UTI/UPI/CDE mandates — I'd want to get into the specific field mappings with your Ops/Compliance team early."
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="ndf">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Since It Came Up</span><h2>NDF — the product knowledge to have cold</h2></div>
+    <p class="phase-sub">This was asked directly in your phone interview, so it's worth being genuinely fluent here, not just able to define the acronym.</p>
+
+    <div class="callout good">
+      <span class="callout-label">The 20-second spoken definition</span>
+      "An NDF — non-deliverable forward — is a cash-settled FX forward on a currency that isn't freely convertible, like the Chinese yuan or Indian rupee. Instead of the two parties actually exchanging the two currencies at maturity, they settle just the difference between the contracted forward rate and the spot rate on a fixing date, in a convertible currency — almost always USD. It lets someone hedge or take a view on a restricted currency without ever needing access to the onshore market."
+    </div>
+
+    <h3 style="font-size:17px;margin-top:26px;">The mechanics — three dates, one external data point</h3>
+    <table>
+      <tr><th>Date/element</th><th>What happens</th></tr>
+      <tr><td>Trade date</td><td>Both parties agree the currency pair, notional amount, and contracted forward rate.</td></tr>
+      <tr><td>Fixing date</td><td>Typically 1–2 business days before settlement — the official spot rate is observed from a pre-agreed reference source (often a central bank publication or a recognised interbank benchmark).</td></tr>
+      <tr><td>Settlement date</td><td>The difference between the contracted rate and the fixing-date spot rate is calculated on the notional, and one party pays the other that difference — in USD, as a single cash flow. No principal ever changes hands.</td></tr>
+    </table>
+
+    <h3 style="font-size:17px;margin-top:26px;">Why it exists, and who uses it</h3>
+    <ul class="plain">
+      <li><strong>The core reason:</strong> currencies like CNY, INR, IDR, KRW and MYR are subject to capital controls or convertibility restrictions, so an offshore counterparty often can't freely buy, sell, or deliver them. An NDF gives synthetic exposure to the currency's movement without needing onshore market access.</li>
+      <li><strong>Who trades them:</strong> multinational corporates hedging receivables/payables in a restricted currency, foreign bondholders hedging currency risk on emerging-market debt, and banks/investors taking a directional view — airlines hedging fuel or ticket-sale exposure in a restricted currency is a commonly cited real-world example.</li>
+      <li><strong>Documentation:</strong> NDF terms generally follow EMTA (Emerging Markets Trade Association) templates referencing the 2006 ISDA Definitions — a detail worth naming if asked about the legal/documentation side, since it's the specific convention this product family uses rather than a generic ISDA schedule.</li>
+    </ul>
+
+    <h3 style="font-size:17px;margin-top:26px;">The BOCHK-specific angle — CNY vs CNH</h3>
+    <div class="callout good">
+      This is the distinction most worth having ready, given BOCHK's role as Hong Kong's RMB clearing bank. <strong>Onshore CNY</strong> remains subject to capital controls and isn't freely convertible, which is why a USD/CNY <em>NDF</em> market exists for participants who can't access the onshore market directly. <strong>Offshore CNH</strong> (Renminbi traded in Hong Kong and other offshore centres) developed into a genuinely deliverable market from around 2010 onwards, which is why offshore participants increasingly use deliverable USD/CNH forwards instead of NDFs where they have offshore RMB access. The practical BA-relevant question this raises: which of BOCHK's client flows are priced and booked as CNY NDFs versus CNH deliverable forwards, and does the Treasury system distinguish between the two product types cleanly, since they have different settlement mechanics entirely.
+    </div>
+
+    <h3 style="font-size:17px;margin-top:26px;">What's operationally different for a BA — versus a deliverable forward</h3>
+    <ul class="plain">
+      <li><strong>Extra static data:</strong> an NDF booking needs a fixing source and fixing-date convention captured and validated — fields a deliverable FX forward simply doesn't have.</li>
+      <li><strong>Settlement is one-way, not two-way:</strong> only a single USD cash flow moves, not a genuine exchange of two currencies — which is also why NDFs generally sit outside CLS's payment-versus-payment settlement model built for two-way deliverable exchange. (I'd confirm current CLS NDF-service scope directly rather than state this as absolute — it's an area that's evolved and I wouldn't want to overstate my certainty on the latest state.)</li>
+      <li><strong>Still a reportable OTC derivative:</strong> an NDF is still in scope for HKTR reporting under Part IIIA of the SFO with its own UTI/UPI, same as any other OTC derivative covered earlier in this page — the "non-deliverable" part affects settlement mechanics, not regulatory scope.</li>
+      <li><strong>Counterparty credit risk is more exposed:</strong> without the two-way delivery (and increasingly without central clearing for many NDF currencies), the credit exposure sits more nakedly on the fixing-date net amount — which is part of why global regulators (BIS/CPMI-IOSCO) have been pushing NDF markets toward more standardised, increasingly cleared infrastructure since 2016.</li>
+    </ul>
+
+    <h3 style="font-size:17px;margin-top:26px;">Worked example — an airline hedging a CNY payable through BOCHK</h3>
+    <p class="phase-sub">Illustrative numbers only — not a real trade or a claim about BOCHK's actual pricing. The point is the mechanism: how the bank's margin and the client's hedge both work off the same three rates.</p>
+
+    <table>
+      <tr><th>Item</th><th>Value</th></tr>
+      <tr><td>Client</td><td>An airline ("AirCo") that owes a Chinese counterparty CNY 70,000,000 in 3 months, and reports in USD</td></tr>
+      <tr><td>Spot USD/CNY today</td><td>7.2000</td></tr>
+      <tr><td>Fair/mid-market 3-month forward (interest-rate-parity derived)</td><td>7.1450</td></tr>
+      <tr><td>Rate BOCHK actually quotes AirCo</td><td>7.1400 — a small margin built in versus the fair mid-rate</td></tr>
+      <tr><td>Trade</td><td>AirCo buys CNY 70,000,000 forward (3-month NDF) from BOCHK at 7.1400, to lock in what the payable will cost in USD</td></tr>
+    </table>
+
+    <div class="callout good" style="margin-top:16px;">
+      <span class="callout-label">1 · BOCHK's margin — captured at trade inception, not at fixing</span>
+      Cost to AirCo at BOCHK's quoted rate: 70,000,000 ÷ 7.1400 = <strong>USD 9,803,921.57</strong><br>
+      "Fair value" cost at the mid-market rate: 70,000,000 ÷ 7.1450 = <strong>USD 9,797,060.88</strong><br>
+      BOCHK's built-in margin: <strong>≈ USD 6,861</strong><br><br>
+      BOCHK typically hedges this exact exposure straight back into the interbank/onshore market at close to the mid-rate — so this ≈USD 6,861 is locked in immediately, regardless of which way CNY subsequently moves. This is the primary, scalable way a bank profits on client FX/NDF flow: an intermediation spread on a matched book, not a directional bet on the currency.
+    </div>
+
+    <div class="callout good" style="margin-top:16px;">
+      <span class="callout-label">2 · Three months later — CNY appreciates more than expected</span>
+      Fixing-date spot rate: <strong>7.0000</strong> (CNY strengthened — fewer CNY per USD than the 7.1400 AirCo locked in)<br><br>
+      NDF cash settlement, on the CNY 70,000,000 notional:<br>
+      Value at contracted rate: 70,000,000 ÷ 7.1400 = USD 9,803,921.57<br>
+      Value at fixing rate: 70,000,000 ÷ 7.0000 = USD 10,000,000.00<br>
+      Difference: <strong>BOCHK pays AirCo USD 196,078.43</strong><br><br>
+      AirCo separately goes to the spot market to actually buy the CNY 70,000,000 it owes its supplier, now costing USD 10,000,000.00 at the weaker 7.00 rate. Netting the two together: USD 10,000,000.00 − USD 196,078.43 = <strong>USD 9,803,921.57</strong> — exactly the rate AirCo locked in three months earlier. The hedge did its job: AirCo's real cost never moved, even though the market did.
+    </div>
+
+    <div class="callout gap" style="margin-top:16px;">
+      <span class="callout-label">3 · The symmetry check — what if CNY had gone the other way instead</span>
+      If the fixing-date spot had instead been <strong>7.3000</strong> (CNY weaker than contracted), AirCo would <em>pay</em> BOCHK the difference (≈USD 214,880) under the NDF — but would then buy its CNY 70,000,000 more cheaply in the spot market at 7.30. Netted together, AirCo's effective cost is again USD 9,803,921.57. This is the detail worth saying out loud if asked "so did the airline make money on this trade?" — the answer is no, by design: a hedge isn't meant to win, it's meant to remove the uncertainty. BOCHK keeps its ≈USD 6,861 margin from step 1 either way, since its own back-to-back hedge moves in the opposite direction to AirCo's settlement and roughly cancels out.
+    </div>
+
+    <div class="callout good" style="margin-top:16px;">
+      <span class="callout-label">Why this is worth saying in the interview</span>
+      "The bank's economics here don't come from predicting which way CNY moves — they come from the spread captured between the client rate and the rate the bank can actually get in the wholesale market, locked in the moment the trade is hedged. The client's benefit isn't a better outcome than the market either — it's certainty over what a foreign-currency liability will actually cost, fixed three months in advance." That's the distinction between a BA who can define an NDF and one who understands why both sides of the desk actually want the trade.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="otcfx">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Your Own Evidence</span><h2>OTC FX: what you actually see at FXCM, and how it differs at BOCHK</h2></div>
+    <p class="phase-sub">"OTC" means the same core thing in both places — a bilateral contract between two counterparties, priced and negotiated directly rather than through a central exchange order book. What differs is scale, counterparty type, and what happens after execution. This is the honest comparison to have ready.</p>
+
+    <h3 style="font-size:17px;">How it works at FXCM (retail OTC FX/CFD)</h3>
+    <ul class="plain">
+      <li><strong>Quote &amp; execution:</strong> A client streams a live bid/ask price on FXCM's own trading platform and clicks to trade. There's no exchange order book — FXCM (or its liquidity venue) is the direct counterparty to that client's position, which is what makes it OTC rather than exchange-traded, even though it feels instant and exchange-like to the client.</li>
+      <li><strong>What happens to the risk (industry-general mechanics, not a claim about FXCM's specific book):</strong> a retail broker typically either <em>internalises</em> the position (takes the other side itself, sometimes called B-book) or passes it through to its own liquidity providers/prime broker in the interbank market (A-book/STP), often in aggregate rather than trade-by-trade. Which model applies to which flow is commercially sensitive and not something I'd claim specific knowledge of — but understanding that this choice exists, and that it's a real risk-management decision, is the relevant point.</li>
+      <li><strong>Settlement:</strong> retail FX/CFD positions are typically cash-settled on the difference, not physically delivered — there's no CLS leg for the client-facing side, since CLS exists for settling real currency delivery between institutional counterparties, not retail margin positions.</li>
+      <li><strong>Confirmation:</strong> instant, on-platform — no SWIFT MT300 exchange with the client, since retail platforms aren't SWIFT counterparties to their own customers.</li>
+    </ul>
+
+    <h3 style="font-size:17px;margin-top:26px;">How it works at BOCHK (institutional OTC FX/derivatives)</h3>
+    <ul class="plain">
+      <li><strong>Quote &amp; execution:</strong> a corporate or institutional client requests a price — by voice, chat, or an electronic multi-dealer venue like Bloomberg FXGO — and the trade is negotiated bilaterally with a named counterparty, not anonymously against a pool of liquidity.</li>
+      <li><strong>What happens to the risk:</strong> the desk typically hedges the resulting exposure in the interbank market or against its own book, subject to credit limits, VaR limits, and desk mandates — a much more individually-tracked, trade-by-trade risk process than retail aggregation.</li>
+      <li><strong>Settlement:</strong> for eligible currency pairs, settlement happens through CLS (Continuous Linked Settlement), which settles both legs simultaneously (payment-versus-payment) to eliminate the risk of paying away one currency without receiving the other. Ineligible pairs settle via correspondent/nostro banking instead.</li>
+      <li><strong>Confirmation:</strong> formal, message-based — typically SWIFT MT300 (FX confirmation) or MT305 (FX option confirmation), matched against the counterparty's own outgoing confirmation before settlement is allowed to proceed.</li>
+    </ul>
+
+    <div class="callout good">
+      <span class="callout-label">The honest bridge to make explicitly</span>
+      "Both are OTC in the strict sense — bilateral, not exchange-cleared. What I've operated in is the high-volume, retail-margin version of that; what this desk runs is the institutional, credit-and-settlement-heavy version. The underlying discipline that transfers is understanding a bilateral trade's full lifecycle — quote, execution, confirmation, risk, settlement — and where a BA needs to sit at each step. The specific mechanics of CLS, SWIFT confirmation matching and credit-limit workflows are what I'd be learning here, not re-learning what OTC means."
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="connectivity">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">System Connectivity</span><h2>How a trade actually gets from Bloomberg into BOCHK's books</h2></div>
+    <p class="phase-sub">This is upstream of the "Trade capture → valuation → lifecycle" flow below — it's specifically about the connection between an external execution venue (using Bloomberg as the illustrative example, since it's the market-standard multi-dealer platform) and the bank's own systems. Generic, illustrative flow — not a claim about BOCHK's actual architecture.</p>
+
+    <div class="flow">
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">1</span><h3>Price discovery &amp; execution — owned by Bloomberg</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>The counterparty (a corporate treasury, asset manager, or another bank) requests a quote via Bloomberg FXGO — a multi-dealer platform connecting thousands of firms to hundreds of liquidity providers — either by Request-for-Quote (RFQ), streaming price, or voice/chat deal capture (Bloomberg's Instant Bloomberg chat is still commonly used to agree a deal before it's booked electronically). The trade is agreed at this point but not yet inside any of BOCHK's own systems.</div>
+          <div><div class="flow-col-label">What a BA needs to understand</div>Which venues/channels are in scope (FXGO, voice, chat) and therefore which need an automated feed versus manual re-keying — this single fact drives most of the downstream integration design.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">2</span><h3>Trade capture into the Treasury system — the bank's boundary</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>The agreed deal flows into the bank's own trading/treasury system (e.g. Murex, Calypso, Summit) — either via a direct electronic feed/API from the execution venue (straight-through processing), or manually keyed in by a dealer/middle-office user if it was done by voice. This is the moment the trade becomes "the bank's" record, not just the venue's.</div>
+          <div><div class="flow-col-label">What a BA needs to understand</div>The integration mechanism (FIX API feed vs. manual entry) and what validation runs at the point of capture — counterparty static data, credit-limit check, product/legal-entity mapping. This is exactly the "static-data validation rules" BA work named in the trade-lifecycle flow below — this stage is where it actually happens.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">3</span><h3>Confirmation &amp; matching — shared between the bank and SWIFT</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>The bank's middle/back office sends a confirmation to the counterparty — typically a SWIFT MT300 (FX) or MT305 (FX option) message — and receives the counterparty's own outgoing confirmation in return. The two are matched (often three-way, against the venue's own record too) before the trade is allowed to proceed to settlement. Mismatches become "breaks" that Operations has to investigate and resolve.</div>
+          <div><div class="flow-col-label">What a BA needs to understand</div>What fields must match exactly (rate, notional, value date, counterparty) versus what tolerance is allowed; how a break is surfaced, escalated and resolved; this is the single highest-volume manual-intervention point in the whole flow, and therefore the highest-value place to design good exception-handling UX.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">4</span><h3>Regulatory reporting — owned by the bank, reported to HKTR</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>In parallel with confirmation, the trade is reported to the Hong Kong Trade Repository with its UTI/UPI and mandated Critical Data Elements, in ISO 20022 format — covered in more depth in the Domain &amp; Regulatory section above.</div>
+          <div><div class="flow-col-label">What a BA needs to understand</div>Which system is the single source of truth for the fields HKTR needs, since the trade's data exists in at least three places by now (venue, Treasury system, SWIFT message) — a genuine reconciliation design question, not just a reporting one.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">5</span><h3>Settlement — owned by CLS or correspondent banking</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>For CLS-eligible currency pairs, both legs settle simultaneously through CLS (payment-versus-payment), removing the risk of paying away one currency without receiving the other. For non-eligible pairs, settlement runs through traditional correspondent/nostro banking instead, which carries genuine (if small and short-lived) settlement risk.</div>
+          <div><div class="flow-col-label">What a BA needs to understand</div>Which currency pairs BOCHK's book actually trades that fall outside CLS eligibility (this matters a lot for RMB-related flows specifically, given BOCHK's clearing-bank role) — since those trades need a different, more manually-controlled settlement workflow.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">6</span><h3>Reconciliation — owned by Operations, informed by everything above</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>Operations runs a final reconciliation across the internal booking, the counterparty's confirmation, and (where applicable) CLS settlement data, to make sure everything that was agreed is what actually settled — closing the loop opened at stage 1.</div>
+          <div><div class="flow-col-label">What a BA needs to understand</div>This is where a badly-designed stage 2 or 3 shows up as pain months later — a BA who understands the full chain back to Bloomberg is the one who can actually fix a recurring reconciliation break at its root cause, rather than just patching the symptom.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout good" style="margin-top:20px;">
+      <span class="callout-label">How to frame this if asked "have you worked with Bloomberg/Murex before"</span>
+      "Not hands-on with Bloomberg FXGO or a Treasury platform specifically — but I understand the shape of the problem: an external execution venue and an internal system of record have to agree on the same trade, through a defined integration point, with a confirmation and settlement layer that catches anything that doesn't match. That's the same category of problem as reconciling a trade booked on one system against what a counterparty or vendor reports back — which is exactly what my CRS/FATCA and entity-onboarding work involved, just in a different domain."
     </div>
   </div>
 </section>
@@ -342,18 +516,27 @@
 <section class="phase" id="questions" style="border-bottom:none;">
   <div class="wrap">
     <div class="phase-head"><span class="phase-num">Your Turn</span><h2>Questions to ask them</h2></div>
+    <p class="phase-sub">Twelve to choose from — pick two or three based on how the conversation actually goes, rather than working through the list. Questions 6–8 are the ones most likely to signal genuine technical depth if the conversation gets into the weeds; 9–12 are safer, always-appropriate closers if it stays higher-level.</p>
     <ol class="numbered">
       <li><span class="num">1</span><span>Does this role sit behind the institutional Treasury/Global Markets desk, or the retail-facing structured products shelf — or both?</span></li>
       <li><span class="num">2</span><span>Which platform does the team currently run on — Murex, Calypso, Summit, or something else — and is a migration or upgrade in scope for this role?</span></li>
       <li><span class="num">3</span><span>How is the team preparing for the 2025 HKTR reforms (UTI/UPI/CDE, ISO 20022) — is that live BA work right now?</span></li>
       <li><span class="num">4</span><span>What does success look like for this hire in the first six months — is it more requirements/documentation-led, or more UAT/delivery-led?</span></li>
+      <li><span class="num">5</span><span>Which execution venues currently feed into the Treasury system for FX and derivatives — Bloomberg FXGO, voice, others — and where in that chain does straight-through processing break down most often today?</span></li>
+      <li><span class="num">6</span><span>Given BOCHK's role as the RMB clearing bank, does this desk handle both CNY NDFs and CNH deliverable forwards, and are they treated as materially different workflows operationally, or does the system handle both the same way?</span></li>
+      <li><span class="num">7</span><span>How is counterparty credit-limit checking handled for OTC trades today — an automated pre-trade check inside the booking system, or something more manual sitting outside it?</span></li>
+      <li><span class="num">8</span><span>Where do most confirmation breaks or reconciliation issues actually originate — venue/system mismatches, static data problems, timing differences, or something else entirely?</span></li>
+      <li><span class="num">9</span><span>What does the immediate team structure look like — how many BAs/PMs support this desk day to day, and who would I be working with most closely?</span></li>
+      <li><span class="num">10</span><span>Is this role scoped mainly around BAU support and incremental enhancement, or is there a larger strategic platform initiative — a migration, a new product launch — it would be part of?</span></li>
+      <li><span class="num">11</span><span>Beyond the 2025 HKTR reforms, is there anything else on the regulatory horizon — further margin/UMR phases, changes to NDF clearing or CLS eligibility — that this role would need to prepare the systems for?</span></li>
+      <li><span class="num">12</span><span>What would make someone genuinely successful in this team specifically, beyond the technical skillset on the job description?</span></li>
     </ol>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    Prepared for Tracy Chu · Bank of China (Hong Kong) Limited, Senior Business Analyst / Product Manager (Financial Derivatives, Treasury &amp; Global Markets, Middle Office) · Sources: bochk.com public product pages, Wikipedia company profile, HKMA/SFC public HKTR and OTC derivatives reporting materials. Illustrative content (the trade lifecycle workflow, system descriptions) is clearly marked as a generic framework, not confirmed BOCHK architecture.
+    Prepared for Tracy Chu · Bank of China (Hong Kong) Limited, Senior Business Analyst / Product Manager (Financial Derivatives, Treasury &amp; Global Markets, Middle Office) · Sources: bochk.com public product pages, Wikipedia company profile, HKMA/SFC public HKTR and OTC derivatives reporting materials, Bloomberg Professional Services (FXGO product pages), SWIFT (MT300-series confirmation and CLS messaging documentation), EMTA/CFTC public NDF documentation. Illustrative content (the trade lifecycle workflow, the Bloomberg connectivity flow, system descriptions) is clearly marked as a generic framework, not confirmed BOCHK architecture. The FXCM retail OTC description is general industry mechanics for retail FX/CFD brokers, not a disclosure of FXCM's specific, commercially sensitive execution/hedging practices — presented that way deliberately in the "OTC FX" section above. The NDF section's mechanics (fixing dates, EMTA conventions, currency list) are well-documented market standards; the CLS-eligibility point is flagged as worth confirming directly since NDF clearing/settlement infrastructure has been evolving.
   </div>
 </footer>
 
