@@ -15,6 +15,8 @@
     --aia-soft:#F5DDE0;
     --gold:#B98A2E;
     --gold-soft:#F3E7CB;
+    --good:#3E6B2B;
+    --good-soft:#E8EEE1;
     --slate:#5F5A55;
     --card:#FFFFFF;
     --line:#DAD3CB;
@@ -79,6 +81,40 @@
   footer{padding:40px 0 72px;}
   .note{border-left:3px solid var(--gold);background:var(--gold-soft);padding:16px 20px;border-radius:0 6px 6px 0;font-size:13.5px;color:#5A4A22;max-width:740px;}
   .note b{color:#3E3115;}
+  .note + .note{margin-top:12px;}
+
+  /* plan steps (numbered vertical process) */
+  .relsteps{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:14px;}
+  .relstep{position:relative;padding:0 0 26px 28px;}
+  .relstep:last-child{padding-bottom:0;}
+  .relstep::before{
+    content:attr(data-n);
+    position:absolute;left:-15px;top:0;
+    width:28px;height:28px;border-radius:50%;
+    background:var(--aia);color:#fff;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .relstep h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;margin-bottom:5px;letter-spacing:-.01em;}
+  .relstep p{font-size:14px;color:#333;max-width:700px;}
+  .relstep .relnote{margin-top:6px;font-size:13px;color:var(--aia);}
+  .relstep .relnote::before{content:'AI-ASSISTED  ';font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--slate);font-weight:600;}
+
+  /* reference table */
+  .reftable{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:13.5px;}
+  .reftable th{background:var(--ink);color:var(--paper);text-align:left;padding:10px 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:600;}
+  .reftable td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top;}
+  .reftable tr:nth-child(even) td{background:#FBF7F2;}
+  .table-scroll{overflow-x:auto;margin-bottom:20px;}
+  .table-caption{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);margin:-6px 0 14px;}
+
+  .signal-list{display:flex;flex-direction:column;gap:10px;}
+  .signal{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-radius:8px;background:var(--card);border:1px solid var(--line);}
+  .signal .pill{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:20px;margin-top:1px;}
+  .signal.good .pill{background:var(--good-soft);color:var(--good);}
+  .signal.gap .pill{background:var(--aia-soft);color:var(--aia);}
+  .signal p{font-size:14px;color:#333;}
+  .signal p strong{color:var(--ink);}
 
   @media (max-width:720px){
     .facts{grid-template-columns:1fr;}
@@ -142,12 +178,19 @@
     <a href="index.html" class="home">&larr; All prep</a>
     <span class="topnav-label">Jump to</span>
     <a href="#opener">Self-Intro</a>
+    <a href="#feedback">Round 1 Feedback</a>
     <a href="#ask">Questions to Ask</a>
     <a href="#expect">Q&amp;A</a>
     <a href="#shipped">AI at AIA</a>
+    <a href="#hands-on">Claude+Jira+Confluence</a>
     <a href="#fitmap">Fit Map</a>
     <a href="#know">AIA Context</a>
     <a href="#ai-angle">AI Use Cases</a>
+    <a href="#simonlee">Round 2: Simon Lee</a>
+    <a href="#matrix">Measurement Matrix</a>
+    <a href="#toolkit">Practical AI Toolkit</a>
+    <a href="#microplan">Micro-Credential Plan</a>
+    <a href="#academyplan">AI Academy Plan</a>
   </div>
 </nav>
 
@@ -191,6 +234,41 @@
       <p><strong>Numbers are load-bearing.</strong> HKD 100M+ betting terminal programmes, 300K-client migration, three-person BA team, 30% ticket resolution improvement — every figure comes from your CV, be ready to defend each with two sentences. If asked "how many people did you train?", have an honest number ready across the workshops, virtual sessions and rollouts — a soft "hundreds" or a specific figure both work; a vague "many" doesn't.</p>
       <p><strong>Language:</strong> AIA panels commonly switch between English, Cantonese and Mandarin depending on interviewer. Prepare the same beats in Cantonese; if the panel includes a Mainland/regional interviewer, be ready to hold at least basic exchanges in Mandarin.</p>
       <p><strong>The seniority-band conversation:</strong> if a panel signals "you look a bit senior for GCB05" — acknowledge, don't argue. "I'd rather earn the next step through impact at AIA than optimise for title on the way in. This is the domain and scale I want to be in for the next several years."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROUND 1 FEEDBACK ============ -->
+<section class="phase" id="feedback">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">CALIBRATION</span><h2>What Round 1 actually told us</h2></div>
+    <p class="phase-sub">Your interviewer's real feedback, plus what got another candidate stopped at this exact stage — read together, these are close to the evaluation rubric. Everything below is reflected in the sections that follow.</p>
+
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;">Confirmed about you — lean into these, don't undersell them</p>
+    <div class="signal-list" style="margin-bottom:28px;">
+      <div class="signal good"><span class="pill">Strength</span><p>Enterprise-wide adoption at scale — investment platforms, Jira, AI governance — and genuine comfort presenting to C-suite audiences.</p></div>
+      <div class="signal good"><span class="pill">Strength</span><p>A structured approach across the whole change lifecycle: stakeholder engagement, communications, training, champions, adoption measurement.</p></div>
+      <div class="signal good"><span class="pill">Strength</span><p>Strong facilitation range — townhalls, workshops, training sessions, user guides, FAQs, executive updates.</p></div>
+      <div class="signal good"><span class="pill">Strength</span><p>Highly independent, comfortable with minimal supervision in a fast-paced environment.</p></div>
+      <div class="signal good"><span class="pill">Strength</span><p>Practical, specific ideas on how AI itself can support communications, training, FAQs, knowledge management and enablement.</p></div>
+      <div class="signal good"><span class="pill">Strength</span><p>Resourceful and proactive — solving problems, building relationships, navigating organisational friction.</p></div>
+    </div>
+
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;">Your own flagged development areas — own these directly if raised</p>
+    <div class="signal-list" style="margin-bottom:28px;">
+      <div class="signal gap"><span class="pill">Your gap</span><p><strong>AI change management with Claude is early-stage</strong> — mostly planning and governance, not executing a large-scale AI adoption programme yet. Don't dress this up as more than it is; the strongest move is showing you know exactly what "executing at scale" would require, which is what the AI Academy and micro-credential plans further down this page are for.</p></div>
+      <div class="signal gap"><span class="pill">Your gap</span><p><strong>Limited hands-on exposure to enterprise AI implementation at scale.</strong> Same response: acknowledge plainly, then demonstrate the thinking through the plans rather than claiming experience you don't have.</p></div>
+    </div>
+
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;">What stopped another candidate here — make sure you don't hit the same wall</p>
+    <div class="signal-list">
+      <div class="signal gap"><span class="pill">Watch for</span><p><strong>Formal change methodology.</strong> Limited evidence of Prosci/ADKAR or enterprise change frameworks sank the other candidate. You already have a rehearsed answer on this in the Q&amp;A section — use it.</p></div>
+      <div class="signal gap"><span class="pill">Watch for</span><p><strong>Structured impact/readiness assessments and value realization.</strong> The other candidate didn't show this. You genuinely have real evidence — benefits-realisation frameworks from your PMO role — but it wasn't surfaced clearly enough before. Now it is, explicitly, in the Q&amp;A and both plans below.</p></div>
+      <div class="signal gap"><span class="pill">Watch for</span><p><strong>Alignment, not just engagement.</strong> The other candidate's stakeholder stories read as relationship-building rather than driving alignment across senior groups with competing interests. Your entity-setup and multi-jurisdictional onboarding work is a genuine alignment story — the language below now says "alignment," not "coordination."</p></div>
+      <div class="signal gap"><span class="pill">Watch for</span><p><strong>Regional/multi-market scale.</strong> A real gap for you too, honestly — you haven't run change across multiple markets before. Addressed head-on in a new Q&amp;A below, and directly in the AI Academy plan's multi-market delivery design.</p></div>
+      <div class="signal gap"><span class="pill">Watch for</span><p><strong>Designing a champion network, not just joining one.</strong> The other candidate had only participated as an AI Ambassador, not designed/governed a community. You don't have prior evidence of this either — the honest, credible move is to say so, then show you know exactly how you'd design one, which the AI Academy plan below now does in real detail.</p></div>
+      <div class="signal gap"><span class="pill">Watch for</span><p><strong>Adoption measurement depth.</strong> Usage metrics and feedback alone aren't enough — the panel wants behavioural change, business outcomes, organisational readiness. Both plans below are now explicit that completion and usage are leading indicators, not the actual outcome.</p></div>
+      <div class="signal gap"><span class="pill">Watch for</span><p><strong>Executive-level narrative, not just operational updates.</strong> The other candidate's comms examples stayed grassroots. Your FXCM monthly C-suite updates are real evidence of the opposite — make sure you frame them as a leadership narrative, not a status report, in the Q&amp;A below.</p></div>
     </div>
   </div>
 </section>
@@ -255,8 +333,36 @@
     <div class="qa">
       <div class="qtag">Behavioural · likely</div>
       <h3>"Tell me about influencing senior stakeholders without direct authority."</h3>
-      <p>This is a direct JD phrase ("influence without direct authority") — worth a rehearsed story. Use the CFD-to-multi-asset expansion: cross-functional stakeholders you had no line authority over (legal, compliance, ops, tech, executives), how you built the coalition (governance forum, RACI clarity, quantified impact), the specific moment influence tipped a decision, and the outcome. Emphasise that authority came from evidence and reliability, not from title.</p>
-      <div class="frame"><b>FRAMING</b>The JD asked for this exact skill — deliver a specific story, not a philosophy. End on: "That's how I've built every stakeholder relationship — through consistent evidence-based delivery, not positional authority. Which is fortunate given this role has no direct reports."</div>
+      <p>This is a direct JD phrase ("influence without direct authority") — worth a rehearsed story. Use the CFD-to-multi-asset expansion, and frame it as <strong>driving alignment across competing interests</strong>, not just relationship-building: legal wanted the conservative rollout sequence, compliance wanted every jurisdiction's sign-off before any launch, ops wanted speed, and none of them reported to you. Describe the specific mechanism that forced alignment — a governance forum with clear RACI, a shared view of quantified impact — and the moment it actually resolved a real disagreement between two of those groups, not just kept everyone informed. Emphasise that authority came from evidence and reliability, not from title.</p>
+      <div class="frame"><b>FRAMING</b>The distinction that matters here: "I kept everyone engaged and informed" is relationship-building; "I got legal and ops to converge on one rollout sequence when they wanted opposite things" is alignment. The panel is listening for which one you actually did — make sure your story has a real disagreement in it, not just a coordination effort.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Method · likely, given Round 1 feedback</div>
+      <h3>"Walk me through how you'd conduct a change impact or readiness assessment before a major rollout."</h3>
+      <p>"Before any rollout, I'd want two things mapped: who's actually affected and how (the impact assessment — which roles, which workflows change, how much), and whether the organisation can absorb it right now (the readiness assessment — competing priorities, recent change fatigue, local sentiment). On the multi-asset platform expansion, that looked like cross-functional impact analysis across legal, ops and tech before we touched the account migration — we didn't move until we understood exactly what would break and for whom. I'd pair that with a value realisation view from the start, not just a go-live date: what does success look like at 30, 90 and 180 days, and how do we know the investment actually paid off — the same discipline behind the benefits-realisation frameworks I've used to track ROI on strategic initiatives in my PMO role."</p>
+      <div class="frame"><b>FRAMING</b>This is a direct answer to the exact gap that stopped another candidate — say "impact assessment," "readiness assessment," and "value realisation" explicitly rather than describing the same activity in vaguer language. You have real evidence for all three; this question is about surfacing it with the right vocabulary.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Honest gap · likely, given Round 1 feedback</div>
+      <h3>"This role needs someone who can drive change across multiple markets and regions — you haven't operated at that scale before. How would you approach it?"</h3>
+      <p>"Fairly — I haven't run change across multiple markets simultaneously before, and I'd rather say that plainly than stretch a single-market story to sound bigger than it was. What I have done is coordinate across multiple legal entities and jurisdictional regulatory regimes at once, which shares the core difficulty: no single playbook works everywhere, and you have to calibrate for local context while keeping one coherent target state. For a genuinely multi-market rollout, I'd resist a single global switch-on date, sequence markets by readiness rather than convenience, and lean hard on local Champions to catch what a Group-level view would miss. I'd want a market lead's sign-off before I'd call any market 'live.'"</p>
+      <div class="frame"><b>FRAMING</b>Acknowledging the gap directly, then immediately pivoting to the adjacent evidence and a credible method, is far stronger than pretending multi-entity experience is the same thing. Panels forgive an honest gap; they don't forgive being caught overstating one.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Honest gap · likely, given Round 1 feedback</div>
+      <h3>"Tell me about a time you designed or governed a change champion network."</h3>
+      <p>"I haven't personally designed a formal champion network from scratch — the closest I've come is informal, embedded champion-style work within project teams, not a standing community with its own governance. I'd rather be upfront about that than describe participation as if it were design. What I can tell you is exactly how I'd approach designing one: clear selection criteria so Champions have real credibility with their peers, not just willingness; a regular cadence for them to escalate what they're hearing upward, not just cascade messages downward; and their own success metrics, separate from the general adoption numbers, so the network's health is visible on its own terms." </p>
+      <div class="frame"><b>FRAMING</b>This is the single question most likely to trip you the way it tripped the other candidate — the honest opening line matters more than the plan that follows it. Don't skip straight to the plan; say plainly what you haven't done first.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Communications depth · likely, given Round 1 feedback</div>
+      <h3>"Tell me about developing an executive-level change narrative, not just an operational update."</h3>
+      <p>"At FXCM I present project updates to C-suite management in monthly executive meetings — but the distinction I'd draw is between reporting status and building a narrative. A status update says what's done and what's at risk. A narrative gives executives a reason to actively sponsor the change in their own conversations: why this matters now, what's genuinely changing for the business, what's in it for the people affected, and what I need from leadership specifically to keep it moving. I structure my executive updates around that arc rather than a project-tracker format, because a C-suite audience acts on narrative, not status."</p>
+      <div class="frame"><b>FRAMING</b>Naming the why/what's-changing/what's-in-it-for-them/ask structure explicitly is what separates "I present to executives" from "I build executive-level change narratives" — say the structure out loud, don't just imply it.</div>
     </div>
 
     <div class="qa">
@@ -316,6 +422,45 @@
         <p>Public information runs one to three years behind internal reality — you almost certainly don't know what AIA has shipped this quarter. So instead of asserting the current state, position everything you've read as <em>the picture from the outside</em>, and use it to earn the right to ask about the inside. For example: <em>"From the public record, I can see AIA's Copilot deployment in Singapore and Thailand customer service, and the stated direction toward agent-facing genAI copilots. I'd be curious where the GIO's current focus actually is — because from the outside it's not obvious whether the change management priority now is scaling those customer-service deployments to other markets, or driving the next wave of agent-copilot adoption."</em> That framing turns your research into a well-formed question, not a claim.</p>
         <div class="why">This move — "here's what the public sees, tell me what's really happening" — is what senior candidates do. It respects the panel's inside knowledge while proving you've done yours.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HANDS-ON: CLAUDE + JIRA + CONFLUENCE ============ -->
+<section class="phase" id="hands-on">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">CLOSE THE GAP</span><h2>Claude + Jira + Confluence — your hands-on technical evidence</h2></div>
+    <p class="phase-sub">This is the direct answer to your own flagged development area — "mostly planning and governance, not executing." Below is the concrete, technical architecture behind what you're actually building at FXCM: an agentic workflow from user story to test script to code, not just a training rollout. Note upfront: AIA's own public tech stack is Microsoft-centric (Azure, Dynamics 365, Copilot) rather than Jira/Confluence — so present this as evidence of your own hands-on pattern, not a claim about what AIA runs on.</p>
+
+    <div class="relsteps">
+      <div class="relstep" data-n="1">
+        <h3>Connect Claude to the ticket and knowledge system</h3>
+        <p>Claude connects to Jira and Confluence via the Model Context Protocol (MCP) — the standard mechanism modern AI assistants use to read and write in external tools, once authorised. In practice, the first real step is governance, not wiring: agree scope with IT/Security — read-only access first, write access only after a trial period — with Jira/Confluence's own history serving as a natural audit trail.</p>
+      </div>
+      <div class="relstep" data-n="2">
+        <h3>User story generation from a Confluence brief</h3>
+        <p>Feed Claude an existing product brief or epic page from Confluence, with a prompt pattern like: "Draft 3–5 user stories in 'As a [role], I want [capability], so that [benefit]' format, each with Given/When/Then acceptance criteria, based on this brief." A human Product Owner reviews and edits the draft; once approved, the stories go into Jira — either pasted in manually, or, with write access via the MCP connector, created directly by Claude and tagged to the right sprint or epic.</p>
+        <div class="relnote">This turns a blank-ticket problem into a review problem — the Product Owner's time shifts from writing to judging, which is a faster and arguably higher-value use of their attention.</div>
+      </div>
+      <div class="relstep" data-n="3">
+        <h3>Automated test script generation from the approved acceptance criteria</h3>
+        <p>Once a story's acceptance criteria are signed off, feed them back to Claude to generate either Gherkin/BDD scenarios for manual QA, or actual automated test code (for example, in Playwright or Cypress) matching each criterion directly. The output attaches to the Jira ticket or pushes to the test repository; QA reviews and adjusts before anything merges.</p>
+      </div>
+      <div class="relstep" data-n="4">
+        <h3>Ticket-to-code with Claude Code</h3>
+        <p>Claude Code — Anthropic's agentic coding tool — connects to the same Jira ticket via MCP, reads the description, the acceptance criteria, and any linked Confluence design doc, and drafts a first-pass code change or pull request against the relevant repository. The developer reviews and iterates with it interactively before merging; Claude Code can also post a summary comment back onto the Jira ticket linking the PR, closing the loop from ticket to shipped code without manual copy-paste between systems.</p>
+      </div>
+      <div class="relstep" data-n="5">
+        <h3>The governance wrapper — this is literally your current job</h3>
+        <p>None of the above runs unsupervised: a RACI for who approves AI-drafted stories, tests and code before anything is actioned, a mandatory human review gate before merge or publish, and the tools' own history as an audit trail. This is the exact governance-first framework you're already designing at FXCM for enterprise Claude adoption — the same discipline, just described here against a concrete technical workflow instead of in the abstract.</p>
+      </div>
+    </div>
+
+    <div class="fact wide" style="border-left:4px solid var(--gold);margin-top:24px;">
+      <div class="fnum">HOW TO SAY THIS IN THE ROOM</div>
+      <h3>Be precise about what's built versus what's designed</h3>
+      <p>"At FXCM, I'm designing the governance and workflow for exactly this pattern — Claude connected into our own tooling to draft user stories and support test creation, with human review as the gate before anything ships. I haven't personally built the ticket-to-code step with Claude Code yet, but I understand the architecture well enough to know what it would take, and where the governance risk sits — which is the piece that actually matters for a change management role, not the engineering itself."</p>
+      <div class="why">This is a genuinely strong answer precisely because it doesn't overclaim: it shows real architectural understanding while being accurate about which parts are live versus designed, which is exactly the credibility a data-and-delivery-literate interviewer like Simon Lee will be listening for.</div>
     </div>
   </div>
 </section>
@@ -469,6 +614,305 @@
   </div>
 </section>
 
+<!-- ============ ROUND 2: SIMON LEE ============ -->
+<section class="phase" id="simonlee">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">ROUND 2</span><h2>Simon Lee — Director, Group Innovation &amp; Emerging Technology</h2></div>
+    <p class="phase-sub">He's the data-and-actuarial voice in your interview loop, not the change-management one — expect him to probe evidence and measurement, not just narrative. Congratulations on getting here, by the way.</p>
+
+    <div class="facts">
+      <div class="fact wide">
+        <div class="fnum">HIS ARC</div>
+        <h3>Actuary → data scientist → AI delivery → innovation leadership</h3>
+        <p>By your own account: Associate Director &amp; Actuary at EY, then Chief Data Scientist at AXA Group (confirmed via public profile data) — both roles that live and die by quantitative rigor. At AIA, public records show him as Group Director, Enterprise Artificial Intelligence Delivery from around March 2022, and he's been a working AI-in-insurance voice since at least 2018 (speaker at Machine Intelligence Summit HK, AI in Healthcare Summit Asia, and AI in Insurance Summit London/New York in 2020). He's an HKU graduate. His current title, Director of Group Innovation &amp; Emerging Technology, is the role you'd be reporting into or working alongside.</p>
+        <div class="src" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);margin-top:8px;">Sources: LinkedIn (hk.linkedin.com/in/simoncklee), Crunchbase person profile — cross-check anything specific against his current LinkedIn before the interview, since titles and dates can shift.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">WHAT THIS SIGNALS</div>
+        <h3>He'll test evidence, not enthusiasm</h3>
+        <p>An actuarial and data-science background means he's trained to distrust a good story until the numbers back it up. Expect him to ask "how do you know," "what would falsify that," and "show me the metric" more than "tell me about a time."</p>
+      </div>
+      <div class="fact">
+        <div class="fnum">WHAT ELSE THIS SIGNALS</div>
+        <h3>He's lived the "AI delivery" job, not just strategy</h3>
+        <p>Having run Enterprise AI Delivery himself, he'll likely probe for operational specifics — how a rollout actually gets measured and sustained — rather than accept a strategic framing at face value. He'll notice if you're fluent in AI concepts versus just process vocabulary.</p>
+      </div>
+    </div>
+
+    <p class="phase-sub" style="margin-top:32px;">Likely questions from him, and how to answer them.</p>
+
+    <div class="qa">
+      <div class="qtag">Measurement · very likely</div>
+      <h3>"How would you measure whether the AI Academy is actually working — not just whether people completed it?"</h3>
+      <p>"Completion is a leading indicator, not the outcome. I'd track it alongside behavioural signals — actual tool usage post-training, task time or error-rate changes where measurable, and manager-reported change in how their teams work. If completion is high but usage doesn't move, that's the number I'd chase first, not the one I'd report as a win."</p>
+      <div class="frame"><b>FRAMING</b>Naming the gap between completion and behaviour change unprompted is exactly the kind of scepticism his own background would reward.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Statistical thinking · likely</div>
+      <h3>"Completion rates look good, but usage isn't changing. What would you investigate first?"</h3>
+      <p>"I'd segment before I'd conclude anything — by market, by function, by tenure — because an aggregate number can hide a real problem in one segment. Then I'd look at drop-off points within the content itself and cross-reference against manager engagement, since adoption research consistently shows manager reinforcement matters more than the training content itself."</p>
+      <div class="frame"><b>FRAMING</b>This is deliberately the same instinct as his own AXA/EY background — don't trust the headline number, decompose it.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Technical fluency · possible</div>
+      <h3>"How would you explain the difference between a large language model and a traditional predictive model to a non-technical stakeholder?"</h3>
+      <p>"A traditional model is usually built to predict one specific number or outcome from structured data — a lapse risk score, a claim likelihood. A large language model is trained to predict the next piece of text from huge amounts of unstructured data, which is why it's flexible across many tasks but also why its answers can sound confident without being verifiably correct — you can't audit its reasoning the way you can trace a regression coefficient."</p>
+      <div class="frame"><b>FRAMING</b>Have one clean, correct analogy ready rather than a vague gesture at "AI is smart" — this is the kind of question that quickly separates real fluency from borrowed vocabulary, and he'll know the difference immediately.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Behavioural, data-flavoured · possible</div>
+      <h3>"Tell me about a time you challenged a plan because the data didn't support it."</h3>
+      <p>Use a real example from your own record — the professional-client classification programme or the client-money controls work are both good candidates if either involved pushing back on an assumption using evidence rather than instinct. Be ready with a specific number or finding, not just "I raised concerns."</p>
+    </div>
+
+    <p class="phase-sub" style="margin-top:32px;">Questions to ask him — tailored to his background, not generic panel questions.</p>
+
+    <div class="ask"><span class="anum">1</span><div><div class="q">"Having run Enterprise AI Delivery yourself, what's the one adoption metric you personally trust most — and which ones have burned you before?"</div><div class="r">A genuinely data-scientist question, not a generic "how do you measure success" one — invites him to talk shop, and gives you real signal on what he'll actually judge this programme by.</div></div></div>
+
+    <div class="ask"><span class="anum">2</span><div><div class="q">"How does the Group Innovation and Emerging Technology function work with the analytics and AI delivery teams you used to lead — is measurement owned centrally, or does each initiative build its own?"</div><div class="r">Directly relevant to the AI Academy's adoption-measurement question, and shows you're thinking about organisational seams, not just the training content itself.</div></div></div>
+
+    <div class="ask"><span class="anum">3</span><div><div class="q">"You moved from actuarial and data-science roles into innovation leadership — what carried over, and what did you have to learn from scratch?"</div><div class="r">A respectful, specific question about his own career transition — genuinely interesting to most people, and subtly parallels your own industry-to-industry move.</div></div></div>
+
+    <div class="ask"><span class="anum">4</span><div><div class="q">"For the AI Academy and micro-credential programme specifically, is there a target adoption number already, or would defining that be part of this role?"</div><div class="r">Practical and directly sets up the plan in the next section — a natural bridge if the conversation turns to the two initiatives.</div></div></div>
+
+    <div class="ask"><span class="anum">5</span><div><div class="q">"Five years from now, what does an 'AI-enabled AIA' actually look like day to day for a frontline agent or an operations colleague — and how far are we from that today?"</div><div class="r">A deliberately open, visionary question rather than a logistics one — a good note to close on with a senior leader, and it invites him to talk about the destination rather than the mechanics, which is where someone with his background often has the most interesting things to say.</div></div></div>
+  </div>
+</section>
+
+<!-- ============ ADOPTION MEASUREMENT MATRIX ============ -->
+<section class="phase" id="matrix">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">GO DEEPER</span><h2>The adoption measurement matrix</h2></div>
+    <p class="phase-sub">The fuller version of what was only briefly mentioned in the Q&amp;A above. Built on Kirkpatrick's four levels of training evaluation — a genuinely established, named methodology, useful to cite directly with Simon Lee — plus a fifth dimension addressing the Round 1 feedback that adoption measurement leaned too heavily on usage and feedback alone.</p>
+
+    <div class="table-scroll">
+      <table class="reftable">
+        <tr><th>Level</th><th>What it actually measures</th><th>Example metrics</th><th>Data source</th><th>Cadence</th></tr>
+        <tr><td><strong>1 · Reaction</strong></td><td>Did people find it valuable and relevant?</td><td>Satisfaction score, relevance rating, "would recommend"</td><td>Post-module survey</td><td>Continuous, per module</td></tr>
+        <tr><td><strong>2 · Learning</strong></td><td>Did they actually gain the knowledge or skill?</td><td>Scenario-assessment pass rate, applied-task score</td><td>In-programme assessment</td><td>At completion</td></tr>
+        <tr><td><strong>3 · Behaviour</strong></td><td>Are they actually working differently?</td><td>Tool usage frequency, task-time change, manager-observed change</td><td>Usage logs, manager pulse check</td><td>Monthly; 30/60/90 days post-completion</td></tr>
+        <tr><td><strong>4 · Results</strong></td><td>Did it move an actual business outcome?</td><td>Hours saved per task, error-rate change, throughput change</td><td>Business/ops data, before-after comparison</td><td>Quarterly</td></tr>
+        <tr><td><strong>5 · Readiness</strong> <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--aia);">(added)</span></td><td>Is the organisation actually set up to sustain this?</td><td>Champion network health, leadership completion rate, manager reinforcement rate</td><td>Champion reports, completion dashboard, pulse survey</td><td>Ongoing</td></tr>
+      </table>
+    </div>
+    <p class="table-caption">Kirkpatrick's four levels are a real, widely used training-evaluation framework — Level 5 here is my own addition, built specifically to answer the "organisational readiness" gap named in the Round 1 feedback, not a standard part of the original model.</p>
+
+    <p class="phase-sub" style="margin-top:32px;margin-bottom:14px;"><strong>How this splits across the two plans</strong> — they need different weight on different levels, given their different shapes.</p>
+    <div class="table-scroll">
+      <table class="reftable">
+        <tr><th>Level</th><th>Micro-credential (Plan A)</th><th>AI Academy (Plan B)</th></tr>
+        <tr><td>1 · Reaction</td><td>Light-touch — one quick pulse per module, since scale matters more than depth here</td><td>Deeper — post-workshop feedback per market visit, since it's in-person and lower volume</td></tr>
+        <tr><td>2 · Learning</td><td>Pass/fail on one scenario assessment — has to be fast to grade at 20,000-person scale</td><td>Richer — Practitioner-level applied tasks judged with more nuance, smaller cohort per visit</td></tr>
+        <tr><td>3 · Behaviour</td><td>Aggregate tool-usage change, tracked at market/function level</td><td>Individual-level tracking is realistic here — smaller, known cohort, visited repeatedly</td></tr>
+        <tr><td>4 · Results</td><td>Coarser — completion-to-deadline is the main result this plan owns</td><td>This is where the real business-outcome case lives — deeper capability should show up in harder metrics over time</td></tr>
+        <tr><td>5 · Readiness</td><td>Leadership-completed-first rate; Champion coverage as the network is being seeded</td><td>Champion network health and decay detection <em>is</em> the core ongoing metric for this plan</td></tr>
+      </table>
+    </div>
+    <p class="table-caption">The point to make explicitly if asked: a single dashboard forcing both plans into identical metrics would understate the Academy's real depth and overstate the micro-credential's — they need related but distinct scorecards.</p>
+
+    <div class="fact wide" style="border-left:4px solid var(--aia);margin-top:20px;">
+      <div class="fnum">THE LINE TO USE WITH SIMON LEE SPECIFICALLY</div>
+      <h3>Name the leading/lagging distinction explicitly</h3>
+      <p>"Levels 1 and 2 — reaction and learning — are leading indicators; they tell you fast, but they don't tell you what actually happened at work. Levels 3 and 4 — behaviour and results — are the lagging indicators that take longer to show up but are the ones that actually matter. My instinct is to report both together, always, so a good Level 1 number is never presented on its own as if it were the outcome."</p>
+      <div class="why">This is precisely the discipline his own actuarial/data-science background would reward — distinguishing a fast, noisy signal from a slow, reliable one, and refusing to let the fast one stand in for the slow one in a report.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI ACADEMY & MICRO-CREDENTIAL PLAN ============ -->
+<section class="phase" id="aiaplan">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">HIT THE GROUND RUNNING</span><h2>Two initiatives, two different shapes of plan</h2></div>
+    <p class="phase-sub">You learned about these two directly in round one — I have no public confirmation of AIA's actual design for either, so everything below is a framework for you to propose and adapt with the team, not a claim about AIA's real plan. Present it that way: "here's how I'd approach this, and I'd want to validate it against what's already in motion." They're deliberately different in shape: the micro-credential programme is a one-time, hard-deadline push to everyone; the AI Academy is an ongoing capability-building programme delivered in person, market by market.</p>
+  </div>
+</section>
+
+<!-- ============ PRACTICAL AI TOOLKIT ============ -->
+<section class="phase" id="toolkit">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">MAKE IT CONCRETE</span><h2>The practical AI toolkit — real tools, not just ideas</h2></div>
+    <p class="phase-sub">You mentioned bite-size videos, AI-generated FAQs and formatted decks in round one — this is the detail underneath those, so you have actual tool names and a workflow ready if asked "how, specifically." None of this requires new procurement beyond what most enterprises already license or can trial cheaply — that's part of why it's a credible "week one" pitch rather than a big-budget ask.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fnum">01 · BITE-SIZE VIDEO</div>
+        <h3>Script by LLM, presenter video by AI avatar tools</h3>
+        <p>Workflow: draft a tight 60–120 second script from existing source material (an SOP, a slide deck, a policy doc) using an LLM, then turn it into a presenter-led video with a tool like <strong>Synthesia</strong>, <strong>HeyGen</strong> or <strong>Colossyan</strong> — no filming, no studio. One concept per video, strictly — "how to write a good prompt," not "everything about prompting."</p>
+        <p><strong>The multi-market payoff:</strong> these tools include AI dubbing that translates and lip-syncs the same video into another language automatically. One English script becomes a Cantonese, Mandarin, Thai and Malay version without reshooting — directly solves the Academy's five-market localisation problem at a fraction of the usual cost and time.</p>
+      </div>
+      <div class="fact">
+        <div class="fnum">02 · AI-GENERATED FAQ</div>
+        <h3>A living FAQ, not a static document</h3>
+        <p>Workflow: log every real question Champions and pilot users actually ask (a shared tracker, or the unanswered-query log from a simple chatbot); batch them weekly and feed them to an LLM — even just the enterprise Claude/ChatGPT access most companies already have — to draft new FAQ entries in AIA's tone; L&amp;D reviews and publishes.</p>
+        <p><strong>Why this beats a normal FAQ:</strong> it grows from what people are actually confused about, not what the design team guessed they'd ask — and it takes L&amp;D minutes to review a draft instead of hours to write one from scratch.</p>
+      </div>
+      <div class="fact">
+        <div class="fnum">03 · FORMATTED DECKS, ON DEMAND</div>
+        <h3>An outline in, a polished deck out</h3>
+        <p>Workflow: feed a bullet-point outline into <strong>Gamma</strong>, <strong>Canva Magic Design</strong>, or <strong>Microsoft 365 Copilot</strong> in PowerPoint, and get a formatted, on-brand deck in minutes rather than hours of manual layout work.</p>
+        <p><strong>Two direct uses here:</strong> (1) one workshop outline becomes five market-specific decks for the Academy's in-person sessions, each with locally relevant examples swapped in; (2) the periodic adoption dashboard summary (mentioned in both plans below) comes out as an actual leadership-ready deck, not just a text report — genuinely useful for updating Simon Lee or the wider GIO team.</p>
+      </div>
+      <div class="fact wide" style="border-left:4px solid var(--gold);">
+        <div class="fnum">HOW TO SAY THIS IN THE ROOM</div>
+        <h3>Name the tools, but frame them as examples, not commitments</h3>
+        <p>"I'd want to pilot this with whatever's already approved for use at AIA — Synthesia or HeyGen for video, Gamma or Copilot for decks — rather than assume these specific tools. The workflow is the important part: script or outline first, drafted fast with AI, then a human reviews before anything goes out. The tool underneath is a detail I'd confirm with IT and Compliance in week one."</p>
+        <div class="why">This shows genuine hands-on knowledge (you can name real products) while staying honest about your actual experience level — you haven't personally run these tools inside AIA's environment yet, and saying so protects you from a follow-up question you can't answer.</div>
+      </div>
+      <div class="fact">
+        <div class="fnum">04 · AUDIO &amp; A LIVING PROMPT LIBRARY</div>
+        <h3>Reach the people who aren't at a desk, and stop rewriting good prompts from scratch</h3>
+        <p><strong>Audio:</strong> the same script behind a bite-size video, run through a notebook-style AI audio tool, becomes a 2–3 minute spoken explainer — genuinely useful for frontline or field staff who don't have screen time but do have a commute or downtime between calls.</p>
+        <p><strong>Prompt library:</strong> a living, growing collection of good prompts specific to each function (claims, underwriting, agency, ops), sourced directly from AI Use-Case Challenge submissions rather than written top-down — turns competition entries into reusable day-one value instead of a one-off recognition moment.</p>
+      </div>
+      <div class="fact">
+        <div class="fnum">05 · SCENARIO-BASED ASSESSMENT</div>
+        <h3>Test whether someone can use it, not whether they can recall it</h3>
+        <p>Instead of a multiple-choice quiz, present a realistic work scenario — a sample claim, a client email, an underwriting case — and have the learner actually use AI to work through it, with AI (plus a light human spot-check) assessing the approach, not just the final answer.</p>
+        <div class="why">This is a direct answer to the Round 1 feedback that adoption discussions leaned too heavily on usage/completion — a scenario-based assessment is evidence of capability, not just attendance, and it's the kind of detail that separates a real plan from a training-industry template.</div>
+      </div>
+    </div>
+
+    <p class="phase-sub" style="margin-top:32px;margin-bottom:14px;"><strong>Adoption accelerators</strong> — ideas you raised in round one, plus one more, each expanded with the mechanism underneath.</p>
+
+    <div class="facts">
+      <div class="fact">
+        <div class="fnum">ACCELERATOR 1</div>
+        <h3>An internal competition, not just a leaderboard</h3>
+        <p>Run an "AI Use-Case Challenge": staff or teams submit their best real example of AI saving them time or improving their work, judged per market or function, with visible recognition — a leaderboard, a shout-out in a townhall or newsletter, a small prize.</p>
+        <p><strong>The part that makes this efficient, not just fun:</strong> winning entries become the next batch of source material for bite-size videos, FAQ content and the prompt library above — real peer stories, not top-down messaging, which is usually the content people actually watch. It also converts naturally into a completion incentive for the micro-credential if entry requires having finished it first. A nice finishing touch: an AI-generated, personalised completion certificate summarising specifically what someone can now do (not just "completed training") — genuinely shareable on an internal profile or LinkedIn, which costs almost nothing once the content pipeline exists.</p>
+      </div>
+      <div class="fact">
+        <div class="fnum">ACCELERATOR 2</div>
+        <h3>Leadership completes it first, visibly</h3>
+        <p>Before any wider push, the sponsoring leadership — the Group Innovation Office team, potentially including you as the person running it — completes the micro-credential first, and that's made visible: a short internal post, or a bite-size video of a leader's own reflection on what they learned.</p>
+        <p><strong>Why this matters more than it sounds:</strong> role-modelling from visible leadership is one of the strongest, best-evidenced levers for adoption — "our own leadership did this before asking you to" lands very differently from a mandate email. For the AI Academy specifically, this extends naturally to each market visit: the local country head or leadership team goes through the Practitioner tier before their market's in-person session, so the visit opens with local leadership already having done it.</p>
+      </div>
+      <div class="fact">
+        <div class="fnum">ACCELERATOR 3</div>
+        <h3>An AI sandbox hour — scheduled, not assumed</h3>
+        <p>Immediately after training, block dedicated, supported time where a team applies AI directly to their own real, current backlog — not a hypothetical exercise, their actual open tickets or cases — with someone on hand to help.</p>
+        <p><strong>Why this is worth naming explicitly:</strong> the classic failure mode in AI upskilling is that training ends and application is assumed to follow on its own; it usually doesn't, because people go straight back to the old way under deadline pressure. Turning the training-to-application gap into a scheduled, supported event rather than a hope closes exactly the gap named in your own Round 1 development area — moving from planning AI adoption to actually driving execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN A: MICRO-CREDENTIAL PROGRAMME ============ -->
+<section class="phase" id="microplan">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">PLAN A</span><h2>Micro-credential programme — all ~20,000 staff, by year-end</h2></div>
+    <p class="phase-sub">A fixed-deadline, enterprise-wide push. The core challenge here is pace and coverage, not depth — everyone needs to clear one bar by a fixed date, so the plan is built backwards from that date.</p>
+
+    <div class="fact wide" style="border-left:4px solid var(--aia);">
+      <div class="fnum">THE FRAMING TO OPEN WITH</div>
+      <h3>Start with a readiness and impact assessment, not a launch date</h3>
+      <p>Before committing to a year-end target, I'd want to know two things: what's actually changing for each function (the impact assessment — new expectations, new tools, new ways of working), and whether each market/function can absorb that change right now given everything else on their plate (the readiness assessment). Year-end is a real constraint, so the assessment has to be fast — a structured week-one exercise, not a research project — but skipping it is exactly how enterprise rollouts stall in month four.</p>
+    </div>
+
+    <p class="phase-sub" style="margin-top:28px;margin-bottom:14px;"><strong>Quarter-by-quarter pacing</strong> to hit 20,000 by year-end — illustrative, built backwards from the deadline.</p>
+    <div class="table-scroll">
+      <table class="reftable">
+        <tr><th>Window</th><th>Milestone</th><th>Cumulative coverage</th></tr>
+        <tr><td>Weeks 1–3</td><td>Readiness/impact assessment; confirm one-tier curriculum, assessment criteria, and market-by-market rollout order</td><td>0%</td></tr>
+        <tr><td>Weeks 4–8</td><td>Content built and localised; pilot with one market or function (~1,000–1,500 staff) to catch problems before scaling</td><td>~5–8%</td></tr>
+        <tr><td>Quarter 2</td><td>Rollout to the largest two or three markets/functions; weekly dashboard live</td><td>~40–50%</td></tr>
+        <tr><td>Quarter 3</td><td>Remaining markets/functions; targeted push on segments trailing the curve</td><td>~80–85%</td></tr>
+        <tr><td>Quarter 4</td><td>Closing push — direct manager escalation for stragglers, deadline-driven reminders, final reporting</td><td>~100% by year-end</td></tr>
+      </table>
+    </div>
+    <p class="table-caption">Illustrative pacing only — the actual split would depend on current baseline and each market's real capacity, which is exactly what the week-one readiness assessment is for.</p>
+
+    <div class="relsteps" style="margin-top:24px;">
+      <div class="relstep" data-n="1">
+        <h3>Assess, design backwards — and have leadership go first</h3>
+        <p>Run the readiness/impact assessment; use it to set a realistic (not aspirational) quarter-by-quarter coverage target, and get sign-off on that target before committing publicly to "100% by year-end." In this same window, have the sponsoring leadership complete the credential themselves, ahead of everyone else — Accelerator 2 above — so the wider push launches with visible proof it's already been done.</p>
+        <div class="relnote">Feed the skills framework and any existing usage data into an LLM to draft the first-pass single-tier curriculum outline — a blank-page problem becomes an editing problem for L&amp;D, which matters when the timeline is this tight. For the readiness/impact assessment itself, feed a plain-language description of what's changing into an LLM to draft a first-pass assessment (who's affected, how, and what usually goes wrong) for the team to refine — using AI to strengthen the change-management methodology itself, not just the training content, which is a detail worth surfacing directly with Simon Lee given his own AI-delivery background.</div>
+      </div>
+      <div class="relstep" data-n="2">
+        <h3>Build once, localise everywhere — bite-size, not a course</h3>
+        <p>One consistent curriculum and assessment, translated and culturally adapted per market — consistency matters here because every one of ~20,000 people is being held to the same bar. Structure it as a short sequence of bite-size videos rather than one long course; completion feels achievable in a way a 45-minute module doesn't.</p>
+        <div class="relnote">Draft each module's script with an LLM, then produce the actual video with an AI avatar tool (Synthesia/HeyGen/Colossyan — see the toolkit above), using its AI dubbing to generate every market's language version from one script. Draft quiz questions and job-aids the same way; human review corrects tone and accuracy, but nothing starts from zero.</div>
+      </div>
+      <div class="relstep" data-n="3">
+        <h3>Pilot small, fix fast</h3>
+        <p>Roll out to one market or function first specifically to find the logistical and content problems before they multiply across 20,000 people — a fixed deadline is exactly when you can least afford to discover a broken assessment link in week 30.</p>
+      </div>
+      <div class="relstep" data-n="4">
+        <h3>Push coverage, market by market — with a reason to want to finish</h3>
+        <p>Sequence the remaining rollout by capacity, not convenience — the assessment from step 1 tells you who can absorb it now versus who needs a lighter touch and a later slot within the year. Launch the AI Use-Case Challenge (Accelerator 1) once early completers exist, gated on having finished the credential — gives people a reason to complete besides the deadline itself, and starts generating real peer stories while the rollout is still mid-flight.</p>
+        <div class="relnote">Auto-flag markets/functions falling behind the quarterly pacing target, and draft segment-specific reminder communications rather than one generic reminder to everyone still outstanding. Maintain the FAQ as a living document — batch real questions from the rollout into an LLM weekly rather than letting it go stale.</div>
+      </div>
+      <div class="relstep" data-n="5">
+        <h3>Measure coverage <em>and</em> whether it meant anything</h3>
+        <p>Track completion against the year-end target, but treat that as the leading indicator, not the outcome — pair it with a lightweight post-completion check (a short applied task or manager check-in) that tells you whether the credential actually changed how someone works, not just whether they clicked through it.</p>
+        <div class="relnote">Run open-text feedback through an LLM for theme extraction at scale; use anomaly detection to surface markets/functions where completion is on-pace but the applied-task signal is weak — a real distinction between "compliant" and "capable." Turn the resulting dashboard into an actual formatted deck (Gamma/Copilot) for leadership updates, not just a spreadsheet.</div>
+      </div>
+      <div class="relstep" data-n="6">
+        <h3>Close it out, and report the outcome honestly</h3>
+        <p>Report against the original target at year-end, including where it fell short and why — a credible closing report says what didn't work as much as what did, which is the same closure discipline good PMO governance always applies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN B: AI ACADEMY ============ -->
+<section class="phase" id="academyplan">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">PLAN B</span><h2>AI Academy — ongoing, delivered in person across five markets</h2></div>
+    <p class="phase-sub">A different shape of problem entirely: not a deadline to hit once, but a capability to keep building, delivered face-to-face in HK, Mainland China, Singapore, Malaysia and Thailand. The core design challenge here is the Champion network and the travel cadence, not the curriculum.</p>
+
+    <div class="fact wide" style="border-left:4px solid var(--aia);">
+      <div class="fnum">THE PART TO GET RIGHT</div>
+      <h3>Design and govern the Champion network — don't just recruit volunteers</h3>
+      <p>This is the specific gap that stopped another candidate at this stage, so it's worth doing properly rather than gesturing at it. Before nominating anyone, run a two-minute pulse survey asking who's already using AI informally and how — surfacing the hidden power users who are already doing this quietly, rather than guessing who'd make a good Champion or defaulting to whoever volunteers first. A Champion network built from that list needs: <strong>selection criteria</strong> (credibility with peers, not just willingness to volunteer), a <strong>two-way governance cadence</strong> — Champions escalate what they're hearing on the ground upward, not just cascade Group messaging downward — and their <strong>own success metrics</strong>, separate from general adoption numbers, so the network's health is visible on its own terms rather than assumed.</p>
+    </div>
+
+    <p class="phase-sub" style="margin-top:28px;margin-bottom:14px;"><strong>The deeper tier structure this Academy actually builds</strong> — the Foundation tier is largely covered by the micro-credential above; the Academy's job is the two tiers beyond it.</p>
+    <div class="table-scroll">
+      <table class="reftable">
+        <tr><th>Tier</th><th>Audience</th><th>Delivered how</th></tr>
+        <tr><td>Practitioner</td><td>Power users nominated per function, per market</td><td>In-person workshops on each market visit — hands-on, function-specific application, not generic AI literacy</td></tr>
+        <tr><td>Champion</td><td>A governed network, several per market</td><td>Train-the-trainer sessions during visits, plus an ongoing virtual cadence between visits so the network doesn't go quiet for months at a time</td></tr>
+      </table>
+    </div>
+
+    <p class="phase-sub" style="margin-top:32px;margin-bottom:14px;"><strong>The ongoing operating rhythm</strong> — not a linear six-step plan, since this doesn't end; it's a repeating cycle across markets.</p>
+
+    <div class="relsteps" style="margin-top:24px;">
+      <div class="relstep" data-n="1">
+        <h3>Design the Champion network before the first market visit</h3>
+        <p>Set selection criteria, the escalation/governance cadence, and Champion-specific success metrics before recruiting anyone — a network built without this structure is exactly what "participation without governance" looks like, and it's the trap to avoid.</p>
+      </div>
+      <div class="relstep" data-n="2">
+        <h3>Sequence the five markets by readiness — and get local leadership to go first</h3>
+        <p>Use the same readiness-assessment logic as the micro-credential plan to decide which market gets the first visit — likely the one with the strongest existing Champion candidates or the clearest early-win use case, to build credibility before harder markets. Ahead of each visit, have that market's own country head or leadership team complete the Practitioner tier first (Accelerator 2), so the in-person session opens with local leadership already having done it, not just Group mandating it.</p>
+        <div class="relnote">Draft the first market's workshop content and facilitator guide with an LLM from the core curriculum, then turn the outline into an actual formatted deck (Gamma/Copilot — see the toolkit above) adapted for that market's specific function mix — each visit needs its own tailoring, and doing that by hand five times over is where an ongoing programme quietly drains capacity.</div>
+      </div>
+      <div class="relstep" data-n="3">
+        <h3>Deliver in person, reinforce virtually</h3>
+        <p>Each market visit combines Practitioner workshops with Champion train-the-trainer sessions; between visits, a lightweight virtual cadence — office hours, a Champion-only channel — keeps the network active rather than dormant until the next trip. Run the AI Use-Case Challenge (Accelerator 1) as an ongoing, rolling programme here rather than a one-off — a fresh round per market visit keeps generating real local stories to feed back into content.</p>
+        <div class="relnote">Feed real Champion questions into an LLM weekly to keep a living FAQ current between visits — the same mechanism as the micro-credential plan's toolkit, just fed by Champions rather than the mass rollout — so Champions have a first line of support to point people to, rather than fielding every question personally.</div>
+      </div>
+      <div class="relstep" data-n="4">
+        <h3>Feed each visit's learning into the next one</h3>
+        <p>What worked in the first market — content, pacing, which use cases actually landed — should visibly change how the second market's visit is run. An Academy that delivers the identical session five times without adapting isn't actually learning from its own rollout.</p>
+      </div>
+      <div class="relstep" data-n="5">
+        <h3>Measure the network's health, not just attendance</h3>
+        <p>Track Champion-specific signals separately from general adoption: how often Champions are actually being used as a resource locally, what they're escalating upward, and whether that escalation is changing anything centrally — a network that only reports metrics but never gets heard will quietly stop trying.</p>
+        <div class="relnote">Apply cohort analysis across markets to spot decay — a market whose Champion activity was strong after the visit but has since gone quiet — early enough to schedule a follow-up before the next annual visit cycle.</div>
+      </div>
+      <div class="relstep" data-n="6">
+        <h3>Revisit, refresh, repeat</h3>
+        <p>Plan a return cadence per market (annually, or tied to major new AI capabilities worth an in-person push) rather than treating the first visit as the end state — this is the difference between an Academy and a one-off roadshow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ AIA CONTEXT ============ -->
 
 <!-- ============ AI ADOPTION AT AIA ============ -->
@@ -484,6 +928,11 @@
 <footer>
   <div class="wrap">
     <p class="note"><b>Honesty guardrails:</b> AIA facts (TDA, GenAI direction, 18 markets group-wide, mission) come from AIA's own public materials and reputable press. The 5-market scope (HK / China / Singapore / MY / Thailand) came via recruiter — <b>verify this framing early with the panel</b> ("my understanding is the role's regional focus is these five markets — is that right?") in case the recruiter's read is imprecise. Details of the GIO's internal structure, GCB05 grade meaning, and specific in-flight initiatives are <b>not public</b> — treat as inferences. The "instability at FXCM" motivation should stay internal — the reframed answer ("greater enterprise scale and career depth") is truthful and forward-looking, and is what the panel should hear.</p>
+    <p class="note"><b>On Simon Lee's profile:</b> his AXA Chief Data Scientist role, HKU background, AIA "Group Director, Enterprise Artificial Intelligence Delivery" title (from around March 2022), and his 2018–2020 AI-in-insurance speaking history are drawn from his public LinkedIn and Crunchbase profiles. His EY role and "Group Director, Analytics Business Partner" title came from what you told me directly — I haven't independently verified those two, so a quick check of his current LinkedIn before the interview is worth doing in case his title or scope has moved on since these profiles were last updated.</p>
+    <p class="note"><b>On the micro-credential and AI Academy plans:</b> I found no public information about AIA's actual design for either initiative — both sections are frameworks I built from general enterprise-AI-upskilling practice, explicitly to help you sound like you can hit the ground running, not a claim about what AIA has already decided. Present them as your own first-pass thinking, invite correction, and don't state any tier structure, phasing, timeline, or the champion-network design as if you already know AIA's real plan.</p>
+    <p class="note"><b>On the practical toolkit:</b> Synthesia, HeyGen, Colossyan, Gamma, Canva Magic Design and Microsoft 365 Copilot are all real, current products doing roughly what's described — but you haven't personally used any of them inside AIA's environment, and I don't know what AIA already has licensed or approved. Say the workflow with confidence; name the tools as illustrative examples you'd confirm with IT/Compliance, not as products you've already implemented there.</p>
+    <p class="note"><b>On the Round 1 feedback and the rejected candidate's notes:</b> both are exactly as you reported them to me — I haven't embellished either. Where I've added new Q&amp;A content addressing the flagged gaps (change methodology, impact/readiness assessments, multi-market scale, Champion network design), I've been careful to keep the honest gaps honest — several of these are genuine gaps in your record, not just framing problems, and the answers say so plainly before pivoting to how you'd approach it. Don't let rehearsal turn an honest "I haven't done this" into something that sounds like a claim that you have.</p>
+    <p class="note"><b>On the measurement matrix:</b> Kirkpatrick's four levels are a real, established training-evaluation model — genuinely fine to cite by name. Level 5 ("Readiness") and the Plan A/B split are my own additions, not part of the standard framework, so don't present them as if Kirkpatrick himself defined a fifth level. <b>On the Claude+Jira+Confluence section:</b> MCP, Claude Code, and Atlassian's own MCP-compatible connectors for Jira/Confluence are real, current capabilities — but the section is written to reflect what you're designing and piloting at FXCM, not a claim that the full ticket-to-code pipeline is already operational there. Keep that distinction intact if asked directly how far along it actually is.</p>
   </div>
 </footer>
 
