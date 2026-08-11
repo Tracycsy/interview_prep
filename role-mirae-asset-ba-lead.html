@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirae Asset Interview Prep — Business Analyst Lead, Retail Mobile Trading App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2545;
+    --navy-deep:#061530;
+    --navy-mid:#17457C;
+    --teal:#0E8C9B;
+    --teal-bright:#3FB6C4;
+    --ink:#101820;
+    --slate:#55606E;
+    --line:#DDE3EA;
+    --paper:#F6F8FB;
+    --panel:#FFFFFF;
+    --gap-bg:#FDF3EC;
+    --gap-border:#E8B48D;
+    --good-bg:#EDF6F7;
+    --good-border:#A5D2D9;
+    --key-bg:#0B2545;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.56;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Newsreader',serif;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 28px;}
+
+  .topnav{position:sticky;top:0;background:rgba(246,248,251,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50;}
+  .topnav-inner{max-width:940px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .topnav-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--slate);margin-right:4px;}
+  .topnav a{font-size:12.5px;text-decoration:none;color:var(--navy-mid);border:1px solid var(--line);padding:4px 11px;border-radius:20px;transition:.15s;background:#fff;}
+  .topnav a:hover{border-color:var(--teal);color:var(--navy);}
+  .topnav a.home{color:var(--slate);border:none;background:transparent;border-right:1px solid var(--line);border-radius:0;padding-right:13px;margin-right:3px;}
+  .topnav a.home:hover{color:var(--ink);}
+
+  header.hero{background:var(--navy);color:#fff;padding:60px 0 48px;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;right:-140px;top:-160px;width:460px;height:460px;border:1px solid rgba(63,182,196,0.22);border-radius:50%;}
+  header.hero::before{content:"";position:absolute;right:-40px;bottom:-220px;width:340px;height:340px;border:1px solid rgba(63,182,196,0.14);border-radius:50%;}
+  header.hero .wrap{position:relative;z-index:2;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:16px;}
+  header.hero h1{font-size:36px;line-height:1.14;margin:0 0 14px;color:#fff;max-width:760px;}
+  header.hero .sub{font-size:16px;color:rgba(255,255,255,0.80);max-width:660px;}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;}
+  .tag{font-size:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);padding:5px 11px;border-radius:4px;color:rgba(255,255,255,0.88);}
+
+  .phase{padding:44px 0;border-bottom:1px solid var(--line);}
+  .phase-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px;}
+  .phase-num{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.11em;color:var(--teal);font-weight:500;text-transform:uppercase;}
+  .phase h2{font-size:25px;margin:0;}
+  .phase-sub{color:var(--slate);font-size:14.5px;margin:8px 0 22px;max-width:700px;}
+
+  h3{font-size:17.5px;margin:28px 0 10px;}
+
+  .qa{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--navy-mid);border-radius:4px;padding:17px 21px;margin-bottom:14px;}
+  .qtag{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--navy-mid);font-weight:600;margin-bottom:8px;}
+  .qa p{margin:0 0 10px;}
+  .qa p:last-child{margin-bottom:0;}
+  .qa em{color:var(--slate);}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+  th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;letter-spacing:.02em;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#FFFFFF;}
+  tr:nth-child(odd) td{background:#FAFCFD;}
+
+  .fit-yes{color:#1F6B4F;font-weight:600;}
+  .fit-partial{color:#96661A;font-weight:600;}
+  .fit-gap{color:#A63A20;font-weight:600;}
+
+  .callout{border-radius:6px;padding:17px 20px;margin:16px 0;font-size:14.5px;}
+  .callout.gap{background:var(--gap-bg);border:1px solid var(--gap-border);}
+  .callout.good{background:var(--good-bg);border:1px solid var(--good-border);}
+  .callout.key{background:var(--key-bg);border:1px solid var(--navy-mid);color:rgba(255,255,255,0.92);}
+  .callout.key strong{color:#fff;}
+  .callout-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:9px;display:block;}
+  .callout.gap .callout-label{color:#A6531E;}
+  .callout.good .callout-label{color:#0E6B78;}
+  .callout.key .callout-label{color:var(--teal-bright);}
+  .callout p{margin:0 0 10px;}
+  .callout p:last-child{margin-bottom:0;}
+
+  ol.numbered,ul.plain{margin:0;padding-left:0;list-style:none;}
+  ol.numbered li{display:flex;gap:14px;margin-bottom:14px;}
+  ol.numbered .num{font-family:'Newsreader',serif;font-weight:700;color:var(--teal);font-size:20px;line-height:1.45;flex:0 0 26px;}
+  ul.plain li{position:relative;padding-left:19px;margin-bottom:9px;}
+  ul.plain li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--teal-bright);}
+  ul.plain.tight li{margin-bottom:6px;}
+
+  .flow{display:flex;flex-direction:column;margin:20px 0;}
+  .flow-stage{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:17px 20px;}
+  .flow-stage + .flow-stage{margin-top:5px;}
+  .flow-arrow{text-align:center;color:var(--teal-bright);font-size:18px;line-height:1.6;}
+  .flow-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .flow-num{background:var(--navy-mid);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 25px;}
+  .flow-head h3{font-size:16px;margin:0;font-family:'Inter',sans-serif;font-weight:700;}
+  .flow-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13.5px;}
+  .flow-col-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--slate);margin-bottom:4px;}
+  @media(max-width:640px){.flow-grid{grid-template-columns:1fr;}}
+
+  .sys-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin:18px 0;}
+  .sys-grid.two{grid-template-columns:1fr 1fr;}
+  .sys-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:15px 17px;}
+  .sys-card h4{margin:0 0 7px;font-size:14.5px;font-family:'Inter',sans-serif;font-weight:700;color:var(--navy-mid);}
+  .sys-card p{font-size:13px;margin:0;color:var(--ink);}
+  @media(max-width:700px){.sys-grid,.sys-grid.two{grid-template-columns:1fr;}}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:15px 16px;}
+  .stat .v{font-family:'Newsreader',serif;font-size:24px;font-weight:600;color:var(--navy);line-height:1.1;}
+  .stat .l{font-size:12px;color:var(--slate);margin-top:5px;}
+  @media(max-width:700px){.stat-row{grid-template-columns:1fr 1fr;}}
+
+  .conf{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;vertical-align:middle;margin-left:5px;}
+  .conf.c{background:#E4F1E9;color:#1F6B4F;border:1px solid #B4D8C3;}
+  .conf.i{background:#FFF4E0;color:#8A6113;border:1px solid #E8CC94;}
+  .conf.u{background:#FBE9E4;color:#A63A20;border:1px solid #EBBBA9;}
+
+  footer{padding:34px 0 60px;color:var(--slate);font-size:12.5px;line-height:1.6;}
+  a{color:var(--navy-mid);}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="home">&larr; All prep</a>
+    <span class="topnav-label">Jump to</span>
+    <a href="#maps">Read this first</a>
+    <a href="#opener">Self-intro</a>
+    <a href="#fitmap">Fit map</a>
+    <a href="#company">Company</a>
+    <a href="#prodadmin">Product admin setup</a>
+    <a href="#regulatory">HK regulatory</a>
+    <a href="#crypto">The crypto layer</a>
+    <a href="#ai">The AI roadmap</a>
+    <a href="#markets">Four markets</a>
+    <a href="#korea">Korea</a>
+    <a href="#release">Mobile releases</a>
+    <a href="#leading">Leading the BA team</a>
+    <a href="#vendors">Vendors &amp; HQ</a>
+    <a href="#gap">Honest gap read</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#questions">Your questions</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Interview Prep · Mirae Asset Securities (HK) Limited</div>
+    <h1>Business Analyst Lead<br>Retail Mobile Trading App</h1>
+    <p class="sub">The closest fit of any role you've prepped. You've delivered a retail multi-asset platform <em>and</em> a white-label crypto exchange — which happen to be the two halves of the app they launched six weeks ago. The work here is proving you know <em>which</em> app this is, and what a team at that point actually needs.</p>
+    <div class="tags">
+      <span class="tag">Retail multi-asset app · your current domain</span>
+      <span class="tag">Crypto exchange delivery · rare in this pipeline</span>
+      <span class="tag">Back-office configuration · the JD's distinctive ask</span>
+      <span class="tag">Team lead + hands-on IC · both, honestly framed</span>
+    </div>
+  </div>
+</header>
+
+<section class="phase" id="maps">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Read This First</span><h2>The app in this JD is almost certainly MAPS — launched six weeks ago</h2></div>
+    <p class="phase-sub">This is the single highest-value thing on this page. The JD never names the product, but the public timeline makes the answer near-certain, and it changes what you should say in the room.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The timeline</span>
+      <p><strong>Mid-April 2026</strong> — Mirae Asset Securities' Hong Kong unit receives final SFC approval to offer <strong>digital asset trading services to retail investors</strong>, reported as the first South Korean brokerage to secure this in Hong Kong. <span class="conf c">confirmed</span> <em style="color:rgba(255,255,255,0.6);">Reporting ran 15–16 April; one outlet says approval came on the Tuesday, i.e. 14 April. Say "mid-April" — don't pick a day.</em></p>
+      <p><strong>End of June 2026</strong> — the HK unit launches <strong>MAPS ("Mirae Asset Portfolio Service")</strong>, a single mobile app combining traditional assets and digital assets in one account. Founder-chairman Park Hyeon-joo attended the Hong Kong launch event personally. <span class="conf c">confirmed</span> <em style="color:rgba(255,255,255,0.6);">The exact day is reported four different ways — launch event Friday 26 June per Korean outlets, announcement Monday 29 June, one outlet says 27 June (a Saturday). Say "end of June" or "late June" and nothing more precise.</em></p>
+      <p><strong>10 August 2026</strong> — you are interviewing for the person who will <em>lead the BA team supporting the retail mobile trading app</em>, roughly <strong>six weeks after that launch</strong>.</p>
+    </div>
+
+    <h3>What that timing tells you about the job</h3>
+    <p class="phase-sub" style="margin-bottom:14px;">Inference, clearly labelled — but high-confidence inference, and the kind that makes you sound like you've actually thought about their situation rather than read their JD.</p>
+    <ol class="numbered">
+      <li><span class="num">1</span><span><strong>They are in post-launch stabilisation, not greenfield build.</strong> Six weeks in, a brand-new retail trading app is dealing with production defects, real customer-behaviour surprises, onboarding drop-off, and the operational load of running something live. The JD's "launch readiness, and post-launch review" and "release notes, user guides, and operational procedures" bullets read like a team that has just discovered how much documentation and process it doesn't yet have. <span class="conf i">inference</span></span></li>
+      <li><span class="num">2</span><span><strong>The roadmap is public and aggressive.</strong> Mirae Asset has publicly stated plans to add AI-powered wealth management functions in phases, to enable overseas retail investors to trade Korean stocks, and to replicate MAPS into further markets (the US, Japan and Singapore among those named, though reports differ on the list). A BA Lead hired now is being hired to industrialise the delivery of that roadmap. <span class="conf c">plans confirmed; market list varies by source; hiring rationale is inference</span></span></li>
+      <li><span class="num">3</span><span><strong>The BA team is probably new and small.</strong> "Lead and manage a team of Business Analysts… ensuring clear ownership, prioritisation" plus "provide guidance, coaching, and quality review… to strengthen the overall capability and consistency of the BA team" is the language of a team that exists but isn't yet a practice. That's exactly what you did at FXCM with your 3-person BA team and PMO governance frameworks. <span class="conf i">inference</span></span></li>
+      <li><span class="num">4</span><span><strong>"Product administration setup" appears in both the responsibilities and the requirements.</strong> When something is named twice in one JD, it's usually a live pain point rather than boilerplate. My guess — and it is only a guess — is that app configuration, product parameters and entitlement settings are currently being done by hand under release pressure. Raise it as a hypothesis to test, never as a diagnosis of their team. See the dedicated section below. <span class="conf i">inference</span></span></li>
+    </ol>
+
+    <div class="callout good">
+      <span class="callout-label">How to deploy this — one line, early, then move on</span>
+      Don't open with a lecture. Work it in as a question in the first few minutes: <em>"Before I go further — am I right that the app in question is MAPS, which launched at the end of June? I ask because it changes what I'd assume about the role: six weeks post-launch feels like a stabilise-and-industrialise problem rather than a build problem, and those need quite different things from a BA lead."</em> That one sentence does more for you than any rehearsed answer, because it proves you researched the company rather than the job title.
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">This inference got stronger — one quote seals it</span>
+      Chairman Park Hyeon-joo described the Hong Kong release as <strong>"the beginning of the company's next stage of overseas expansion and its first broad move into the city's retail brokerage segment since setting up its Hong Kong securities business in 2007."</strong> <span class="conf c">confirmed</span> A JD for a lead BA on a <em>retail</em> mobile trading app, at an entity that has just made its first broad move into retail brokerage in nearly twenty years, is almost certainly the same product. Still ask rather than assert — but you can ask with confidence rather than tentatively.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="opener">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Opener</span><h2>Your self-introduction (≈ 1 min 20 sec)</h2></div>
+    <p class="phase-sub">Four beats this time — three plus a close, because a self-introduction that ends on a claim rather than trailing off is worth the extra ten seconds. Beat 2 is unusually strong here: you've delivered a retail multi-asset platform <em>and</em> a crypto exchange, which between them are the two halves of the product they just launched. Lean into that hard — it's the reason you're a serious candidate rather than a stretch one.</p>
+
+    <div class="qa">
+      <div class="qtag">Beat 1 · Who I am · ~20 sec</div>
+      <p>"Thank you — I'm Tracy Chu. I'm PMP, Professional Scrum Master and Professional Scrum Product Owner certified, with eleven years across Hong Kong's financial services, banking and betting industries — six years at the Hong Kong Jockey Club, and the last five at FXCM and Tradu, part of the Stratos group. I've worked in a hybrid BA and project management role throughout: I own the requirements, and I own getting them delivered. In practice that means I'm the person who writes the specification, and also the person who makes sure the teams around it actually adopt the new system and the new process."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 2 · Why I applied, and the work closest to this role · ~45 sec</div>
+      <p>"Why I applied is straightforward — of all the projects I've led, delivering a digital product is consistently the most fulfilling work I do, so a role built around a retail trading app is exactly where I want to be.</p>
+      <p>The closest match is the launch of Tradu, a new retail brand in my group, built around a single multi-asset app bringing CFDs, stocks and crypto together in one place. I worked across two of those product silos. On the stock side I led the requirements and journey design for the multi-asset expansion, across multiple legal entities each with their own jurisdictional rules — and I worked in the back office behind it, so I know that layer too: fee groups, the user-to-exchange matrix, trading currencies, mid FX rates, product whitelists and blacklists. On the crypto side I partnered with an external vendor to deliver a white-label crypto exchange with its own frontend and back office — requirements gathering, UAT, and establishing the SOPs for the teams who would run it day to day. Much the same remit as the stock silo, with a vendor in the middle.</p>
+      <p>So an app that brings traditional and digital assets together in one place isn't a new concept to me. It's the product I've spent the last few years delivering, silo by silo — which also means I have a fairly concrete sense of where the two halves don't fit together neatly."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 3 · Why Mirae Asset should choose me · ~35 sec — numbered, not prose</div>
+      <ol class="numbered">
+        <li><span class="num">1</span><span><strong>I've delivered a multi-asset trading app across multiple jurisdictions, and delivered it end to end.</strong> Each legal entity had its own rule set, so the same product had to behave differently depending on where the client sat — and that's requirements work long before it's configuration work. Having taken those launches through to steady state, I also plan for what comes after go-live: the value-adding change requests tend to start arriving once customers and the operations teams have actually used the product. That's where I look hardest for efficiency too — if parameters are being maintained by hand, I'll look at automating it, because that's usually where both the time and the error rate sit.</span></li>
+        <li><span class="num">2</span><span><strong>I'm a detail-oriented individual contributor who can lead as the team grows.</strong> I've led three people — two junior BAs and a coordinator — and set the analysis standards the wider portfolio then adopted. I've also coached a product manager through writing requirements, drafting test cases and running the tests themselves. I've never had to stop being hands-on to do either.</span></li>
+        <li><span class="num">3</span><span><strong>I own the business-technology bridge without needing to be managed.</strong> My current managers are US-based with limited overlapping hours, so I'm used to owning that bridge independently and escalating with judgement rather than by default — which I'd expect to matter in a Hong Kong team working alongside a Seoul-based product and technology organisation.</span></li>
+      </ol>
+    </div>
+
+    <div class="qa" style="border-left-color:var(--teal);">
+      <div class="qtag" style="color:var(--teal);">The close · ~8 sec — three words, in order</div>
+      <p style="font-size:17px;">"In short — if you're looking for someone strong in delivery, detail-oriented, and able to work independently, that's me."</p>
+      <p><em>Then stop talking.</em> Three words to remember: <strong>delivery, detail, independent.</strong> They map onto Beat 3's three points in order, so if you remember the beats you'll remember the close. A self-introduction that trails off invites them to fill the silence with a challenge; one that lands on a clear claim invites them to test the claim, which is the conversation you want.</p>
+      <p><strong>Timing:</strong> the four beats run about 1:45–1:50, which is at the upper end of comfortable. If you're running long, Beat 2's middle paragraph is what to compress — drop the back-office list and keep the two silos.</p>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">Why Beat 3 point 1 is phrased the way it is — read this once</span>
+      <p>Two traps avoided, both worth understanding so you don't reintroduce them under pressure.</p>
+      <p><strong>Don't claim post-launch as your strong suit.</strong> Your own point, and it's right: a BA Lead has to be strong on both sides of go-live, and "I'm best after launch" invites the obvious follow-up about whether you're weak before it. The version above leads with end-to-end delivery across jurisdictions and treats post-launch change as something you <em>plan for</em> — competence, not preference.</p>
+      <p><strong>Don't say "MVP" about their launch.</strong> "Value-adding change requests start arriving once customers have used the product" is a statement about how products work generally. "What ships at launch is an MVP" is a verdict on a product they shipped six weeks ago and are visibly proud of. Let <em>them</em> use the word — if they do, you can agree freely and it costs nothing.</p>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">Three notes on Beat 2</span>
+      <p><strong>Everything in Beat 2 as written sits inside what Stratos has already announced publicly</strong> — Tradu covering listed equities, commodities, cryptocurrencies, CFDs, forex, treasuries and indices, plus a separate announcement of the crypto exchange. Bonds, mutual funds and options don't appear in any public Stratos announcement I could find, so I've left them out; if you name them you're going beyond what's already out there. Your call, but now you know which side of the line each item sits on.</p>
+      <p><strong>Say "with an external vendor" out loud.</strong> It's the phrase that quietly satisfies the JD's vendor-management requirement, which is named twice and which most candidates will have nothing for. Without those four words, Beat 2 sounds like internal delivery and you leave a requirement unanswered.</p>
+      <p><strong>The crypto silo is the strongest single item in your introduction — don't bury it.</strong> Mirae Asset spent months securing an SFC virtual-asset uplift and then launched a combined app on the back of it. A BA who has actually delivered a crypto exchange frontend <em>and</em> back office is rare in this pipeline, and it's why you can credibly speak to both halves of MAPS. The "I know where the two halves don't fit together neatly" line is the most interesting thing you'll say in the first two minutes — expect them to pick it up, and have the answer ready (see the crypto section and the Q&amp;A).</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="fitmap">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Match</span><h2>Fit map against the JD</h2></div>
+    <p class="phase-sub">This is the strongest fit map in this whole prep folder — most rows are genuinely strong. Which means the interview risk isn't proving competence; it's the two or three rows below where you need to have framed the gap yourself before they find it.</p>
+    <table>
+      <tr><th>JD requirement</th><th>Fit</th><th>Your evidence / honest position</th></tr>
+      <tr><td>Lead and manage a team of BAs — ownership, prioritisation, timely delivery</td><td class="fit-yes">Strong</td><td>Led a 3-person BA team (2 junior BAs + 1 project coordinator) at FXCM, establishing analysis standards and PMO governance frameworks adopted across all active projects. Note for yourself: that team wasn't all on one project, so answer "how did you manage the team" in terms of <strong>standards, prioritisation and quality review across a portfolio</strong> rather than implying a single squad — that's actually closer to what this JD describes anyway.</td></tr>
+      <tr><td>Solid experience as BA / Product BA / Project Lead for digital financial services, mobile app, or online trading platforms</td><td class="fit-yes">Strong</td><td>Four-plus years as BA lead on a retail multi-asset online trading platform (web + mobile), plus an AI-enabled mobile onboarding app at HKJC. This is the requirement most candidates will fail and you clear outright.</td></tr>
+      <tr><td>Translate product vision and customer needs into requirements, user stories, workflows, delivery plans</td><td class="fit-yes">Strong</td><td>CFD-only → multi-asset expansion: operating model design, customer journey mapping, BRD/FRD, user story writing. Core competence line-up on your CV.</td></tr>
+      <tr><td>Drive delivery from requirement gathering through implementation, testing, launch readiness, post-launch review</td><td class="fit-yes">Strong</td><td>End-to-end lifecycle ownership on the HKJC mobile onboarding app and the multi-asset platform expansion; UAT orchestration is a named strength across both roles.</td></tr>
+      <tr><td>Prepare BRD, URD, functional specs, release notes, user guides, operational procedures</td><td class="fit-yes">Strong</td><td>BRD/FRD, BPMN as-is/to-be, gap analysis all on your CV. <em>Release notes and user guides specifically</em> — be ready to give one concrete example; it's the bullet you have least written evidence for.</td></tr>
+      <tr><td>Support testing — review test plans, coordinate UAT, validate business scenarios</td><td class="fit-yes">Strong</td><td>"UAT Orchestration" is literally a core-competence heading on your CV, evidenced on the mobile onboarding app, the CRM work, and the platform migration.</td></tr>
+      <tr><td>Provide guidance, coaching, quality review to strengthen BA capability and consistency</td><td class="fit-yes">Strong</td><td>Your best story here isn't the 3-person team — it's coaching the product manager on the multi-asset app through writing requirements, drafting test cases and running the tests themselves. Coaching someone who <em>isn't</em> your direct report, on a discipline that isn't their background, is harder and more relevant than managing junior BAs. Lead with it.</td></tr>
+      <tr><td>Hands-on knowledge of the app from frontend journeys to backend workflows, config, data flows, controls</td><td class="fit-yes">Strong</td><td>Multi-asset platform expansion required exactly this depth — journey design at the front, entitlement and entity logic at the back. Say "I read the app like an operator, not a user."</td></tr>
+      <tr><td>Manage external vendors — delivery tracking, quality review, issue escalation, schedule control, acceptance</td><td class="fit-yes">Strong</td><td>Your best evidence is recent: the <strong>crypto silo was a white-label solution delivered with an external vendor</strong> — you gathered requirements, ran UAT and established the SOPs, which is delivery tracking, quality review and acceptance in practice. Backed up by two HKJC betting terminal initiatives (HKD 100M+) covering UX design, functional testing and hardware rollout. Say "vendor-delivered" explicitly in Beat 2 — otherwise they may not realise this row is covered.</td></tr>
+      <tr><td>Review UI mock-ups, wireframes, functional designs for UX, business logic, operational feasibility, regulatory considerations</td><td class="fit-yes">Strong</td><td>Customer journey mapping and UX design oversight on both the HKJC terminals and the mobile onboarding app; multi-jurisdictional regulatory alignment on the platform expansion.</td></tr>
+      <tr><td>Product administration setup — app configuration, product parameters, entitlement settings, operational rules, release-related setup</td><td class="fit-yes">Strong</td><td>The JD's most distinctive ask, and you can answer it concretely: the multi-asset platform came with a back office, so you know what gets configured there — <strong>fee groups, the user-to-exchange matrix, trading currencies, mid FX rates, product whitelists and blacklists</strong>. Plus system owner for Dynamics 365 CRM and entitlement configuration across 8+ legal entities. Name the objects, not the concept — see the section below.</td></tr>
+      <tr><td>Communicate with business users, Product, Technology, Ops, Compliance and senior stakeholders</td><td class="fit-yes">Strong</td><td>Board-level project updates and executive summaries for C-suite; stakeholder management and change management on your competence list.</td></tr>
+      <tr><td>Track requirements, change requests, issues, dependencies, decisions with approval and traceability</td><td class="fit-yes">Strong</td><td>PMO artefact ownership, RACI matrices, governance frameworks, Jira/Confluence Cloud — plus you're currently building KPI dashboards for programme health and governance posture.</td></tr>
+      <tr><td>Fluent Cantonese and Mandarin; good written English <em>and Chinese</em></td><td class="fit-yes">Strong</td><td>Cantonese native, Mandarin fluent, English fluent. <em>Written Chinese</em> is the part to be deliberate about — if the app has a Traditional Chinese interface and Chinese user guides, expect to write Chinese documentation. Say so proactively rather than letting them wonder.</td></tr>
+      <tr><td>Bachelor's degree or above in Business, Finance, CS, IS or related</td><td class="fit-yes">Strong</td><td>BBA (Banking &amp; Finance), 2010–2014, First Class Honours, Dean's List. <em>One detail to check against your transcript: Hang Seng Management College was only renamed The Hang Seng University of Hong Kong in October 2018, so a 2014 degree was conferred under the College name. Use whatever your certificate says — academic credentials are exactly what gets verified.</em></td></tr>
+      <tr><td>Securities / wealth management product knowledge (implied by "securities trading, wealth management")</td><td class="fit-partial">Partial</td><td>Strong on CFDs, FX, and the mechanics of multi-asset onboarding; lighter on cash-equity market microstructure — board lots, Stock Connect operations, settlement cycles. That's what the multi-market section below is for.</td></tr>
+      <tr><td>Digital asset <em>platform delivery</em> (not in the JD, but central to MAPS)</td><td class="fit-yes">Strong</td><td>You delivered a white-label crypto exchange platform end to end — new frontend and new back office. Very few candidates in a Hong Kong BA pipeline will have this. Lead with it; it's why you can credibly speak to both halves of a combined app.</td></tr>
+      <tr><td>Hong Kong's <em>retail virtual asset regulatory regime</em></td><td class="fit-partial">Partial</td><td>You've built a crypto platform, but not under the SFC's retail VA framework — the knowledge test, exposure limits, token admission criteria, omnibus arrangement with a licensed VATP. Separate the two clearly: platform delivery yes, this specific regime no. Prepared reading (see "The crypto layer") plus honest framing turns this into a differentiator rather than a gap.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="phase" id="company">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Employer</span><h2>Mirae Asset — company context</h2></div>
+    <p class="phase-sub">Public facts, sourced. Use these to show homework, not to recite. The one you should definitely know cold is the group's scale, because it explains why a Hong Kong retail app matters to a Korean parent.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="v">US$801bn+</div><div class="l">Mirae Asset Financial Group total AUM, Dec 2025 <span class="conf c">confirmed</span></div></div>
+      <div class="stat"><div class="v">21</div><div class="l">global markets the group operates in <span class="conf c">confirmed</span></div></div>
+      <div class="stat"><div class="v">1997</div><div class="l">group founded, in Korea <span class="conf c">confirmed</span></div></div>
+      <div class="stat"><div class="v">Late Jun 2026</div><div class="l">MAPS launch, Hong Kong — exact day reported inconsistently <span class="conf u">say "end of June"</span></div></div>
+    </div>
+
+    <h3>The two Hong Kong entities — don't confuse them</h3>
+    <table>
+      <tr><th>Entity</th><th>What it does</th></tr>
+      <tr><td><strong>Mirae Asset Securities (HK) Limited</strong><br><span class="mono" style="font-size:12px;">SFC CE No. BJB333</span></td><td>The brokerage and wealth-management arm — <strong>this is almost certainly your employer</strong>. Per its own site: equities including China Stock Connect, derivatives (futures, options, warrants), structured products, fixed income, REITs, ETFs and mutual funds, IPO subscription, and it acts as an ETF participating dealer. Holds an HKEX Trading Right and Exchange &amp; Clearing Participantship, and is a China Connect Exchange Participant. Licensed for <strong>Types 1, 2, 4, 6 and 9</strong> (dealing in securities; dealing in futures; advising on securities; advising on corporate finance; asset management). Previously named Mirae Asset Wealth Management (HK) Limited, renamed after an amalgamation with Daewoo Securities (Hong Kong) Limited. <span class="conf c">confirmed from company site</span></td></tr>
+      <tr><td><strong>Mirae Asset Global Investments (Hong Kong) Limited</strong></td><td>The asset-management arm — a different business. Founded <strong>December 2003</strong> as the group's <em>first overseas office</em>, and the manager of the <strong>Global X ETFs listed in Hong Kong</strong> (Global X was acquired by the group in 2018). <span class="conf c">confirmed</span><br><br><strong>Careful with the AUM figure.</strong> The often-cited <strong>US$439bn (June 2026), 15 countries, 50+ markets</strong> belongs to <em>Mirae Asset Global Investments globally</em> — not to the Hong Kong entity, which manages a small fraction of it. Don't say "the Hong Kong arm manages $439 billion." Worth knowing this entity exists mainly so you don't accidentally credit its ETF business to your interviewer's entity.</td></tr>
+    </table>
+
+    <div class="callout good">
+      <span class="callout-label">Two dates — now resolved, so you can use them</span>
+      <strong>2003</strong> is the <em>asset management</em> entity, the group's first overseas office. <strong>2007</strong> is the <em>securities</em> business in Hong Kong — confirmed by Chairman Park's own launch statement referring to "setting up its Hong Kong securities business in 2007." <span class="conf c">confirmed</span> So if you're talking to the securities entity, 2007 is the right year, and "the group has been in Hong Kong for over twenty years" covers both. One outlet dates the securities business to 2003 — it's wrong; go with the chairman.
+    </div>
+
+    <h3>What MAPS is, publicly</h3>
+    <ul class="plain">
+      <li><strong>The proposition:</strong> "one app, one account, two asset classes" — traditional financial assets and digital assets in a single application, removing the need for separate accounts. <span class="conf c">confirmed</span></li>
+      <li><strong>The name:</strong> MAPS = <em>Mirae Asset Portfolio Service</em>. <span class="conf c">confirmed</span></li>
+      <li><strong>Why Hong Kong first — use their words, not a journalist's:</strong> Mirae Asset's own framing, per the Korean press, is that Hong Kong is an Asian financial hub connecting global capital markets, and a market where digital-asset regulation is being established rapidly. <span class="conf c">confirmed</span> <em>The commonly-quoted line about "regulatory clarity and a deep pool of sophisticated investors" is one Western outlet's own characterisation, not a company statement — don't quote it back to them.</em> <span class="conf u">not a company quote</span></li>
+      <li><strong>The strategic frame:</strong> MAPS is described as the first global investment platform under the group's <strong>"Mirae Asset 3.0" / "Vision 3.0"</strong> growth strategy — consolidating the group's country-specific mobile trading apps (Korea, India, Indonesia, Vietnam) into one global ecosystem. <span class="conf c">confirmed</span> <em>A "two-way bridge between Korean capital markets and global investors" phrasing circulates online but traces only to a content aggregator — don't attribute it to the company.</em></li>
+      <li><strong>Roadmap:</strong> phased expansion after verifying "platform stability, operating systems and security"; AI-powered wealth management functions to be added in phases; a system upgrade to let overseas retail investors <strong>trade Korean stocks</strong> targeted within 2026 — note this is a <em>future</em> capability, so don't describe Korean equities as already live in the app. Named expansion markets differ across at least four outlets (various combinations of the US, Korea, Japan, China and Singapore). Say "the US, Japan, Singapore and others have been mentioned" rather than naming a definitive list. <span class="conf i">roadmap confirmed, sequencing and market list uncertain</span></li>
+      <li><strong>Chairman Park Hyeon-joo's framing:</strong> the platform should "develop into a global investment platform that delivers knowledge, information and investment philosophy," not merely display prices. <span class="conf c">confirmed quote</span> — this is worth remembering; it is a strong hint that content, education and advisory features are on the roadmap, not just execution.</li>
+    </ul>
+
+    <div class="callout gap">
+      <span class="callout-label">What is NOT public — so don't guess at it</span>
+      No reachable source discloses: MAPS's <strong>fees or commissions</strong>, its <strong>launch promotions</strong>, the <strong>list of equity markets actually live</strong> in the app, the <strong>specific crypto assets supported</strong>, or <strong>which SFC-licensed virtual asset trading platform Mirae Asset partners with</strong>. If any of these come up, the honest answer is "I couldn't find that publicly — what is it?" That question is a gift, not a weakness.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="prodadmin">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Distinctive Ask</span><h2>"Product administration setup" — what they're actually asking for</h2></div>
+    <p class="phase-sub">This phrase appears in <em>both</em> the responsibilities and the requirements. It is the least standard thing in the JD and therefore the most likely to be the reason the role exists. Most candidates will read past it. Don't.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The reframe that wins this</span>
+      A "BA who also does product administration setup" is a BA who owns the <strong>configuration layer between the requirement and the running system</strong> — the place where a business decision becomes a live parameter. On a retail trading app that layer is enormous, mostly invisible, and almost always the source of the worst production incidents. Say that out loud. It shows you know why they wrote the bullet.
+    </div>
+
+    <h3>What sits in that configuration layer on a retail trading app</h3>
+    <p class="phase-sub" style="margin-bottom:12px;">Generic and illustrative — a framework for the conversation, not a claim about Mirae Asset's actual architecture. Say so if asked directly.</p>
+    <div class="sys-grid two">
+      <div class="sys-card">
+        <h4>Product / instrument master</h4>
+        <p>Which instruments exist, their market, currency, board lot or minimum size, tick size, trading hours, corporate-action handling, and the <strong>complex vs non-complex flag</strong> that drives the regulatory journey. Getting one flag wrong changes what a customer legally has to see before they trade.</p>
+      </div>
+      <div class="sys-card">
+        <h4>Entitlements</h4>
+        <p>Which client, in which legal entity, with which investor classification and which risk profile, can see and trade which product. This is where jurisdiction, professional-investor status, derivatives-knowledge assessment and product-eligibility rules all collide.</p>
+      </div>
+      <div class="sys-card">
+        <h4>Fee, commission and FX schedules</h4>
+        <p>Per-market commission tiers, platform fees, custody fees, FX conversion spreads, promotional overrides and their expiry. Frequently the highest-volume change request in a new app, and the one most likely to be done under time pressure.</p>
+      </div>
+      <div class="sys-card">
+        <h4>Operational rules and limits</h4>
+        <p>Order-type availability, price-tolerance and fat-finger checks, position and exposure limits, buying-power and settled-vs-unsettled cash rules, withdrawal limits and cut-off times.</p>
+      </div>
+      <div class="sys-card">
+        <h4>Market and calendar configuration</h4>
+        <p>Trading calendars per market, settlement cycles, holiday handling, corporate-action and dividend timing. On a multi-market app this must be data, never hardcoded — a point worth making explicitly.</p>
+      </div>
+      <div class="sys-card">
+        <h4>Release-related setup</h4>
+        <p>Feature flags and phased-rollout cohorts, content and disclosure versions, minimum-app-version enforcement, and the configuration that must be staged in production <em>before</em> a release is switched on. This is the "release-related setup activities" bullet, literally.</p>
+      </div>
+    </div>
+
+    <h3>Your own back-office vocabulary, mapped to theirs</h3>
+    <p class="phase-sub" style="margin-bottom:12px;">You already know this layer from the multi-asset platform's back office. The only risk is that you describe it in your platform's terms and they hear something unfamiliar. Here's the translation — say your term <em>and</em> the generic one, and you sound like someone who's configured more than one system.</p>
+    <table>
+      <tr><th>What you'd call it</th><th>What it is generically</th><th>Which JD phrase it satisfies</th></tr>
+      <tr><td><strong>Fee groups</strong></td><td>Commission and fee schedules, tiered by client segment, with promotional overrides and expiry dates</td><td>"product parameters"</td></tr>
+      <tr><td><strong>User-to-exchange matrix</strong></td><td>Market and venue entitlements — which client, in which entity, with which classification, can access which exchange</td><td>"entitlement settings" — the clearest match on the list</td></tr>
+      <tr><td><strong>Trading currency</strong></td><td>Instrument and market configuration — settlement currency, funding currency, and whether the client is trading in a currency they hold</td><td>"app configuration"</td></tr>
+      <tr><td><strong>Mid FX rate</strong></td><td>Pricing and conversion reference data, plus the spread applied on top — and who owns the source and refresh frequency</td><td>"operational rules"</td></tr>
+      <tr><td><strong>Product whitelist / blacklist</strong></td><td>Product master eligibility — per market, per entity, per investor classification; the mechanism behind regulatory selling restrictions and PI-only gating</td><td>"product parameters" + "entitlement settings"</td></tr>
+    </table>
+    <div class="callout good">
+      <span class="callout-label">Why this table is worth ten minutes before the interview</span>
+      "Mid FX rate" is a particularly good one to volunteer unprompted. On a multi-market app with RMB-only Northbound settlement and USD-denominated US equities, <strong>who owns the FX reference rate, how often it refreshes, and what spread sits on top of it</strong> is simultaneously a product decision, a pricing decision, a disclosure obligation and a reconciliation risk. Naming it as a configuration object you've actually maintained is a much stronger signal than any general statement about attention to detail.
+    </div>
+
+    <h3>The three questions that show you've done this for real</h3>
+    <ol class="numbered">
+      <li><span class="num">1</span><span><strong>"Who is allowed to change a product parameter in production, and what's the approval trail?"</strong> On a live retail trading app, a mis-set parameter is a customer-detriment event and potentially a reportable one. The answer tells you instantly how mature the operation is.</span></li>
+      <li><span class="num">2</span><span><strong>"Is the same configuration replayable from UAT into production, or is it re-keyed?"</strong> Re-keying is the single most common root cause of "it worked in UAT" incidents. If they re-key, you've just found your first improvement — and you found it in the interview.</span></li>
+      <li><span class="num">3</span><span><strong>"When a new instrument or market goes live, how many separate places does someone have to configure it?"</strong> The answer is almost never one. Counting them is the first honest map of the operational risk.</span></li>
+    </ol>
+
+    <div class="callout good">
+      <span class="callout-label">How to answer "do you have product administration experience?"</span>
+      "Yes — the multi-asset platform I delivered came with a back office, so I know that layer. Fee groups, the user-to-exchange matrix, trading currencies, mid FX rates, product whitelists and blacklists. I've also been a system owner in a different context, for Dynamics 365 CRM, acting as the interface between business users and IT on operational changes. I'd be learning your specific tooling, obviously, but not the concept — and what I'd want to do in the first month is map every place a product or parameter has to be configured, because that count is usually where the release-night incidents are hiding, and it's also usually where the automation opportunity is."
+    </div>
+    <p style="font-size:14.5px;color:var(--slate);">Two things make that answer land. First, it names real objects — anyone who has actually worked in a trading back office recognises "user-to-exchange matrix" and "mid FX rate" instantly, and nobody invents those terms. Second, it ends on the automation instinct from Beat 3 rather than on a caveat, so the answer closes forward.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The follow-through worth preparing — manual configuration as an automation target</span>
+      <p>You said it yourself: if parameters are being updated by hand, that's where the time and the error rate live. Have a concrete version of that argument ready, because on a six-week-old app it is very likely to be true and it's the most credible improvement you can offer.</p>
+      <p>The shape of it: manual configuration fails in three predictable ways — <strong>it isn't replayable</strong> (what was set in UAT gets re-keyed in production, so "it worked in test" stops meaning anything), <strong>it isn't auditable</strong> (you can see the current value but not who changed it, when, or why — a real problem when the regulator's expectation is maker-checker on high-impact actions), and <strong>it doesn't scale with the roadmap</strong> (every new market multiplies the same manual steps). The fix isn't necessarily a big automation programme: it's usually configuration-as-data with an approval workflow and an export that can be diffed between environments. Framing it that way shows you'd propose something proportionate rather than a rebuild.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="regulatory">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Domain Knowledge</span><h2>The Hong Kong regulatory layer a retail trading app runs on</h2></div>
+    <p class="phase-sub">You don't need to be a compliance officer. You need to know which SFC obligations turn into <em>screens, fields and gates</em> in an app — because that is precisely a BA's job, and it's a topic most BA candidates cannot discuss concretely.</p>
+
+    <h3>1 · Internet trading security — the most prescriptive rules, and the most app-visible</h3>
+    <ul class="plain">
+      <li>The SFC's <strong>Guidelines for Reducing and Mitigating Hacking Risks Associated with Internet Trading</strong> set 20 baseline requirements. <strong>Two-factor authentication for client login</strong> took effect 27 April 2018; the remainder on 27 July 2018. <span class="conf c">confirmed</span></li>
+      <li><strong>Mandatory client notifications</strong> — on system login, password reset, trade execution, fund transfers to non-registered third-party accounts, and changes to client particulars. Critically, the <strong>notification channel must differ from the login channel</strong>. Clients may opt out of trade-execution notifications only after risk disclosure. This is a concrete app requirement with a concrete design consequence. <span class="conf c">confirmed</span></li>
+      <li>The SFC's 2020 thematic review added specifics that read like a mobile spec: 2FA must be <strong>non-bypassable</strong>; <strong>no email-based OTP</strong>; brokers should not allow an <em>excessive</em> number of bound devices and should understand and assess the reasonableness of a request to bind <strong>more than three devices</strong> (an enquiry trigger, <em>not</em> a hard cap — don't state it as a limit); limit the idle timeout period, <strong>e.g. within 30 minutes</strong>, subject to assessment, and don't let clients disable session timeout; block rooted or compromised devices; obfuscate source code; purge sensitive data on logoff; annual self-assessment against the baseline. <span class="conf c">confirmed</span></li>
+      <li>A February 2025 circular <em>encouraged</em> licensed corporations to move away from SMS OTPs toward biometrics or software tokens, and to encrypt data at rest as well as in transit. A June 2026 circular on <strong>AI-enabled cyberattacks</strong> added least-privilege access, micro-segmentation, <strong>maker-checker for high-impact actions</strong>, treating external inputs as adversarial, and prompt notification to the SFC of material cybersecurity incidents. <span class="conf c">confirmed</span></li>
+    </ul>
+
+    <div class="callout key">
+      <span class="callout-label">The one-month-old change that should be in this conversation</span>
+      <p>On <strong>9 July 2026</strong> — five weeks ago — the SFC issued a circular to <strong>licensed internet brokers and SFC-licensed virtual asset service providers mandating phishing-resistant authentication</strong>. Firms must <strong>stop using one-time passwords for client login and device binding altogether</strong>; the SFC's stated position is that an OTP is not a phishing-resistant solution. The transition is to passkeys or bound devices, with a <strong>deadline of 8 July 2027</strong>, and large internet brokers are expected to move sooner rather than use the full window. <span class="conf c">confirmed by multiple independent reports incl. Hong Kong press and law-firm briefings; I have not read the circular text itself</span></p>
+      <p><strong>Why this is the single best card in your hand.</strong> MAPS is a brand-new internet trading app that also carries a virtual-asset offering — so it sits squarely in scope on both counts, and it launched <em>before</em> this circular landed. There is a real chance nobody has written the requirements for it yet. If you can say "I noticed the July circular on phishing-resistant authentication — has that hit your backlog yet, given it catches both the brokerage and the digital asset side?", you are demonstrating exactly what a BA Lead is for: seeing regulatory change arrive as work before someone escalates it.</p>
+    </div>
+    <div class="callout good">
+      <span class="callout-label">Why this is a strong card for you specifically</span>
+      "Maker-checker for high-impact actions" is a governance requirement, not a technical one — and governance frameworks, RACI matrices and operating models are literally what you do now at FXCM. If the conversation goes anywhere near security or controls, this is where your current role becomes directly relevant rather than adjacent.
+    </div>
+
+    <h3>2 · Suitability and complex products — the rules that shape the trading journey</h3>
+    <ul class="plain">
+      <li><strong>Code of Conduct 5.1A</strong> — as part of KYC, assess the client's <strong>knowledge of derivatives</strong> and characterise them accordingly. That is a data field plus a gating rule in your app. <span class="conf c">confirmed</span></li>
+      <li><strong>Code of Conduct 5.2</strong> — the Suitability Requirement bites when there is a <strong>recommendation or solicitation</strong>. <strong>5.5</strong> — for <strong>complex products</strong>, suitability plus minimum information plus warning statements apply <em>regardless of whether there was any solicitation</em>. That distinction is the single most important one for a self-directed app. <span class="conf c">confirmed</span></li>
+      <li>The SFC's <strong>Guidelines on Online Distribution and Advisory Platforms</strong> (July 2019) define a complex product as one whose terms, features and risks are "not reasonably likely to be understood by a retail investor because of its complex structure." <span class="conf c">confirmed</span></li>
+      <li><strong>The design trap worth naming out loud:</strong> posting factual, fair and balanced product information is <em>not</em> solicitation. But <strong>emphasising some products over others</strong> — rankings, "top picks", personalised feeds, push notifications, in-app promotions — can convert a self-directed execution app into a solicitation channel and pull the full suitability obligation onto every affected trade. Every product-led growth idea in a retail trading app runs into this wall. <span class="conf c">confirmed</span></li>
+      <li>Warning statements for complex products must be <strong>prominent and reasonably proximate to the point of sale</strong> — not buried in onboarding T&amp;Cs. There is an exemption for derivative products <em>traded on an exchange</em> in Hong Kong or a specified jurisdiction where there is no solicitation, but investor characterisation still applies. <span class="conf c">confirmed</span></li>
+      <li><strong>The SFC's published lists drive your product master directly.</strong> Non-complex: SEHK-listed shares, non-complex bonds, SFC-authorised non-derivative funds and ETFs, SFC-authorised REITs. Complex: HKFE futures, listed equity derivatives (warrants, CBBCs, options), synthetic and futures-based ETFs, leveraged &amp; inverse products, complex bonds (perpetuals, contingent write-down), derivative funds, unlisted structured products. <span class="conf c">confirmed</span></li>
+    </ul>
+    <div class="callout key">
+      <span class="callout-label">The single best thing you can say in this section</span>
+      The SFC's <strong>August 2022 review of online brokerage, distribution and advisory services</strong> (50 licensed corporations reviewed) called out, among other things: blanket non-solicitation acknowledgements that misdescribe the service actually provided; <strong>"game-like features" embedded to encourage usage</strong> without safeguards; risk-profiling questionnaires re-answered repeatedly without controls — the review cited one client revising theirs <strong>eight times within one hour</strong>; inadequate product due diligence, especially on virtual-asset-related products; failure to observe regulatory selling restrictions; and insufficient capacity for rapid client onboarding and complaint handling. <span class="conf c">confirmed</span><br><br>
+      Every one of those is a <em>BA-designable control</em>. If you can name two or three and say what you'd build to prevent them — an audit trail on questionnaire revisions with a change-frequency alert, a content-governance workflow for anything on a discovery surface, a real capacity plan for onboarding surges — you are no longer a candidate discussing regulation. You are a candidate proposing a backlog.
+    </div>
+
+    <h3>3 · Client onboarding — the eKYC constraints that shape your funnel</h3>
+    <ul class="plain">
+      <li>Acceptable non-face-to-face account-opening approaches for individuals include: certification by an approved certifier; certification services recognised under the Electronic Transactions Ordinance; the <strong>mail approach</strong> (signed agreement, ID copy, and a cheque of <strong>not less than HK$10,000</strong> drawn on the client's own account with a Hong Kong-licensed bank, activated only after the cheque clears); <strong>online onboarding with a designated bank account</strong> (e-signature, ID copy, initial deposit of not less than HK$10,000 from the client's own Hong Kong bank account, with <em>all</em> subsequent deposits and withdrawals through that designated account only); remote onboarding of <strong>overseas</strong> individual clients; and <strong>iAM Smart / iAM Smart+</strong> authentication. <span class="conf c">confirmed</span></li>
+      <li>A May 2025 SFC circular updated these approaches — recognising remote digital certificates for overseas holders of ICAO-compliant ePassports, confirming iAM Smart, and expanding the list of eligible jurisdictions for overseas individual clients' bank accounts (15 added, including Japan, India, Germany, France and Brazil). Directly relevant if MAPS is meant to serve overseas retail investors. <span class="conf c">confirmed</span></li>
+      <li>A May 2026 circular on <strong>expected controls for account opening and maintaining client relationships</strong> added: controls to detect and reject questionable or forged documents; closing accounts opened with fraudulent documents; monitoring red flags such as frequent bank-account changes or shared addresses among unrelated clients; and <strong>investor declarations for new Mainland-investor accounts</strong>. The SFC explicitly warned of licensing restrictions and enforcement. For a new app onboarding at volume, this is live risk. <span class="conf c">confirmed</span></li>
+      <li>If the app uses selfie or liveness matching, expect to need <strong>independent technical validation</strong> of the facial-recognition technology plus false-accept/false-reject testing and ongoing performance monitoring — the SFC criticised the absence of exactly this in its 2022 review. <span class="conf c">confirmed</span></li>
+    </ul>
+    <div class="callout good">
+      <span class="callout-label">Your genuine bridge here</span>
+      This is the section where your own CV is strongest and least obviously so: you drove the <strong>digitisation of account opening and profile maintenance from paper forms to a mobile platform integrated with a new CRM, eliminating over 200,000 paper forms annually</strong> at HKJC, and you led an <strong>AI-enabled mobile onboarding application</strong> end to end. Remote onboarding of retail customers at volume, with identity verification and a regulated audit trail, is something you have actually shipped. Make that connection explicitly — don't assume they'll infer it from a gambling-industry job title.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="crypto">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Differentiator</span><h2>The crypto layer — Hong Kong's retail virtual asset regime</h2></div>
+    <p class="phase-sub">Not a JD requirement. But if the app is MAPS, this is the most operationally distinctive thing about it, and the area with the most live regulatory change. Knowing this cold is how you go from "well-qualified" to "obviously prepared."</p>
+
+    <div class="callout key">
+      <span class="callout-label">The structural fact to lead with</span>
+      A Hong Kong broker doesn't get a crypto exchange licence to do this. It gets a <strong>Type 1 (dealing in securities) licence with virtual-asset dealing terms and conditions imposed as licensing conditions</strong> — an "uplift" — and it may <strong>only</strong> partner with an <strong>SFC-licensed virtual asset trading platform (VATP)</strong>, either by introducing clients to the platform directly, or by establishing an <strong>omnibus account</strong> with it. <span class="conf c">confirmed from the SFC framework</span> Mirae Asset's April 2026 approval was reported as exactly this kind of licence uplift. <span class="conf i">reported as an uplift; the specific VATP partner is not public</span>
+    </div>
+
+    <h3>What the omnibus model forces into the product</h3>
+    <ul class="plain">
+      <li>Client virtual assets received or withdrawn <strong>only through segregated accounts</strong> with SFC-licensed platforms, or authorised institutions meeting HKMA standards. <span class="conf c">confirmed</span></li>
+      <li><strong>All client orders must be pre-funded.</strong> No unfunded crypto orders — a hard product constraint, and a meaningful UX difference from the equities side of the same app. <span class="conf c">confirmed</span></li>
+      <li>Retail clients may only trade the virtual assets that the partnered SFC-licensed platform <strong>makes available to retail</strong> — so your product master is partly determined by someone else's admission decisions. <span class="conf c">confirmed</span></li>
+    </ul>
+
+    <h3>The retail safeguards — each one is a screen or a field</h3>
+    <table>
+      <tr><th>Safeguard</th><th>What it means in the app</th></tr>
+      <tr><td><strong>Virtual asset knowledge test</strong></td><td>Client must pass a VA-knowledge assessment before transacting (institutional PIs and qualified corporate PIs exempt); if the client lacks knowledge, the firm must provide <strong>adequate training</strong>. So: an assessment flow, a pass/fail state, a training module, and a re-attempt policy — with an audit trail, given the SFC's criticism of unmonitored questionnaire re-answering. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Exposure limits</strong></td><td>Set with reference to the client's net worth and personal circumstances. A per-client limit field, enforced at order entry, that has to be maintained as circumstances change. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Token admission criteria (retail)</strong></td><td>For retail, the virtual asset must be of <strong>high liquidity</strong> — evidenced by inclusion in <strong>at least two acceptable indices from two different index providers</strong> — and be made available for retail trading by an SFC-licensed platform. A genuine product-governance workflow, not a one-off setup. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Complex product treatment</strong></td><td>Virtual-asset-related <em>products</em> are very likely complex and PI-only — <strong>except</strong> SFC-authorised virtual asset futures and spot ETFs listed on SEHK, and VA futures on specified regulated exchanges, which are retail-eligible. VA-specific risk disclosure required (a one-off acknowledgement is acceptable). <span class="conf c">confirmed</span></td></tr>
+    </table>
+
+    <h3>The 2025–26 changes — this is what "current" looks like</h3>
+    <ul class="plain">
+      <li><strong>30 September 2025</strong> — a supplemental joint SFC/HKMA circular permitted <strong>staking services</strong> via segregated accounts with licensed platforms, with risk disclosure, and permitted execution via the off-platform VA trading services of SFC-licensed platforms. <span class="conf c">confirmed</span></li>
+      <li><strong>11 February 2026</strong> — a circular on licensed corporations providing VA dealing services opened three areas: <strong>VA financing</strong> is now permitted, but only to existing securities margin clients with adequate collateral, with only <strong>BTC and ETH</strong> acceptable as VA collateral at a <strong>minimum 60% haircut</strong>; <strong>shared order book</strong> access is allowed after risk assessment, with jurisdiction-specific disclosure and <strong>express retail consent</strong>; and <strong>client VA withdrawal</strong> functionality requires robust authentication, real-time monitoring with <strong>24/7 incident response</strong>, and coordination with the platform on suspicious-withdrawal detection and withdrawal limits. <span class="conf c">confirmed</span></li>
+      <li><strong>27 May 2026</strong> — a circular on <strong>"Relevant Stablecoins"</strong> (specified stablecoins issued by an entity licensed under the Stablecoins Ordinance): retail clients <em>may</em> trade them; the two-index liquidity criteria do <strong>not</strong> apply; the VA-knowledge assessment <strong>may be waived</strong> for Relevant-Stablecoin-only clients; and holdings need not count toward exposure limits. But: clear disclosure of the <strong>stabilisation mechanism and redemption arrangements</strong> is required, they are treated as non-complex, and <strong>written advance notice to the SFC</strong> is required before admitting, suspending or removing any Relevant Stablecoin. <span class="conf c">confirmed</span></li>
+      <li><strong>Context:</strong> the <strong>Stablecoins Ordinance (Cap. 656)</strong> licensing regime commenced 1 August 2025; the HKMA granted the <strong>first licences on 10 April 2026</strong>, to Anchorpoint Financial Limited and The Hongkong and Shanghai Banking Corporation. <span class="conf c">confirmed</span></li>
+      <li><strong>On the horizon:</strong> the government published consultation conclusions in December 2025 on legislation to regulate VA dealing and VA custodian services as standalone regulated activities, "largely aligned" with Type 1 dealing, with legislation targeted for introduction in 2026. <span class="conf u">I could not verify whether this has been enacted as at August 2026, or how it would transition brokers currently operating under Type 1 licensing conditions.</span> That uncertainty is itself worth raising as a question.</li>
+      <li>As at 29 May 2026 the SFC had <strong>13 licensed VATPs</strong> — OSL Exchange, HashKey Exchange, HKVAX, HKbitEX, Accumulus, DFX Labs, EX.IO, PantherTrade, YAX, Bullish, BGE, VDX and Bixin.com. <span class="conf c">confirmed as at that date</span> Secondary reporting suggests at least one further platform may have been added since. <span class="conf u">unverified</span></li>
+    </ul>
+
+    <div class="callout gap">
+      <span class="callout-label">Draw the line clearly — platform delivery yes, this regime no</span>
+      You've built a crypto exchange. You haven't built one under the SFC's retail virtual-asset framework, and those are genuinely different things. Say both halves in one breath: <em>"I've delivered a crypto exchange platform end to end, frontend and back office — so the product mechanics aren't new to me. What I haven't done is operate under Hong Kong's retail VA regime specifically: the knowledge test, exposure limits, the token admission criteria, the omnibus arrangement with a licensed platform. I've read the framework, because if this is MAPS then it's the part of the product with the most regulatory movement — the February circular on VA financing and client withdrawals, and the May one on Relevant Stablecoins, both create real backlog. What I'd want to know is whether that's landed on your roadmap yet and who owns it today."</em> That sequence — real experience, honest boundary, current knowledge, useful question — is the most persuasive thing you can do with a partial fit.
+    </div>
+    <div class="callout key">
+      <span class="callout-label">"Where don't the two halves fit together?" — prepare this properly, because you've invited it</span>
+      <p>Your Beat 2 line about having delivered both halves separately and knowing where they don't fit neatly is the best hook in your introduction. It's also a promise. Here is the substance to back it, in rough order of how hard each one is:</p>
+      <p><strong>One balance, two funding models.</strong> Crypto orders under the omnibus model must be <strong>pre-funded</strong>. Equities settle T+2 in Hong Kong and T+1 in the US, so a client can have buying power that isn't cash yet. Putting those behind a single "available to trade" figure is a genuine requirements problem — do unsettled equity proceeds fund a crypto order? Almost certainly not, and the customer will not find that intuitive. Somebody has to design the explanation, not just the rule.</p>
+      <p><strong>Two custody models, one portfolio view.</strong> Equities sit in a securities account under client-securities rules; virtual assets sit in segregated accounts with a licensed platform or authorised institution. The app shows them in one portfolio. What the client believes they own, and what they legally own, need to line up in the disclosure.</p>
+      <p><strong>Continuous versus session-bound markets.</strong> Crypto trades 24/7; equity markets have sessions, calendars and holidays that differ per market. Overnight price moves have no equivalent on the crypto side — which affects valuation timing, statement cut-offs, and any margin or collateral logic touching both.</p>
+      <p><strong>Two gating regimes at onboarding.</strong> The derivatives-knowledge characterisation and complex-product journey on the securities side, the VA knowledge test and exposure limits on the digital side — potentially two separate assessments, two pass/fail states, and a real question about whether the client experiences it as one onboarding or two.</p>
+      <p><strong>Reconciliation and irreversibility.</strong> An equity break gets investigated and corrected; an on-chain withdrawal doesn't come back. That asymmetry is exactly why the February 2026 circular requires robust authentication, real-time monitoring and 24/7 incident response specifically on client VA withdrawals.</p>
+      <p>You don't need all five. Two, delivered calmly, will do more than a list.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="ai">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Come With Ideas</span><h2>The AI wealth management roadmap — what to propose, and what to watch</h2></div>
+    <p class="phase-sub">Mirae Asset has publicly committed to adding AI-based wealth management tools to MAPS in phases. That's an open invitation to arrive with a point of view — and it's the single best opportunity on this page to look like a lead rather than a candidate. It also happens to sit exactly where your current FXCM role is: you're leading enterprise AI adoption and governance right now.</p>
+
+    <div class="callout key">
+      <span class="callout-label">Lead with the constraint, not the feature list</span>
+      <p>Anyone can list AI features. What separates a BA Lead is knowing which ones are <em>legal to ship in Hong Kong</em> and in what order. Two facts do most of the work:</p>
+      <p><strong>1 · The SFC has already designated AI investment advice as high-risk.</strong> The SFC's <strong>Circular on the use of generative AI language models (12 November 2024)</strong> designates using an AI language model to provide <strong>investment recommendations, investment advice or investment research</strong> as a <strong>high-risk use case</strong>. That triggers extra requirements: <strong>a human in the loop reviewing output for factual accuracy before it reaches the client</strong>, testing that semantically identical prompts don't produce different answers, and disclosing that the client is interacting with AI and that output may be inaccurate — <strong>every time they interact</strong>, not once at onboarding. Firms must also notify the SFC and are encouraged to discuss plans at the business-planning stage. <span class="conf c">confirmed</span></p>
+      <p><strong>2 · The suitability boundary, not the licence, is the real design constraint.</strong> Under the Guidelines on Online Distribution and Advisory Platforms, robo-advice explicitly triggers the suitability requirement, and the SFC's own FAQs draw the line precisely: <em>"the posting of factual, fair and balanced product-specific materials would not in itself amount to a solicitation or recommendation"</em> — but a list presented as matching <strong>"your risk tolerance level"</strong> does. <span class="conf c">confirmed</span></p>
+      <p><strong>The one-sentence version to say out loud:</strong> "The moment client profile data influences which instruments get surfaced, you're inside the suitability regime — so the sequencing question is which AI features stay on the objective side of that line, and which ones are worth paying the full suitability and algorithm-governance cost for."</p>
+    </div>
+
+    <h3>A phased proposal you can actually put on the table</h3>
+    <p class="phase-sub" style="margin-bottom:12px;">Sequenced by regulatory cost rather than by technical difficulty — which is the sequencing an experienced BA would choose, and worth saying so.</p>
+    <table>
+      <tr><th>Phase</th><th>Features</th><th>What it costs you regulatorily</th></tr>
+      <tr><td><strong>Phase 1<br>Non-personalised</strong><br><span class="mono" style="font-size:11.5px;">ship first</span></td><td><strong>AI market-news digest</strong> — daily summary across the app's four markets, no instruments recommended.<br><strong>AI research summarisation</strong> — plain-language condensation of filings, earnings and announcements on an instrument the user has already opened.<br><strong>Objective screeners</strong> — user-chosen filters (market, sector, valuation, dividend yield) with disclosed criteria.<br><strong>Onboarding and education companion</strong> — explains board lots, settlement cycles, price limits, why a Northbound order was rejected. Genuinely useful on a four-market app.<br><strong>Multilingual support</strong> — English, Traditional Chinese, Korean. Cheap, high-value, and no suitability exposure.</td><td>Stays <strong>outside</strong> the suitability regime if content is factual, fair and balanced and nothing is ranked by client profile. But note: <strong>AI-generated research is still a high-risk use case</strong> under the November 2024 circular, so human review before publication, per-interaction AI disclosure and prompt-robustness testing all apply anyway. No licence uplift needed.</td></tr>
+      <tr><td><strong>Phase 2<br>Personalised advice</strong><br><span class="mono" style="font-size:11.5px;">the expensive step</span></td><td><strong>Portfolio health check</strong> — concentration, currency exposure, correlation warnings on the client's actual holdings.<br><strong>Suggested portfolios</strong> matched to risk profile.<br><strong>"Instruments like this"</strong> weighted by holdings or behaviour.<br><strong>Personalised "for you" feed.</strong></td><td>All of this <strong>triggers the suitability requirement</strong>, and pulls in the ODAP algorithm-governance regime: documented design rationale, objective non-biased criteria, pre-deployment testing, re-validation after every algorithm change, qualified sign-off, and client profiling that can identify and reconcile inconsistent answers. Likely needs a <strong>Type 4 (advising on securities)</strong> uplift. Plus human-in-the-loop on any AI-generated recommendation.</td></tr>
+      <tr><td><strong>Phase 3<br>Discretionary</strong><br><span class="mono" style="font-size:11.5px;">later, deliberately</span></td><td><strong>Automatic rebalancing</strong> and managed portfolios.</td><td>Auto-rebalancing trades are themselves a recommendation per the SFC's FAQs, and discretionary management points at a <strong>Type 9 (asset management)</strong> licence. Clients who opt out of rebalancing must be warned their portfolio may become unsuitable.</td></tr>
+    </table>
+
+    <h3>Points to note when building these — the ones that actually bite</h3>
+    <ol class="numbered">
+      <li><span class="num">1</span><span><strong>Never join the personalisation layer to the product-selection layer.</strong> This is the whole game in one rule. A screener the user drives is objective; the same screener pre-filtered by their risk score is a recommendation. Architecturally, keep profile data out of the ranking service unless you have consciously decided to pay the suitability cost.</span></li>
+      <li><span class="num">2</span><span><strong>Constrain the chatbot outside the model, not inside the prompt.</strong> "Should I buy SK Hynix?" is the worst-case feature: personalised advice, on a specific instrument, AI-generated, delivered without human review. Hard refusal has to be enforced in code, because prompt-level guardrails won't survive the SFC's expectation that you test output robustness to prompt variations. Retrieval over your own vetted research doesn't remove high-risk status either — the designation is about the use case, not the architecture.</span></li>
+      <li><span class="num">3</span><span><strong>Presentation can create a recommendation on its own.</strong> The SFC's FAQ examples include pop-ups or flashing tied to a specific product, urgency framing like "Don't Miss Out!", and comparing the platform's portfolios against the client's holdings <em>without being asked</em>. So an AI-triggered push notification about a specific stock is a suitability question, not a growth experiment. This is the one product will push hardest on — have the answer ready before the meeting rather than in it.</span></li>
+      <li><span class="num">4</span><span><strong>Data privacy is a separate workstream that starts on day one.</strong> Client trading records were collected to execute and settle orders, not to train or personalise models. Under the PDPO, using them for a new purpose needs fresh consent and an updated Personal Information Collection Statement — and the feature has to still work for clients who decline. The PCPD's <strong>Model Personal Data Protection Framework (June 2024)</strong> and its <strong>checklist on employee use of generative AI (March 2025)</strong> are the reference points. Anonymisation and aggregation are the standard mitigations.</span></li>
+      <li><span class="num">5</span><span><strong>Vendor risk is explicitly in scope.</strong> If the AI is a third-party model — and it will be — the November 2024 circular requires assessing whether the provider has its own model risk management framework, whether a provider breach of privacy or IP law could materially affect you, supply-chain vulnerabilities at each component, an inventory of provider software, and contingency plans for dependency. That is <em>vendor management</em>, which is the JD's own language. Nice symmetry to point out.</span></li>
+      <li><span class="num">6</span><span><strong>Model governance needs the same segregation you'd expect anywhere else.</strong> Separate development from validation and approval where practicable; validate before go-live <em>and</em> on material change; end-to-end testing from user input to system output; ongoing monitoring so the model stays fit for purpose after market conditions shift. Given the Korean market moved ±40% inside two months this summer, "we validated it in June" is not a defence.</span></li>
+      <li><span class="num">7</span><span><strong>There's a regulator-provided on-ramp — mention it.</strong> In <strong>March 2026</strong> the HKMA, SFC, Insurance Authority and MPFA jointly expanded the <strong>Generative AI Sandbox</strong> beyond banking to cover securities and asset/wealth management, with licensed corporations eligible, supervisory guidance, and free GPU access at Cyberport. Notably, the circular names <em>suitability-compliance assessment during investment product distribution</em> as an encouraged use case. The first application window closed 30 June 2026, so check for a further cohort — but knowing it exists is the point. <span class="conf c">confirmed; current cohort status unverified</span></span></li>
+    </ol>
+
+    <div class="callout good">
+      <span class="callout-label">How to deploy this in the room — don't present all seven</span>
+      Offer <strong>one Phase 1 feature and one constraint</strong>, then stop and ask. For example: "The thing I'd want to build first isn't a robo-adviser — it's an education layer, because on an app spanning four markets a lot of your support load is probably 'why was my order rejected' and 'why can't I sell this yet.' That's non-personalised, so it stays outside the suitability regime, and it deflects tickets from day one. The personalised layer I'd sequence second, deliberately, because that's where you pick up the ODAP algorithm-governance obligations and probably a Type 4 uplift. Is the AI work already scoped, or is it still at the vision stage?" That's a proposal, a constraint, a benefit and a question in four sentences.
+    </div>
+    <div class="callout gap">
+      <span class="callout-label">Don't overstate one thing</span>
+      A fully autonomous AI adviser is not currently a viable Hong Kong design — the human-in-the-loop requirement for high-risk use cases means AI output providing recommendations must be reviewed for factual accuracy before it reaches the client. If someone in the room is enthusiastic about a fully automated adviser, the useful contribution is naming that constraint early and calmly, not deflating the idea. "That's buildable, but the review step is a regulatory requirement rather than a design choice, so it changes the operating model — we'd need someone reviewing output, which is a staffing question as much as a technology one."
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="markets">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Operational Depth</span><h2>Four markets in one app — the rules and what's changing</h2></div>
+    <p class="phase-sub">Cash-equity market plumbing is your lightest area on paper. It's also the most learnable, and knowing a handful of specifics is disproportionately convincing because it's the detail only people who've actually shipped a multi-market app tend to know. Everything below is what a <em>lead</em> BA would be expected to hold, not memorised trivia.</p>
+
+    <div class="callout key">
+      <span class="callout-label">First — what the app actually covers, from the Play Store listing</span>
+      <p>The Google Play listing for <strong>MAPS HK</strong>, developer <strong>Mirae Asset Securities (HK) Limited</strong>, last updated <strong>6 August 2026</strong>, describes global stocks and ETFs, <strong>"Korean stocks (newly added)"</strong>, and <strong>virtual assets for eligible clients only</strong>. It cites CE No. BJB333. <span class="conf c">confirmed from the listing</span></p>
+      <p><strong>Two things worth noticing.</strong> First, "Korean stocks (newly added)" is significant: the June press coverage described Korean-share access for overseas retail as a <em>later-stage</em> item, but the listing suggests it has already shipped or is shipping now. Worth asking about — and it means the Korea section below isn't hypothetical.</p>
+      <p>Second, and handle this carefully: the Android listing shows a very low install count. That most likely means iOS-first distribution, or simply a fresh listing — but <strong>do not raise download numbers in the interview.</strong> There is no way to mention it that doesn't sound like a dig at a product they just launched. Note it privately as a signal that this is genuinely early days, which supports everything else on this page.</p>
+    </div>
+
+    <h3>The four markets — what a lead BA should know about each</h3>
+    <table>
+      <tr><th>Market</th><th>Settlement &amp; hours</th><th>The rules that become app logic</th></tr>
+      <tr><td><strong>Hong Kong</strong><br>SEHK</td><td><strong>T+2</strong> <span class="conf c">confirmed</span><br>09:30–12:00, 13:00–16:00, with a lunch break</td><td><strong>Board lots</strong> — HK stocks trade in exchange-defined lots, not single shares, so "buy HK$1,000 of Tencent" isn't a valid order. Odd-lot handling needs its own path. Complex-product gating applies to listed derivatives (warrants, CBBCs, options) per the SFC lists in the regulatory section above.</td></tr>
+      <tr><td><strong>Mainland China</strong><br>via Northbound Stock Connect</td><td>Securities <strong>T+0</strong>, cash <strong>T+0 or T+1</strong> <span class="conf c">confirmed</span><br>Separate Northbound calendar published annually — HK and Mainland holidays differ</td><td><strong>STAR Market and ChiNext are restricted to institutional professional investors</strong> — a hard retail gate. <strong>RMB-only</strong> trading and settlement with no exchange conversion facility, so you need an explicit CNH funding and FX-disclosure flow. <strong>Northbound Investor ID</strong> — a unique BCAN per client plus BCAN–CID mapping maintenance. <strong>Pre-trade checking</strong> on sell orders (SPSA removes pre-delivery). <strong>No day trading.</strong> Odd-lot <em>sells</em> allowed, odd-lot <em>buys</em> rejected. <strong>Daily quota RMB 52bn</strong> per Connect, net-buy basis, no carry-over, monitored at five-second intervals below 30% — so the app needs a quota-exhaustion state where buys suspend and sells continue. Price limits ±10% Main Board, ±20% STAR/ChiNext. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Korea</strong><br>KRX (KOSPI/KOSDAQ) + Nextrade ATS</td><td><strong>T+2</strong>, netted; KSD is the depository, cash via BOK-Wire, settled in <strong>KRW</strong> <span class="conf c">confirmed</span><br>Regular session 09:00–15:30 <span class="conf u">sources differ on the exact closing-auction boundary</span></td><td><strong>Single-share trading unit</strong> — but with SK Hynix around 2.9m won a share, minimum ticket size is a genuine retail UX problem, and <strong>domestic fractional trading is not permitted</strong> on KRX. <strong>±30% daily price limit.</strong> <strong>Volatility Interruption</strong> halts at ±3% for KOSPI200 names and ±6% for others during continuous auction. <strong>Circuit breakers</strong> at −8%, −15% and −20%. <strong>Two venues:</strong> the Nextrade ATS launched March 2025 and trades until 20:00 — so during overlapping hours, if the client doesn't pick a venue, the broker must choose under a best-execution duty, which means smart order routing. <strong>Foreign ownership limits are per-issue market-wide ceilings</strong> published by KRX, not per-client limits — that needs reference-data ingestion and "room availability" checking, a genuinely hard build. See the Korea section below. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>United States</strong></td><td><strong>T+1</strong> since 28 May 2024 <span class="conf c">confirmed</span><br>Core 09:30–16:00 ET, plus pre/after-hours; overnight sessions on ATSs today</td><td><strong>Round lots were redefined in November 2025</strong> on a tiered basis by share price (40 shares for $250–$1,000; 10 for $1,000–$10,000; 1 above $10,000) — affects quote-size display on high-priced stocks. <strong>LULD applies only in the core session today</strong>; pre- and after-hours have no price-band protection, which is a disclosure obligation. <strong>Fractional shares</strong> now have explicit FINRA trade-reporting plumbing (effective February 2026, to six decimal places) — but there is still no rule that <em>defines</em> a fractional share as an instrument, so they're a book-entry construct at the broker, generally not transferable in fraction. <strong>Tax:</strong> Hong Kong has no US tax treaty, so US dividends to HK individuals are withheld at the full <strong>30%</strong> with no relief, W-8BEN is required at onboarding, and <strong>US estate tax exposure starts at just US$60,000</strong> of US-situs assets with rates to 40%. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Virtual assets</strong></td><td>Pre-funded, effectively immediate; 24/7</td><td>A fifth settlement model in the same account. See the crypto section above.</td></tr>
+    </table>
+
+    <div class="callout good">
+      <span class="callout-label">The US estate-tax point is the one to actually raise</span>
+      A HK$4m US equity position creates real US estate tax exposure at a US$60,000 threshold with no treaty relief, and it is the most under-disclosed risk in Hong Kong US-stock apps generally. It's cheap to disclose and expensive to have ignored. Raising it shows you think about client-detriment risk rather than just features — and it's the kind of thing a Compliance person in the room will remember you for.
+    </div>
+
+    <h3>What's changing — the roadmap a lead BA should already be tracking</h3>
+    <p class="phase-sub" style="margin-bottom:12px;">This table is the most differentiating content on the page. A candidate who can name what's coming across four markets is demonstrably reading the industry, not just the job spec. Dates marked <span class="conf u">indicative</span> are proposals or targets, not commitments — say so when you use them.</p>
+    <table>
+      <tr><th>When</th><th>Market</th><th>What changes, and why the app cares</th></tr>
+      <tr><td><strong>14 Sep 2026</strong><br><span class="mono" style="font-size:11px;">5 weeks away</span></td><td>Korea</td><td><strong>KRX after-hours market opens, 16:00–20:00.</strong> ETF pre/after-market trading also starts at KRX in September, and at Nextrade in November 2026. The KRX <em>pre</em>-market was pushed back to late 2027, with KRX citing system stability and the scale of the overhaul — a useful precedent to cite if anyone thinks extended hours are a small change. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Sep 2026</strong></td><td>Korea</td><td><strong>Commercial Act Phase 2 takes effect</strong> — mandatory cumulative voting for listed companies with assets above ₩2tn, and at least two separately-elected audit committee members. Build implication most people miss: <strong>proxy voting instruction capture, including cumulative voting, for beneficial owners sitting behind an omnibus account.</strong> Governance bodies have noted intermediaries' systems are underdeveloped for this. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>17 Sep 2026</strong></td><td>US</td><td><strong>SEC roundtable on preparations for 24-hour trading.</strong> Likely to shape whatever comes after December. Worth knowing it's on the calendar. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>6 Dec 2026</strong><br><span class="mono" style="font-size:11px;">the big one</span></td><td>US</td><td><strong>The coordinated industry go-live for the overnight US equity session.</strong> The consolidated tape (SIPs) extends to 21:00 ET Sunday through 20:00 ET Friday; FINRA trade reporting facilities extend to match; and <strong>overnight LULD price bands</strong> come in at ±20% — but with <strong>no automatic trading pauses</strong> overnight, only discretionary regulatory halts that last the <em>entire</em> overnight session. NYSE Arca's overnight session targets this date; Nasdaq and Cboe EDGX are approved but gated on confirming tape readiness. <strong>NSCC clearing already went 24x5 on 29 June 2026.</strong> <span class="conf c">confirmed</span><br><br><em>Why this matters to a BA:</em> a stock halted at 22:00 doesn't reopen until 04:00, so the app must handle multi-hour halts and orders stuck in limbo. Trade-date rollover at 20:00 ET means one client "evening" spans two trade dates. Order types are restricted overnight — Arca prohibits market and pegged orders, EDGX permits limit only — so the order ticket must be session-aware. And overnight liquidity is thin, which makes "24-hour trading" marketing a conduct risk if execution quality doesn't match the promise.</td></tr>
+      <tr><td><strong>Already changed<br>Jun 2026</strong></td><td>US</td><td><strong>The Pattern Day Trader rule has been abolished.</strong> The SEC approved FINRA's replacement of the day-trading margin framework in April 2026, effective 4 June 2026, with a phase-in allowing firms until 20 October 2027. The US$25,000 minimum equity requirement and the four-trades-in-five-days test are gone, replaced by intraday margin standards. <span class="conf c">confirmed</span><br><br><em>Why this matters:</em> any requirement, warning screen or rule in an app referencing "$25,000" or "4 day trades in 5 business days" is now legacy. During the phase-in, different US clearing partners will cut over on different dates — so the correct BA question is "what date does <em>our</em> partner switch, in writing?" That question alone would mark you out.</td></tr>
+      <tr><td><strong>Live now<br>Jul 2026</strong></td><td>Korea</td><td><strong>Korea launched a near-24-hour won market on 7 July 2026</strong> — roughly 06:00 Monday to 06:00 Saturday KST, closed weekends. Aimed at reducing reliance on offshore NDFs. Non-dollar pairs remain 09:00–15:30. Relevant to KRW funding and conversion design for HK clients — though analysts flag thin overnight liquidity. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Comment closes<br>17 Aug 2026</strong><br><span class="mono" style="font-size:11px;">next week</span></td><td>US</td><td><strong>The SEC has proposed rescinding Rule 611, the Order Protection Rule</strong> (and Rule 610(e) on locked/crossed markets), with no replacement mechanism, on the reasoning that broker best-execution duties are an adequate safeguard. If adopted, intermarket price protection stops being a regulatory floor and becomes purely a best-execution and routing-quality question — which rewrites your execution-quality disclosures, your routing policy, and any "best price" marketing claim. <span class="conf c">confirmed as proposed</span></td></tr>
+      <tr><td><strong>Nov 2027</strong><br><span class="conf u">indicative</span></td><td>US</td><td><strong>Half-cent tick sizes and the reduced access-fee cap</strong> — adopted September 2024, delayed twice, now indicatively the first business day of November 2027, with the SEC reviewing whether the increments should change at all. Design price-display and increment validation as <strong>configurable</strong>; don't build for $0.005 yet. Separately, <strong>odd-lot top-of-book quote transparency went live in May 2026</strong> and full depth-of-book is deferred to 2028. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>Q4 2027</strong><br><span class="conf u">indicative</span></td><td>Hong Kong</td><td><strong>HKEX T+1 settlement.</strong> A discussion paper in July 2025 was followed by a consultation paper on 17 April 2026 (closed 18 May) with an indicative implementation in Q4 2027. Not a final decision — but say "indicatively Q4 2027," not "no date." Separately, press reports suggest HKEX is weighing <strong>longer trading hours and possibly ending the lunch break</strong> — unconfirmed, no HKEX decision. <span class="conf c">confirmed / press reports only</span></td></tr>
+      <tr><td><strong>Open</strong></td><td>Korea</td><td><strong>MSCI kept Korea off the Developed Market watchlist in its June 2026 review</strong>, naming three blockers: limited offshore convertibility of the won, <strong>restricted operational adoption of omnibus accounts and in-kind transfers</strong>, and the operational burden of the reinstated short-selling regime. <span class="conf c">confirmed</span> The middle one is worth committing to memory — see the Korea section.</td></tr>
+      <tr><td><strong>Not happening</strong></td><td>Korea</td><td><strong>There is no Korean T+1 roadmap</strong> that I could find. Korea stays T+2. Useful precisely because the obvious assumption — "everyone's following the US" — is wrong, and saying so confidently is a small credibility win. <span class="conf c">no evidence of a roadmap</span></td></tr>
+    </table>
+    <div class="callout gap">
+      <span class="callout-label">One honest framing note</span>
+      Don't recite this table. It's there so that whichever market comes up, you have something specific and current. If you get one clean opportunity, the <strong>6 December 2026 overnight US session</strong> is the best single item — it's a hard coordinated industry date, it's four months out, and it forces real decisions about halts, order types, trade-date rollover and overnight support coverage. A BA Lead who raises it unprompted is obviously reading the industry. Add the observation that a Hong Kong operation has a structural advantage here: <em>your daytime is their overnight.</em>
+    </div>
+
+    <div class="callout gap">
+      <span class="callout-label">One thing NOT to claim</span>
+      <strong>Fractional shares.</strong> I could not find any SFC circular, FAQ or guideline addressing fractional shares in Hong Kong, so don't cite a Hong Kong regulatory position. What's safe: HK-listed shares trade in <strong>board lots</strong> and Korean domestic shares trade in single-share units with no fractional trading, so fractional dealing in either isn't an exchange feature. Fractional US shares depend on the upstream US executing broker; US trade-reporting rules now accommodate them, but no rule defines a fractional share as an instrument, so they remain a book-entry construct that generally can't be transferred in fraction. Frame it as a legal and custody question, not a cited rule. Given Korean single-share lots at very high nominal prices, <em>"how do you handle minimum ticket size on Korean stocks?"</em> is a strong, informed question.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="korea">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Know Their Home Market</span><h2>Korea — the market your interviewer lives in</h2></div>
+    <p class="phase-sub">You're interviewing at a Korean firm, whose app has just added Korean stocks, in the middle of the most dramatic two years in that market's history. Being able to talk about it credibly is pure upside — and almost no Hong Kong BA candidate will be able to. Everything below is sourced; the numbers are volatile, so check the current level on the morning of the interview.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The 60-second version — if you say only one thing about Korea, say this</span>
+      <p>"Korea has been the most extraordinary major market in the world for two years. KOSPI rose about <strong>76% in 2025</strong> to close around 4,214 — the best performing major market globally, and the biggest annual gain since 1999. It then broke 5,000 in January 2026 and kept going, peaking above 8,500 in mid-June. Then in late July it fell about <strong>40% from that peak</strong> in a matter of weeks, triggering circuit breakers on <strong>consecutive days for the first time in the market's history</strong>, and then posted its <strong>largest single-day gain ever, +17.9%</strong>, on 31 July. It's since settled around the low 6,000s.</p>
+      <p>Two things I'd take from that as a BA rather than an investor. First, <strong>Samsung Electronics and SK Hynix together are more than half of KOSPI's market cap</strong> — so this is a concentration story as much as a market story. Second, on a retail app, <strong>±30% daily price limits, volatility-interruption halts and circuit breakers stop being edge cases</strong>. They're suitability, disclosure and UX requirements, and they need to be designed before the next event rather than after it."</p>
+      <p style="opacity:.75;font-size:13.5px;">Index levels: 2025 close ~4,214 and +76% <span class="conf c">confirmed</span>; 5,000 broken 22 Jan 2026 <span class="conf c">confirmed</span>; mid-June peak above 8,500 <span class="conf c">confirmed</span> with one report putting the record close at 8,864 <span class="conf u">unverified</span>; consecutive circuit breakers 28–29 July 2026 and the +17.91% record gain on 31 July <span class="conf c">confirmed</span>; ~6,345 on 11 August 2026 <span class="conf c">confirmed</span>. <strong>Check the level the morning of the interview</strong> — this market moves faster than any prep page.</p>
+    </div>
+
+    <h3>The stocks they'll assume you've heard of</h3>
+    <table>
+      <tr><th>Name</th><th>What it is, and why it comes up</th></tr>
+      <tr><td><strong>SK Hynix</strong></td><td>The world's number-two memory maker and the central AI-infrastructure play in Korea. In <strong>June 2026 it overtook Samsung Electronics as Korea's most valuable company for the first time in around 25 years</strong>, briefly passing a ₩2 quadrillion market cap. It reportedly secured about two-thirds of Nvidia's HBM4 orders, and <strong>listed ADRs on Nasdaq in July 2026</strong>. <span class="conf c">confirmed</span> <em>BA angle: a dual-listed KOSPI/Nasdaq name creates ADR-versus-ordinary pricing, FX and corporate-action complexity in a multi-market app — a good, specific thing to raise.</em></td></tr>
+      <tr><td><strong>Samsung Electronics</strong></td><td>Became the <strong>first Korean company to pass a ₩1,000tn market cap</strong> in January 2026. Record 2025 close around 119,000 won. Still enormous, but no longer number one. <span class="conf c">confirmed</span></td></tr>
+      <tr><td><strong>SK Square</strong><br><span class="mono" style="font-size:11px;">the one you flagged</span></td><td>An SK Group <strong>holding company</strong> restructured around semiconductors, and <strong>SK Hynix's largest shareholder with roughly a 20.5% stake</strong>. It went from about 368,000 won at the start of 2026 to 991,000 won by early May — <strong>up about 169% year-to-date</strong> — reaching a ₩130tn market cap and <strong>Korea's third-largest listed company</strong>, up from eighth at end-2025. <span class="conf c">confirmed</span><br><br><strong>Three distinct reasons it's talked about, and knowing all three is the flex:</strong> (1) it's a <strong>leveraged proxy on SK Hynix and HBM</strong> without owning SK Hynix directly; (2) <strong>institutional single-stock concentration limits</strong> cap how much of a soaring SK Hynix institutions can hold, pushing them into SK Square as a workaround; (3) it's the <strong>archetypal "Korea discount" trade</strong> — even after tripling it reportedly still traded at roughly a 42% discount to net asset value, so it's simultaneously a momentum story <em>and</em> a governance-reform story.</td></tr>
+      <tr><td><strong>The August 2026 rotation</strong></td><td>Right now money is rotating <em>out</em> of the chip heavyweights and into KOSDAQ — biotech, pharma and battery materials. On 10 August 2026 KOSDAQ rose about 7%, sharply outpacing KOSPI. Names in the move included Alteogen, Jusung Engineering, EcoPro and EcoPro BM. <span class="conf c">confirmed</span> <em>Mentioning that you know the rotation is happening — not just the headline rally — is what makes this sound like reading rather than revision.</em></td></tr>
+    </table>
+
+    <h3>"Value-up" and governance reform — the structural story behind the rally</h3>
+    <ul class="plain">
+      <li><strong>The "Korea discount"</strong> is the long-standing undervaluation of Korean companies versus global peers, attributed to low capital efficiency and weak governance in family-controlled conglomerates. It has narrowed but not closed — as at January 2026 Korea traded around 17× forward earnings against roughly 21× globally. <span class="conf c">confirmed</span></li>
+      <li><strong>The Corporate Value-up Programme</strong> (announced February 2024, KRX guidelines from May 2024) is <em>voluntary</em>: companies disclose valuation and governance metrics and publish a three-year value-up plan. A Korea Value-up Index followed in September 2024. Notably, <strong>tax incentives were floated but not included</strong> — which is the standard criticism that the programme has no teeth on its own. <span class="conf c">confirmed</span></li>
+      <li><strong>The Commercial Act amendments are where the teeth are.</strong> Phase 1 (July 2025) extended directors' fiduciary duty to <em>all shareholders</em>, not just the company. Phase 2 (passed August 2025, <strong>effective September 2026</strong>) brings mandatory cumulative voting above ₩2tn in assets and at least two separately-elected audit committee members. Phase 3 (passed February 2026) mandates <strong>cancellation of treasury shares within 12 months of acquisition</strong>, with something like ₩60tn of retirements anticipated during 2026. <span class="conf c">confirmed</span></li>
+      <li><strong>The BA-relevant consequence nobody mentions:</strong> mandatory treasury-share cancellation means <em>elevated corporate-action volume</em> — capital reductions, share-count changes, index rebalances — right when your app is adding Korean stocks. And cumulative voting from September 2026 means proxy voting instruction capture for beneficial owners behind an omnibus account. Both are build requirements, not market commentary.</li>
+    </ul>
+
+    <div class="callout key">
+      <span class="callout-label">The single best Korea point available to you — MSCI</span>
+      <p>In its <strong>June 2026 review, MSCI again declined to add Korea to the Developed Market watchlist</strong>, naming three blockers. One of them was <strong>"restricted operational adoption of omnibus accounts and in-kind transfers."</strong> <span class="conf c">confirmed</span></p>
+      <p>Meanwhile Korea liberalised omnibus accounts precisely so that <strong>foreign retail investors can trade Korean shares through their own home-country broker rather than opening a Korean account</strong> — deliberately mirroring how Korean retail investors trade US stocks. Account eligibility restrictions were lifted in January 2026; roughly ₩5.8tn traded through omnibus accounts in three weeks from late April 2026. And <strong>Mirae Asset launched its own foreign-investor omnibus service with UOB Kay Hian on 8 June 2026</strong>, three weeks before MAPS launched in Hong Kong. Competitors are doing the same — Hana with Futu, Samsung Securities with Interactive Brokers. <span class="conf c">confirmed</span></p>
+      <p><strong>Why this is the point to make:</strong> "So if I'm reading this right, MAPS adding Korean stocks isn't just a product feature — it's Mirae Asset executing on the omnibus liberalisation, in a market where MSCI has explicitly named weak <em>operational adoption</em> of omnibus accounts as one of the reasons Korea stays in the Emerging Market index. Making that genuinely usable for overseas retail is part of the national upgrade case, not just a revenue line." That connects their product to their market to a global index decision. It is very hard to sound better prepared than that.</p>
+    </div>
+
+    <h3>Two Korea build problems worth naming — because they're the hard ones</h3>
+    <ol class="numbered">
+      <li><span class="num">1</span><span><strong>Foreign ownership limits are aggregate, market-wide ceilings — not per-client limits.</strong> Restrictions apply across a range of sectors, with a handful fully closed to foreign investment and per-issue caps published by KRX as reference data. That means ingesting a feed and running pre-trade <strong>"room availability"</strong> logic against a shared ceiling — architecturally a completely different problem from checking one client's limit, and much closer to a queueing problem. <span class="conf c">confirmed that limits are per-issue KRX-published</span> <em>Don't quote specific company-level percentages — the commonly-cited numbers for utilities and telecoms could not be verified, and the correct answer is better anyway.</em></span></li>
+      <li><span class="num">2</span><span><strong>Nextrade venue eligibility is time-varying.</strong> The ATS is capped at 15% of total market volume (30% for any individual stock) averaged over six months, and when volumes surged in early 2026 it <strong>suspended trading in some stocks</strong> — the tradable universe fell from around 693 symbols in January 2026 to 638 by April. So your instrument master needs a <strong>per-symbol, time-varying venue-eligibility flag</strong>, and smart order routing cannot assume a static universe. <span class="conf c">confirmed</span> This is exactly the kind of detail that separates someone who has configured an instrument master from someone who has read about one.</span></li>
+    </ol>
+
+    <div class="callout gap">
+      <span class="callout-label">Three Korea things to be careful about</span>
+      <p><strong>Short selling.</strong> It was banned in November 2023 and <strong>fully reinstated on 31 March 2025</strong>, but only for institutional investors with a computerised naked-short-prevention system and internal control standards, which the broker must verify. Retail lending terms were changed too — 90-day repayment renewable to 12 months, collateral ratio lowered to 105%. <span class="conf c">confirmed</span> Don't claim to know the current status of any uptick rule; I couldn't verify it.</p>
+      <p><strong>Tax.</strong> Korea's Financial Investment Income Tax was <strong>abolished rather than implemented</strong>. <span class="conf c">confirmed</span> But I could not verify what capital-gains or dividend-withholding treatment now applies to non-resident retail investors in Korean shares — which is material to your product. Raise it as a question, don't guess at a rate.</p>
+      <p><strong>The won is not freely convertible offshore.</strong> Despite the near-24-hour onshore market launched in July 2026, MSCI still cited limited offshore convertibility in June 2026. Don't describe the won as fully convertible.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="release">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Delivery Rhythm</span><h2>Mobile release management — what's different about shipping an app</h2></div>
+    <p class="phase-sub">The JD asks for "release notes" and "release-related setup activities," and for driving delivery through "launch readiness, and post-launch review." Mobile releases behave differently from web releases in ways that are worth being able to name.</p>
+
+    <div class="flow">
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">1</span><h3>You cannot roll back an app release</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">Why it matters</div>Once a build is in the App Store or Play Store and customers have installed it, you can't recall it. The only real remedies are a forward fix (subject to review timelines) and server-side <strong>feature flags</strong> or remote configuration.</div>
+          <div><div class="flow-col-label">What a BA owns</div>Making sure every material new feature ships behind a flag with a defined off-state that degrades gracefully — and that the off-state has actually been tested, not just designed. This is a requirements decision, not a purely technical one.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">2</span><h3>You support many versions at once</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">Why it matters</div>Customers upgrade at their own pace. At any moment you have several app versions in the wild talking to one backend — so every API change needs a compatibility story, and every disclosure or risk-warning change needs to reach clients on old versions too.</div>
+          <div><div class="flow-col-label">What a BA owns</div>The <strong>minimum supported version</strong> and forced-upgrade policy, and the rule for which changes are regulatory-material enough to require a forced upgrade rather than a soft prompt. On a regulated trading app that is a compliance decision wearing a product costume.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">3</span><h3>Config must land before the switch flips</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">Why it matters</div>A release is rarely just a build. It's a build plus product parameters, plus entitlement changes, plus fee schedules, plus content and disclosure versions — often across several systems, sequenced, in production, under time pressure.</div>
+          <div><div class="flow-col-label">What a BA owns</div>The release-readiness checklist that turns "we deployed" into "we can safely switch it on," and the <strong>go/no-go criteria</strong> agreed with Ops and Compliance in advance rather than argued about on the night. This is the JD's "release-related setup activities," and it's where your PMO governance instinct is a direct asset.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">4</span><h3>Post-launch review has a regulatory edge</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">Why it matters</div>Beyond the usual adoption and defect metrics, a regulated trading app must report <strong>material system failures</strong> to the SFC under the Code of Conduct's notification requirements (para 12.5, "Notifications to the Commission"), and material cybersecurity incidents promptly under the cybersecurity circulars. Separately, the hacking-risks Guidelines require contingency planning covering <strong>DDoS and ransomware</strong>; and the SFC's August 2022 online-brokerage review criticised inadequate review of system capacity and contingency plans for keeping client services uninterrupted. <span class="conf c">confirmed — three separate instruments, don't merge them</span></div>
+          <div><div class="flow-col-label">What a BA owns</div>Defining what counts as "material" before it happens, and making sure the incident, client-communication and notification path is documented rather than improvised. Six weeks after launch, this may well not exist yet — which makes it a credible thing to offer.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout gap">
+      <span class="callout-label">Precision warning</span>
+      <strong>Code of Conduct para 12.5 ("Notifications to the Commission") is safe to cite</strong> — it's verified in the 33rd edition (January 2026) and does require immediate reporting of system failures among other events. What is <em>not</em> safe is the <strong>Schedule 7 sub-paragraph numbers</strong> for the electronic trading regime, or the record-retention period — those could not be verified. Refer to <em>"Schedule 7 of the Code of Conduct on electronic trading"</em> by title only. General rule for the whole interview: nobody penalises you for not citing a sub-paragraph; citing one wrongly is far worse than not citing it.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="leading">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Lead Part</span><h2>Leading the BA team — the JD's first bullet, and your best evidence</h2></div>
+    <p class="phase-sub">Note the ordering. "Lead and manage a team of Business Analysts" is responsibility number one, and "guidance, coaching, and quality review" closes the list. This is a people-and-practice role as much as an analysis role — and it's where most senior-BA candidates are weakest.</p>
+
+    <h3>Your evidence, told three ways</h3>
+    <div class="sys-grid">
+      <div class="sys-card">
+        <h4>The headcount version</h4>
+        <p>"I led a three-person BA team — two junior BAs and a project coordinator." Factual, and gets you past the screening filter. Weakest of the three; don't stop here.</p>
+      </div>
+      <div class="sys-card">
+        <h4>The standards version</h4>
+        <p>"I established the analysis standards and PMO governance frameworks that were then adopted across all active projects — so the value wasn't managing three people, it was that the way we did analysis became consistent beyond my own team." This is the answer that matches the JD's closing bullet.</p>
+      </div>
+      <div class="sys-card">
+        <h4>The outcome version</h4>
+        <p>"The BPMN-mapped Salesforce and JIRA re-engineering cut ticket resolution time by 30% across three teams — that's what disciplined analysis buys you when it's applied consistently rather than per-person." Ties leadership to a number.</p>
+      </div>
+    </div>
+
+    <h3>Prepare one specific coaching story</h3>
+    <p style="font-size:14.5px;">This is the question most likely to catch you flat, because it can't be answered from a CV: <em>"tell me about a time you improved a junior BA's work."</em> Have one real example ready with a shape: what the deliverable was, what specifically was wrong with it (vague acceptance criteria, missing exception paths, requirements written as solutions), what you did other than rewrite it yourself, and what changed in their next piece of work. The detail that makes it credible is the bit where you <em>didn't</em> just fix it.</p>
+
+    <div class="callout good">
+      <span class="callout-label">The lead-specific angle worth volunteering</span>
+      A team six weeks past a launch usually has an ownership problem, not a capability problem — nobody is sure who owns which part of the product, so everything escalates and nothing gets prioritised. "Ensuring clear ownership, prioritisation, and timely delivery" is the JD saying so. If you offer a concrete first-30-days move — mapping the product into clear BA ownership areas with a named owner per area, and one prioritisation forum where trade-offs actually get decided — you're answering a question they may not have known how to ask.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="vendors">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Two Wildcards</span><h2>Vendors, and the Seoul question</h2></div>
+
+    <h3>1 · Vendor management — named twice, so take it seriously</h3>
+    <p class="phase-sub" style="margin-bottom:14px;">"Manage external vendors and internal technology teams" in the responsibilities; "hands-on experience managing vendors, including delivery tracking, quality review, issue escalation, schedule control, and acceptance of vendor deliverables" in the requirements. That level of specificity — especially "acceptance of vendor deliverables" — suggests the app is at least partly built by someone outside the Hong Kong office.</p>
+    <ul class="plain">
+      <li><strong>Your strongest evidence is the crypto silo, and it's recent.</strong> A white-label platform delivered with an external vendor, where you owned requirements, UAT and the SOPs, is precisely the JD's list: delivery tracking, quality review, issue escalation, acceptance of vendor deliverables. Have the detail ready — how you specified against a product you didn't control, what you accepted versus rejected, and how you handled the gap between what the white-label product did out of the box and what the business needed.</li>
+      <li><strong>That last point is the real interview question hiding here.</strong> White-label delivery is a distinct skill: you're negotiating between a vendor's roadmap and your own requirements, and a lot of the BA work is deciding what to configure, what to request, and what to work around. If the Hong Kong app is vendor-built or group-built, that is exactly the job — and you've done it.</li>
+      <li><strong>Back it up with HKJC.</strong> Two customer-facing betting terminal initiatives at HKD 100M+, covering UX design, functional testing, hardware rollout and business transformation — vendor delivery management with real acceptance gates and real schedule risk. Older, but it shows the pattern isn't a one-off.</li>
+      <li><strong>Then ask the question that matters:</strong> "Who actually builds the app — an external vendor, the Seoul technology organisation, or a Hong Kong team? And is 'acceptance of vendor deliverables' currently a defined process with criteria, or a judgement call?" The answer tells you what the job really is. If the "vendor" is effectively the parent company's technology function, that's a very different management problem from a third-party development house — and worth knowing before you accept.</li>
+    </ul>
+
+    <h3>2 · The Hong Kong–Seoul dynamic</h3>
+    <p class="phase-sub" style="margin-bottom:14px;">MAPS is explicitly a <em>group</em> platform, built on the group's mobile trading expertise in Korea, India, Indonesia and Vietnam, and intended to be replicated into further markets. That means the Hong Kong BA team is almost certainly not the sole author of the product. <span class="conf i">inference from the public strategy</span></p>
+    <ul class="plain">
+      <li><strong>The real question is where product decision authority sits.</strong> If Hong Kong is a launch market for a globally-designed platform, the BA Lead's job includes advocating for Hong Kong-specific regulatory and market requirements inside a global roadmap — Stock Connect gating, SFC complex-product journeys, Chinese-language disclosure — that a Seoul-based product team may not naturally prioritise. That's a genuinely different skill from writing requirements.</li>
+      <li><strong>You have a real, non-obvious advantage here.</strong> You already work in a Hong Kong team reporting into US-based management with limited overlapping hours, delivering a platform across multiple legal entities with different jurisdictional rules. Advocating local regulatory requirements into a globally-designed platform, across a time-zone gap, is precisely what you do now.</li>
+      <li><strong>Don't speculate about culture.</strong> Ask about structure instead — who decides, what the escalation path is, how often Hong Kong and Seoul actually meet. Structural questions get useful answers; cultural ones get defensive ones.</li>
+    </ul>
+
+    <div class="callout good">
+      <span class="callout-label">The framing that ties it together</span>
+      "The thing I'd want to understand early is where the line sits between what Hong Kong decides and what comes from the group platform — because if I'm leading the BA team here, part of my job is making sure Hong Kong's regulatory and market requirements land in a global roadmap on time rather than as a late exception. I do a version of that now, delivering across entities with different rule sets and management in a different time zone."
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="gap">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Read This Before The Interview</span><h2>The honest gap — and how to carry it</h2></div>
+    <p class="phase-sub">Unlike the BOCHK role, this isn't a domain stretch. The gaps are narrow and specific, which paradoxically makes them easier to be caught out on — a narrow gap sounds like something you should have.</p>
+    <div class="callout gap">
+      <span class="callout-label">What's genuinely missing</span>
+      <p><strong>Recent, formal vendor acceptance management.</strong> Real at HKJC, less so recently. Name the HKJC example, be honest about the recency, and ask who the vendors actually are.</p>
+      <p><strong>Cash-equity market microstructure.</strong> Your trading-platform experience is CFD/FX-centred. Board lots, Stock Connect operations, settlement mechanics are learnable and partly covered above — but don't bluff depth you don't have.</p>
+      <p><strong>Hong Kong's retail virtual asset regime.</strong> You've built a crypto exchange; you haven't operated one under this framework. Say exactly that, in that order.</p>
+      <p><strong>Formal team leadership at scale.</strong> You've led three people, and coached a product manager on a separate project. That's real, but it isn't "ran a BA function." If they're expecting someone who has, be straightforward — and note that the standards you set outlived the team you set them for, which is the part that actually predicts success in this role.</p>
+      <p><strong>Written Chinese documentation at professional standard.</strong> The JD requires good written Chinese. If you're confident, say so plainly and early. If you're stronger in English than in written Chinese, better to say "my working documentation has been in English; my written Chinese is good but I'd want to be clear about the standard expected for client-facing user guides" than to discover the expectation after starting.</p>
+    </div>
+    <div class="callout good">
+      <span class="callout-label">What genuinely transfers — and it's a lot</span>
+      A hybrid BA/PM who writes the requirements and then makes sure the teams around them actually adopt the new system and process. Years of BA work across two silos of a retail multi-asset app — stocks and crypto — including its back-office configuration layer. A white-label crypto exchange delivered with an external vendor, frontend and back office, which covers the JD's vendor-management requirement as well as its digital-asset relevance. Direct BA team leadership plus hands-on coaching of a product manager. End-to-end mobile app delivery including remote onboarding at scale. Multi-entity, multi-jurisdiction requirements work; separately, a 300,000-client account migration. BPMN process re-engineering with a measured 30% improvement. Governance frameworks, RACI, PMO artefacts and executive reporting. PMP, PSM and PSPO. Cantonese, Mandarin and English. This is a strong candidacy — the risk is underselling it, not overselling it.
+    </div>
+    <p style="font-size:14.5px;color:var(--slate);">If asked <em>"why leave a multi-asset trading platform to join another one?"</em> — the honest answer is scope, not escape: you've been the senior BA on someone else's platform strategy, and this is a chance to lead the BA function for a platform at the start of its life, in a market you know, at a group treating it as a global flagship. Forward-looking. No comment on FXCM or Tradu.</p>
+  </div>
+</section>
+
+<section class="phase" id="qa">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Anticipate</span><h2>Likely questions &amp; framing notes</h2></div>
+
+    <div class="qa">
+      <div class="qtag">"Tell me about your experience with retail trading platforms."</div>
+      <p>Your strongest question — don't rush it. Structure: what the platform was (retail multi-asset, web and mobile, with a back office you worked in), what you specifically owned (requirements and journey design for the CFD-only → multi-asset expansion, across multiple legal entities), and one hard problem you solved end to end. Then stop and let them ask, rather than continuing into a monologue. If the introduction has already covered this, don't repeat it — instead go one level deeper than you did the first time.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"How would you lead a BA team that's just launched a product?"</div>
+      <p>Answer in three moves: first, find out what's actually broken — defect themes, support ticket categories, onboarding drop-off, not opinions. Second, establish clear ownership areas so escalation stops being the default. Third, put in one prioritisation forum where trade-offs get decided rather than deferred. Then say what you'd deliberately <em>not</em> do in month one: rewrite the standards. A new lead imposing templates before understanding the product is the classic failure mode, and naming it shows judgement.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Do you have product administration experience?"</div>
+      <p>Use the prepared answer in the Product Administration section — and <strong>name the objects</strong>: fee groups, user-to-exchange matrix, trading currency, mid FX rate, product whitelist/blacklist. Specific nouns are what make this answer credible; a general statement about "owning the configuration layer" is not.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Tell me about the crypto exchange you built."</div>
+      <p>They will ask, because you raised it. Answer with scope and role first — white-label platform, new frontend and new back office, delivered end to end, and what you specifically owned versus what the vendor or engineering owned. Then the interesting part: what surprised you, and what you'd do differently. Avoid two traps — don't drift into why it was discontinued (not your story to tell, and not what they asked), and don't overclaim regulatory experience on the back of it. If they push toward the SFC regime, hand it back cleanly: "that platform wasn't operating under Hong Kong's retail VA framework, so I'd be learning that here — what I know about it is from reading, not running it."</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"You said you know where the two halves don't fit together — where?"</div>
+      <p>Prepared in the crypto section. Pick two, not five. The pre-funded-crypto-versus-unsettled-equity-proceeds one is the best opener because it's a real product decision with a real customer-communication problem attached, and it shows you think past the rule to the explanation.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"What do you know about our app?"</div>
+      <p>The MAPS answer, delivered as a question rather than a recital: the launch date, the one-app-one-account-two-asset-classes proposition, the Vision 3.0 framing, the stated roadmap. Then hand it back: "what I couldn't find publicly is which markets are actually live and how the digital asset side is structured — is it an omnibus arrangement with a licensed platform?" That question is the highest-signal thing you can say all interview.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"How do you handle a launch date that's slipping?"</div>
+      <p>Don't answer with process theatre. Answer with the trade-off: what can be flagged off and shipped later, what genuinely cannot ship partially (anything with a regulatory disclosure or entitlement dependency), and who has to be in the room to decide. Reference agreeing go/no-go criteria in advance so the decision isn't made under pressure at midnight.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"How do you handle a Product team that wants something Compliance won't accept?"</div>
+      <p>The complex-product and solicitation distinction is a perfect real example: Product wants a "top picks" carousel or personalised push notifications; those features risk turning a self-directed execution service into a solicitation channel and pulling full suitability obligations onto affected trades. Your job isn't to say no — it's to surface the constraint early, then find the version that works (factual, fair and balanced content with no differential emphasis). Shows you can hold a compliance line while still shipping something.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Why should we hire you over someone from a local securities broker?"</div>
+      <p>Honest differentiation, not disparagement: a local broker BA will know cash-equity plumbing better than you. What they're less likely to have is experience building a <em>multi-asset</em> platform from a single-product base, including digital assets, across multiple jurisdictions — which is exactly the problem MAPS is. Plus you've led the BA function, not just done the analysis.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"What would your first 90 days look like?"</div>
+      <p>Have this ready as a real answer, because for a lead role they will ask. Roughly: weeks 1–3, learn the app as an operator — every journey, every backend workflow, every place config lives; weeks 3–6, map ownership across the BA team and find the top defect and drop-off themes from actual data; weeks 6–12, fix the highest-cost process gap (likely release readiness or configuration traceability) and get one roadmap item delivered properly end-to-end so the team has a reference example of the standard.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Where do you see yourself in five years?" / "Why this level?"</div>
+      <p>You're moving from Senior BA to BA Lead — a step up in scope but arguably lateral in title terms. If they probe, be straightforward: you've already been doing the lead work informally and want the accountability formally, on a product at the start of its life rather than the middle. Don't over-explain; it's a normal move.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="questions" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Your Turn</span><h2>Questions to ask them</h2></div>
+    <p class="phase-sub">Seventeen to choose from — pick three or four based on how the conversation actually goes. Questions 1–2 get in early, because they reframe everything after them. Question 3 is the highest-signal single question here. Questions 4–9 signal technical depth; 10–13 signal that you've read their roadmap and their markets. Questions 14–17 are safe, always-appropriate closers.</p>
+    <ol class="numbered">
+      <li><span class="num">1</span><span>Is the app in question MAPS, which launched at the end of June? And if so, how would you describe where the team is right now — still stabilising, or already onto the roadmap?</span></li>
+      <li><span class="num">2</span><span>Who builds the app — an external vendor, the Seoul technology organisation, or a Hong Kong team? And where does product decision authority sit between Hong Kong and the group?</span></li>
+      <li><span class="num">3</span><span>Has the SFC's July circular on phishing-resistant authentication — the one requiring OTPs to be replaced by July 2027 — landed on the backlog yet? It seems to catch both the brokerage and the digital asset side at once.</span></li>
+      <li><span class="num">4</span><span>How is the digital asset side structured — an omnibus arrangement with an SFC-licensed platform, or introducing clients directly? And has the February 2026 circular on VA financing and client withdrawals generated work yet?</span></li>
+      <li><span class="num">5</span><span>Which markets are actually live in the app today, and which are next? Specifically, is Northbound Stock Connect in scope, given the RMB-only settlement and pre-trade checking constraints?</span></li>
+      <li><span class="num">6</span><span>On product administration setup — who is allowed to change a product parameter in production today, and is the same configuration replayable from UAT into production, or re-keyed?</span></li>
+      <li><span class="num">7</span><span>When a new instrument or market goes live, how many separate places does someone have to configure it? I ask because that count is usually where the release-night incidents hide.</span></li>
+      <li><span class="num">8</span><span>How are you handling the tension between product-led growth features and the online distribution rules — has the line between factual content and differential emphasis already come up as a design constraint?</span></li>
+      <li><span class="num">9</span><span>Six weeks in, what's surprised you most about how customers are actually using the app versus how it was designed?</span></li>
+      <li><span class="num">10</span><span>How large is the BA team today, and what's the mix of seniority? Is the expectation that it grows with the roadmap?</span></li>
+      <li><span class="num">11</span><span>On the AI wealth management tools that have been publicly mentioned — is that scoped yet, and would this role own the requirements? I'd be interested in whether the intention is to stay on the non-personalised side of the suitability line to begin with, or go straight to personalised recommendations.</span></li>
+      <li><span class="num">12</span><span>I noticed the app listing mentions Korean stocks as newly added — is that live now? And is it running through the omnibus structure that opened up for foreign retail investors this year?</span></li>
+      <li><span class="num">13</span><span>Is the December 2026 US overnight session in scope? It forces real decisions on multi-hour halts, session-aware order types and overnight support coverage — though a Hong Kong team is unusually well placed for that particular one.</span></li>
+      <li><span class="num">14</span><span>How much of the role is Hong Kong-specific delivery versus preparing the platform for the next launch markets? Those imply quite different priorities.</span></li>
+      <li><span class="num">15</span><span>What does success look like for this hire at six months — more requirements and documentation-led, or more delivery and release-discipline-led?</span></li>
+      <li><span class="num">16</span><span>What's the expectation on written Chinese documentation — client-facing user guides and release notes, or mainly internal English specifications?</span></li>
+      <li><span class="num">17</span><span>What would make someone genuinely successful in this team specifically, beyond what's on the job description?</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Prepared for Tracy Chu · Mirae Asset Securities (HK) Limited, Business Analyst Lead (retail mobile trading app) · 10 August 2026.<br><br>
+    <strong>Sources.</strong> Company: miraeasset.hk (licensing information, who we are, dealing in securities pages); am.miraeasset.com.hk; globalxetfs.com.hk; securities.miraeasset.com investor-relations global network page. MAPS and the April 2026 virtual asset approval: Korea Times, Korea Herald, Seoul Economic Daily, Asia Business Daily, DigitalToday, UPI, Private Banker International, CryptoBriefing, BusinessKorea, Financial Today (KR). Regulatory: SFC Code of Conduct (33rd edition, January 2026), SFC Guidelines for Reducing and Mitigating Hacking Risks Associated with Internet Trading, SFC Guidelines on Online Distribution and Advisory Platforms (July 2019), SFC circulars 20EC58 (Sep 2020), 22EC52 (Aug 2022), 25EC7 (Feb 2025), 25EC31 (May 2025), 23EC67 (Dec 2023), 25EC50 (Sep 2025), 25EC57 (Nov 2025), 26EC5 (Feb 2026), 26EC26 (May 2026), 26EC29 (May 2026), 26EC32 (Jun 2026), the SFC's 9 July 2026 circular on phishing-resistant authentication (via Hong Kong press and law-firm briefings — Charltons, Tanner De Witt, The Standard — not the circular text itself), SFC account-opening and suitability guidance pages, SFC list of licensed VATPs (as at 29 May 2026); HKMA / info.gov.hk on the Stablecoins Ordinance and first licences (April 2026); HKEX Stock Connect FAQ and Investor Book (version 6 July 2026) and accelerated-settlement papers (July 2025 discussion paper, 17 April 2026 consultation paper); US SEC on T+1 (May 2024). The MAPS app description is from its Google Play listing (developer Mirae Asset Securities (HK) Limited, last updated 6 August 2026).<br><br>
+    <strong>AI section sources.</strong> SFC circular on the use of generative AI language models, 12 November 2024 (refNo 24EC55, SFO/IS/036/2024); SFC Guidelines on Online Distribution and Advisory Platforms, Chapter 4 (robo-advice) and para 5.5, plus the SFC's published FAQs on those Guidelines (Q11, Q15, Q16) for the solicitation examples; SFC licensing guidance on regulated activity types; the joint HKMA/SFC/IA/MPFA circular expanding the Generative AI Sandbox, 5 March 2026 (refNo 26EC11); HKMA circular on consumer protection in respect of generative AI, 19 August 2024; PCPD Model Personal Data Protection Framework (June 2024) and checklist on employee use of generative AI (March 2025); FSTB policy statement on responsible AI in the financial market, October 2024.<br><br>
+    <strong>Four-markets and Korea sources.</strong> Korea: KRX Guide to Trading in the Korean Stock Market; FSC on the full reinstatement of short selling (31 March 2025); Korea Herald, Korea Economic Daily (KED Global), Seoul Economic Daily, Korea Times and Korea JoongAng Daily for index levels, individual stocks, the July 2026 drawdown, omnibus-account liberalisation and the Mirae Asset/UOB Kay Hian launch; ACGA and Glass Lewis on Commercial Act amendments and the Value-up Programme; Clearstream and Kim &amp; Chang on settlement, foreign-investor access and the IRC-to-LEI change; MSCI June 2026 market classification reporting. US: SEC releases and Federal Register notices on the Nasdaq, NYSE Arca and Cboe EDGX overnight sessions, the 27th Amendment to the LULD Plan (overnight price bands), NSCC extended clearing hours and the proposed rescission of Rule 611; FINRA Regulatory Notice 26-10 (replacement of the Pattern Day Trader framework), Rule 2265, TRF hour extensions and fractional-share trade reporting; DTCC's 24x5 analysis; IRS on US income tax treaties and Form W-8BEN.<br><br>
+    <strong>A note on Korean index levels.</strong> They are moving extremely fast — the market fell about 40% and then posted its largest one-day gain on record inside a fortnight this summer. Every figure on this page is dated. <strong>Check the current KOSPI level on the morning of the interview</strong>; quoting a stale number to a Korean brokerage would undo the credit the rest of the section earns. Tradu/Stratos references are drawn solely from public announcements (Businesswire, Finextra) rather than internal knowledge.<br><br>
+    <strong>The core of this page has been through an adversarial fact-check.</strong> Eighteen issues were found in the first draft and corrected — including the MAPS launch date (reported four different ways), two quotations that traced to journalists rather than the company, a Northbound pre-trade-checking rule that was actually the Southbound rule, two SFC security "requirements" that are really enquiry triggers and illustrative examples, an AUM figure attributed to the wrong entity, and a material July 2026 authentication circular that the first draft missed entirely. Where sources conflict, the page now says so rather than picking one. If something here still looks wrong to you, trust that instinct over this page.<br><br>
+    <strong>Confidence marking.</strong> <span class="conf c">confirmed</span> means sourced to a primary or company document. <span class="conf i">inference</span> means a reasoned conclusion from public facts, not a stated fact — including the central claim that the app in this JD is MAPS. <span class="conf u">unverified</span> means I could not confirm it and it should not be asserted in the interview. The product-administration content, the mobile-release framework and the configuration-layer breakdown are generic industry frameworks presented as a basis for conversation, not claims about Mirae Asset's actual architecture. Regulatory paragraph numbers have been deliberately omitted where the exact citation could not be verified — refer to instruments by title and date instead.
+  </div>
+</footer>
+
+</body>
+</html>
