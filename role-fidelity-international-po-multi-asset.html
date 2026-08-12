@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fidelity International Interview Prep — Product Owner, Multi-Asset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#005B8F;
+    --blue-deep:#003A5C;
+    --blue-mid:#1D6E9E;
+    --red:#B72F2A;
+    --red-bright:#D14A42;
+    --ink:#171A1C;
+    --slate:#5B6066;
+    --line:#DDE1E4;
+    --paper:#F7F8F8;
+    --panel:#FFFFFF;
+    --gap-bg:#FDF3EC;
+    --gap-border:#E8B48D;
+    --good-bg:#EEF3F6;
+    --good-border:#A9C6D6;
+    --key-bg:#005B8F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.56;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Newsreader',serif;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 28px;}
+
+  .topnav{position:sticky;top:0;background:rgba(247,248,244,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50;}
+  .topnav-inner{max-width:940px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .topnav-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--slate);margin-right:4px;}
+  .topnav a{font-size:12.5px;text-decoration:none;color:var(--blue-mid);border:1px solid var(--line);padding:4px 11px;border-radius:20px;transition:.15s;background:#fff;}
+  .topnav a:hover{border-color:var(--red);color:var(--blue);}
+  .topnav a.home{color:var(--slate);border:none;background:transparent;border-right:1px solid var(--line);border-radius:0;padding-right:13px;margin-right:3px;}
+  .topnav a.home:hover{color:var(--ink);}
+
+  header.hero{background:var(--blue);color:#fff;padding:60px 0 48px;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;right:-140px;top:-160px;width:460px;height:460px;border:1px solid rgba(209,74,66,0.28);border-radius:50%;}
+  header.hero::before{content:"";position:absolute;right:-40px;bottom:-220px;width:340px;height:340px;border:1px solid rgba(209,74,66,0.18);border-radius:50%;}
+  header.hero .wrap{position:relative;z-index:2;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red-bright);margin-bottom:16px;}
+  header.hero h1{font-size:36px;line-height:1.14;margin:0 0 14px;color:#fff;max-width:760px;}
+  header.hero .sub{font-size:16px;color:rgba(255,255,255,0.80);max-width:660px;}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;}
+  .tag{font-size:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);padding:5px 11px;border-radius:4px;color:rgba(255,255,255,0.88);}
+
+  .phase{padding:44px 0;border-bottom:1px solid var(--line);}
+  .phase-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px;}
+  .phase-num{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.11em;color:var(--blue-mid);font-weight:500;text-transform:uppercase;}
+  .phase h2{font-size:25px;margin:0;}
+  .phase-sub{color:var(--slate);font-size:14.5px;margin:8px 0 22px;max-width:700px;}
+
+  h3{font-size:17.5px;margin:28px 0 10px;}
+
+  .qa{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blue-mid);border-radius:4px;padding:17px 21px;margin-bottom:14px;}
+  .qtag{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-mid);font-weight:600;margin-bottom:8px;}
+  .qa p{margin:0 0 10px;}
+  .qa p:last-child{margin-bottom:0;}
+  .qa em{color:var(--slate);}
+
+  .b3{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:19px 23px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start;}
+  .b3 .b3num{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;color:#fff;background:var(--blue);border-radius:4px;padding:3px 9px;margin-top:2px;}
+  .b3 .b3q{font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.4;}
+  .b3 .b3r{font-size:13.5px;color:var(--slate);margin-top:6px;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+  th{background:var(--blue);color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;letter-spacing:.02em;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#FFFFFF;}
+  tr:nth-child(odd) td{background:#FAFCFA;}
+
+  .fit-yes{color:#1F6B4F;font-weight:600;}
+  .fit-partial{color:#96661A;font-weight:600;}
+  .fit-gap{color:#A63A20;font-weight:600;}
+
+  .callout{border-radius:6px;padding:17px 20px;margin:16px 0;font-size:14.5px;}
+  .callout.gap{background:var(--gap-bg);border:1px solid var(--gap-border);}
+  .callout.good{background:var(--good-bg);border:1px solid var(--good-border);}
+  .callout.key{background:var(--key-bg);border:1px solid var(--blue-mid);color:rgba(255,255,255,0.92);}
+  .callout.key strong{color:#fff;}
+  .callout-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:9px;display:block;}
+  .callout.gap .callout-label{color:#A6531E;}
+  .callout.good .callout-label{color:#1F6B4F;}
+  .callout.key .callout-label{color:var(--red-bright);}
+  .callout p{margin:0 0 10px;}
+  .callout p:last-child{margin-bottom:0;}
+
+  ol.numbered,ul.plain{margin:0;padding-left:0;list-style:none;}
+  ol.numbered li{display:flex;gap:14px;margin-bottom:14px;}
+  ol.numbered .num{font-family:'Newsreader',serif;font-weight:700;color:var(--blue-mid);font-size:20px;line-height:1.45;flex:0 0 26px;}
+  ul.plain li{position:relative;padding-left:19px;margin-bottom:9px;}
+  ul.plain li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--red-bright);}
+  ul.plain.tight li{margin-bottom:6px;}
+
+  .flow{display:flex;flex-direction:column;margin:20px 0;}
+  .flow-stage{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:17px 20px;}
+  .flow-stage + .flow-stage{margin-top:5px;}
+  .flow-arrow{text-align:center;color:var(--red-bright);font-size:18px;line-height:1.6;}
+  .flow-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .flow-num{background:var(--blue-mid);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 25px;}
+  .flow-head h3{font-size:16px;margin:0;font-family:'Inter',sans-serif;font-weight:700;}
+  .flow-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13.5px;}
+  .flow-col-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--slate);margin-bottom:4px;}
+  @media(max-width:640px){.flow-grid{grid-template-columns:1fr;}}
+
+  .sys-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin:18px 0;}
+  .sys-grid.two{grid-template-columns:1fr 1fr;}
+  .sys-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:15px 17px;}
+  .sys-card h4{margin:0 0 7px;font-size:14.5px;font-family:'Inter',sans-serif;font-weight:700;color:var(--blue-mid);}
+  .sys-card p{font-size:13px;margin:0;color:var(--ink);}
+  @media(max-width:700px){.sys-grid,.sys-grid.two{grid-template-columns:1fr;}}
+
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:15px 16px;}
+  .stat .v{font-family:'Newsreader',serif;font-size:24px;font-weight:600;color:var(--blue);line-height:1.1;}
+  .stat .l{font-size:12px;color:var(--slate);margin-top:5px;}
+  @media(max-width:700px){.stat-row{grid-template-columns:1fr 1fr;}}
+
+  .conf{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;vertical-align:middle;margin-left:5px;}
+  .conf.c{background:#E4F1E9;color:#1F6B4F;border:1px solid #B4D8C3;}
+  .conf.i{background:#FFF4E0;color:#8A6113;border:1px solid #E8CC94;}
+  .conf.u{background:#FBE9E4;color:#A63A20;border:1px solid #EBBBA9;}
+
+  footer{padding:34px 0 60px;color:var(--slate);font-size:12.5px;line-height:1.6;}
+  a{color:var(--blue-mid);}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="home">&larr; All prep</a>
+    <span class="topnav-label">Jump to</span>
+    <a href="#opener">Self-intro</a>
+    <a href="#qa">Q&amp;A</a>
+    <a href="#questions">Your questions</a>
+    <a href="#firstread">Read this first</a>
+    <a href="#fitmap">Fit map</a>
+    <a href="#company">Company</a>
+    <a href="#twofidelities">Two Fidelities</a>
+    <a href="#multiasset">What "multi-asset" means here</a>
+    <a href="#safe">SAFe &amp; the PO role</a>
+    <a href="#platform">Front-office platforms</a>
+    <a href="#gap">Honest gap read</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Interview Prep · Fidelity International (FIL) · Hong Kong</div>
+    <h1>Product Owner — Multi-Asset<br><span style="font-size:20px;font-family:'Inter',sans-serif;font-weight:500;color:rgba(255,255,255,0.72);">reporting into the Multi-Asset, Systematic &amp; Solutions Value Stream</span></h1>
+    <p class="sub">Of everything in this folder, this is the furthest stretch. Not because the process side is hard — your PSPO, PSM and eleven years of backlog and stakeholder work answer most of that convincingly — but because the essential requirements include genuine buy-side investment domain knowledge you don't yet have. This page is built to close that gap as far as research can take you, and to give you an honest, credible story for the part it can't.</p>
+    <div class="tags">
+      <span class="tag">Buy-side asset management · new domain for you</span>
+      <span class="tag">SAFe Agile Release Train · different vocabulary from your Scrum certs</span>
+      <span class="tag">Backlog, stakeholder &amp; cross-timezone delivery · genuinely strong fit</span>
+      <span class="tag">Steepest domain gap in this folder · named honestly, not papered over</span>
+    </div>
+  </div>
+</header>
+
+<section class="phase" id="opener">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Opener</span><h2>Your self-introduction (≈ 1 min 30 sec)</h2></div>
+    <p class="phase-sub">Your standardised four-beat structure, with the role-specific swaps made for this one. Beat 3, Point 1 leans on the multi-asset platform work and its client-execution side, closer to what this JD's "front-office" language is pointing at — say "platform," "client execution" and "backlog," not "investing" or "portfolio," and let the dedicated vocabulary section and the trap callout below do the honest boundary-drawing, so the self-intro itself can stay confident and forward-facing.</p>
+
+    <div class="qa">
+      <div class="qtag">Beat 1 · Who I am · ~20 sec</div>
+      <p>"Thank you — I'm Tracy Chu. I'm PMP, Professional Scrum Master and Professional Scrum Product Owner certified with education background in Banking and Finance. I have eleven years of hybrid BA and PM experience across financial services and wagering industries — six years at the Hong Kong Jockey Club, and the last five at FXCM and Tradu, part of the Stratos group. My craft is owning the requirements and getting them delivered — writing user stories with clear acceptance criteria, prioritising the backlog under real constraints, and making sure the teams around it actually adopt the new system and the new process."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 2 · Current role, the AI angle · ~25 sec</div>
+      <p>"My current role at FXCM is planning enterprise adoption of Claude AI and Jira/Confluence Cloud tooling across engineering and business teams. That means going project by project — understanding what each Jira team actually does, identifying where AI can automate real work, and designing the governance, RACI and KPI framework before rollout — so when we launch, we're driving adoption of something people actually need. It's the same instinct I'd bring here: mapping how a squad actually works before writing anything against it, whether the new capability is an AI tool or a Multi-Asset investment platform."</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">Beat 3 · Why choose me · ~35–40 sec — three points, each topic / support / conclusion</div>
+      <div class="b3">
+        <span class="b3num">1</span>
+        <div>
+          <div class="b3q">I've led front-office, client-execution-facing platform work and back-office configuration.</div>
+          <div class="b3r">At Tradu and FXCM, I took the platform from CFD-only to multi-asset — including stocks — owning it end-to-end: gathering requirements for the client onboarding and trading journey, running UAT, configuring the back office (fee groups, entitlements, FX rates), then leading implementation and change management with Ops, Sales and other stakeholder teams. That's a direct match for this JD's own first essential requirement — investment management technology, front-office change, product delivery.</div>
+        </div>
+      </div>
+      <div class="b3">
+        <span class="b3num">2</span>
+        <div>
+          <div class="b3q">I already operate daily across a genuinely multinational organisation, not just a distributed team.</div>
+          <div class="b3r">At FXCM I work with stakeholders across our UK, US, Bulgaria, India, Australia, Israel and Cyprus offices — product, engineering, compliance and ops, each on a different working day. A Hong Kong squad sitting inside a global Value Stream is exactly that kind of environment, and it's one I already operate in comfortably.</div>
+        </div>
+      </div>
+      <div class="b3">
+        <span class="b3num">3</span>
+        <div>
+          <div class="b3q">I'm trained to be accurate the first time and work independently without close supervision.</div>
+          <div class="b3r">My manager is US-based with limited overlapping hours, and as the PMO team's own gatekeeper, nobody else checks my requirements, backlog items or documentation before they go out — so accuracy has to be built into how I write them, not caught afterwards. That's the discipline I'd bring to backlog and requirements artefacts here, especially across time zones where a second pair of eyes isn't always available in the moment.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa" style="border-left-color:var(--red);">
+      <div class="qtag" style="color:var(--red);">The close · ~8 sec — three words, in order</div>
+      <p style="font-size:17px;">"In short — if you're looking for someone strong in delivery, detail-oriented, and able to work independently, that's me."</p>
+      <p><em>Then stop talking.</em> No hedging clause added this time, deliberately — under the standardised structure, the self-intro leads with strength throughout, and the honest domain-boundary conversation happens if and when they raise it (see the Q&amp;A and "Read this first" below), not volunteered in the opening 90 seconds.</p>
+    </div>
+
+    <div class="callout gap">
+      <span class="callout-label">The trap to avoid completely</span>
+      Do not describe Tradu's "multi-asset app" (CFDs, stocks and crypto in one retail account) as the same kind of thing as Fidelity's "Multi-Asset" investing (a professionally managed blend of asset classes inside one fund, decided by a portfolio manager or model). They share a word and almost nothing else. Beat 3's Point 1 above is written to stay on safe ground — "platform," "client execution," "backlog" — precisely so you don't drift into implying investment-domain experience you don't have. If you improvise around it and reach for that parallel because it's the most senior-sounding thing on your CV, an interviewer who actually works in multi-asset investing will notice within one follow-up question, and it will cost you more credibility than naming the boundary honestly ever would. See the dedicated section below before you rely on this word in the room.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="qa">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Anticipate</span><h2>Likely questions &amp; framing notes</h2></div>
+
+    <div class="qa">
+      <div class="qtag">"Tell me about your Product Owner experience."</div>
+      <p>Lead with the certifications and the concrete backlog/prioritisation work, not the title itself — your title on your CV has more often been BA or hybrid BA/PM than pure "Product Owner." Say that plainly if asked directly: "My titles have been Senior BA and BA/PM hybrid; the PSPO reflects that I've done the Product Owner discipline — backlog ownership, prioritisation, stakeholder trade-offs — inside that role, not that I've carried the exact title before." Precision here reads as trustworthy, not as a weakness.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"What do you know about multi-asset investing?"</div>
+      <p>Use the vocabulary from the "What Multi-Asset investing actually means" section later in this page — strategic vs tactical allocation, systematic vs discretionary, what an overlay is — and be explicit that it's research knowledge, not lived experience. Close with a genuine question back, e.g. "is the Systematic strand here quant-model-driven day to day, or more of a rules-based overlay on discretionary decisions?" — a real question you don't know the answer to, which is more convincing than a rehearsed one.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Have you worked directly with Portfolio Managers or investment professionals?"</div>
+      <p>No — say it in one word first, then pivot: "No, not directly. The closest I've come is coaching a product manager with less BA experience through writing requirements and running their own tests, and partnering with Risk and Reconciliation on trade-settlement and suitability logic. Neither is the same as sitting with a PM making an allocation call, and I wouldn't want to overstate it."</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Why should we hire you over someone with an investment management background?"</div>
+      <p>Don't compete on domain — concede it. "You'd be right that they'd know your domain faster than I would on day one. What I'd bring instead is a Product Owner who's actually run backlog discipline and stakeholder management at scale before, in Agile teams, across time zones, without needing to be taught what a well-formed user story or a defensible prioritisation call looks like. If the team already has strong domain voices and needs someone to turn that into a well-run backlog, that's a different hire than someone who needs to learn Agile delivery from scratch."</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Have you done PI Planning / worked on a SAFe Agile Release Train?"</div>
+      <p>No — say it plainly, then show you understand the shape of it: "I haven't, though I understand the mechanics — teams on an ART planning a Program Increment together, sequencing dependencies across squads rather than just within one team. My Scrum background is single-team; I'd expect the cross-team coordination and the PI cadence to be the real learning curve, more than the backlog discipline itself."</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"What's your experience with globally distributed teams?"</div>
+      <p>Your strongest, most literal answer on this page. Current managers are US-based with limited overlapping hours; you own the business-technology bridge independently and escalate with judgement. Say it exactly like that — it maps almost onto the JD's own words.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"How would you get up to speed on our domain in the first 90 days?"</div>
+      <p>Have a real plan, not a platitude: weeks 1–3, shadow PM/analyst conversations and squad ceremonies to see what actually drives backlog items, without touching the backlog yet; weeks 3–6, take ownership of the lowest-risk, most process-shaped items first while continuing to learn the domain from the technical/quant side; weeks 6–12, take on domain-dependent prioritisation calls with a domain expert checking your reasoning until you've built a track record. This is the same "map the process before writing requirements against it" instinct you already apply — say so.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="questions">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Your Turn</span><h2>Questions to ask them</h2></div>
+    <p class="phase-sub">Given the domain gap, questions 1–3 matter more here than in your other prep — they help you find out, in the room, how big a problem the gap actually is for them, before you've accepted anything.</p>
+    <ol class="numbered">
+      <li><span class="num">1</span><span>How much domain expertise does this Product Owner role need to bring on day one, versus how much is the team expected to teach? I ask because I want to be honest that my background is sell-side and retail, not buy-side.</span></li>
+      <li><span class="num">2</span><span>Is "ART Owner" the Release Train Engineer function in standard SAFe terms, or something specific to how Fidelity has set this up? And how does the Product Owner's authority here split from Product Management's?</span></li>
+      <li><span class="num">3</span><span>Is the Hong Kong squad running full PI Planning cadence with other ARTs globally, or is this a more locally-scoped team? That changes what "globally distributed" actually means day to day.</span></li>
+      <li><span class="num">4</span><span>What does the Systematic strand of this Value Stream actually mean in practice — is it a quant model running largely unattended, or a rules-based overlay that still involves regular human decisions?</span></li>
+      <li><span class="num">5</span><span>What technology underpins the front-office platform today, and is this role more "build new capability" or "stabilise and industrialise" something already live?</span></li>
+      <li><span class="num">6</span><span>Who are the primary Multi-Asset investment stakeholders this role interfaces with day to day — portfolio managers, quant analysts, product specialists, or a mix?</span></li>
+      <li><span class="num">7</span><span>What would success look like for this hire at six months — is it "the backlog runs well and stakeholders trust the process," or "you've become genuinely domain-fluent," or both in sequence?</span></li>
+      <li><span class="num">8</span><span>Is Hong Kong the primary base for this team, or is the core Multi-Asset, Systematic & Solutions group elsewhere — London, Boston? How much of the working day overlaps with them?</span></li>
+      <li><span class="num">9</span><span>What's the split of this role's time between "run the backlog and ceremonies" and "produce new requirements/process artefacts" day to day?</span></li>
+      <li><span class="num">10</span><span>What would make someone genuinely successful in this specific team, beyond what's on the job description?</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="phase" id="firstread">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Read This First</span><h2>What this role actually is, and what that means for you</h2></div>
+    <p class="phase-sub">You've now seen the scripts — self-intro, likely Q&amp;A, your questions to ask. Before you go further into the research below, two things to hold in your head, because together they should shape how you prepare rather than just what you know.</p>
+
+    <div class="callout key">
+      <span class="callout-label">1 · This runs on SAFe, not the Scrum you're certified in</span>
+      <p>The reporting line in the JD — <strong>"ART Owner / Value Stream Lead – Multi-Asset, Systematic &amp; Solutions"</strong> — is Scaled Agile Framework (SAFe) vocabulary, not generic Agile. <span class="conf i">inference from the terminology used</span> An <strong>ART (Agile Release Train)</strong> is a group of teams that plan and deliver together on a fixed cadence, usually an 8–12 week <strong>Program Increment (PI)</strong>, kicked off with <strong>PI Planning</strong>. A <strong>Value Stream</strong> groups several ARTs delivering one business outcome — here, apparently, everything under Multi-Asset, Systematic strategies and Solutions sits in one Value Stream. <span class="conf i">SAFe concepts are well-documented publicly; FIL's specific adoption of them beyond this job title is not confirmed</span></p>
+      <p>Your PSM and PSPO are Scrum.org credentials — real, relevant, and not the same framework. In standard SAFe, a Product Owner's authority is narrower than a standalone Scrum PO's: you'd own one team's backlog and day-to-day sequencing, inside a Program Backlog set above you by Product Management, refined together with other POs at PI Planning. <strong>One naming oddity worth knowing before you're asked about it:</strong> standard SAFe's name for the person who runs an ART is <strong>Release Train Engineer (RTE)</strong>, not "ART Owner" — so "ART Owner" may be Fidelity's own internal label for that function, or a paraphrase. Likewise, "Value Stream Lead" isn't a core SAFe role name either — standard SAFe uses "Value Stream Engineer" at that level, so both titles in this reporting line may be Fidelity-specific rather than textbook SAFe. <span class="conf u">I could not confirm either — worth asking, not asserting</span> Say "I'm Scrum-certified, and I know SAFe extends that model with PI Planning and ARTs — I'd want to get fluent in your specific ceremonies fast" rather than assuming your vocabulary transfers one-for-one.</p>
+    </div>
+
+    <div class="callout key">
+      <span class="callout-label">2 · Domain knowledge is essential, not a nice-to-have</span>
+      <p>The essential requirements, in the order Fidelity actually wrote them, are: 8+ years in investment management technology/front-office change/product delivery; proven Product Owner or BA experience in Agile environments; <strong>then</strong> deep domain knowledge of Multi-Asset investment strategies, products and portfolio management; then direct Portfolio Manager experience; then stakeholder management; then distributed-team experience. <span class="conf c">confirmed from the posting</span> The Agile-process line actually sits ahead of the domain-knowledge line, not behind it — so don't over-read the ordering. What matters is simpler: domain knowledge is listed as <em>essential</em>, on equal footing with the process requirements, not tucked away as a nice-to-have the way it might be for a purely delivery-focused role.</p>
+      <p>Your strongest, most provable material — backlog leadership, Agile certifications, stakeholder management across distributed time zones — answers most of that list convincingly. The domain-knowledge and direct-PM-experience lines aren't on your CV in any form, because your whole career has been sell-side and retail: CFD, FX, crypto and stock trading platforms for retail clients, not buy-side portfolio management for institutional or fund investors. Those are genuinely different halves of financial services, not two flavours of the same thing. <span class="conf i">assessment based on your CV against the JD as written</span></p>
+      <p><strong>What that means practically:</strong> don't walk in planning to talk mostly about process. If the conversation tests basic investment literacy — what asset allocation means, what "systematic" implies, what a Portfolio Manager actually decides versus what you'd decide — and you have nothing, no amount of SAFe vocabulary recovers it. The honest strategy is to arrive with just enough domain literacy to hold a real conversation (that's most of what this page below tries to build), and a clear, non-defensive answer for why a delivery specialist without buy-side experience is still a sensible hire for a platform team. That answer exists — squads generally want dedicated backlog and delivery discipline precisely so portfolio managers and quant analysts don't have to run their own project management — but you have to make it explicitly, because your CV alone won't make it for you.</p>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">Deciding whether to lean in or hold back</span>
+      This isn't a page telling you not to apply — it's a page telling you the truth about what this interview will test, so you're not caught flat by it. If, after reading this, the domain gap feels too wide to close credibly before the interview, that's useful information too, and worth weighing against how much you want this specific move. Your call; this page just makes sure it's an informed one.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="fitmap">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Match</span><h2>Fit map against the JD</h2></div>
+    <p class="phase-sub">Unlike your other prep pages, the gaps here sit in the JD's <em>essential</em> requirements, not its nice-to-haves. Read this table as it is rather than looking for ways to round Partial up to Strong — that's exactly the over-claiming this page is trying to help you avoid.</p>
+    <table>
+      <tr><th>JD requirement</th><th>Fit</th><th>Your evidence / honest position</th></tr>
+      <tr><td>8+ years in investment management technology, front-office change, or product delivery</td><td class="fit-partial">Partial</td><td>Eleven years, comfortably past the threshold on years and on the broad "product delivery" clause. But the specific forms named — investment management technology, front-office change — describe buy-side asset management, which isn't your background. Say the years confidently; don't imply the domain match is there too.</td></tr>
+      <tr><td>Proven Product Owner or Business Analyst experience in Agile environments</td><td class="fit-yes">Strong</td><td>PSPO and PSM certified, plus years of BA/PM hybrid delivery in Agile financial-services teams at FXCM/Tradu. This is the cleanest Strong on the page — lead with it.</td></tr>
+      <tr><td>Deep domain knowledge of Multi-Asset investment strategies, products and portfolio management processes</td><td class="fit-gap">Gap</td><td>No buy-side investment experience. You know financial instruments and market mechanics from the retail/trading side; asset allocation, portfolio construction and systematic strategy design are new. Say so plainly — see the honest gap section.</td></tr>
+      <tr><td>Direct experience with Portfolio Managers, delivering technology solutions to them</td><td class="fit-gap">Gap</td><td>You've never worked with a buy-side PM. Closest honest analogue: coaching a product manager with less BA experience through writing requirements and running tests themselves on the multi-asset app, and partnering with Risk/Reconciliation on suitability and settlement logic. Name the analogue; don't imply it's the same thing.</td></tr>
+      <tr><td>Maintain and prioritise squad backlog(s) aligned to strategic objectives</td><td class="fit-yes">Strong</td><td>Core of your current and past roles — PMO governance frameworks, prioritisation standards adopted across a portfolio of work at FXCM, plus current ownership of Jira/Confluence Cloud governance for enterprise AI adoption.</td></tr>
+      <tr><td>Convert epics into user stories with clear acceptance criteria</td><td class="fit-yes">Strong</td><td>BRD/FRD, user story writing, acceptance criteria — squarely your existing BA competence.</td></tr>
+      <tr><td>Serve as primary interface between squads and Multi-Asset investment stakeholders</td><td class="fit-partial">Partial</td><td>Strong on "primary interface between delivery squads and business stakeholders" generically. Gap on "Multi-Asset investment stakeholders" specifically — you have no institutional investment stakeholders in your history to point to.</td></tr>
+      <tr><td>Support platform transformation across portfolio construction, analytics and risk management</td><td class="fit-gap">Gap</td><td>You've supported platform transformation — but for a retail trading app's onboarding, entitlements and back-office configuration, not portfolio construction or investment analytics. Adjacent skill (configuration-layer thinking), different subject matter.</td></tr>
+      <tr><td>Lead discovery workshops; produce requirements, process maps, BA artefacts</td><td class="fit-yes">Strong</td><td>BPMN as-is/to-be, gap analysis, workshops with business stakeholders — well-covered on your CV.</td></tr>
+      <tr><td>Drive adoption of new capabilities through stakeholder engagement</td><td class="fit-yes">Strong</td><td>User guides, FAQs, SOPs, onsite training across overseas offices, and — very on-theme for this specific role — you are currently leading enterprise adoption of Claude AI and Jira/Confluence Cloud at your own company, including governance frameworks and KPI dashboards for adoption health. Worth naming explicitly; it's recent and directly relevant.</td></tr>
+      <tr><td>Strong stakeholder management across business and technology functions</td><td class="fit-yes">Strong</td><td>Board-level updates, executive summaries, cross-functional governance — consistent theme across your CV.</td></tr>
+      <tr><td>Experience with globally distributed teams across multiple time zones</td><td class="fit-yes">Strong</td><td>Near word-for-word match: your current managers are US-based with limited overlapping hours, and you own that bridge independently. Use their own phrasing back at them.</td></tr>
+      <tr><td>Degree-level education or equivalent</td><td class="fit-yes">Strong</td><td>BBA (Banking &amp; Finance), First Class Honours. Same transcript-naming caveat as your other prep — check what your certificate actually says given the 2018 university renaming.</td></tr>
+      <tr><td>CFA, FRM or CIPM certification (desired)</td><td class="fit-gap">Gap</td><td>None held, and PMP/PSM/PSPO don't substitute — those are delivery credentials, these are investment credentials. Don't conflate them in conversation; a CFA-holder in the room will notice immediately if you do.</td></tr>
+      <tr><td>Agile Product Owner or Scrum certification (desired)</td><td class="fit-yes">Strong</td><td>PSM and PSPO both held — this desired-but-not-essential line is one of the strongest single matches on the whole JD.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="phase" id="company">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Employer</span><h2>Fidelity International — company context</h2></div>
+    <p class="phase-sub">Public facts, sourced, with the confidence tags this project uses throughout. A couple of these figures conflict across Fidelity's own pages — noted rather than silently picked.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="v">1969 / 1980</div><div class="l">founded as Fidelity Investments' international arm; spun out independent in 1980 <span class="conf c">confirmed</span></div></div>
+      <div class="stat"><div class="v">25+</div><div class="l">office locations globally <span class="conf c">confirmed</span></div></div>
+      <div class="stat"><div class="v">2.5m</div><div class="l">clients worldwide, from central banks to individuals <span class="conf c">confirmed</span></div></div>
+      <div class="stat"><div class="v">~425</div><div class="l">employees, Hong Kong office <span class="conf c">confirmed</span></div></div>
+    </div>
+
+    <h3>Scale — two figures that don't agree, so don't quote just one</h3>
+    <table>
+      <tr><th>Figure</th><th>Source and scope</th></tr>
+      <tr><td><strong>US$1.086 trillion</strong> in total client assets, as of 2025</td><td>Cited on Fidelity International's own public profile as an aggregate "total client assets" figure. <span class="conf c">confirmed as stated</span> This almost certainly includes assets administered on Fidelity's platforms for clients (custody/administration), not only money Fidelity actively manages — that distinction matters and I could not fully verify the split.</td></tr>
+      <tr><td><strong>US$437 billion</strong> "invested on behalf of clients through Investment Solutions & Services and Global Platform Solutions"</td><td>Stated on Fidelity's own careers/about page, describing two specific business lines rather than the whole firm. <span class="conf c">confirmed as stated</span> This is very likely a narrower, business-line-specific figure, not a contradiction of the trillion-dollar number — but I could not reconcile the two precisely, and neither should you in the room. If AUM comes up, say "over a trillion in total client assets group-wide, per their own figures" and don't try to add business-line numbers together yourself.</td></tr>
+    </table>
+
+    <h3>Hong Kong office</h3>
+    <ul class="plain">
+      <li><strong>Level 18, Three Pacific Place, 1 Queen's Road East, Wanchai.</strong> <span class="conf c">confirmed</span></li>
+      <li>Functions as a <strong>regional hub for Asia-Pacific (excluding Japan)</strong>, and for the firm's Venture Growth partners activity. <span class="conf c">confirmed from Fidelity's own careers site</span></li>
+      <li>Fidelity has operated in Hong Kong since <strong>1981</strong> — its first Asia-Pacific office was Tokyo in 1969, with Hong Kong following as the region expanded. <span class="conf c">confirmed</span></li>
+      <li>Separately, Fidelity operates <strong>technology, operations and investment-research centres in Dalian, mainland China</strong>, serving both Fidelity International and the separate US Fidelity Investments group. <span class="conf c">confirmed</span> Worth knowing this exists as a possible answer to "who else works on this platform" — but don't assert it's connected to this specific role without them saying so.</li>
+    </ul>
+
+    <h3>Leadership — check this is still current before the interview</h3>
+    <ul class="plain">
+      <li><strong>Abigail Johnson</strong> is Chair of Fidelity (the wider Johnson family enterprise spanning both the US and international businesses). <span class="conf c">confirmed as of the March 2024 reporting below</span></li>
+      <li><strong>Keith Metters</strong> was appointed <strong>President of Fidelity International</strong> in early 2024, succeeding Dame <strong>Anne Richards</strong>, who moved to <strong>Vice Chair</strong> after five years as CEO. Metters joined Fidelity in 2020 and had led its Global Platform Solutions business. <span class="conf c">confirmed, reported March 2024</span> <em>That's eighteen-plus months old as of this interview — check whether Metters (or someone else) is still the top executive before you reference this, the same way you'd check a market level.</em> <span class="conf u">current as of March 2024 only</span></li>
+    </ul>
+
+    <h3>Values and behaviours</h3>
+    <p style="font-size:14.5px;color:var(--slate);margin-bottom:10px;">Confirmed from Fidelity's own careers site. Worth having in mind, but weave them in naturally if at all — reciting a company's stated values back at them tends to read as coached rather than as genuine fit.</p>
+    <div class="sys-grid">
+      <div class="sys-card"><h4>Integrity</h4><p>"Do the right thing, every time and putting the client first." <span class="conf c">confirmed</span></p></div>
+      <div class="sys-card"><h4>Trust</h4><p>"Empower each other to take the initiative and make good decisions." <span class="conf c">confirmed</span></p></div>
+      <div class="sys-card"><h4>Brave</h4><p>"Challenge the status quo, being accountable and speaking up." <span class="conf c">confirmed</span></p></div>
+      <div class="sys-card"><h4>Bold</h4><p>"Act with conviction, encouraging diverse thinking and keeping things simple." <span class="conf c">confirmed</span></p></div>
+      <div class="sys-card"><h4>Curious</h4><p>"Learn to do new things in better ways and encouraging fresh thinking." <span class="conf c">confirmed</span></p></div>
+      <div class="sys-card"><h4>Compassionate</h4><p>"Have empathy, caring for colleagues, clients &amp; community." <span class="conf c">confirmed</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="twofidelities">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Don't Mix These Up</span><h2>Fidelity International and Fidelity Investments are two different companies</h2></div>
+    <p class="phase-sub">This trips people up constantly when researching this employer, because both companies share the Fidelity name, the pyramid heritage, and the Johnson family — and most search results and job boards default to the much larger US one. Getting this wrong in the room would be a real credibility hit.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The split, and why it happened</span>
+      <p><strong>Fidelity International (FIL)</strong> — your employer here — was set up in 1969 as the international arm of the US firm, then spun out as a fully separate, independent company in 1980. Since the split, <strong>Fidelity International serves clients outside the Americas</strong> — Europe, the Middle East, Asia-Pacific — while <strong>Fidelity Investments / Fidelity Management &amp; Research</strong>, based in Boston, serves US and Canadian clients. <span class="conf c">confirmed</span> The Johnson family holds a stake in both, and FIL itself is privately, majority employee-owned. <span class="conf c">confirmed</span></p>
+      <p>Practically: <strong>fidelity.com, institutional.fidelity.com and jobs.fidelity.com are the US company.</strong> <strong>fidelityinternational.com, careers.fidelityinternational.com, fidelity.com.hk and this Workday posting (fil.wd3.myworkdayjobs.com) are FIL</strong> — the one you're interviewing with. Job postings, quant strategy pages and press using the .fidelity.com domain describe a different employer, even though the brand looks identical. If you cite anything you found in your own research, check which domain it came from.</p>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">A safe way to show you know this, if it's natural to mention</span>
+      "I want to flag that I did my research carefully, because Fidelity International and the US Fidelity Investments are separate companies since 1980, and a lot of what surfaces online is actually the US business." Low-risk, shows real diligence, costs nothing if they already assume you know it.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="multiasset">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Build Real Literacy</span><h2>What "Multi-Asset" investing actually means here</h2></div>
+    <p class="phase-sub">This is the single most important section on this page. Get this vocabulary right and you can hold a real conversation; get it wrong and you'll sound like you skimmed the JD.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The core distinction — say this to yourself until it's automatic</span>
+      <p>Your "multi-asset app" (Tradu) is a <strong>retail account structure</strong>: one login, several tradable product types (CFDs, stocks, crypto), and the client decides what to buy. Fidelity's "Multi-Asset" investing is a <strong>professionally managed blend of asset classes inside a single fund or portfolio</strong> — a portfolio manager, or a rules-based model, decides the mix of equities, bonds, cash and sometimes derivatives, and the end investor buys one unit of that already-blended outcome. One is a shelf of products; the other is a single dish someone else has cooked. Don't use the word "multi-asset" as if it means the same thing in both places.</p>
+    </div>
+
+    <h3>A real example, so this isn't abstract</h3>
+    <p style="margin-bottom:10px;">Fidelity Funds — Global Multi Asset Income Fund, sold to Hong Kong retail investors, factsheet dated 30 June 2026: <span class="conf c">confirmed from the fund factsheet</span></p>
+    <div class="sys-grid">
+      <div class="sys-card"><h4>Fund size</h4><p>US$3,669 million. Launched March 2013.</p></div>
+      <div class="sys-card"><h4>Asset mix</h4><p>~34% equities, ~11.5% equity derivatives, ~57% fixed income, ~5% fixed income derivatives, ~0.1% alternatives.</p></div>
+      <div class="sys-card"><h4>Cash: <strong>−7.7%</strong></h4><p>Negative — meaning the fund gets some of its market exposure synthetically through derivatives rather than holding the physical bonds/equities outright, which frees up cash. This is a normal, deliberate multi-asset technique, not a typo.</p></div>
+    </div>
+    <p style="font-size:14.5px;color:var(--slate);margin-top:10px;">The named managers on this specific fund are Becky Qin, Franca Pileri and Mario Baronci. <span class="conf c">confirmed from the factsheet</span> I have no information on whether any of them, or this fund specifically, connects to the "Multi-Asset, Systematic &amp; Solutions" Value Stream in the JD — treat it as one illustrative example of what Fidelity's multi-asset business produces, not as the product this role necessarily touches. <span class="conf u">connection to this specific role unverified</span></p>
+
+    <h3>Vocabulary worth having ready</h3>
+    <table>
+      <tr><th>Term</th><th>What it means</th></tr>
+      <tr><td><strong>Asset allocation</strong></td><td>The decision of how much of a portfolio sits in each asset class (equities, bonds, cash, alternatives). <strong>Strategic</strong> asset allocation is the long-run target mix; <strong>tactical</strong> asset allocation is short-term tilts away from it based on a market view.</td></tr>
+      <tr><td><strong>Systematic (vs discretionary)</strong></td><td>A systematic strategy follows a rules-based, quantitative model to decide positions, largely without day-to-day human override. Discretionary investing relies on a manager's judgement call by call. The JD's Value Stream name — "Multi-Asset, <strong>Systematic</strong> &amp; Solutions" — suggests a distinct rules-based/quant strand sitting alongside more traditional multi-asset management. <span class="conf i">inference from the naming; not confirmed as FIL's internal structure</span></td></tr>
+      <tr><td><strong>Solutions</strong></td><td>Industry shorthand for outcome-oriented, often institutional mandates — a pension fund needing to match future payment obligations (liability-driven investing, LDI), an insurer needing a specific risk/return profile, rather than a retail fund sold off a shelf. <span class="conf i">generic industry usage, not confirmed as FIL's specific definition</span></td></tr>
+      <tr><td><strong>Overlay</strong></td><td>A derivatives position layered on top of a portfolio's physical holdings to adjust exposure — e.g., currency hedging, or the kind of synthetic equity/bond exposure behind that fund's negative cash figure above — without buying or selling the underlying assets.</td></tr>
+      <tr><td><strong>Portfolio construction</strong></td><td>The end-to-end process of turning an investment view into an actual, tradeable portfolio: which instruments, what weights, what constraints (risk limits, liquidity, concentration caps) apply.</td></tr>
+    </table>
+
+    <div class="callout good">
+      <span class="callout-label">How to use this if pushed on domain knowledge</span>
+      Don't perform expertise you don't have. A defensible answer: "I know the vocabulary — strategic versus tactical allocation, systematic versus discretionary, what an overlay does — from research rather than lived experience, and I know that's different from having sat with a portfolio manager making those calls. What I'd want in the first month is to shadow enough PM and analyst conversations to understand what actually drives a backlog item here, the way I'd map any new business process before writing requirements against it." That's honest, and it's also exactly the instinct a good BA should have on day one in any new domain.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="safe">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Operating Model</span><h2>SAFe, and what a Product Owner does inside it</h2></div>
+    <p class="phase-sub">Your Scrum.org certifications are real and relevant, but SAFe layers extra structure on top that's worth knowing by name before you're asked about your Agile background.</p>
+
+    <h3>Vocabulary translation — your Scrum terms to SAFe terms</h3>
+    <table>
+      <tr><th>What you know (Scrum)</th><th>Likely SAFe equivalent</th><th>Notes</th></tr>
+      <tr><td>Sprint</td><td>Iteration</td><td>Same idea, usually the same 2-week length; SAFe just nests several inside a Program Increment.</td></tr>
+      <tr><td>Sprint Planning</td><td>Iteration Planning, inside <strong>PI Planning</strong></td><td>PI Planning is the big one — a multi-day event where every team on the ART plans the whole Program Increment (8–12 weeks) together, out loud, in a room. If they ask if you've done this, say no plainly; it's a real gap in lived experience, though the underlying skill (breaking a roadmap into sequenced, dependency-aware work) is one you have.</td></tr>
+      <tr><td>Sprint Review</td><td>System Demo</td><td>A demo across all teams on the train, not just your own — higher-visibility than a single-team sprint review.</td></tr>
+      <tr><td>Product Backlog</td><td>Team Backlog, sitting under a <strong>Program Backlog</strong></td><td>The Program Backlog (epics, big features) is typically owned by Product Management above the PO layer; your day-to-day ownership is the Team Backlog beneath it.</td></tr>
+      <tr><td>Product Owner</td><td>Product Owner (same title)</td><td>Same title, generally narrower authority than a standalone Scrum PO — you'd be one of several POs on an ART, coordinating at PI Planning rather than owning the whole roadmap alone.</td></tr>
+      <tr><td>(no direct equivalent)</td><td><strong>Release Train Engineer (RTE)</strong></td><td>The servant-leader role for a whole ART — facilitates PI Planning, removes cross-team blockers. The JD's "ART Owner" may be this function under a different label, or something else entirely. <span class="conf u">unconfirmed — worth asking directly</span></td></tr>
+    </table>
+
+    <div class="callout good">
+      <span class="callout-label">A good, honest question that also signals competence</span>
+      "I'm SAFe-curious rather than SAFe-certified — my Scrum.org background is PSM and PSPO. Practically, how does the Product Owner role here split from Product Management — is the Program Backlog handed down to you, or do you help shape it? And is 'ART Owner' the Release Train Engineer function, or something specific to how Fidelity's set this up?" This does three things at once: it's honest about your certification gap, it shows you already know SAFe's actual structure well enough to ask a structural question, and it gets you a genuinely useful answer about how much backlog authority the role really carries.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="platform">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Domain Framework</span><h2>Front-office investment platforms — a generic map, not a claim about Fidelity's systems</h2></div>
+    <p class="phase-sub">I have no visibility into what Fidelity International actually runs internally, and you shouldn't claim to either. What follows is standard industry-wide vocabulary for this kind of platform, offered as a basis for conversation — useful for understanding what "platform transformation across portfolio construction, analytics, and risk management" is likely to mean in practice.</p>
+
+    <div class="flow">
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">1</span><h3>Research and portfolio decision</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>A portfolio manager or a systematic model decides a target position — buy more of an asset class, hedge a currency exposure, rebalance toward target weights.</div>
+          <div><div class="flow-col-label">Typical system class</div>Portfolio management system (PMS) — industry names include Charles River IMS, BlackRock Aladdin, SimCorp Dimension. <span class="conf u">illustrative industry examples, not confirmed as Fidelity's stack</span></div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">2</span><h3>Order generation and compliance check</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>The target position becomes actual orders sized against the portfolio's cash and constraints, then run through pre-trade compliance checks — concentration limits, mandate restrictions, sanctioned-instrument lists.</div>
+          <div><div class="flow-col-label">Typical system class</div>Order management system (OMS), often the same platform as the PMS or tightly integrated with it. This is squarely "portfolio construction and risk management" territory.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">3</span><h3>Execution and allocation</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>Orders reach the market (via a broker, or an internal trading desk), fill, then get allocated back across whichever specific funds or accounts contributed to the parent order.</div>
+          <div><div class="flow-col-label">Typical system class</div>Execution management system (EMS), often FIX-protocol connected to brokers and exchanges.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">4</span><h3>Settlement, performance and risk reporting</h3></div>
+        <div class="flow-grid">
+          <div><div class="flow-col-label">What happens</div>Trades settle, positions update, and downstream systems calculate performance attribution (what drove returns) and risk exposure (concentration, factor exposure, value-at-risk) for the fund and its investors.</div>
+          <div><div class="flow-col-label">Typical system class</div>Performance/attribution and risk-analytics platforms — often a separate layer from the OMS/PMS, which is one likely source of the "analytics" work named in the JD.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gap">
+      <span class="callout-label">Say this if asked about specific vendors or systems</span>
+      "I don't know Fidelity's specific platform stack — I've mapped the generic front-office workflow so I understand roughly where a Product Owner's backlog items are likely to sit, but I'd want you to tell me what you actually run." Confident and honest; guessing a vendor name you can't back up is a worse look than admitting you don't know.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="gap" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Read This Before The Interview</span><h2>The honest gap — and how to carry it</h2></div>
+    <p class="phase-sub">This is the most important gap section in this folder, because for once the gaps sit in the essential requirements rather than the desirable ones. Carry it deliberately rather than hoping it doesn't come up — it will.</p>
+
+    <div class="callout gap">
+      <span class="callout-label">What's genuinely missing</span>
+      <p><strong>Buy-side investment management domain knowledge.</strong> Asset allocation, portfolio construction, systematic strategy design — you can now discuss the vocabulary from this page, but you have not lived it. Say so in that order: interest and preparation first, direct experience second, always honestly.</p>
+      <p><strong>Direct work with Portfolio Managers.</strong> None. The coached-product-manager story and your suitability/margin-collateral UAT work are the closest honest analogues — use them, but don't blur the line.</p>
+      <p><strong>Investment credentials.</strong> No CFA, FRM or CIPM. Your PMP/PSM/PSPO answer the Agile desired-qualification line well; they do not answer this one, and conflating them would be a mistake a CFA-holder in the room would catch instantly.</p>
+      <p><strong>SAFe-specific lived experience.</strong> PI Planning, ART-level coordination, System Demos — conceptually understood now, never run. Genuinely different cadence from single-team Scrum, not just a naming difference.</p>
+      <p><strong>Fidelity's actual technology stack and specific team structure.</strong> Nobody outside the firm would have this before an interview — it's a fair unknown, not a preparation failure on your part.</p>
+    </div>
+    <div class="callout good">
+      <span class="callout-label">What genuinely transfers — and it's real, even if it's not domain-specific</span>
+      PMP, PSM and PSPO certified, with years of hands-on backlog ownership, epic-to-story breakdown and BA artefact delivery in Agile financial-services teams. A stakeholder-management pattern — cross-timezone, US-based management with limited overlap — that matches the JD's distributed-teams line almost word for word. Genuine, repeated evidence of ramping into new regulatory and product domains under real delivery pressure: multi-entity, multi-jurisdiction requirements work; SFC suitability and margin-collateral logic UAT'd from scratch; a white-label crypto exchange delivered with an external vendor from a standing start. Vendor management with SLAs and delivery tracking. Currently leading enterprise adoption of Claude AI and Jira/Confluence Cloud, including governance frameworks — directly relevant to the JD's "drive adoption of new capabilities" line, and recent enough to sound current rather than historical.</p>
+    </div>
+    <p style="font-size:14.5px;color:var(--slate);">If asked directly <em>"why should we hire you without asset management experience?"</em> — the honest, non-defensive answer: platform and delivery teams in asset management generally want a dedicated Product Owner precisely so portfolio managers and quant analysts don't have to run their own backlog and stakeholder management on top of their actual jobs. Your value on day one is exactly that discipline, applied to a domain you're committed to learning quickly rather than one you're claiming to already know.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Prepared for Tracy Chu · Fidelity International, Product Owner — Multi-Asset (req. J69405, Hong Kong), reporting into the Multi-Asset, Systematic &amp; Solutions Value Stream · 12 August 2026.<br><br>
+    <strong>Sources.</strong> Job posting: Fidelity International Workday listing, fil.wd3.myworkdayjobs.com, req. J69405, and its underlying Workday CXS JSON endpoint (fetched 12 August 2026 — job postings change; re-check the live listing before the interview, especially the application deadline and the "start date" field, which reads as a likely posting-date artefact rather than a genuine employment start date and should not be repeated as fact). Company: fidelityinternational.com (about-us, our-people pages), careers.fidelityinternational.com (about-us, why-fidelity/FAQ, Asia-Pacific locations, Multi Asset internship pages), en.wikipedia.org/wiki/Fidelity_International, fidelity.com.hk (Global Multi Asset Income Fund factsheet, dated 30 June 2026). Leadership change: Funds Europe (1 March 2024) and Pensions & Investments, on Anne Richards' transition to Vice Chair and Keith Metters' appointment as President. SAFe/Agile Release Train concepts: general, publicly documented Scaled Agile Framework material, not Fidelity-specific unless stated.<br><br>
+    <strong>A note on this page's reliability.</strong> Fidelity International's own website is heavily JavaScript-rendered, and several fetch attempts during research returned only page metadata rather than real content — those attempts are not used as sources here. Where a fact could not be independently confirmed this way, it is marked unverified rather than asserted. Two separate Fidelity companies exist (Fidelity International and the US-based Fidelity Investments); every fact on this page has been checked against which company's domain it actually came from, and facts sourced from the US company's domains have been excluded rather than misattributed.<br><br>
+    <strong>Confidence marking.</strong> <span class="conf c">confirmed</span> means sourced to a primary or company document. <span class="conf i">inference</span> means a reasoned conclusion from public facts, not a stated fact. <span class="conf u">unverified</span> means it could not be confirmed and should not be asserted in the interview. The front-office platform workflow and vendor names are a generic industry framework offered as a basis for conversation, explicitly not a claim about Fidelity International's actual architecture.<br><br>
+    <strong>The core of this page has been through an adversarial fact-check pass</strong>, in keeping with this project's standard practice — see the working notes for what it checked and changed.
+  </div>
+</footer>
+
+</body>
+</html>
