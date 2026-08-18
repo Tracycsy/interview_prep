@@ -24,6 +24,8 @@
     --good-bg:#EEF3F6;
     --good-border:#A9C6D6;
     --key-bg:#005B8F;
+    --ops-accent:#5E7A78;
+    --tech-accent:#8C7A54;
   }
   *{box-sizing:border-box;}
   body{
@@ -70,6 +72,12 @@
   .qa p{margin:0 0 10px;}
   .qa p:last-child{margin-bottom:0;}
   .qa em{color:var(--slate);}
+
+  #qa .qa .ans-label,#qa .qa .frame-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:6px;}
+  #qa .qa .ans-label{color:var(--red);}
+  #qa .qa .frame-label{color:var(--slate);margin-top:12px;}
+  #qa .qa .ans{font-family:'Newsreader',serif;font-style:italic;font-size:15px;line-height:1.6;color:var(--blue-deep);background:var(--paper);border-left:3px solid var(--red);padding:12px 16px;margin:0;border-radius:0 4px 4px 0;text-align:justify;}
+  #qa .qa .frame{font-size:13px;line-height:1.55;color:var(--slate);margin:0;text-align:justify;}
 
   .b3{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:19px 23px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start;}
   .b3 .b3num{flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;color:#fff;background:var(--blue);border-radius:4px;padding:3px 9px;margin-top:2px;}
@@ -129,6 +137,21 @@
   .stat .l{font-size:12px;color:var(--slate);margin-top:5px;}
   @media(max-width:700px){.stat-row{grid-template-columns:1fr 1fr;}}
 
+  .wf-scroll{overflow-x:auto;margin:18px 0 8px;border:1px solid var(--line);border-radius:8px;}
+  table.wf{width:100%;border-collapse:collapse;font-size:12.5px;min-width:920px;margin:0;}
+  table.wf th{background:var(--blue-deep);color:#fff;font-weight:600;font-size:11.5px;padding:10px 10px;text-align:left;letter-spacing:.01em;position:sticky;top:0;}
+  table.wf th.wf-corner{background:var(--ink);position:sticky;left:0;top:0;z-index:3;min-width:168px;}
+  table.wf td{padding:9px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.4;background:#fff;}
+  table.wf td.wf-lane{position:sticky;left:0;background:var(--paper);font-weight:700;font-size:12.5px;border-right:2px solid var(--line);min-width:168px;z-index:2;}
+  table.wf td.wf-empty{color:var(--line);text-align:center;background:#FAFBFC;}
+  table.wf tr.wf-pm td.wf-lane{border-left:4px solid var(--blue);}
+  table.wf tr.wf-trader td.wf-lane{border-left:4px solid var(--blue-mid);}
+  table.wf tr.wf-compliance td.wf-lane{border-left:4px solid var(--red);}
+  table.wf tr.wf-risk td.wf-lane{border-left:4px solid var(--red-bright);}
+  table.wf tr.wf-ops td.wf-lane{border-left:4px solid var(--ops-accent);}
+  table.wf tr.wf-tech td.wf-lane{border-left:4px solid var(--tech-accent);}
+  .wf-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;padding:1px 5px;border-radius:3px;background:var(--paper);border:1px solid var(--line);color:var(--slate);margin-top:5px;}
+
   .conf{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;vertical-align:middle;margin-left:5px;}
   .conf.c{background:#E4F1E9;color:#1F6B4F;border:1px solid #B4D8C3;}
   .conf.i{background:#FFF4E0;color:#8A6113;border:1px solid #E8CC94;}
@@ -148,12 +171,16 @@
     <a href="#qa">Q&amp;A</a>
     <a href="#questions">Your questions</a>
     <a href="#firstread">Read this first</a>
+    <a href="#screening">The screening call</a>
     <a href="#fitmap">Fit map</a>
     <a href="#company">Company</a>
     <a href="#twofidelities">Two Fidelities</a>
     <a href="#multiasset">What "multi-asset" means here</a>
+    <a href="#systematic">Systematic equities</a>
+    <a href="#vocab">Working glossary</a>
     <a href="#safe">SAFe &amp; the PO role</a>
     <a href="#platform">Front-office platforms</a>
+    <a href="#workflow">Day-to-day workflow</a>
     <a href="#gap">Honest gap read</a>
   </div>
 </div>
@@ -175,7 +202,7 @@
 <section class="phase" id="opener">
   <div class="wrap">
     <div class="phase-head"><span class="phase-num">The Opener</span><h2>Your self-introduction (≈ 1 min 30 sec)</h2></div>
-    <p class="phase-sub">Your standardised four-beat structure, with the role-specific swaps made for this one. Beat 3, Point 1 leans on the multi-asset platform work and its client-execution side, closer to what this JD's "front-office" language is pointing at — say "platform," "client execution" and "backlog," not "investing" or "portfolio," and let the dedicated vocabulary section and the trap callout below do the honest boundary-drawing, so the self-intro itself can stay confident and forward-facing.</p>
+    <p class="phase-sub">Your standardised four-beat structure, with the role-specific swaps made for this one. Beat 3, Point 1 has been deliberately twisted away from claiming trading-platform domain experience and toward <strong>change management and adoption for a complex system's internal, professional users</strong> — say "adoption," "change management" and "internal teams," not "investing," "portfolio" or "front office." That last word still means something specific in this JD (asset-management front office, not retail-broker front office) — see "Front office in asset management vs. what you've actually built" below — but Point 1 now sidesteps that boundary entirely rather than tiptoeing along it, because it's making a different, fully evidenced claim instead.</p>
 
     <div class="qa">
       <div class="qtag">Beat 1 · Who I am · ~20 sec</div>
@@ -192,8 +219,8 @@
       <div class="b3">
         <span class="b3num">1</span>
         <div>
-          <div class="b3q">I've led front-office, client-execution-facing platform work and back-office configuration.</div>
-          <div class="b3r">At Tradu and FXCM, I took the platform from CFD-only to multi-asset — including stocks — owning it end-to-end: gathering requirements for the client onboarding and trading journey, running UAT, configuring the back office (fee groups, entitlements, FX rates), then leading implementation and change management with Ops, Sales and other stakeholder teams. That's a direct match for this JD's own first essential requirement — investment management technology, front-office change, product delivery.</div>
+          <div class="b3q">I've led change management and adoption for a complex platform — across every internal team that has to use it, not just its customers.</div>
+          <div class="b3r">When Tradu and FXCM's platform expanded to multi-asset, adoption wasn't automatic — I drove it across Ops, Compliance and Sales with user guides, FAQs, SOPs and onsite training across our overseas offices. That's the same shape of internal, professional user — a trading desk, compliance, risk, operations — a new portfolio-management tool would need to bring on side, and adoption is the part of "front-office change" that's easy to underweight next to the build itself.</div>
         </div>
       </div>
       <div class="b3">
@@ -220,7 +247,7 @@
 
     <div class="callout gap">
       <span class="callout-label">The trap to avoid completely</span>
-      Do not describe Tradu's "multi-asset app" (CFDs, stocks and crypto in one retail account) as the same kind of thing as Fidelity's "Multi-Asset" investing (a professionally managed blend of asset classes inside one fund, decided by a portfolio manager or model). They share a word and almost nothing else. Beat 3's Point 1 above is written to stay on safe ground — "platform," "client execution," "backlog" — precisely so you don't drift into implying investment-domain experience you don't have. If you improvise around it and reach for that parallel because it's the most senior-sounding thing on your CV, an interviewer who actually works in multi-asset investing will notice within one follow-up question, and it will cost you more credibility than naming the boundary honestly ever would. See the dedicated section below before you rely on this word in the room.
+      Do not describe Tradu's "multi-asset app" (CFDs, stocks and crypto in one retail account) as the same kind of thing as Fidelity's "Multi-Asset" investing (a professionally managed blend of asset classes inside one fund, decided by a portfolio manager or model). They share a word and almost nothing else. Beat 3's Point 1 above is written to stay on safe ground — "adoption," "change management," "internal teams" — precisely so you don't drift into implying investment-domain or portfolio-management-tool experience you don't have. If you improvise around it and reach for that parallel because it's the most senior-sounding thing on your CV, an interviewer who actually works in multi-asset investing will notice within one follow-up question, and it will cost you more credibility than naming the boundary honestly ever would. See the dedicated section below before you rely on this word in the room.
     </div>
   </div>
 </section>
@@ -231,31 +258,77 @@
 
     <div class="qa">
       <div class="qtag">"Tell me about your Product Owner experience."</div>
-      <p>Lead with the certifications and the concrete backlog/prioritisation work, not the title itself — your title on your CV has more often been BA or hybrid BA/PM than pure "Product Owner." Say that plainly if asked directly: "My titles have been Senior BA and BA/PM hybrid; the PSPO reflects that I've done the Product Owner discipline — backlog ownership, prioritisation, stakeholder trade-offs — inside that role, not that I've carried the exact title before." Precision here reads as trustworthy, not as a weakness.</p>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"My titles have been Senior BA and BA/PM hybrid; the PSPO reflects that I've done the Product Owner discipline — backlog ownership, prioritisation, stakeholder trade-offs — inside that role, not that I've carried the exact title before."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Lead with the certifications and the concrete backlog/prioritisation work, not the title itself — your title on your CV has more often been BA or hybrid BA/PM than pure "Product Owner." Precision here reads as trustworthy, not as a weakness.</p>
     </div>
     <div class="qa">
       <div class="qtag">"What do you know about multi-asset investing?"</div>
-      <p>Use the vocabulary from the "What Multi-Asset investing actually means" section later in this page — strategic vs tactical allocation, systematic vs discretionary, what an overlay is — and be explicit that it's research knowledge, not lived experience. Close with a genuine question back, e.g. "is the Systematic strand here quant-model-driven day to day, or more of a rules-based overlay on discretionary decisions?" — a real question you don't know the answer to, which is more convincing than a rehearsed one.</p>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"I know the vocabulary — strategic versus tactical allocation, systematic versus discretionary, what an overlay does — from research rather than lived experience. Is the Systematic strand here quant-model-driven day to day, or more of a rules-based overlay on discretionary decisions?"</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Use the vocabulary from the "What Multi-Asset investing actually means" section later in this page, be explicit it's research knowledge rather than lived experience, and close with a genuine question you don't actually know the answer to — more convincing than a rehearsed one.</p>
     </div>
     <div class="qa">
       <div class="qtag">"Have you worked directly with Portfolio Managers or investment professionals?"</div>
-      <p>No — say it in one word first, then pivot: "No, not directly. The closest I've come is coaching a product manager with less BA experience through writing requirements and running their own tests, and partnering with Risk and Reconciliation on trade-settlement and suitability logic. Neither is the same as sitting with a PM making an allocation call, and I wouldn't want to overstate it."</p>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"No, not directly. The closest I've come is coaching a product manager with less BA experience through writing requirements and running their own tests, and partnering with Risk and Reconciliation on trade-settlement and suitability logic. Neither is the same as sitting with a PM making an allocation call, and I wouldn't want to overstate it."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Say the "no" in one word first, then pivot immediately to the closest transferable evidence — don't let the honest answer sit alone without a bridge.</p>
     </div>
     <div class="qa">
       <div class="qtag">"Why should we hire you over someone with an investment management background?"</div>
-      <p>Don't compete on domain — concede it. "You'd be right that they'd know your domain faster than I would on day one. What I'd bring instead is a Product Owner who's actually run backlog discipline and stakeholder management at scale before, in Agile teams, across time zones, without needing to be taught what a well-formed user story or a defensible prioritisation call looks like. If the team already has strong domain voices and needs someone to turn that into a well-run backlog, that's a different hire than someone who needs to learn Agile delivery from scratch."</p>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"You'd be right that they'd know your domain faster than I would on day one. What I'd bring instead is a Product Owner who's actually run backlog discipline and stakeholder management at scale before, in Agile teams, across time zones, without needing to be taught what a well-formed user story or a defensible prioritisation call looks like. If the team already has strong domain voices and needs someone to turn that into a well-run backlog, that's a different hire than someone who needs to learn Agile delivery from scratch."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Don't compete on domain — concede it plainly and early, then pivot to the delivery discipline you bring instead of trying to argue the domain gap away.</p>
     </div>
     <div class="qa">
       <div class="qtag">"Have you done PI Planning / worked on a SAFe Agile Release Train?"</div>
-      <p>No — say it plainly, then show you understand the shape of it: "I haven't, though I understand the mechanics — teams on an ART planning a Program Increment together, sequencing dependencies across squads rather than just within one team. My Scrum background is single-team; I'd expect the cross-team coordination and the PI cadence to be the real learning curve, more than the backlog discipline itself."</p>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"I haven't, though I understand the mechanics — teams on an ART planning a Program Increment together, sequencing dependencies across squads rather than just within one team. My Scrum background is single-team; I'd expect the cross-team coordination and the PI cadence to be the real learning curve, more than the backlog discipline itself."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Say the "no" plainly and immediately, then show you understand the shape of it — don't let the gap stand alone without evidence you've already thought about it.</p>
     </div>
     <div class="qa">
       <div class="qtag">"What's your experience with globally distributed teams?"</div>
-      <p>Your strongest, most literal answer on this page. Current managers are US-based with limited overlapping hours; you own the business-technology bridge independently and escalate with judgement. Say it exactly like that — it maps almost onto the JD's own words.</p>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"My current managers are US-based with limited overlapping hours. I own the business-technology bridge independently and escalate with judgement, rather than waiting on a decision that isn't available in the moment."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Your strongest, most literal answer on this page — it maps almost onto the JD's own words, so keep it simple and factual rather than over-elaborating.</p>
     </div>
     <div class="qa">
       <div class="qtag">"How would you get up to speed on our domain in the first 90 days?"</div>
-      <p>Have a real plan, not a platitude: weeks 1–3, shadow PM/analyst conversations and squad ceremonies to see what actually drives backlog items, without touching the backlog yet; weeks 3–6, take ownership of the lowest-risk, most process-shaped items first while continuing to learn the domain from the technical/quant side; weeks 6–12, take on domain-dependent prioritisation calls with a domain expert checking your reasoning until you've built a track record. This is the same "map the process before writing requirements against it" instinct you already apply — say so.</p>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"Weeks one to three, I'd shadow PM and analyst conversations and squad ceremonies to see what actually drives a backlog item, without touching the backlog yet. Weeks three to six, I'd take ownership of the lowest-risk, most process-shaped items first, while continuing to learn the domain from the technical side. Weeks six to twelve, I'd take on domain-dependent prioritisation calls with a domain expert checking my reasoning, until I've built a track record."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Have a real plan, not a platitude — this is the same "map the process before writing requirements against it" instinct you already apply elsewhere on this page, so say so explicitly if there's room.</p>
+    </div>
+
+    <h3 style="margin-top:34px;">Blended domain-and-technical questions</h3>
+    <p style="font-size:14.5px;color:var(--slate);margin-bottom:14px;">Per your screening call — these three are written to sit exactly where HR said the panel might go: a domain scenario wrapped around a genuinely technical/process question, not one or the other.</p>
+
+    <div class="qa">
+      <div class="qtag">"How would you write a user story or acceptance criteria for a portfolio-rebalancing feature?"</div>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"I'd start with the actor and the trigger — 'As a Portfolio Manager, when my target weights drift beyond a set tolerance, I want the system to generate a proposed rebalancing order, so that I can review and release it.' Then the acceptance criteria would cover the edge cases that actually break things: what happens if the proposed order breaches a mandate limit — does it partially fill and flag the rest, or block entirely? What happens if the market moves between signal and execution? Those edge cases are usually where the real requirement lives, not the happy path."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Show you can translate a domain concept — rebalancing, drift, target exposure, all covered earlier on this page — into a properly-formed user story with acceptance criteria that anticipate breaches, which is exactly the blend of domain and technique HR flagged.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"A Portfolio Manager wants an order released and Compliance has blocked it on a limit breach — how would you handle that as a BA/PO?"</div>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"I wouldn't resolve the disagreement myself — that's not my call to make. My job is making sure the override path is designed with clear authority and an audit trail: who's allowed to approve an override, what justification has to be documented, and how it's logged so both the PM's and Compliance's positions are visible afterwards. If that path doesn't already exist cleanly, that's the backlog item — not adjudicating this specific breach."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">The trap is sounding like you'd personally referee a PM-versus-Compliance disagreement. The stronger answer is process ownership — you design the escalation path, you don't make the investment or compliance call yourself.</p>
+    </div>
+    <div class="qa">
+      <div class="qtag">"Walk me through how you'd handle a requirement that changes a risk limit or compliance rule."</div>
+      <span class="ans-label">Suggested answer</span>
+      <p class="ans">"I'd treat it the way I've treated any live rule change on a regulated platform before — get the exact new rule in writing from whoever owns it, here that's Risk or Compliance, write test cases covering both the rule firing and not firing, get sign-off on what 'passed' means before it goes near production, and check whose other numbers move as a result, so nothing double-counts silently."</p>
+      <span class="frame-label">How to frame it</span>
+      <p class="frame">Draw this straight from your own pre-trade suitability and margin-logic UAT work — a compliance rule change on a live financial platform is a compliance rule change, whether it's gating a retail client's order or a fund's mandate. Say that connection explicitly rather than leaving them to spot it.</p>
     </div>
   </div>
 </section>
@@ -304,6 +377,45 @@
   </div>
 </section>
 
+<section class="phase" id="screening">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">New Intel</span><h2>The screening call — what it confirms, and the process ahead</h2></div>
+    <p class="phase-sub">From your screening call with HR, dated 13 August 2026. This sharpens rather than contradicts everything above — it's worth reading right after "Read This First" because it confirms domain knowledge is being actively tested, not just listed as a box on the posting.</p>
+
+    <div class="callout key">
+      <span class="callout-label">What HR told you they're screening for</span>
+      They named it plainly: someone strong in <strong>asset management or portfolio management</strong>, with related <strong>front-office tooling</strong> experience, and specifically <strong>systematic equities</strong> experience. <span class="conf u">reported by you from the call; not independently verifiable, but treat as accurate</span> This confirms the JD's ordering isn't misleading — domain knowledge really is being weighted, not a formality behind the Agile-process line. See "Front office in asset management vs. what you've actually built" and the systematic-equities primer below; both exist because of this call.
+    </div>
+
+    <h3>The three rounds</h3>
+    <div class="sys-grid">
+      <div class="sys-card">
+        <h4>Round 1 · Competency</h4>
+        <p>Competency-based questions. Interviewer: <strong>Varun Agarwal</strong>, Associate Director – IM Technology (a business-analyst-track role) at Fidelity International, based in India. <span class="conf u">title and location from a cached public-profile aggregator, not a primary source — see the note below</span></p>
+      </div>
+      <div class="sys-card">
+        <h4>Round 2 · Hiring manager</h4>
+        <p>With the hiring manager, based in the UK. A <strong>case study or presentation</strong> is expected; format and topic not yet known. <span class="conf u">as told to you; details TBC</span></p>
+      </div>
+      <div class="sys-card">
+        <h4>Round 3 · Stakeholders</h4>
+        <p>Meeting key stakeholders in Hong Kong — most likely the actual squad and business partners you'd work with day to day. <span class="conf u">as told to you; details TBC</span></p>
+      </div>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">Who's across the table in round 1 — worth knowing before you walk in</span>
+      <p>Varun Agarwal has been Associate Director, IM Technology at Fidelity International (Bengaluru) since 2024. Before that: 13 years (2011–2024) as Senior Project Manager and Business Analyst at <strong>Ashmore</strong>, a well-known emerging-markets-focused asset manager; before that, BA/PM at Barclays Wealth Management; before that, Senior BA at a financial-planning software firm. He lists the CFA designation, an MSc from LSE, and a computer science degree on his public profile. <span class="conf u">everything in this paragraph is sourced from a cached public-profile aggregator (not LinkedIn directly, which blocked automated access) — treat the current title and employer as reasonably reliable, and the CFA designation and full career history as self-reported and unverified rather than confirmed</span></p>
+      <p><strong>Why this changes your prep, slightly:</strong> this isn't a generalist Agile coach screening for process vocabulary — it's someone with a genuinely long, real buy-side investment-management-technology career, including over a decade at a specialist asset manager. Expect competency questions that probe for real domain fluency (can you actually reason about a portfolio-management workflow, not just recite SAFe terms), and expect a vague or rehearsed-sounding answer on the front-office/systematic material to be noticed immediately. The honest, precise framing in the two sections below is your best preparation for exactly this interviewer.</p>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">Round 2 — preparing for an unknown case study or presentation</span>
+      With no topic yet, prepare the shape rather than the content. A BA/PO case study at an asset manager typically follows one of two patterns: (1) <strong>a workflow or process to analyse</strong> — you're given a current-state description (e.g. how a change request reaches production, or how a new instrument gets onboarded) and asked to find the gaps and propose an improved backlog; or (2) <strong>a stakeholder scenario</strong> — competing asks from Product, Compliance and Engineering, and you're asked how you'd sequence and communicate the trade-offs. For either, a structure that reads as senior rather than junior: state the current state and its risk plainly, propose a phased approach (not a single big-bang fix), and close by naming the governance or compliance angle explicitly — exactly the SAFe/PI-Planning and suitability-gating instincts already built into this page. Ask HR or the hiring manager, once round 2 is scheduled, whether it's a live case study, a take-home, or a presentation of your own past work — the prep is different for each, and it's a reasonable question to ask rather than guess.
+    </div>
+  </div>
+</section>
+
 <section class="phase" id="fitmap">
   <div class="wrap">
     <div class="phase-head"><span class="phase-num">The Match</span><h2>Fit map against the JD</h2></div>
@@ -347,6 +459,16 @@
       <tr><td><strong>US$1.086 trillion</strong> in total client assets, as of 2025</td><td>Cited on Fidelity International's own public profile as an aggregate "total client assets" figure. <span class="conf c">confirmed as stated</span> This almost certainly includes assets administered on Fidelity's platforms for clients (custody/administration), not only money Fidelity actively manages — that distinction matters and I could not fully verify the split.</td></tr>
       <tr><td><strong>US$437 billion</strong> "invested on behalf of clients through Investment Solutions & Services and Global Platform Solutions"</td><td>Stated on Fidelity's own careers/about page, describing two specific business lines rather than the whole firm. <span class="conf c">confirmed as stated</span> This is very likely a narrower, business-line-specific figure, not a contradiction of the trillion-dollar number — but I could not reconcile the two precisely, and neither should you in the room. If AUM comes up, say "over a trillion in total client assets group-wide, per their own figures" and don't try to add business-line numbers together yourself.</td></tr>
     </table>
+
+    <h3>Areas of service — what Fidelity International actually does</h3>
+    <p style="font-size:14.5px;color:var(--slate);margin-bottom:12px;">Worth having this map in your head, because the JD's own "Solutions" strand and the "Global Platform Solutions" background of the outgoing/incoming leadership above both trace back to specific business lines below, not just "Fidelity manages funds."</p>
+    <div class="sys-grid">
+      <div class="sys-card"><h4>Asset management</h4><p>The core discipline: actively and systematically managed mutual funds/OEICs and segregated mandates across equities, fixed income, multi-asset and real estate, for retail and institutional clients. <span class="conf c">confirmed</span></p></div>
+      <div class="sys-card"><h4>Workplace &amp; retirement</h4><p>Pension and retirement scheme administration for employers and employees. In Hong Kong specifically, this includes running the <strong>Fidelity Retirement Master Trust</strong>, a scheme registered under Hong Kong's Mandatory Provident Fund (MPF) system with the MPFA. <span class="conf c">confirmed — scheme listed on the MPFA's own register</span></p></div>
+      <div class="sys-card"><h4>Wealth &amp; platform solutions</h4><p>Technology and administration infrastructure that financial advisers, platforms and institutions use to distribute Fidelity's (and sometimes other managers') products to their own end clients — the business Keith Metters led before becoming President. <span class="conf c">confirmed</span></p></div>
+      <div class="sys-card"><h4>Private markets</h4><p>Since 2021–22, access to private equity and other private-market funds via a partnership with Moonfare, initially for European institutional clients and later extended into Asia. <span class="conf c">confirmed</span></p></div>
+    </div>
+    <p style="font-size:14.5px;color:var(--slate);margin-top:10px;">The JD's Value Stream name — "Multi-Asset, <strong>Systematic</strong> &amp; <strong>Solutions</strong>" — most plausibly sits inside the asset-management line above, with "Solutions" likely referring to outcome-oriented institutional mandates (see "Solutions" in the multi-asset vocabulary table below), not the separate Wealth &amp; Platform Solutions business. <span class="conf i">inference from the naming pattern; not confirmed as Fidelity's actual internal structure</span></p>
 
     <h3>Hong Kong office</h3>
     <ul class="plain">
@@ -412,6 +534,17 @@
     </div>
     <p style="font-size:14.5px;color:var(--slate);margin-top:10px;">The named managers on this specific fund are Becky Qin, Franca Pileri and Mario Baronci. <span class="conf c">confirmed from the factsheet</span> I have no information on whether any of them, or this fund specifically, connects to the "Multi-Asset, Systematic &amp; Solutions" Value Stream in the JD — treat it as one illustrative example of what Fidelity's multi-asset business produces, not as the product this role necessarily touches. <span class="conf u">connection to this specific role unverified</span></p>
 
+    <h3>Fund vehicle types — the wrapper multi-asset investing comes in</h3>
+    <p style="font-size:14.5px;color:var(--slate);margin-bottom:12px;">Foundational domain knowledge worth having automatic, since Fidelity's whole retail business runs through these wrappers.</p>
+    <table>
+      <tr><th>Vehicle</th><th>What it means</th></tr>
+      <tr><td><strong>Mutual fund / OEIC (Open-Ended Investment Company)</strong></td><td>The standard retail fund wrapper. "Open-ended" means the fund creates or cancels units as money flows in or out — you're not trading against another investor, you're dealing directly with the fund at its NAV. Fidelity's Global Multi Asset Income Fund above is one of these.</td></tr>
+      <tr><td><strong>ETF (Exchange-Traded Fund)</strong></td><td>Also open-ended in structure, but units trade on an exchange throughout the day at a market price, rather than dealing once a day at NAV like a mutual fund. Usually (though not always) tracks an index rather than being actively managed.</td></tr>
+      <tr><td><strong>Investment trust (closed-ended fund)</strong></td><td>A fixed number of shares, traded on an exchange like any listed company — the manager doesn't create or cancel shares as money flows in or out. Because supply is fixed, the share price can trade above (premium) or below (discount) the actual net asset value, which never happens with an open-ended fund.</td></tr>
+      <tr><td><strong>Segregated mandate</strong></td><td>A portfolio managed for one specific institutional client (a pension fund, an insurer) under its own bespoke mandate, rather than pooled with other investors' money in a fund. This is the typical wrapper for the "Solutions" business line below.</td></tr>
+      <tr><td><strong>Dealing cycle / dealing point</strong></td><td>How often an open-ended fund calculates its NAV and processes subscriptions/redemptions — typically once a day for a retail mutual fund, versus continuously for an ETF trading on-exchange.</td></tr>
+    </table>
+
     <h3>Vocabulary worth having ready</h3>
     <table>
       <tr><th>Term</th><th>What it means</th></tr>
@@ -426,6 +559,109 @@
       <span class="callout-label">How to use this if pushed on domain knowledge</span>
       Don't perform expertise you don't have. A defensible answer: "I know the vocabulary — strategic versus tactical allocation, systematic versus discretionary, what an overlay does — from research rather than lived experience, and I know that's different from having sat with a portfolio manager making those calls. What I'd want in the first month is to shadow enough PM and analyst conversations to understand what actually drives a backlog item here, the way I'd map any new business process before writing requirements against it." That's honest, and it's also exactly the instinct a good BA should have on day one in any new domain.
     </div>
+  </div>
+</section>
+
+<section class="phase" id="systematic">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Distinctive Word</span><h2>Systematic equities — a working primer, not lived experience</h2></div>
+    <p class="phase-sub">The HR screening call named this explicitly, and it's the second half of this Value Stream's name ("Multi-Asset, <strong>Systematic</strong> &amp; Solutions"). You don't need to fake quant experience — you need enough working knowledge to ask an intelligent question and to spot where a BA's job actually sits on a desk like this.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The core idea, in one paragraph</span>
+      <p>Systematic equity investing scores a large universe of stocks — often hundreds or thousands — against measurable, repeatable factors: <strong>value</strong> (cheap vs. fundamentals), <strong>size</strong>, <strong>momentum</strong> (recent price/earnings trend), <strong>quality</strong> (profitability, balance-sheet strength), and <strong>low volatility</strong> are the standard core set; some managers also layer on sentiment or other alternative-data signals as an additional, less standard input. A model combines those scores to decide portfolio weights, and the portfolio is rebalanced on a set schedule. There's still a human element — researchers design and refine the models — but day-to-day position decisions are rules-based rather than a single analyst's live call on any one stock. <span class="conf i">general industry description, not confirmed as Fidelity's specific methodology</span></p>
+    </div>
+
+    <h3>Three-way distinction worth having precise, not just two-way</h3>
+    <table>
+      <tr><th>Approach</th><th>Who/what decides</th><th>Goal</th></tr>
+      <tr><td><strong>Discretionary</strong></td><td>A named portfolio manager or analyst, judgement call by call, informed by research</td><td>Beat the market through skill and conviction on individual names</td></tr>
+      <tr><td><strong>Systematic</strong></td><td>A rules-based model applied consistently across the universe, periodically refined by researchers</td><td>Beat the market through disciplined, repeatable exposure to factors that have historically paid off</td></tr>
+      <tr><td><strong>Passive / index</strong></td><td>A published index provider's fixed methodology — the fund simply replicates it</td><td>Match the market, not beat it, at minimal cost</td></tr>
+    </table>
+    <p style="font-size:14.5px;color:var(--slate);">Systematic sits in the middle: it's rules-based like passive investing, but the rules are the manager's own proprietary view of what predicts returns, aimed at outperformance like discretionary investing. That's the sentence to say if asked to place it — though hold it loosely rather than as a hard boundary. Some managers blend the two (a systematic model that a PM can still override, or a discretionary process disciplined by systematic screens), and a genuinely experienced interviewer may push on that nuance rather than accept the textbook three-way split at face value.</p>
+
+    <div class="callout good">
+      <span class="callout-label">Where a BA/PO actually fits on a systematic desk — and why this is closer to your comfort zone than Point 1's honest gap</span>
+      <p>You will never build the factor model — that's a quant researcher's job. But a systematic desk generates a specific, recurring shape of delivery work that maps closely onto things you've actually done:</p>
+      <ul class="plain">
+        <li><strong>Change control on model and factor updates.</strong> When a researcher refines a signal or adds a new factor, someone has to specify, test and sign off the change before it touches a live portfolio — structurally the same discipline as your UAT and change-management work, just gating a model instead of a trading rule.</li>
+        <li><strong>Data pipeline quality gates.</strong> Systematic models are only as good as the data feeding them — point-in-time accuracy (not using data a model couldn't have known at the time), survivorship-bias handling (not silently dropping delisted stocks from history), vendor data onboarding. This is configuration and validation work, the same instinct as your back-office fee-group/entitlement checks, applied to a different object.</li>
+        <li><strong>Backtesting sign-off workflow.</strong> Before a model change goes live, it's tested against historical data; someone needs a documented, repeatable process for what "passed" means and who approves it — a release-readiness checklist by another name.</li>
+        <li><strong>Portfolio construction rule changes.</strong> Rebalancing frequency, turnover/transaction-cost constraints, risk-model updates (e.g. against a commercial risk model such as MSCI Barra or Axioma <span class="conf u">illustrative industry examples, not confirmed as Fidelity's stack</span>) — all requirements-and-backlog work once you strip away the maths.</li>
+      </ul>
+      <p>Say this distinction explicitly if it comes up: "I wouldn't be building the model — but the change-control, data-quality-gate and release-governance layer around a systematic desk is the same discipline I've already applied to a live trading platform's configuration and compliance logic. That part I could pick up fast; the quant methodology itself, I'd be learning from the research team."</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="vocab">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Working Glossary</span><h2>Front-office vocabulary — buy-side, orders, breaches and risk</h2></div>
+    <p class="phase-sub">Standard industry vocabulary, not confirmed as Fidelity-specific terminology unless marked otherwise — treat this as the working glossary you'd want in your head before round 1, not a claim about their internal systems.</p>
+
+    <h3>Who's who — buy-side and sell-side</h3>
+    <table>
+      <tr><th>Term</th><th>What it means</th></tr>
+      <tr><td><strong>Buy-side</strong></td><td>The institutions that invest capital and manage money on behalf of clients — asset managers (like Fidelity), pension funds, insurers, hedge funds. Portfolio managers here decide <em>what to buy and hold</em>. <span class="conf c">standard industry usage</span></td></tr>
+      <tr><td><strong>Sell-side</strong></td><td>The institutions that create, market and trade securities, and execute orders on behalf of the buy-side — investment banks, broker-dealers, market makers. Sell-side sales and trading desks sell securities <em>to</em> the buy-side and execute the buy-side's orders in the market. <span class="conf c">standard industry usage</span></td></tr>
+      <tr><td><strong>Where you sit today</strong></td><td>Tradu/FXCM is neither of these in the traditional sense — it's a <strong>retail broker</strong> — your own client is the end retail investor, not an institutional buy-side fund. If asked "have you worked buy-side or sell-side," the honest answer is "neither, directly — retail brokerage is its own third category, closer in spirit to sell-side execution infrastructure but serving retail clients directly rather than institutional ones."</td></tr>
+    </table>
+
+    <h3>Order and portfolio management — the exposure lifecycle</h3>
+    <p class="phase-sub" style="margin-bottom:12px;">I couldn't find a single citable source using exactly the three-term phrasing below — treat it as a generic, defensible description of how rebalancing/order generation works conceptually, not confirmed named Fidelity terminology. <span class="conf i">generic framework, inferred from standard OMS/rebalancing literature</span></p>
+    <table>
+      <tr><th>Term</th><th>What it means</th></tr>
+      <tr><td><strong>Start (or current/opening) exposure</strong></td><td>The position you're actually holding before a new order is generated — the starting point a rebalance or model signal works from.</td></tr>
+      <tr><td><strong>Target exposure</strong></td><td>The position size or weight the model, mandate or PM decision says you should end up at — e.g. "target 3% weight in Stock X."</td></tr>
+      <tr><td><strong>End (or resulting/post-trade) exposure</strong></td><td>What you actually end up holding once the order fills. Can differ from target because of partial fills, price moves between decision and execution, or an order that got partly blocked by a compliance breach.</td></tr>
+      <tr><td><strong>Drift</strong></td><td>The gap that opens up between a portfolio's actual weights and its target weights over time, purely from market moves — the usual trigger for a rebalance.</td></tr>
+      <tr><td><strong>Parent order / child order</strong></td><td>A single large "parent" order (e.g. rebalance 40 funds into one stock) gets split into smaller "child" orders for execution, then the fill is allocated back across the parent's contributing funds/accounts.</td></tr>
+    </table>
+
+    <h3>Order and compliance breaches — concrete examples</h3>
+    <table>
+      <tr><th>Breach type</th><th>Example</th></tr>
+      <tr><td><strong>Cash sufficiency / negative cash balance</strong></td><td>An order would leave the fund holding negative cash. Most mandates prohibit this outright (no implicit borrowing), so the pre-trade check blocks or flags it before it reaches the market.</td></tr>
+      <tr><td><strong>Concentration / issuer limit</strong></td><td>Mandate caps any single issuer at, say, 5% of NAV; an order that would push the position to 6% is blocked or flagged for override.</td></tr>
+      <tr><td><strong>Position / exposure limit</strong></td><td>An absolute or percentage-of-NAV cap on one security or asset class, independent of issuer concentration.</td></tr>
+      <tr><td><strong>Restricted list</strong></td><td>A hard block on a specific security — commonly because of material non-public information, a sanctions list, or an ESG/ethical exclusion.</td></tr>
+      <tr><td><strong>Mandate restriction</strong></td><td>E.g. a long-only fund's order to short a stock, or an investment-grade-only mandate's order to buy a bond rated below investment grade.</td></tr>
+      <tr><td><strong>Counterparty / broker limit</strong></td><td>Too much of the fund's trading, or too much exposure to one broker/counterparty's credit risk, concentrated with a single counterparty.</td></tr>
+      <tr><td><strong>Liquidity constraint</strong></td><td>Order size exceeds a cap tied to the security's average daily trading volume (ADV) — designed to avoid moving the market against your own order.</td></tr>
+    </table>
+    <p style="font-size:14.5px;color:var(--slate);">All of these are <span class="conf c">standard, well-documented industry compliance-control types</span> — not confirmed as Fidelity's specific rule set. The pattern to notice: every one of them is a pre-trade (or sometimes post-trade, caught end-of-day) rule-based gate, which is exactly the discipline behind your own pre-trade suitability and margin/collateral work — same shape of control, different object being gated (a fund's mandate here, a retail client's position there).</p>
+
+    <h3>Risk exposure types — reading a risk report</h3>
+    <p class="phase-sub" style="margin-bottom:12px;">One correction worth making before this table: if "Gemma" came up on your screening call, it was almost certainly <strong>Gamma</strong> — the second-order Greek, one row below Delta. "Gemma" isn't a risk term.</p>
+    <table>
+      <tr><th>Term</th><th>What it means</th></tr>
+      <tr><td><strong>EQ Delta (Equity Delta)</strong></td><td>How much a position's value moves for a small move in the underlying equity price/index — the equity risk-factor bucket. A real, standard term in regulatory risk frameworks (e.g. FRTB, SA-CVA) and portfolio risk systems, not Fidelity-specific jargon. <span class="conf c">confirmed as a standard regulatory/risk-system term</span></td></tr>
+      <tr><td><strong>Gamma</strong></td><td>How fast Delta itself changes as the underlying moves — second-order sensitivity. Matters when a portfolio holds options or other convex instruments; a book with high gamma needs its hedges rebalanced more often.</td></tr>
+      <tr><td><strong>Vega</strong></td><td>Sensitivity to implied volatility — a position can lose money purely from volatility falling, even if the underlying price doesn't move.</td></tr>
+      <tr><td><strong>Theta</strong></td><td>Value decline purely from time passing (time decay) — relevant to options positions.</td></tr>
+      <tr><td><strong>IR Delta / Duration / DV01</strong></td><td>The fixed-income equivalent of equity delta — sensitivity to interest-rate moves. DV01 is the dollar change in value for a 1-basis-point rate move.</td></tr>
+      <tr><td><strong>FX Delta</strong></td><td>Sensitivity to currency moves — relevant the moment a portfolio holds anything not denominated in its base/reporting currency.</td></tr>
+      <tr><td><strong>Credit Delta / credit spread duration</strong></td><td>Sensitivity to a bond issuer's credit spread widening or tightening, separate from the underlying interest-rate move.</td></tr>
+      <tr><td><strong>VaR (Value at Risk)</strong></td><td>A statistical estimate of the maximum loss a portfolio would expect not to exceed, over a given time horizon, at a given confidence level (e.g. "1-day 95% VaR").</td></tr>
+      <tr><td><strong>Gross vs. net exposure</strong></td><td>Gross = sum of long and short positions added together (absolute size of the book); net = long minus short (directional exposure). A market-neutral fund can run high gross exposure with near-zero net exposure.</td></tr>
+      <tr><td><strong>Active risk / tracking error</strong></td><td>How far a portfolio's returns deviate from its benchmark's returns — the risk-side counterpart to alpha.</td></tr>
+    </table>
+
+    <h3>Other vocabulary worth having ready</h3>
+    <table>
+      <tr><th>Term</th><th>What it means</th></tr>
+      <tr><td><strong>NAV (Net Asset Value)</strong></td><td>Total fund assets minus liabilities, usually expressed per unit/share — the price at which investors buy and sell into the fund.</td></tr>
+      <tr><td><strong>AUM (Assets Under Management)</strong></td><td>The total value of assets a manager runs across all its funds and mandates.</td></tr>
+      <tr><td><strong>Mandate</strong></td><td>The rules and objectives a portfolio must be run within, set out in fund documents or a client's investment management agreement.</td></tr>
+      <tr><td><strong>Benchmark</strong></td><td>The index or reference a portfolio's performance and risk are measured against.</td></tr>
+      <tr><td><strong>Alpha / Beta</strong></td><td>Alpha is return in excess of the benchmark attributed to skill; beta is how sensitive a portfolio's returns are to overall market moves.</td></tr>
+      <tr><td><strong>Active share</strong></td><td>The percentage of a portfolio's holdings that differ from its benchmark's holdings — a measure of how "active" a fund really is versus how closely it hugs the index.</td></tr>
+      <tr><td><strong>Look-through exposure</strong></td><td>Seeing a portfolio's true underlying exposure by looking past any wrapper — a fund-of-funds, an ETF, a derivative — to what it actually holds underneath.</td></tr>
+      <tr><td><strong>T+2 settlement / Custodian</strong></td><td>T+2 is the standard settlement cycle for most cash equities (trade date plus two business days); the custodian is the institution that physically holds the fund's assets and settles its trades.</td></tr>
+      <tr><td><strong>DVP (Delivery versus Payment)</strong></td><td>A settlement mechanism where securities and cash change hands simultaneously, so neither side is exposed to the other defaulting mid-settlement.</td></tr>
+      <tr><td><strong>Corporate action</strong></td><td>An issuer-driven event — dividend, stock split, merger, rights issue — that affects a position and has to be processed correctly across every system holding that position.</td></tr>
+    </table>
   </div>
 </section>
 
@@ -491,9 +727,119 @@
       </div>
     </div>
 
+    <h3>Front office in asset management vs. what you've actually built</h3>
+    <p class="phase-sub" style="margin-bottom:14px;">Same phrase, different job. This is the section to have genuinely internalised before round 1 — Varun Agarwal has spent 13 years as a BA/PM inside real buy-side investment-management technology (see the screening-call section above), so a vague answer here will surface immediately. The honest, precise version is stronger than anything you could improvise.</p>
+
+    <table>
+      <tr><th></th><th>Buy-side front office (this JD)</th><th>Your retail trading platform (Tradu/FXCM)</th></tr>
+      <tr><td><strong>Who the tool's end user is</strong></td><td>The fund's own employees — a portfolio manager, a buy-side dealer/trader, a research or quant analyst — deciding and executing on behalf of investors who never touch the tool</td><td>The retail client themselves, self-directed, placing their own order</td></tr>
+      <tr><td><strong>What gets gated pre-trade</strong></td><td>The fund's mandate and prospectus limits, regulatory concentration/exposure caps, restricted/sanctioned-instrument lists</td><td>One individual client's suitability characterisation, margin and collateral position, KYC status</td></tr>
+      <tr><td><strong>Who you'd work with day to day</strong></td><td>Portfolio managers, buy-side dealers/traders, quant/research analysts, mandate-focused compliance, enterprise risk, middle-office operations</td><td>Product, retail conduct/suitability compliance, Ops, customer support, Sales &amp; marketing</td></tr>
+      <tr><td><strong>Typical systems</strong></td><td>Bloomberg AIM, Charles River IMS, BlackRock Aladdin, SimCorp Dimension <span class="conf u">illustrative industry examples, not confirmed as Fidelity's stack</span></td><td>In-house/white-label retail trading front-end and back-office admin console</td></tr>
+      <tr><td><strong>Where you've actually worked</strong></td><td>Not yet — say so directly if asked</td><td>Here — this is real, hands-on experience</td></tr>
+    </table>
+
+    <div class="callout good">
+      <span class="callout-label">Want to see what one of these actually looks like?</span>
+      Vendor demos for Bloomberg AIM, Charles River IMS and Aladdin are all sales-gated — you won't find a public walkthrough, and that's itself a fact worth knowing (these are enterprise, contract-sold platforms, not consumer apps you can trial). The one genuinely public exception is <strong>Limina</strong> (limina.com), a newer investment-management-system challenger that publishes real product screenshots on its own marketing site with no sales call required — portfolio monitoring, order management, compliance checks, performance attribution and operations, all visible. It's one vendor's UI, not Fidelity's, but spending twenty minutes on it will do more for your intuition than any amount of reading about OMS/PMS in the abstract. <span class="conf c">Limina's public screenshots confirmed as of this research</span> <span class="conf u">Fidelity's actual platform is unconfirmed and likely different</span>
+    </div>
+
     <div class="callout gap">
       <span class="callout-label">Say this if asked about specific vendors or systems</span>
-      "I don't know Fidelity's specific platform stack — I've mapped the generic front-office workflow so I understand roughly where a Product Owner's backlog items are likely to sit, but I'd want you to tell me what you actually run." Confident and honest; guessing a vendor name you can't back up is a worse look than admitting you don't know.
+      "I don't know Fidelity's specific platform stack — I've mapped the generic front-office workflow, and looked at public product material from vendors like Bloomberg AIM, Charles River and Limina to understand the shape of the tooling, but I haven't worked inside one. I'd want you to tell me what you actually run." Confident and honest; guessing a vendor name you can't back up is a worse look than admitting you don't know.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="workflow">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Day-to-day, Zoomed In</span><h2>Who does what, and when — a generic asset-management workflow</h2></div>
+    <p class="phase-sub">The same generic-industry caveat as the section above applies here at least as strongly: this is a standard textbook/vendor-literature workflow (the phase groupings below mirror how vendors like Limina categorise their own modules — PMS, OMS, IBOR, Compliance, Risk, Performance &amp; Attribution), not a claim about how Fidelity specifically runs its Multi-Asset, Systematic &amp; Solutions Value Stream day to day. <span class="conf i">generic industry workflow, structure informed by vendor product literature</span> Read it left to right as a single order's lifecycle, and top to bottom as who's touching it at each stage.</p>
+
+    <div class="wf-scroll">
+      <table class="wf">
+        <tr>
+          <th class="wf-corner">Stakeholder</th>
+          <th>1 · Research &amp; signal</th>
+          <th>2 · Portfolio decision<br><span class="wf-tag">PMS</span></th>
+          <th>3 · Order &amp; pre-trade compliance<br><span class="wf-tag">OMS · Compliance</span></th>
+          <th>4 · Execution<br><span class="wf-tag">EMS</span></th>
+          <th>5 · Allocation &amp; trade capture</th>
+          <th>6 · Settlement &amp; IBOR<br><span class="wf-tag">IBOR</span></th>
+          <th>7 · Risk &amp; performance<br><span class="wf-tag">Risk · Attribution</span></th>
+        </tr>
+        <tr class="wf-pm">
+          <td class="wf-lane">Portfolio Manager / Research Analyst</td>
+          <td>Reviews research, quant/model signals and market news; forms or confirms an investment view for the day.</td>
+          <td>Decides the target position — or approves a systematic model's proposed rebalance — against the fund's mandate.</td>
+          <td class="wf-empty">—</td>
+          <td class="wf-empty">—</td>
+          <td class="wf-empty">—</td>
+          <td class="wf-empty">—</td>
+          <td>Reviews portfolio risk exposure and performance attribution; feeds it back into tomorrow's decisions.</td>
+        </tr>
+        <tr class="wf-trader">
+          <td class="wf-lane">Buy-side Trader / Dealer</td>
+          <td class="wf-empty">—</td>
+          <td class="wf-empty">—</td>
+          <td>Receives the order, checks liquidity and market conditions, chooses an execution strategy (algo, block, broker).</td>
+          <td>Executes the parent order in the market via broker/algo/exchange; manages child-order fills and market impact.</td>
+          <td>Allocates fills back across the contributing funds/accounts; confirms the trade with the counterparty.</td>
+          <td class="wf-empty">—</td>
+          <td>Reports execution quality/slippage (implementation shortfall) back to the PM.</td>
+        </tr>
+        <tr class="wf-compliance">
+          <td class="wf-lane">Compliance</td>
+          <td class="wf-empty">—</td>
+          <td>Maintains the mandate rules and restricted lists the PM's target has to respect.</td>
+          <td>Runs the pre-trade compliance check — mandate limits, restricted lists, concentration caps — before the order can release; reviews any override request.</td>
+          <td>Monitors for real-time breach alerts if a partial fill temporarily pushes a limit.</td>
+          <td>Confirms the allocation doesn't create a breach at the individual fund level.</td>
+          <td>Runs the end-of-day post-trade compliance sweep across every fund's updated positions.</td>
+          <td>Investigates and documents any breach, escalates per governance policy, reports up as required.</td>
+        </tr>
+        <tr class="wf-risk">
+          <td class="wf-lane">Risk Management</td>
+          <td>Monitors the day's macro/market risk backdrop.</td>
+          <td>Supplies risk analytics (factor exposure, correlation, stress scenarios) that inform the PM's target-setting.</td>
+          <td>May flag if the proposed order pushes portfolio risk (VaR, Greeks) beyond internal limits — a risk-based check running alongside Compliance's mandate-based one.</td>
+          <td class="wf-empty">—</td>
+          <td class="wf-empty">—</td>
+          <td>Recalculates exposure (Delta, Gamma, Vega, duration, VaR) once positions update from settlement.</td>
+          <td>Produces daily risk reports for PMs, senior management and the risk committee; escalates limit breaches.</td>
+        </tr>
+        <tr class="wf-ops">
+          <td class="wf-lane">Investment Operations (Middle/Back Office)</td>
+          <td class="wf-empty">—</td>
+          <td class="wf-empty">—</td>
+          <td class="wf-empty">—</td>
+          <td>Monitors trade confirmations coming back from brokers/counterparties.</td>
+          <td>Books and confirms trades, matches against counterparty confirmations, investigates and resolves any breaks.</td>
+          <td>Manages settlement (DVP), updates the IBOR with confirmed positions and cash, processes corporate actions, reconciles against the custodian.</td>
+          <td>Calculates/verifies NAV; supplies the data behind performance &amp; attribution and client/regulatory reporting.</td>
+        </tr>
+        <tr class="wf-tech">
+          <td class="wf-lane">Technology &amp; Data<br><span style="font-weight:400;font-size:11.5px;color:var(--slate);">— roughly where this role sits</span></td>
+          <td>Keeps market-data and research feeds live and accurate for the day.</td>
+          <td>Maintains the data pipelines feeding the portfolio and risk models (pricing, reference data).</td>
+          <td>Maintains OMS/compliance-rule configuration and broker connectivity (FIX).</td>
+          <td>Monitors system uptime and connectivity through the trading day.</td>
+          <td class="wf-empty">—</td>
+          <td>Maintains the IBOR/accounting-system ETL and reconciliation pipelines.</td>
+          <td>Maintains the risk and performance calculation/reporting engines, and owns the backlog of change requests behind every column above.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout key">
+      <span class="callout-label">Walking it through as one story, not a grid — the version to actually say out loud</span>
+      <p>A PM decides to add to a position. The order hits pre-trade compliance and gets <strong>blocked</strong> — it would push the fund past its 5% single-issuer limit. That's the moment this role exists for: not the trade itself, but the workflow around the breach. Does the system let the trader see a clear reason code, or just "rejected"? Can the PM request an override with documented justification, and who has authority to approve one? Is the partial-fill scenario handled — if only part of the order can go through before the limit is hit, does the system know to execute the compliant portion and hold the rest, or does it reject the whole order? None of that is a quant question. It's a <strong>requirements and workflow-design question</strong> — the exact kind you'd ask about a suitability gate on a retail platform, aimed at a different object.</p>
+      <p>Once the trade executes, Investment Operations books it, resolves any break against the counterparty's confirmation, and the IBOR updates. Risk recalculates exposure off the new position. Compliance re-sweeps every fund at end of day in case anything drifted into breach overnight from market moves alone, with no new trade involved. That end-of-day sweep — a breach with no trade behind it — is worth knowing exists; it's a common surprise for people who assume breaches only happen at the moment of trading.</p>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">Where a BA/PO actually sits in this picture</span>
+      You don't own any single row above — you sit behind the <strong>Technology &amp; Data</strong> row, translating what every other row needs into backlog items for the systems that support them: a clearer compliance breach reason code, a faster IBOR reconciliation break report, a portfolio-decision screen showing the risk model's latest factor exposure alongside the PM's target. That's the same shape of work as mapping a retail client's trading journey and turning it into backlog items — the object changed, the job didn't.
     </div>
   </div>
 </section>
@@ -513,7 +859,7 @@
     </div>
     <div class="callout good">
       <span class="callout-label">What genuinely transfers — and it's real, even if it's not domain-specific</span>
-      PMP, PSM and PSPO certified, with years of hands-on backlog ownership, epic-to-story breakdown and BA artefact delivery in Agile financial-services teams. A stakeholder-management pattern — cross-timezone, US-based management with limited overlap — that matches the JD's distributed-teams line almost word for word. Genuine, repeated evidence of ramping into new regulatory and product domains under real delivery pressure: multi-entity, multi-jurisdiction requirements work; SFC suitability and margin-collateral logic UAT'd from scratch; a white-label crypto exchange delivered with an external vendor from a standing start. Vendor management with SLAs and delivery tracking. Currently leading enterprise adoption of Claude AI and Jira/Confluence Cloud, including governance frameworks — directly relevant to the JD's "drive adoption of new capabilities" line, and recent enough to sound current rather than historical.</p>
+      PMP, PSM and PSPO certified, with years of hands-on backlog ownership, epic-to-story breakdown and BA artefact delivery in Agile financial-services teams. A stakeholder-management pattern — cross-timezone, US-based management with limited overlap — that matches the JD's distributed-teams line almost word for word. Genuine, repeated evidence of ramping into new regulatory and product domains under real delivery pressure: multi-entity, multi-jurisdiction requirements work; SFC suitability and margin-collateral logic UAT'd from scratch; a white-label crypto exchange delivered with an external vendor from a standing start. Vendor management with SLAs and delivery tracking. Currently leading enterprise adoption of Claude AI and Jira/Confluence Cloud, including governance frameworks — directly relevant to the JD's "drive adoption of new capabilities" line, and recent enough to sound current rather than historical.
     </div>
     <p style="font-size:14.5px;color:var(--slate);">If asked directly <em>"why should we hire you without asset management experience?"</em> — the honest, non-defensive answer: platform and delivery teams in asset management generally want a dedicated Product Owner precisely so portfolio managers and quant analysts don't have to run their own backlog and stakeholder management on top of their actual jobs. Your value on day one is exactly that discipline, applied to a domain you're committed to learning quickly rather than one you're claiming to already know.</p>
   </div>
