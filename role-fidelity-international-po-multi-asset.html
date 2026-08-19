@@ -661,7 +661,45 @@
       <tr><td><strong>T+2 settlement / Custodian</strong></td><td>T+2 is the standard settlement cycle for most cash equities (trade date plus two business days); the custodian is the institution that physically holds the fund's assets and settles its trades.</td></tr>
       <tr><td><strong>DVP (Delivery versus Payment)</strong></td><td>A settlement mechanism where securities and cash change hands simultaneously, so neither side is exposed to the other defaulting mid-settlement.</td></tr>
       <tr><td><strong>Corporate action</strong></td><td>An issuer-driven event — dividend, stock split, merger, rights issue — that affects a position and has to be processed correctly across every system holding that position.</td></tr>
+      <tr><td><strong>Strategic vs. tactical allocation</strong></td><td>Strategic allocation is the long-term target mix across asset classes set to match the fund's objectives and risk tolerance; tactical allocation is a shorter-term tilt away from that target to reflect a near-term view, reverted once the view plays out (or the mandate simply doesn't permit it).</td></tr>
+      <tr><td><strong>Systematic vs. discretionary</strong></td><td>Systematic investing follows a rules-based, model-driven process applied consistently; discretionary investing relies on a portfolio manager's own judgement call by call. See the "Systematic equities" section above for the fuller three-way distinction against passive investing.</td></tr>
     </table>
+  </div>
+</section>
+
+<section class="phase" id="pmcycle">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Straight From The JD</span><h2>What a portfolio manager actually does — a simple flow</h2></div>
+    <p class="phase-sub">The JD's own words: the successful candidate is expected to understand how portfolio managers <strong>"construct portfolios, manage risk, monitor performance and implement investment decisions across multiple asset classes."</strong> <span class="conf c">quoted from the posting</span></p>
+    <p class="phase-sub" style="margin-top:-10px;">One flag before the flow below: I've resequenced these four activities into the order they actually happen in practice, not the order the JD lists them in — implementation follows construction rather than sitting after risk and performance, and risk management runs continuously alongside implementation rather than as a later step. Job descriptions typically list responsibilities, not a sequence; presenting this list as literally sequential if asked about it directly would be an easy, avoidable slip.</p>
+
+    <div class="flow">
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">1</span><h3>Construct portfolios</h3></div>
+        <p style="margin:0;font-size:13.5px;">Set the long-term target mix across asset classes to match the fund's mandate and objectives (<strong>strategic allocation</strong>), plus any shorter-term tilt away from that target to reflect a near-term view (<strong>tactical allocation</strong>). Whether this call comes from a person's own judgement or a rules-based model applied consistently is the <strong>discretionary vs. systematic</strong> distinction covered above.</p>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">2</span><h3>Implement investment decisions</h3></div>
+        <p style="margin:0;font-size:13.5px;">Turn the target position into actual orders, run them through pre-trade compliance, execute in the market, and allocate the fills back across whichever funds or accounts asked for them — the OMS/EMS mechanics covered in the platform flow below.</p>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">3</span><h3>Manage risk</h3></div>
+        <p style="margin:0;font-size:13.5px;">Continuously monitor the portfolio's exposure against its mandate and risk limits — concentration, factor exposure, the Greeks and VaR from the vocabulary table above — and escalate when a limit is breached. This runs alongside implementation on an ongoing basis, not after it.</p>
+      </div>
+      <div class="flow-arrow">&#8595;</div>
+      <div class="flow-stage">
+        <div class="flow-head"><span class="flow-num">4</span><h3>Monitor performance</h3></div>
+        <p style="margin:0;font-size:13.5px;">Measure realised returns against the benchmark, attribute what drove them (alpha vs. beta, which holdings or factors contributed), and feed that back into the next round of portfolio construction.</p>
+      </div>
+      <div class="flow-arrow" style="font-size:13px;letter-spacing:0;">loops back into Step 1</div>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">Why this is a loop, not a line</span>
+      Performance monitoring isn't the end of the process — what it reveals (a factor that underperformed, a risk limit that kept binding) is exactly what feeds the next portfolio-construction decision. Naming that loop explicitly, if asked to describe this in the interview, reads as more senior than listing four steps and stopping.
+    </div>
   </div>
 </section>
 
