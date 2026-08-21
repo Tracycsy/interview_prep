@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirae Asset — Round 2 Panel Prep (Finance · Dealing · Middle Office &amp; Settlement)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2545;
+    --navy-deep:#061530;
+    --navy-mid:#17457C;
+    --teal:#0E8C9B;
+    --teal-bright:#3FB6C4;
+    --ink:#101820;
+    --slate:#55606E;
+    --line:#DDE3EA;
+    --paper:#F6F8FB;
+    --panel:#FFFFFF;
+    --gap-bg:#FDF3EC;
+    --gap-border:#E8B48D;
+    --good-bg:#EDF6F7;
+    --good-border:#A5D2D9;
+    --fin:#5B5BA8;
+    --fin-bg:#F0F0F9;
+    --deal:#B7702A;
+    --deal-bg:#FBF3E9;
+    --mo:#0E8C9B;
+    --mo-bg:#EAF5F6;
+    --client:#0B2545;
+    --client-bg:#EDF0F5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.56;font-size:16px;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Newsreader',serif;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
+
+  .topnav{position:sticky;top:0;background:rgba(246,248,251,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50;}
+  .topnav-inner{max-width:960px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .topnav-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--slate);margin-right:4px;}
+  .topnav a{font-size:12.5px;text-decoration:none;color:var(--navy-mid);border:1px solid var(--line);padding:4px 11px;border-radius:20px;transition:.15s;background:#fff;}
+  .topnav a:hover{border-color:var(--teal);color:var(--navy);}
+  .topnav a.home{color:var(--slate);border:none;background:transparent;border-right:1px solid var(--line);border-radius:0;padding-right:13px;margin-right:3px;}
+
+  header.hero{background:var(--navy);color:#fff;padding:56px 0 46px;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;right:-140px;top:-160px;width:460px;height:460px;border:1px solid rgba(63,182,196,0.22);border-radius:50%;}
+  header.hero .wrap{position:relative;z-index:2;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:16px;}
+  header.hero h1{font-size:34px;line-height:1.15;margin:0 0 14px;color:#fff;max-width:780px;}
+  header.hero .sub{font-size:16px;color:rgba(255,255,255,0.80);max-width:680px;}
+
+  .panel-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px;}
+  .pcard{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);border-radius:6px;padding:14px 16px;}
+  .pcard .who{font-size:15px;font-weight:700;color:#fff;margin-bottom:3px;}
+  .pcard .role{font-size:12.5px;color:rgba(255,255,255,0.72);}
+  .pcard .tagl{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-top:9px;padding:2px 7px;border-radius:3px;display:inline-block;}
+  @media(max-width:720px){.panel-row{grid-template-columns:1fr;}}
+
+  .phase{padding:44px 0;border-bottom:1px solid var(--line);}
+  .phase-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px;}
+  .phase-num{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.11em;color:var(--teal);font-weight:500;text-transform:uppercase;}
+  .phase h2{font-size:25px;margin:0;}
+  .phase-sub{color:var(--slate);font-size:14.5px;margin:8px 0 22px;max-width:720px;}
+  h3{font-size:17.5px;margin:28px 0 10px;}
+
+  .qa{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--navy-mid);border-radius:4px;padding:17px 21px;margin-bottom:14px;}
+  .qa.fin{border-left-color:var(--fin);}
+  .qa.deal{border-left-color:var(--deal);}
+  .qa.mo{border-left-color:var(--mo);}
+  .qtag{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:9px;line-height:1.4;}
+  .qa.fin .qtag{color:var(--fin);}
+  .qa.deal .qtag{color:var(--deal);}
+  .qa.mo .qtag{color:var(--mo);}
+  .qa p{margin:0 0 10px;}
+  .qa p:last-child{margin-bottom:0;}
+  .say{background:#FAFCFD;border-left:2px solid var(--teal-bright);padding:10px 14px;margin:0 0 10px;font-size:14.5px;}
+  .why{font-size:13.5px;color:var(--slate);}
+  .why strong{color:var(--ink);}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px;}
+  th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#FFFFFF;}
+  tr:nth-child(odd) td{background:#FAFCFD;}
+
+  .callout{border-radius:6px;padding:17px 20px;margin:16px 0;font-size:14.5px;}
+  .callout.gap{background:var(--gap-bg);border:1px solid var(--gap-border);}
+  .callout.good{background:var(--good-bg);border:1px solid var(--good-border);}
+  .callout.key{background:var(--navy);border:1px solid var(--navy-mid);color:rgba(255,255,255,0.92);}
+  .callout.key strong{color:#fff;}
+  .callout-label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;margin-bottom:9px;display:block;}
+  .callout.gap .callout-label{color:#A6531E;}
+  .callout.good .callout-label{color:#0E6B78;}
+  .callout.key .callout-label{color:var(--teal-bright);}
+  .callout p{margin:0 0 10px;}
+  .callout p:last-child{margin-bottom:0;}
+
+  ol.numbered,ul.plain{margin:0;padding-left:0;list-style:none;}
+  ol.numbered li{display:flex;gap:14px;margin-bottom:14px;}
+  ol.numbered .num{font-family:'Newsreader',serif;font-weight:700;color:var(--teal);font-size:20px;line-height:1.45;flex:0 0 26px;}
+  ul.plain li{position:relative;padding-left:19px;margin-bottom:9px;}
+  ul.plain li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--teal-bright);}
+
+  /* ---- flow diagram ---- */
+  .legend{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 22px;}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12.5px;background:#fff;border:1px solid var(--line);padding:5px 11px;border-radius:20px;}
+  .sw{width:11px;height:11px;border-radius:3px;flex:0 0 11px;}
+
+  .flow{margin:22px 0;}
+  .fstep{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:0;overflow:hidden;}
+  .fstep + .fstep{margin-top:0;}
+  .fhead{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line);background:#FBFCFE;}
+  .fnum{background:var(--navy);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 26px;}
+  .fhead h4{font-size:15.5px;margin:0;font-family:'Inter',sans-serif;font-weight:700;flex:1 1 auto;}
+  .owner{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.07em;padding:3px 8px;border-radius:3px;white-space:nowrap;}
+  .own-client{background:var(--client-bg);color:var(--client);border:1px solid #C3CCDA;}
+  .own-deal{background:var(--deal-bg);color:var(--deal);border:1px solid #E5C9A5;}
+  .own-mo{background:var(--mo-bg);color:var(--mo);border:1px solid #A5D2D9;}
+  .own-fin{background:var(--fin-bg);color:var(--fin);border:1px solid #C0C0E4;}
+  .fbody{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .fcell{padding:14px 18px;font-size:13.5px;}
+  .fcell + .fcell{border-left:1px solid var(--line);}
+  .fcl{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--slate);margin-bottom:5px;}
+  @media(max-width:680px){.fbody{grid-template-columns:1fr;} .fcell + .fcell{border-left:none;border-top:1px solid var(--line);}}
+  .arrow{text-align:center;color:var(--teal-bright);font-size:17px;line-height:1.5;padding:3px 0;}
+
+  .matrix td:first-child{font-weight:600;}
+  .tick{color:var(--teal);font-weight:700;}
+  .dash{color:#BFC7D1;}
+
+  .conf{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;vertical-align:middle;margin-left:4px;}
+  .conf.c{background:#E4F1E9;color:#1F6B4F;border:1px solid #B4D8C3;}
+  .conf.i{background:#FFF4E0;color:#8A6113;border:1px solid #E8CC94;}
+  .conf.u{background:#FBE9E4;color:#A63A20;border:1px solid #EBBBA9;}
+
+  footer{padding:34px 0 60px;color:var(--slate);font-size:12.5px;line-height:1.6;}
+  a{color:var(--navy-mid);}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="home">&larr; All prep</a>
+    <a href="role-mirae-asset-ba-lead.html" class="home">&larr; Round 1 prep</a>
+    <span class="topnav-label">Jump to</span>
+    <a href="#panel">Read the panel</a>
+    <a href="#flow">Trade flow</a>
+    <a href="#matrix">Who touches what</a>
+    <a href="#finance">Finance · Christina Ho</a>
+    <a href="#dealing">Dealing · Wind Chan</a>
+    <a href="#mo">Middle Office &amp; Settlement</a>
+    <a href="#cross">Cross-cutting</a>
+    <a href="#ask">Questions to ask</a>
+    <a href="#danger">Don't guess these</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Round 2 · Mirae Asset Securities (HK) · Business Analyst Lead</div>
+    <h1>The operations panel</h1>
+    <p class="sub">Round 1 was about whether you can do the job. This round is about whether the people who will live with your requirements trust you near their systems. Note who is <em>not</em> in the room: no technology, no product, no BA manager. All three interviewers are downstream consumers of your deliverables — and all three carry personal regulatory accountability for the systems you would be changing.</p>
+    <div class="panel-row">
+      <div class="pcard">
+        <div class="who">Christina Ho</div>
+        <div class="role">Head of Finance</div>
+        <div class="tagl" style="background:var(--fin-bg);color:var(--fin);">Can I trust your numbers?</div>
+      </div>
+      <div class="pcard">
+        <div class="who">Wind Chan</div>
+        <div class="role">Head of Dealing, Wealth Management</div>
+        <div class="tagl" style="background:var(--deal-bg);color:var(--deal);">Will you break my market access?</div>
+      </div>
+      <div class="pcard">
+        <div class="who">Video call, separately</div>
+        <div class="role">Head of Middle Office &amp; Settlement</div>
+        <div class="tagl" style="background:var(--mo-bg);color:var(--mo);">Does it still tie out at 5pm?</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="phase" id="panel">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Read This First</span><h2>What the panel composition is telling you</h2></div>
+    <p class="phase-sub">Spend two minutes on this before anything else. It reframes how you should answer everything that follows.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The frame that should govern this entire round</span>
+      <p>Under the SFC's <strong>Manager-In-Charge of Core Functions</strong> regime, a licensed corporation must file with the SFC the name, job title and reporting line of the named individual in charge of each of eight core functions. The SFC's own example job titles for the <strong>Finance and Accounting</strong> function are "Chief Finance Officer; Financial Controller; Finance Director." Its example titles for <strong>Operational Control and Review</strong> include "Head of Operations." <span class="conf c">confirmed</span></p>
+      <p>So it is very likely that at least two of the three people you are meeting are <strong>named on a document at the SFC as personally in charge</strong> of the functions your requirements would change. In client-asset matters the SFC has said explicitly that senior management "including responsible officers and Managers-In-Charge of Core Functions, bear primary responsibility." <span class="conf c">confirmed</span></p>
+      <p><strong>What follows from that.</strong> When the Head of Finance asks "how do I know this number is right?", that is not finance pedantry — it is a person asking about their own licence. When the Head of Dealing asks what happens to a rejected order, they are not testing trivia. Answer every question in this round as though the person asking will be held personally accountable for your answer, because they may well be. Say the phrase <em>"so you can evidence it"</em> more than once. It is the single most reassuring thing an operations owner can hear from a BA.</p>
+    </div>
+
+    <h3>Four things this panel implies about the role</h3>
+    <ol class="numbered">
+      <li><span class="num">1</span><span><strong>This role is closer to operations than the job description suggested.</strong> The JD read as product-adjacent — product vision, user stories, UI mock-ups. The panel reads as trade-lifecycle. Expect the centre of gravity to be requirements that operations, dealing and finance have to run, not features that marketing wants. That is <em>good news</em> for you: it plays to the pre-trade suitability UAT and back-office configuration work rather than to pure product instinct. <span class="conf i">inference</span></span></li>
+      <li><span class="num">2</span><span><strong>They are assessing damage risk, not just capability.</strong> A BA who writes a plausible-sounding requirement that quietly breaks a reconciliation, a levy calculation or an order-sequencing rule creates months of cleanup for exactly these three people. Every answer should carry the subtext: <em>I will find out before I specify, and I will tell you when I don't know.</em></span></li>
+      <li><span class="num">3</span><span><strong>Nobody in the room will be impressed by app features.</strong> Don't lead with journeys, UX or roadmap. Lead with lifecycle, controls, data lineage and exceptions. Save the product-thinking material for whoever you meet next.</span></li>
+      <li><span class="num">4</span><span><strong>The Middle Office call being separate and by video probably means that person is not in Hong Kong</strong> — quite possibly Seoul, or a regional operations hub. If so, the Hong Kong–Seoul operating-model question from your round 1 prep becomes concrete rather than theoretical, and it is worth asking them directly where operational decisions get made. <span class="conf i">inference — check the meeting invite for a clue</span></span></li>
+    </ol>
+
+    <div class="callout gap">
+      <span class="callout-label">Do this before the interview — three minutes, high value</span>
+      <p><strong>1 · Open the SFC public register</strong> at <span class="mono">apps.sfc.hk/publicregWeb</span> and search Mirae Asset Securities (HK) Limited, CE No. <strong>BJB333</strong>. It lists every licensed individual, their regulated activity types, and whether they are a Responsible Officer. If Christina Ho or Wind Chan appear as ROs, you know they carry licence-level accountability, and you can pitch accordingly. I could not read the register from here — it blocks automated access — so this one is yours to do. <span class="conf u">unread</span></p>
+      <p><strong>2 · I could not verify any public professional information on either individual.</strong> Nothing reliable connects a "Christina Ho" or a "Wind Chan" to Mirae Asset in Hong Kong in any source I could reach. There is a Christina Ho in a finance role at a <em>different</em> Hong Kong firm — do not assume it is the same person. Go in without assumptions about background or seniority.</p>
+      <p><strong>3 · There is a LinkedIn posting for a "Head of Finance" at Mirae Asset Securities (HK).</strong> I could not read it. If it is still live, it is the highest-value single document available to you — it would state, in their own words, what that firm thinks the Finance remit covers. Worth two minutes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="flow">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">The Diagram</span><h2>One trade on MAPS, end to end — and who touches it</h2></div>
+    <p class="phase-sub">A Hong Kong stock buy, from tap to settled and reported. This is a <strong>generic industry flow</strong>, not a claim about Mirae Asset's architecture — say so if you use it. Learn the <em>shape</em>, not the words: the value is being able to sketch this on a whiteboard and then ask which parts are automated.</p>
+
+    <div class="legend">
+      <span class="lg"><span class="sw" style="background:var(--client);"></span>Client / app / platform</span>
+      <span class="lg"><span class="sw" style="background:var(--deal);"></span>Dealing — Wind Chan</span>
+      <span class="lg"><span class="sw" style="background:var(--mo);"></span>Middle Office &amp; Settlement</span>
+      <span class="lg"><span class="sw" style="background:var(--fin);"></span>Finance — Christina Ho</span>
+    </div>
+
+    <div class="flow">
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">1</span><h4>Client taps Buy in the app</h4><span class="owner own-client">Platform</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>Order ticket built: instrument, market, side, quantity, order type, price. Board lot validated for HK. Buying power checked against <em>available to trade</em>. Product eligibility and entitlement checked — is this client, in this entity, with this investor classification, allowed to trade this instrument?</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>Which balance figure funds the order, and whether unsettled proceeds count. Complex-product gating and warning screens where the instrument is flagged complex. Board-lot and odd-lot handling. For virtual assets, the pre-funding rule and per-client exposure limit fire here, not later.</div>
+        </div>
+      </div>
+      <div class="arrow">&#8595;</div>
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">2</span><h4>Pre-trade risk and regulatory validation</h4><span class="owner own-deal">Dealing owns the rules</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>Automated controls reject or hold the order: price-band and erroneous-order checks, credit and exposure thresholds, market state (halted, auction, closed), and the regulatory checks — a valid <strong>BCAN</strong> must accompany a HK order or it is rejected outright; Northbound sell orders are pre-trade-checked against the previous day's position; Connect accepts <strong>limit orders only</strong>.</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>The <strong>exception queue</strong> — and this is the most under-specified area in most retail apps. What is auto-rejected versus held for the desk, what the client sees and when, and how a held order is released <em>without</em> jumping ahead of orders received later. Also: what the app does when the exchange gateway throttle is exhausted on a busy open.</div>
+        </div>
+      </div>
+      <div class="arrow">&#8595;</div>
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">3</span><h4>Routing and execution</h4><span class="owner own-deal">Dealing</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>Straight-through to SEHK for HK. For Korea, a venue choice exists between KRX and the Nextrade ATS. For the US, almost certainly via an overseas executing broker. For virtual assets, to the partnered SFC-licensed platform. Fills return, partial or full.</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>Order-status model and client messaging for partial fills, expiry and rejection. Session-aware order types per market. Whether the client is told which venue filled them. <strong>The best execution obligation stays with the Hong Kong licensed entity even when an affiliate or third party executes</strong> — so the monitoring artefacts are a requirement, not an afterthought.</div>
+        </div>
+      </div>
+      <div class="arrow">&#8595;</div>
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">4</span><h4>Trade capture, enrichment and the contract note</h4><span class="owner own-mo">Middle Office</span><span class="owner own-fin">Finance cares</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>Execution is booked and enriched from static data: settlement market and currency, counter, stamp-duty exemption flag, fee and levy schedule. Charges are computed — commission, stamp duty, SFC levy, AFRC levy, exchange trading fee, clearing fee. A <strong>contract note</strong> must be issued within two business days, with charges disclosed <em>separately</em>, not blended.</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>The fee engine and its rounding: stamp duty rounds <strong>up to the nearest dollar</strong>; levies and the trading fee round <strong>to the nearest cent</strong>; each computed separately before summing. Rates must be <strong>configurable and effective-dated with an audit trail</strong> — three of them have changed since 2023. The app is the delivery channel for a legally prescribed document, so the confirmation screen is a compliance surface.</div>
+        </div>
+      </div>
+      <div class="arrow">&#8595;</div>
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">5</span><h4>Clearing — netting into a settlement obligation</h4><span class="owner own-mo">Settlement</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>For HK, HKSCC becomes the counterparty by novation and the trade enters the CNS system, where positions net <strong>same-day and across days</strong>. A Final Confirmation Statement of the firm's actual net obligation arrives around <strong>2pm on T+1</strong>. This is why depository movements never equal the day's trades.</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>An <strong>expected-net-position layer</strong> as the reconciliation key — reconciling client-level trades directly against depository movements will never tie. This single point, said out loud, will tell the Middle Office head that you have actually thought about their job.</div>
+        </div>
+      </div>
+      <div class="arrow">&#8595;</div>
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">6</span><h4>Settlement — stock and money, on different clocks per market</h4><span class="owner own-mo">Settlement</span><span class="owner own-fin">Finance funds it</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>HK settles <strong>T+2</strong> through CCASS batch runs against a designated bank account. Northbound settles stock <strong>T-day</strong> but money <strong>T+1</strong>, in RMB only. Korea is <strong>T+2</strong> in KRW with cash typically pre-provisioned a day or two ahead. US is <strong>T+1</strong>, and the FX leg has to settle <em>before</em> the security. Client money must sit in a segregated trust or client account.</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>The <strong>balance matrix</strong>: settled cash, unsettled receivable, unsettled payable, on-hold, pledged, blocked for corporate action — by market and currency — and which UI figure each cell feeds. Withdrawal, buying power and margin all derive from one place, or they diverge. Plus four settlement calendars and an FX calendar, as configurable data.</div>
+        </div>
+      </div>
+      <div class="arrow">&#8595;</div>
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">7</span><h4>Reconciliation and exception resolution</h4><span class="owner own-mo">Middle Office</span><span class="owner own-fin">Finance signs</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>At the end of each business day the firm's own trade records are matched to the clearing house lists and to counterparty and executing-broker confirmations. Client money and client securities positions are reconciled against bank and depository statements. Fails are chased — an unsettled short HK position after the final run on T+2 can be borrowed against or bought in from T+3, at the failing party's cost.</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>Break reporting and ageing, and the exception workflow with maker-checker. The recurring break causes are worth knowing: netting, omnibus opacity where the depository sees one position, fee rounding, corporate-action timing, multi-counter securities, and FX rate source or timing mismatches.</div>
+        </div>
+      </div>
+      <div class="arrow">&#8595;</div>
+
+      <div class="fstep">
+        <div class="fhead"><span class="fnum">8</span><h4>Books, records, client reporting and regulatory returns</h4><span class="owner own-fin">Finance</span></div>
+        <div class="fbody">
+          <div class="fcell"><div class="fcl">What happens</div>Commission recognised as revenue; levies remitted; the firm's own earned commission must be moved <em>out</em> of the segregated account promptly. Monthly client statements go out where client assets were held at any point in the period. The firm files monthly Financial Resources Rules returns built from trading and back-office data, and must maintain liquid capital above its requirement <strong>at all times</strong>.</div>
+          <div class="fcell"><div class="fcl">What the BA specifies</div>Data lineage — which new or changed field lands in which return and which statement. Statement generation completeness controls. And the sweep of the firm's own commission out of client money, because if that is manual or monthly it is a breach accruing daily rather than an accounting inconvenience.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">How to use this in the room</span>
+      If you get a whiteboard, draw it as eight boxes and say: <em>"This is my generic mental model, not an assumption about your systems — where does it differ here, and which of these steps is still manual?"</em> That turns a diagram into a diagnostic conversation, and it invites them to teach you, which people enjoy far more than being tested. If there's no whiteboard, the same three sentences work spoken: order validation, execution, capture and fees, netting, settlement, reconciliation, reporting.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="matrix">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">One Table</span><h2>Who touches what — the version to memorise</h2></div>
+    <p class="phase-sub">If you remember nothing else from the diagram, remember this. It lets you address the right person on the right topic, which in a three-way panel matters more than depth.</p>
+    <table class="matrix">
+      <tr><th>Stage</th><th style="width:15%;">Dealing</th><th style="width:15%;">Middle Office &amp; Settlement</th><th style="width:15%;">Finance</th><th>The question each would ask</th></tr>
+      <tr><td>Order validation &amp; exceptions</td><td class="tick">Owns</td><td class="dash">—</td><td class="dash">—</td><td>"What happens to an order that fails a check?"</td></tr>
+      <tr><td>Routing &amp; execution quality</td><td class="tick">Owns</td><td class="dash">—</td><td class="dash">—</td><td>"Who owns best execution if an affiliate executes?"</td></tr>
+      <tr><td>Trade capture &amp; enrichment</td><td>Feeds</td><td class="tick">Owns</td><td>Consumes</td><td>"Where does the static data come from?"</td></tr>
+      <tr><td>Fees, levies, stamp duty</td><td class="dash">—</td><td>Checks</td><td class="tick">Owns</td><td>"How do you test the fee engine?"</td></tr>
+      <tr><td>Contract notes &amp; statements</td><td class="dash">—</td><td class="tick">Owns</td><td>Consumes</td><td>"Are charges shown separately?"</td></tr>
+      <tr><td>Netting &amp; settlement</td><td class="dash">—</td><td class="tick">Owns</td><td>Funds</td><td>"Why don't positions match trades?"</td></tr>
+      <tr><td>Client money &amp; securities</td><td class="dash">—</td><td>Operates</td><td class="tick">Oversees</td><td>"When does our own commission leave the client account?"</td></tr>
+      <tr><td>Reconciliation &amp; breaks</td><td class="dash">—</td><td class="tick">Owns</td><td>Signs off</td><td>"What causes most of your breaks?"</td></tr>
+      <tr><td>Corporate actions</td><td>Trading arrangements</td><td class="tick">Owns</td><td class="dash">—</td><td>"How would you model election deadlines?"</td></tr>
+      <tr><td>Regulatory returns &amp; capital</td><td class="dash">—</td><td>Feeds</td><td class="tick">Owns</td><td>"Which return does this new field land in?"</td></tr>
+      <tr><td>Outage fallback</td><td class="tick">Becomes the channel</td><td>Reconstructs</td><td class="dash">—</td><td>"Who takes orders when the app is down?"</td></tr>
+      <tr><td>Client trading surveillance</td><td class="tick">Acts</td><td class="dash">—</td><td class="dash">—</td><td>"When do you escalate a client's activity?"</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="phase" id="finance">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Interviewer 1</span><h2>Christina Ho — Head of Finance</h2></div>
+    <p class="phase-sub">Her underlying question is <strong>"can I trust the numbers this app produces, and can I trace them?"</strong> She is very likely the Manager-In-Charge of Finance and Accounting, which means timely and accurate financial reporting is her named regulatory responsibility. In a Hong Kong subsidiary of a foreign parent, the Finance head typically also carries regulatory reporting, client money oversight, payment authorisation, group reporting to the parent, tax and audit liaison. <span class="conf i">typical practice, not a rule</span></p>
+
+    <div class="callout good">
+      <span class="callout-label">Know these four things and you will hold this conversation comfortably</span>
+      <p><strong>1 · Liquid capital.</strong> Under the Financial Resources Rules a licensed corporation must maintain <em>liquid capital</em> — broadly, liquid assets less ranking liabilities — at or above its <em>required liquid capital</em>, <strong>at all times</strong>, not at month-end. <span class="conf c">confirmed</span></p>
+      <p><strong>2 · The return is built from trading data, not the general ledger.</strong> The monthly Financial Return is a set of forms covering margin client balances, securities collateral, cash client balances and total client assets. So a change to how the app books a trade, accrues a fee, holds a pending balance or classifies a client lands in a regulatory return. <span class="conf c">confirmed</span></p>
+      <p><strong>3 · The clause that should change how you write requirements.</strong> A firm that becomes aware it is unable to maintain — <em>or unable to ascertain whether it maintains</em> — required financial resources must notify the SFC and cease regulated activity. <strong>A broken data feed into the capital computation is itself a notifiable event.</strong> <span class="conf c">confirmed</span></p>
+      <p><strong>4 · Client money has a one-business-day rhythm.</strong> Client money must reach a segregated trust or client account within one business day of receipt — and money in a segregated account that is <em>not</em> client money, such as the firm's own earned commission, must be paid <strong>out</strong> within one business day. The firm's own money cannot sit there as a buffer. <span class="conf c">confirmed</span></p>
+    </div>
+
+    <div class="qa fin">
+      <div class="qtag">"The app calculates fees and charges. How would you test that it's right?"</div>
+      <p>The highest-probability question in this conversation, and the one where specificity wins outright.</p>
+      <div class="say">"I'd recompute independently of the system rather than testing the system against itself — build the expected charges from the published schedules and compare. Then I'd concentrate the test cases on the rounding and the boundaries, because that's where fee engines actually fail. Stamp duty rounds <em>up to the nearest dollar</em> per side; the SFC and AFRC levies and the exchange trading fee round to the <em>nearest cent</em>; and each has to be computed and rounded separately before you sum them. Get the order of operations wrong and every ticket is out by cents, which at retail volume becomes a real remittance variance. I'd also test the minimum-commission floor, tiered-rate boundaries, and any FX conversion, and I'd want the rates held as effective-dated configuration with an audit trail rather than hard-coded — three of them have changed since 2023."</div>
+      <p class="why"><strong>Then offer the three you know changed</strong>, because it demonstrates you checked rather than assumed: the HKEX <strong>trading tariff of HK$0.50 per transaction was abolished on 1 January 2023</strong> when the ad valorem fee rose to 0.00565%; the <strong>CCASS settlement fee minimum of HK$2 and maximum of HK$100 were removed in June 2025</strong> for exchange trades, which matters most at exactly the small ticket sizes a retail app generates; and stamp duty was cut to 0.1% in November 2023. Also say <strong>AFRC levy, not FRC levy</strong> — the body was renamed, and using the old name signals stale reading. <span class="conf c">all confirmed, but re-check the HKEX fee page the day before</span></p>
+    </div>
+
+    <div class="qa fin">
+      <div class="qtag">"How do you make sure a change to the app doesn't break our reporting?"</div>
+      <div class="say">"By treating data lineage as part of the requirement rather than something Finance discovers afterwards. Practically, for any new or changed data element I'd want to answer three questions before the spec is signed off: which report or return does this land in, who is accountable for that number, and can they trace it back to the transaction without asking a developer. I'd rather come to you with 'this new field affects these two returns, please confirm the treatment' than ask you to check whether the numbers look right after go-live."</div>
+      <p class="why"><strong>Why this lands.</strong> The SFC's 2024 circular on financial resources management found firms had "inadequate or ineffective controls over liquid capital monitoring" and failures to make proper accruals, and it expects a <strong>maker-and-checker mechanism for the calculation, monitoring and reporting of liquid capital</strong>. <span class="conf c">confirmed</span> Offering maker-checker unprompted is speaking her language. Reinforce with your own evidence: you verified <strong>end-of-day data feeds for trade settlement and post-trade surveillance with Risk and Reconciliation</strong> — that is exactly this discipline.</p>
+    </div>
+
+    <div class="qa fin">
+      <div class="qtag">"Have you actually worked with a finance function before, or just with product and technology?"</div>
+      <div class="say">"Yes, and in two different modes. Operationally, I led the UAT that verified our end-of-day data feeds for trade settlement and post-trade surveillance, working with Risk and Reconciliation — so I've been on the hook for whether downstream numbers tied out. And on the investment side, I've written the business cases and ROI models that went to the executive committee, so I'm used to defending a number to people whose job is to challenge it rather than to like it."</div>
+      <p class="why">Don't overclaim accounting knowledge. The credible position is: you are fluent in <em>data</em> and in <em>business cases</em>, not in FRR mechanics — and you know which questions to bring to her rather than answer yourself.</p>
+    </div>
+
+    <div class="qa fin">
+      <div class="qtag">"How do you prioritise between something the business wants and a control the app is missing?"</div>
+      <div class="say">"I try not to frame it as revenue against control, because that argument is always won by whoever is louder. I frame it as cost of delay against cost of failure — what the feature is worth per month versus what the control failure costs if it happens, including the regulatory and remediation cost, not just the direct loss. For anything with a client-asset or reporting consequence I'd want it sequenced ahead of a revenue feature, and I'd want that decision recorded rather than assumed, so nobody has to reconstruct the reasoning a year later."</div>
+      <p class="why">The phrase "recorded rather than assumed" matters to someone with named accountability. It says you will leave an audit trail of the decision, which protects her.</p>
+    </div>
+
+    <div class="qa fin">
+      <div class="qtag">"What do you need from my team, and when?"</div>
+      <p>A generous question and an easy one to fumble by asking for too much. Answer with respect for her calendar.</p>
+      <div class="say">"Mostly two things, and both early rather than often. First, sign-off on treatment — for each new data element, which report it lands in and how it should be classified. Second, someone to review the reconciliation and exception design before build, not after. And I'd want to book those away from your close and reporting windows — month-end, the return deadline, quarter-end group reporting. I'd rather work around your calendar than land a requirements review in the middle of it."</div>
+      <p class="why">Knowing that her month has spiky, immovable deadlines — and saying you will plan around them — is a small thing that buys disproportionate goodwill. It signals you have worked with a finance function that had real deadlines.</p>
+    </div>
+
+    <div class="qa fin">
+      <div class="qtag">"Do you know what a segregated account is?" / client money probing</div>
+      <div class="say">"At the level a BA needs, yes — client money sits in an account designated as a trust or client account with an authorised institution, it has to get there within one business day of receipt, and money in there that isn't client money has to come out within one business day. The part I'd flag as a product design question rather than an accounting one is the second half: if the app is debiting commission from clients, then the sweep of our own earned commission out of the segregated account is a systems process. If that's manual or runs monthly, it isn't an accounting inconvenience — it's a breach accruing daily. So I'd want to know whether that's automated today."</div>
+      <p class="why"><strong>This is your best single question for her.</strong> A real enforcement case involved a firm failing to move roughly HK$38m of its own commissions and interest out of segregated accounts within one business day over about two and a half years, alongside unauthorised transfers, resulting in a reprimand and a HK$2.5m fine. <span class="conf c">confirmed, firm anonymised in the source</span> You don't need to cite the case. You just need to show you know the fee engine is a client-money surface, not only a revenue surface. Very few BAs know that.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="dealing">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Interviewer 2</span><h2>Wind Chan — Head of Dealing, Wealth Management</h2></div>
+    <p class="phase-sub">His underlying question is <strong>"will your requirements break my market access, or leave my desk holding a mess?"</strong> The "Wealth Management" qualifier matters: he likely deals for advised and relationship-managed clients as well as self-directed flow, which means suitability, order recording and funds/bonds dealing are all in his world, not just listed equity execution.</p>
+
+    <div class="callout key">
+      <span class="callout-label">The one fact that anchors this entire conversation</span>
+      <p>Hong Kong's best execution rule is <strong>one sentence</strong>. Code of Conduct paragraph 3.2, in full: <em>"A licensed or registered person when acting for or with clients should execute client orders on the best available terms."</em> That is the whole paragraph. <span class="conf c">confirmed verbatim</span></p>
+      <p>All the substance sits in the SFC's <strong>best execution circular of January 2018</strong> and its accompanying thematic review. The two things from it to know cold: firms need a <strong>written execution policy</strong> covering the factors considered, any <strong>carve-outs</strong>, the monitoring mechanism, staff roles and client disclosure — and <strong>"the obligation to deliver best execution remains with"</strong> the licensed corporation <strong>even where orders are routed through affiliates or third parties</strong>. <span class="conf c">confirmed</span></p>
+      <p><strong>Why this is the anchor.</strong> Hong Kong is a principles-and-supervision regime, not a disclosure regime — there is no public execution-quality report to publish. The SFC wants to open your execution committee minutes, your venue review and your monitoring output during an inspection. For a BA that means the deliverable is <em>evidence artefacts</em>: reviewable monitoring reports, exception logs, documented periodic venue reviews. Say that and you have understood his problem.</p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"If our Korean or US flow is executed by an affiliate or a local broker, who owns best execution?"</div>
+      <div class="say">"We do — the Hong Kong licensed entity. As I understand the SFC's position, the obligation stays with the licensed corporation even where orders are routed through an affiliate or a third party, so 'our Korean broker handles the routing' isn't an answer we can give. What we'd need to be able to evidence is that we selected that broker deliberately, that we review them periodically, that we know whether they route across both KRX and Nextrade or default to KRX, and that we monitor the resulting execution quality. And if we do route to a single venue for a market, my understanding is that can be a legitimate carve-out — but it has to be documented in the execution policy and disclosed to clients, not an undocumented accident."</div>
+      <p class="why"><strong>This is the highest-value answer on this page for him.</strong> It is also where he is most likely to press, because it is genuinely unresolved: Nextrade trades roughly 650 KOSPI and KOSDAQ names and runs to 20:00 KST, well past the KRX close, and at least one international broker went live smart-routing across both venues in mid-2026. <span class="conf c">confirmed</span> So a follow-up like <em>"what does our app do between 15:30 and 20:00 KST when Nextrade is open and KRX isn't?"</em> is very likely. The honest answer is that it is a product decision — reject, queue to next KRX open, or route to Nextrade — and each option carries a different disclosure consequence.</p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"Can we cancel a fat-finger trade in Hong Kong?"</div>
+      <p>A test question. Anyone from a US market background gets this wrong.</p>
+      <div class="say">"Essentially no, for cash equities. My understanding is that trades concluded on SEHK aren't amended or cancelled — bids and offers are firm — and the only route is reporting an error to the Exchange where the Board is satisfied it wasn't intentional, which is a narrow exception rather than a review window. There's no US-style clearly-erroneous regime, so in practice the broker wears the loss into an error account and fixes it with a compensating market trade. Which is exactly why I'd argue pre-trade validation deserves sprint capacity in Hong Kong more than it would in the US — the exchange isn't going to save us. Derivatives are different, with a short filing window and a review panel, but that's a separate mechanism."</div>
+      <p class="why"><strong>Why this answer is worth rehearsing.</strong> It does three things at once: gets a counter-intuitive fact right, draws the correct HK-versus-US contrast, and converts it into an argument for spending build effort on controls. That last move is what a Head of Dealing wants from a BA. <span class="conf c">substance confirmed; describe by title rather than quoting rule numbers</span></p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"What happens to an order that fails validation?"</div>
+      <p>He asks this because it is his actual daily workload and most BAs have never specified it.</p>
+      <div class="say">"The exception queue, and I'd treat it as a first-class part of the design rather than an error path. Every control generates rejects — invalid or missing BCAN, price outside the permitted band, board-lot violations, insufficient buying power, market halted or in auction, gateway throttle exhausted. So I'd want to specify three things: what is auto-rejected versus held for the desk; what the client sees and how quickly, because a silently held order generates a call; and how a held order is released. That last one is the part people miss — the prompt-execution and 'handle orders in the order received' obligations keep running while an order sits in a queue, so if you release a held order after later orders have already gone to market, you've created a fairness problem out of a technical one."</div>
+      <p class="why">Paragraph 9.1 of the Code requires a firm to "handle orders of clients fairly and <strong>in the order in which they are received</strong>," and 3.1 requires prompt execution in accordance with instructions. <span class="conf c">confirmed verbatim</span> Connecting the exception queue to order-sequencing fairness is a genuinely uncommon insight and the single best thing you can volunteer to him.</p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"What does the app do when it goes down?"</div>
+      <div class="say">"The desk becomes the channel, which makes it your problem rather than a technology problem — so the requirements aren't only about systems. Concretely: a published fallback number and a client communication that fires automatically rather than being drafted during the incident; surge capacity on the phones, because an outage on a volatile day produces calls from clients who have never phoned before; enough licensed representatives on shift in every time zone we cover, because a fallback channel without a licensed rep isn't a fallback channel; telephone recording live on the fallback lines, since an outage is exactly when taping gaps appear; and manual orders still going through the same pre-trade validation, which means a desk-side entry tool with the same checks rather than a naked terminal. Then the recovery problem: reconstructing which orders were accepted, which were lost and which got duplicated on reconnect. Duplicate-on-recovery is the classic retail failure."</div>
+      <p class="why">The licensed-representative point is the one almost no BA raises, and it turns a systems contingency into a headcount and licensing constraint. <span class="conf i">inference, well-grounded</span> Note also that the SFC's 2022 online-brokerage review criticised inadequate capacity planning and contingency arrangements for keeping client services uninterrupted. <span class="conf c">confirmed</span></p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"Where does suitability get signed off when a relationship manager calls in an order?"</div>
+      <div class="say">"That's the architectural question I'd want to resolve early, because the same app is serving two regimes. Suitability attaches to a recommendation or solicitation, so a genuinely self-directed order isn't in scope — but an RM-originated order for a wealth client is. Which means the order has to <em>carry its channel</em>: the desk needs to be able to see, before execution, whether this order came through a self-directed path or an advised one, and if advised, that there's a suitability reference attached to it. If the answer today is 'the RM confirms verbally', that's a gap. If the order carries a reference the desk can check, that's a designed system."</div>
+      <p class="why">A strong answer, and it opens onto his order-recording world. Worth knowing: the Code requires client order instructions received <strong>by telephone</strong> to be recorded and retained for <strong>at least six months</strong> — notably shorter than the European standard, so don't assume five years — and separately requires firms to <strong>prohibit staff from taking client order instructions on mobile phones</strong> at the usual place of business, with a written policy to enforce it. <span class="conf c">confirmed verbatim</span> That mobile prohibition is a live control problem in any wealth business with hybrid working, and raising it unprompted is a strong signal.</p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"When would you escalate a client's trading activity?"</div>
+      <div class="say">"Early, and on suspicion rather than proof. My understanding is the notification threshold is deliberately low — we don't need to identify the specific breach or work out the mechanism before reporting. And on what to actually monitor, I'd start where Hong Kong's real risk is, which isn't high-frequency spoofing — it's ramp-and-dump in thinly traded small caps run through networks of retail accounts. So the surveillance backlog I'd propose starts with linked-account detection and profile-versus-activity mismatch: groups of clients sharing contact details or operators and trading in sync, transaction sizes out of line with the client's stated profile, end-of-day purchases lifting the close in illiquid stocks, and large sales followed immediately by withdrawal requests."</div>
+      <p class="why">Those red flags come almost directly from the SFC's 2021 circular on notifying suspected ramp-and-dump scams, which states the reporting threshold "is low" and lists exactly these patterns. <span class="conf c">confirmed</span> <strong>One precision point:</strong> spoofing and layering are <em>not</em> named in the SFO — they are prosecuted through the false trading and price rigging provisions. Don't say "the SFO prohibits spoofing"; say those provisions are the hook and spoofing is a surveillance typology. He will notice the distinction.</p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"Do you know what our throttle allocation is?"</div>
+      <div class="say">"No — but I know why you're asking. Throttle is a purchased, finite resource at the exchange gateway, and a retail app that fires a burst of orders at the open on a hot day can exhaust it, at which point orders queue or get rejected at the gateway rather than by us. So 'what does the app show a client when we're throttle-limited' is a real requirement, and buying more throttle is a cost line rather than a config change. What's our current allocation, and have you hit the ceiling?"</div>
+      <p class="why">For context you don't need to quote: one securities-market throttle rate allows about two messages per second, with a setup fee and a monthly charge per rate, and China Connect has a separate allocation. <span class="conf c">confirmed</span> Admitting you don't know the firm's number while showing you understand the mechanism is a better answer than guessing.</p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"How do you handle Connect orders differently?"</div>
+      <div class="say">"Several ways that all become app rules. Northbound accepts <em>limit orders only</em>, so if the app's default order type is market, it either has to be hidden or converted for Connect — and that's a UX decision with a disclosure consequence. Sell orders are pre-trade checked against the previous day's position, so 'sellable quantity' has to be a market-specific field based on the T-1 close rather than the live position. No day trading, so what was bought today can't be sold today, and that needs saying in the interface rather than surfacing as a rejection. Daily quota can exhaust intraday, which means a state where buys stop but sells continue, and a message a client can actually understand. And Northbound closes when Hong Kong is closed even if the Mainland is open, so the trading calendar has to be data, not code."</div>
+      <p class="why">All confirmed from HKEX materials. <span class="conf c">confirmed</span> The calendar point is the one to land: across four markets plus a continuously traded crypto book, the trading calendar becomes a first-class data asset the desk owns and the app consumes — and it is the most commonly under-built component in multi-market retail apps.</p>
+    </div>
+
+    <div class="qa deal">
+      <div class="qtag">"The US overnight session starts in December. What does that mean for us?"</div>
+      <div class="say">"The interesting thing is that it lands in <em>our</em> daytime. Nasdaq's new overnight session runs 21:00 to 04:00 New York time, which is roughly 10:00 to 17:00 Hong Kong in winter — so it isn't a night shift, it's additional US market activity during hours the desk is already fully staffed on Hong Kong, Connect and Korea. The genuine coverage gap is the evening seam, after Korea closes and before US regular hours open. There are two specific app consequences I'd want on the backlog: market orders and market-on-close reportedly won't be available overnight, so if the app's default is a market order the session silently breaks it; and the trade-date convention splits at midnight New York time, which is a settlement and reporting requirement rather than a desk concern."</div>
+      <p class="why">Confirmed from Nasdaq's own trader alert for a 6 December 2026 start, including the 21:00–04:00 session, the ±20% price bands, orders being cancelled at 04:00, the trade-date split, and order-type restrictions. <span class="conf c">confirmed</span> But it is explicitly <em>pending</em> SEC rule changes and market-data readiness, so say "targeted" rather than "will."</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="mo">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Interviewer 3 · Video Call</span><h2>Head of Middle Office &amp; Settlement</h2></div>
+    <p class="phase-sub">Their underlying question is <strong>"does it still tie out at the end of the day?"</strong> This is your least-familiar territory, so the strategy is different: be honest about the boundary, then demonstrate that you understand the <em>shape</em> of their problems well enough to write requirements that don't create them. Two or three specific mechanisms, said accurately, will do more than broad claims.</p>
+
+    <div class="callout gap">
+      <span class="callout-label">Open with the boundary — it buys you the rest of the conversation</span>
+      "I should be straight about where my experience sits. I've worked the front end and the configuration layer of a trading platform, and I've done the UAT on pre-trade suitability and margin collateral logic, plus verifying end-of-day feeds for settlement and post-trade surveillance with Risk and Reconciliation. What I haven't done is run a settlement function. So I've read enough to ask sensible questions and to understand why a requirement written badly at the front end becomes your problem three days later — but I'd be learning your operation, not arriving as an expert in it."
+    </div>
+
+    <div class="qa mo">
+      <div class="qtag">"Why don't our depository positions match the day's trades?"</div>
+      <p>If they ask an opening test question, there's a good chance it's this one.</p>
+      <div class="say">"Netting. In the CNS system positions net not just within the same settlement day but <em>across</em> days — unsettled positions carry forward and net against opposite positions later. So stock movements at the depository will never equal the sum of the day's client trades, and reconciling those two directly is a design mistake. You need an expected-net-position layer in between, calculated the way the clearing house calculates it, and reconciled against the confirmation statement. Which as I understand it arrives around 2pm on T+1 today and would move to T-day evening under the T+1 proposal."</div>
+      <p class="why">Same-day and cross-day netting, and a Final Confirmation Statement issued at or about 2pm on the business day following trade date, are both confirmed from HKSCC operational procedures. <span class="conf c">confirmed</span> This single answer is probably the strongest thing you can say to this person.</p>
+    </div>
+
+    <div class="qa mo">
+      <div class="qtag">"What's the difference between available to trade and available to withdraw?"</div>
+      <div class="say">"They're three different numbers, and conflating them is the most common defect in retail brokerage. Available to trade may include unsettled sale proceeds, because the firm is effectively financing settlement timing. Available to withdraw has to exclude anything not irrevocably received. And unsettled proceeds themselves behave differently per market — Hong Kong T+2, Northbound stock on T-day but money on T+1, Korea T+2, US T+1, and crypto effectively pre-funded and immediate. The way I'd specify it is a balance matrix: rows are balance types — settled cash, unsettled receivable, unsettled payable, on-hold, pledged, blocked for a corporate action — columns are markets and currencies, and then define per cell which UI figure it feeds. Withdrawal, buying power and margin then all derive from one place instead of drifting apart."</div>
+      <p class="why">The balance-matrix framing is the kind of concrete deliverable an operations head can immediately see the value of. And it ties back to the fact that on a combined traditional-and-digital-asset app, crypto must be pre-funded while equity proceeds are not — so "available to trade" genuinely means different things in the same account.</p>
+    </div>
+
+    <div class="qa mo">
+      <div class="qtag">"How would you approach corporate actions?"</div>
+      <div class="say">"As a deadline model rather than a spreadsheet, because there are four layers and they're in different time zones. The market or depository deadline, the custodian's deadline with their own internal buffer, our internal cut-off, and then our client-facing cut-off, which has to sit earliest. All stored as timestamps <em>with</em> time zone, all configurable per market rather than hard-coded, plus a default election and an audit trail of who applied it. And once a client submits an election, the holding has to be blocked — which loops straight back to the balance matrix. In Hong Kong the depository's own deadlines are unforgiving and set at noon on the relevant day, so the buffer isn't theoretical."</div>
+      <p class="why">HKSCC nominee-service deadlines for deposits and elections are at 12:00 noon on the relevant day, and cash entitlements received after a mid-afternoon cut-off credit the next business day. <span class="conf c">confirmed</span> Note the Northbound wrinkle if it comes up: HKSCC is the nominee holder in omnibus accounts at ChinaClear, so elections pass through two intermediaries.</p>
+    </div>
+
+    <div class="qa mo">
+      <div class="qtag">"What causes most reconciliation breaks, in your experience?"</div>
+      <div class="say">"In my experience the recurring ones were static data and timing rather than anything exotic — an instrument set up slightly differently in two places, or a rate or cut-off applied on different days. From what I understand of a multi-market operation, I'd expect the pattern here to be netting, fee and levy rounding, corporate-action timing where cash credits land on a different date from the accrual, multi-counter securities where the same stock trades in more than one currency, and FX rate source or timing mismatches between the booking rate, the settlement rate and the valuation rate. And the hardest one structurally: wherever we hold an omnibus position, the depository sees one number and client-level truth exists only in our own books — so an internal error has nothing external contradicting it. That's the case for independent client-balance confirmation on a sample basis, which I gather the SFC has pushed on."</div>
+      <p class="why">The omnibus-opacity point is genuinely sophisticated, and it is exactly why the SFC has pressed firms on independent client-balance confirmation. <span class="conf c">confirmed</span> Lead with your own experience, then mark the rest clearly as reasoning rather than practice.</p>
+    </div>
+
+    <div class="qa mo">
+      <div class="qtag">"How would you handle a client who sells in one market to buy in another?"</div>
+      <div class="say">"That's the case I'd want to model explicitly, because it's where the settlement calendars collide. Take a client selling a Korean stock and buying a US stock the next day — Korean proceeds are T+2 in won, and converting won to dollars may only complete on a New York business day, while the US buy needs dollars for T+1 settlement, and the FX leg has to settle before the security. So either we finance the gap or we block the trade, and that's a commercial decision with a funding cost, not a technical default. What I'd want is for the rule to be explicit and disclosed rather than emergent — the worst outcome is a client discovering the constraint at the point of a failed settlement."</div>
+      <p class="why">Cross-currency, cross-market funding timing is one of the genuinely hard problems of a four-market retail app, and framing it as a <em>commercial</em> decision with a funding cost rather than a systems limitation is the mature answer. <span class="conf c">FX-before-security under T+1 confirmed</span></p>
+    </div>
+
+    <div class="qa mo">
+      <div class="qtag">"Hong Kong is moving to T+1. What would that mean for this app?"</div>
+      <div class="say">"It compresses the exception window to nothing, which is the real impact. As I understand the April 2026 consultation, implementation is indicatively Q4 2027, the final clearing statement moves from T+1 afternoon to T-day evening, instruction input and matching windows extend into T-day night, and — the one I'd flag hardest — the T+1 trade amendment window is eliminated, so error correction becomes same-day only. Which means middle office stops being a next-morning resolution function and becomes a same-day one. For the app, that pushes everything upstream: better pre-trade validation because there's less room to fix things afterwards, earlier FX triggers, and automation of anything currently done by hand in the evening. It's a multi-year programme rather than a release."</div>
+      <p class="why">All confirmed from the HKEX consultation paper. <span class="conf c">confirmed</span> Say "indicatively Q4 2027" — it is a proposal, not a commitment. This is a strong closing note because it shows you can see their two-year problem, not just the current sprint.</p>
+    </div>
+
+    <div class="callout good">
+      <span class="callout-label">The question to ask them, and it's the best one on this page</span>
+      <strong>"Which access model are we on for the US — an omnibus account with a US clearing broker, or fully disclosed?"</strong> It determines who owns client-level reconciliation, who allocates corporate-action proceeds, who handles the tax documentation, and whether we have an intraday view of US positions at all. It is the fastest way to show you understand that the <em>operating model</em> drives the requirements, not the market. Worth asking the same question about Korea — direct, via a Korean affiliate, or through the omnibus structure that opened up for foreign retail this year.
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="cross">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">All Three</span><h2>Cross-cutting questions</h2></div>
+
+    <div class="qa">
+      <div class="qtag">"You're a BA. Why should we trust you near our production configuration?"</div>
+      <div class="say">"Because I've been on the other side of it. The multi-asset platform I delivered came with a back office, so I've worked in that layer — fee groups, the user-to-exchange matrix, trading currencies, mid FX rates, product whitelists and blacklists. Which means I know that the risk isn't the change, it's the change nobody can trace afterwards. So the first thing I'd want to do is map every place a product or parameter has to be configured, and find out whether the same configuration is replayable from UAT into production or re-keyed. Re-keying is where 'it worked in test' incidents come from."</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">"How do you handle it when operations tells you a requirement isn't feasible?"</div>
+      <div class="say">"I try to separate 'this can't work' from 'this can't work the way you've described it', because they need different responses. Usually the second is true and the answer is in the detail — a cut-off I didn't know about, a manual step I'd assumed away. So I go and watch the current process rather than argue from the spec. My habit is to map the as-is end to end before proposing anything, which is slower at the start and much faster overall, because it stops me designing around a constraint that doesn't exist and into one that does."</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">"Tell me about a requirement you got wrong."</div>
+      <p class="why">Have a real one ready. It should be a requirement that was <em>right on paper and wrong in operation</em> — that's the failure mode this panel cares about. Structure: what you specified, what actually happened at go-live or in the first weeks, how it was found, what you changed in your process afterwards. Avoid a story where the failure was someone else's, and avoid one where the fix was "I was more careful." The credible fix is a process change — a review step you added, a person you now always consult, a category of test case you now always write.</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">"How would you spend your first month?"</div>
+      <div class="say">"Learning the product as an operator rather than a user — every journey, but also every place configuration lives and every hand-off between teams. Concretely I'd want three things by the end of it: a map of the configuration layer and how many places a new instrument or market has to be set up; the top defect and drop-out themes from actual data rather than opinion; and a list of the manual steps each of your teams does that exist because a system doesn't do them. That last list is usually where the highest-value work is, and it's also the fastest way to earn credibility with the people doing those steps."</div>
+      <p class="why">That third item is aimed directly at this panel. Asking operations people which manual workarounds they'd most like removed is both genuinely useful and the single most goodwill-generating question a new BA can ask.</p>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">"How do you write a specification that operations people will actually read?"</div>
+      <div class="say">"Short, and structured around the process rather than the system. I use as-is and to-be process maps so people can see their own job in it, and I write acceptance criteria as scenarios rather than as feature descriptions — including the exception paths, because that's the part operations cares about and the part specs usually leave out. And I'd rather walk someone through a draft in twenty minutes than send a fifty-page document, because the questions they ask in that twenty minutes are the requirements I missed."</div>
+    </div>
+
+    <div class="qa">
+      <div class="qtag">"Why are you leaving your current role?" (expect this again)</div>
+      <p class="why">Same answer as round one — scope, not escape. You've been the senior BA on someone else's platform strategy; this is a chance to lead the BA function for a platform at the start of its life, in a market you know. With this panel you can add a line that lands well with operations people: that you want to be somewhere the whole lifecycle is in one building, close enough to the people running it that you can go and watch the process rather than reading about it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="phase" id="ask">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Your Turn</span><h2>Questions to ask, by interviewer</h2></div>
+    <p class="phase-sub">Two each is plenty. Asking an operations owner about their pain is the most reliable way to have a good conversation — people talk more freely about what's broken than about what they want.</p>
+
+    <h3 style="color:var(--fin);">For Christina Ho — Finance</h3>
+    <ol class="numbered">
+      <li><span class="num">1</span><span>Is the sweep of our own earned commission out of the segregated account automated today, or is it a manual or periodic process?</span></li>
+      <li><span class="num">2</span><span>Are the fee, levy and stamp-duty rates configurable with effective dating, or are any of them hard-coded? I ask because three of them have changed since 2023.</span></li>
+      <li><span class="num">3</span><span>When the app changes, at what point does your team find out — at requirements, at UAT, or when the numbers move?</span></li>
+      <li><span class="num">4</span><span>Which reconciliation currently costs your team the most time each month?</span></li>
+      <li><span class="num">5</span><span>How much of the reporting to Seoul is automated versus assembled by hand?</span></li>
+    </ol>
+
+    <h3 style="color:var(--deal);">For Wind Chan — Dealing</h3>
+    <ol class="numbered">
+      <li><span class="num">1</span><span>Where does straight-through processing break down most often today — which rejection reason fills your exception queue?</span></li>
+      <li><span class="num">2</span><span>For Korea, do we route to KRX only, or across KRX and Nextrade? And what happens to an order between the KRX close and the Nextrade close?</span></li>
+      <li><span class="num">3</span><span>When the app has a problem, what actually happens now — is there a documented fallback, and have you tested it?</span></li>
+      <li><span class="num">4</span><span>For advised orders, does the order carry a suitability reference the desk can see before execution, or is it confirmed verbally?</span></li>
+      <li><span class="num">5</span><span>What's our throttle allocation, and have you hit the ceiling on a busy open?</span></li>
+      <li><span class="num">6</span><span>Is there any principal leg in what the desk runs — FX conversion, bonds, funds, crypto? I ask because the Code has no standalone principal-dealing provision, so those controls are policy-made rather than prescribed.</span></li>
+    </ol>
+
+    <h3 style="color:var(--mo);">For the Head of Middle Office &amp; Settlement</h3>
+    <ol class="numbered">
+      <li><span class="num">1</span><span>Which access model are we on for the US — omnibus with a US clearing broker, or fully disclosed? And for Korea?</span></li>
+      <li><span class="num">2</span><span>What's the manual step you'd most like removed, and why hasn't it been?</span></li>
+      <li><span class="num">3</span><span>How far along is the Hong Kong T+1 readiness assessment, given the T+1 amendment window disappears?</span></li>
+      <li><span class="num">4</span><span>How do corporate action elections reach clients today, and where do the deadlines live?</span></li>
+      <li><span class="num">5</span><span>How much of your day is spent on breaks versus on processing? And where do most of them originate?</span></li>
+      <li><span class="num">6</span><span>Where is your team based, and where do operational decisions actually get made — here or Seoul?</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="phase" id="danger" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="phase-head"><span class="phase-num">Read Before You Go In</span><h2>Don't guess these — they'll know</h2></div>
+    <p class="phase-sub">Every person on this panel deals daily with people who overstate their regulatory knowledge. "I'd want to confirm that rather than quote it from memory" costs you nothing and buys real credibility. Guessing wrong on any of the following costs a lot.</p>
+
+    <table>
+      <tr><th>Don't state</th><th>Say instead</th></tr>
+      <tr><td><strong>The HK trade amendment cut-off time.</strong> I could not verify a current clock time, and the Head of Dealing knows it cold.</td><td>"I know the session-end rejection deadlines are in the SEHK trading rules and the input cut-offs sit in the CCASS operational procedures — I'd confirm the current figure rather than quote it."</td></tr>
+      <tr><td><strong>That the SFC requires an error account.</strong> I found no such rule. It's universal practice, made operationally necessary by the management-approval and segregation-of-duties expectations.</td><td>"I'm not aware of an explicit error-account rule — as I understand it the requirement is indirect, through management approval of cancellations and segregation of duties. Is that how you read it?"</td></tr>
+      <tr><td><strong>Exchange rule numbers.</strong> The HKEX rulebook numbers in my research came from a PDF rather than the live rulebook.</td><td>Describe the obligation by substance — "bids and offers are firm and trades aren't cancelled except on a reported error the Board accepts."</td></tr>
+      <tr><td><strong>Code of Conduct Schedule 7 paragraph numbers.</strong> Verified only from a secondary source over a decade old.</td><td>"The electronic trading provisions in paragraph 18 and Schedule 7 of the Code."</td></tr>
+      <tr><td><strong>That client money rules mandate <em>daily</em> reconciliation.</strong> Neither the Client Money nor Client Securities Rules prescribe a frequency — the obligation comes via the internal control guidelines ("regular reconciliation") and the monthly return.</td><td>"As I understand it the rules don't set a frequency — it comes through the internal control guidelines and the monthly return, with daily being market practice. Is that right?"</td></tr>
+      <tr><td><strong>"The SFO prohibits spoofing."</strong> It isn't named in the statute.</td><td>"The false trading and price rigging provisions are the hook; spoofing and layering are surveillance typologies rather than statutory terms."</td></tr>
+      <tr><td><strong>That the US overnight session <em>will</em> start on 6 December 2026.</strong> It's pending SEC rule changes and market-data readiness.</td><td>"Targeted for early December, pending rule approvals and tape readiness."</td></tr>
+      <tr><td><strong>Anything about Christina Ho's or Wind Chan's background.</strong> I found nothing verifiable, and there is a similarly-named finance person at a different HK firm.</td><td>Ask. "How long have you been with Mirae Asset?" is a normal, warm question.</td></tr>
+      <tr><td><strong>"FRC levy."</strong> Renamed — it's the AFRC levy.</td><td>AFRC transaction levy.</td></tr>
+    </table>
+
+    <div class="callout key">
+      <span class="callout-label">The three sentences to make sure you say, one per interviewer</span>
+      <p><strong>To Finance:</strong> "The fee engine isn't only a revenue surface — if we're debiting commission from clients, the sweep of our own earned commission out of the segregated account is a systems process, and if it's manual it's a daily exposure rather than an accounting inconvenience."</p>
+      <p><strong>To Dealing:</strong> "In Hong Kong cash equities a fat-finger fill is essentially final — there's no clearly-erroneous review to fall back on. Which is exactly why pre-trade validation deserves sprint capacity here more than it would in a US-centric product."</p>
+      <p><strong>To Middle Office:</strong> "Depository movements will never equal the day's client trades because CNS nets across days as well as within the day — so the reconciliation key has to be an expected-net-position layer, not a sum of trades."</p>
+      <p>Each one is short, specific, verifiable, and demonstrates you understand that person's job rather than your own. That is the whole objective of this round.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Prepared for Tracy Chu · Mirae Asset Securities (HK) Limited, Business Analyst Lead — round 2 panel (Head of Finance; Head of Dealing, Wealth Management; Head of Middle Office &amp; Settlement). Companion to <a href="role-mirae-asset-ba-lead.html">the round 1 prep page</a>.<br><br>
+    <strong>Sources.</strong> SFC: Code of Conduct (33rd edition, January 2026) — paragraphs 3.1, 3.2, 3.3, 3.5, 3.9, 5.1A, 5.2, 5.3, 5.5, 8.3A, 9.1, 9.2, 9.3, 12.5 and the electronic trading provisions at paragraph 18 and Schedule 7; Manager-In-Charge circular (December 2016) and its appendix of core functions; best execution circular and thematic review report (January 2018); circular on notifying suspected ramp-and-dump scams (June 2021); review of online brokerage, distribution and advisory services (August 2022); review of internal controls for the protection of client assets and supervision of account executives (December 2018) and its self-assessment checklist; review of internal controls on client asset protection (June 2025); circular on financial resources management (2024); Management, Supervision and Internal Control Guidelines; Securities and Futures (Financial Resources) Rules and the SFC Licensing Information Booklet; Securities and Futures (Client Money) Rules and (Client Securities) Rules, via the SFC's own training materials and FAQs; Securities and Futures (Contract Notes, Statements of Account and Receipts) Rules via the SFC FAQ; joint SFC/HKMA circular on intermediaries' virtual asset-related activities (December 2023). HKEX/HKSCC: CCASS Operational Procedures (netting, settlement timetable, money settlement, failed trades and buy-in, nominee services); securities transaction and clearing fee schedules; SEHK Chapter 5 operational trading rules; OCG-C throttle rate explanatory note; Stock Connect information booklet and FAQ; accelerated settlement discussion paper (July 2025) and consultation paper (17 April 2026). Also: Nasdaq Equity Trader Alert on the December 2026 trading hours change; DTCC T+1 timelines and FX considerations; Clearstream market guides for Korea (secondary); Interactive Brokers announcement on KRX and Nextrade routing.<br><br>
+    <strong>Confidence marking.</strong> <span class="conf c">confirmed</span> sourced to a primary or official document. <span class="conf i">inference</span> reasoned from public facts — including the whole reading of what the panel composition implies. <span class="conf u">unverified</span> could not confirm; do not assert. The eight-step trade flow, the who-touches-what matrix and the operating-model commentary are generic industry frameworks offered as a basis for conversation, not claims about Mirae Asset's actual architecture — say so if you use them. Regulatory paragraph and rule numbers have been deliberately omitted from the spoken answers wherever the exact citation could not be verified against a primary source; see the final section for the specific items to describe by title rather than cite.<br><br>
+    <strong>Two things only you can do.</strong> Check the SFC public register for Mirae Asset Securities (HK), CE No. BJB333, to see who is a Responsible Officer — it is free and takes under a minute, and I could not read it from here. And re-check the HKEX fee page the day before, since those schedules move.
+  </div>
+</footer>
+
+</body>
+</html>
